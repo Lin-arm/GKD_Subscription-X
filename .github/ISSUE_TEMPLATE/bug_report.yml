@@ -1,0 +1,37 @@
+name: 报告 Bug
+title: '[Bug] '
+description: 报告 误触/问题 规则
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 在提交问题之前，请您务必完成以下操作，否则你的issue可能会根据情况直接被关闭！！！
+
+        1. **提供 误触/出现问题 界面的快照（不要提供截图，截图没有任何作用，不要使用截屏快照），并说明是哪一条规则 误触/出现问题，快照获取方式如下图**
+        2. 如果是需要点击多次才能关闭的情况，那么必须提供每一次点击页面的快照
+        3. 检查使用的是否是 [最新版订阅](https://github.com/Lin-arm/gkd-Rules/releases/latest) 和 [v1.10.4及以上版GKD](https://github.com/gkd-kit/gkd/releases)
+        4. 检查这个问题是否属于 [本项目维护的订阅规则](https://github.com/Lin-arm/gkd-Rules) 导致的
+        5. 如果你的issue被受理，受理者提出的问题、要求，应在3日内予以回复，否则会被关闭
+
+        #### 检查问题是否属于以下几种之一，如果属于请说明是哪一种（误触问题可忽略这条）
+        1. 规则不生效，但是截取快照时生效/回到桌面（不杀后台）再进入软件后生效
+        2. 规则触发了（有点击提示），但实际并不能生效
+  - type: textarea
+    id: bug-1
+    attributes:
+      label: |
+        请提供 误触界面/出现问题界面 的快照（不要提供截图！！！不要使用截屏快照！！！），也可补充说明
+      description: |
+        快照是一个 zip 文件，快照链接是类似 "https://i.gkd.li/i/XXXXXXXX" 的文本，按照如下方式可获得快照信息
+
+        按照下面的截图示例来获取界面快照，上传文件或者生成链接并粘贴到下面的输入框\
+        ![img](https://raw.githubusercontent.com/Lin-arm/gkd-Rules/refs/heads/main/Snapshot.png)
+    validations:
+      required: true
+  - type: textarea
+    id: bug-2
+    attributes:
+      label: |
+        请说明是哪一条规则 误触/出现问题（文字/触发记录界面截图）
+    validations:
+      required: true
