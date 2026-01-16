@@ -1336,8 +1336,11 @@ export default defineGkdApp({
           key: 1,
           name: '①中部-领饭补',
           matches:
-            '[text="看广告领饭补" || text^="领取饭补" && text$="金币"][clickable=true]',
-          snapshotUrls: ['https://i.gkd.li/i/24454732'],
+            '[text="看广告领饭补" || text^="领取饭补" && text$="金币"][clickable.or(visibleToUser)=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/24454732',
+            'https://i.gkd.li/i/24673042',
+          ],
         },
         {
           key: 2,
