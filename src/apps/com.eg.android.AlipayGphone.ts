@@ -443,6 +443,7 @@ export default defineGkdApp({
       enable: false,
       rules: [
         {
+          actionCd: 50,
           matches: 'Button[text="浇水送祝福"][clickable=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/22973598',
