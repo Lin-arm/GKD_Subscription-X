@@ -64,8 +64,11 @@ export default defineGkdApp({
       desc: '①快手热榜 ②每日打卡',
       rules: [
         {
-          matches:
-            '[text="上滑继续观看视频"] - ImageView < * -(1,2) * >2 TextView[text="不感兴趣"]',
+          matches: [
+            '[text="上滑继续观看视频"][visibleToUser=true]',
+            'TextView[text="不感兴趣"][clickable.or(visibleToUser)=true]',
+          ],
+          // matches: '[text="上滑继续观看视频"] - ImageView < * -(1,2) * >2 TextView[text="不感兴趣"]',
           fastQuery: true,
           snapshotUrls: [
             'https://i.gkd.li/i/22901405',
@@ -641,7 +644,10 @@ export default defineGkdApp({
         {
           key: 2, // 去金币购 看的3次直播
           action: 'none',
-          matches: '[vid="pendant_task_status"][text$="00:01"]', // 倒计时01秒
+          matchRoot: true,
+          // matches: '[vid="pendant_task_status"][text^="倒计时"][text$="00:01"]', // 倒计时01秒
+          matches:
+            '@[vid="pendant_task_status"][text^="倒计时"][text$="00:01"] <<n [vid="kem_activity_task_pendant"] <2 [id="android:id/content"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23750524',
             'https://i.gkd.li/i/23823031',
@@ -673,7 +679,7 @@ export default defineGkdApp({
         {
           key: 1,
           matches:
-            '[text="立即关注"] -3 [id$="anchor_close"][visibleToUser=true]',
+            '@ImageView[id$="anchor_close"][clickable=true] +n [text="立即关注"]',
           snapshotUrls: 'https://i.gkd.li/i/22659582',
         },
         {
@@ -726,7 +732,7 @@ export default defineGkdApp({
         {
           key: 2,
           matches:
-            '[id$="red_packet_container_view"] +2 ImageView[vid="close_view"][clickable=true][focusable=true]',
+            '[id$="red_packet_container_view"] +2 ImageView[vid="close_view"][clickable=true]',
           snapshotUrls: 'https://i.gkd.li/i/24337184', //口令红包 未中奖
         },
       ],
@@ -1049,13 +1055,13 @@ export default defineGkdApp({
       key: 35,
       name: '🔍搜索-倒计时结束-返回x2',
       desc: '按返回键2次',
+      fastQuery: true,
       activityIds: 'com.yxcorp.plugin.search.SearchActivity',
       rules: [
         {
           key: 1,
           action: 'none',
           matches: '[vid="pendant_task_status"][text$=":01"]', // 倒计时01秒
-          fastQuery: true,
           snapshotUrls: [
             'https://i.gkd.li/i/23689726',
             'https://i.gkd.li/i/23748508',
@@ -1068,7 +1074,6 @@ export default defineGkdApp({
           action: 'back',
           matches:
             '[vid="kem_activity_task_pendant"] >2 [vid="pendant_bg"][visibleToUser=true]',
-          fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/22850681',
         },
         {
@@ -1077,7 +1082,6 @@ export default defineGkdApp({
           action: 'back',
           matchDelay: 200,
           matches: '[text="搜索"][vid="right_button" || vid="right_tv"]',
-          fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/22702438',
         },
       ],
@@ -1093,7 +1097,7 @@ export default defineGkdApp({
           actionDelay: 1500,
           actionCd: 4000,
           matches: [
-            '[text="搜索"][vid="right_button" || vid="right_tv"][visibleToUser=true]',
+            '[text="搜索"][vid="right_button" || vid="right_tv"][clickable=true]',
           ],
           fastQuery: true,
           snapshotUrls: [
@@ -1148,7 +1152,8 @@ export default defineGkdApp({
       desc: '点击 < ',
       rules: [
         {
-          matches: '[text="我的小游戏"] - * >3 ImageView[visibleToUser=true]',
+          matches:
+            'ImageView <<(1,2) @[clickable=true] < * + [text="我的小游戏"]',
           fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/22865063',
           activityIds:
@@ -1254,7 +1259,7 @@ export default defineGkdApp({
         {
           key: 2,
           action: 'back',
-          actionDelay: 1500,
+          actionDelay: 700,
           matches: '[text="已入睡" || text="已起床"][visibleToUser=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/24368949', //已入睡
@@ -1359,6 +1364,7 @@ export default defineGkdApp({
         {
           key: 4,
           name: '④左下角-看广告',
+          actionCd: 5000,
           matches:
             '@[clickable=true][left=0] > TextView[text="看广告"][top>1800]',
         },
