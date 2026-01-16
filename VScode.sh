@@ -22,7 +22,8 @@ git add .
 # git add src/apps/com.ss.android.ugc.aweme.lite.ts    # 提交单个文件
 
 git commit -m "v10 更新了啥"
-# git commit -m "feat: 全屏广告-提现后-借贷弹窗-x掉"
+# git commit -m "feat: 123云盘 局部广告"
+# git commit -m "fix: 123云盘 全屏广告-弹窗广告"
 
 git push
 # 推送到指定分支1
