@@ -1260,11 +1260,13 @@ export default defineGkdApp({
           key: 2,
           action: 'back',
           actionDelay: 700,
-          matches: '[text="已入睡" || text="已起床"][visibleToUser=true]',
+          matches:
+            '[text="已入睡" || text="已起床"][left<500][visibleToUser=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/24368949', //已入睡
             'https://i.gkd.li/i/24309580', //已起床
           ],
+          excludeSnapshotUrls: 'https://i.gkd.li/i/24692945', //任务列表页 [left=849]
         },
       ],
     },
