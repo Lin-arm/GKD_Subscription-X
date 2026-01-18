@@ -198,6 +198,20 @@ export default defineGkdApp({
           snapshotUrls: 'https://i.gkd.li/i/24431766', //邀请好友
           activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
         },
+        {
+          key: 16,
+          activityIds: 'com.kwai.frog.game.engine.adapter.engine.base.',
+          matches:
+            '[id="com.kuaishou.nebula.minigame:id/v_more_view_close_and_close"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/24694286', //小游戏-x掉
+        },
+        {
+          key: 17,
+          activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
+          matches:
+            'Image - [text="金币游乐园"] - @[clickable=true][getChild(0).name$="Image"] <<n [vid="webView"]',
+          snapshotUrls: 'https://i.gkd.li/i/24694311', //小游戏乐园
+        },
       ],
     },
     {
