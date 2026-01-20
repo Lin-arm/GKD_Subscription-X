@@ -539,6 +539,32 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 2401,
+      name: '🌲森林-弹窗-x掉',
+      desc: '①2026能量攻略 ②新抽抽乐 ③活力值助力成功',
+      fastQuery: true,
+      activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+      rules: [
+        {
+          key: 1,
+          name: '①更多能量攻略-x掉',
+          matches:
+            '@TextView[index=parent.childCount.minus(1)] <<n View[index=parent.childCount.minus(1)] <n WebView[text="蚂蚁森林"] <<n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container" || id="com.alipay.mobile.nebula:id/h5_pc_container"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/24739341', //2026能量攻略
+            'https://i.gkd.li/i/24742469', //新抽抽乐
+          ],
+        },
+        {
+          key: 3,
+          name: '③活力值助力成功-x掉',
+          matches:
+            '@Button[text="关闭弹窗"][clickable=true] -n [text="助力成功！"] <<n View[index=parent.childCount.minus(1)] <n WebView[text="蚂蚁森林"] <<n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container" || id="com.alipay.mobile.nebula:id/h5_pc_container"]',
+          snapshotUrls: 'https://i.gkd.li/i/24742272', //活力值助力成功
+        },
+      ],
+    },
+    {
       key: 25,
       name: '⛪新村-加速任务-已完成-自动领取',
       desc: '该任务已完成->点击 去领取',
