@@ -222,16 +222,19 @@ export default defineGkdApp({
         'com.yxcorp.gifshow.HomeActivity', // A
         'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', // B
         'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity', // C
+        'com.gifshow.kuaishou.floatwidget.activity.GrowthYodaWebViewActivity', // D
       ],
       rules: [
         {
           key: 1,
           excludeMatches: '[text^="去看广告得"] -4 [text="开宝箱奖励已到账"]',
-          matches: [
-            '[text="任务中心"]',
-            '[text=""][clickable=false][childCount=1] > Image[width>=76 && width<=80][height>=74 && height<=80][clickable=true]',
-          ],
-          // fastQuery: false,  // false为默认,不必写
+          // matches: [
+          //   '[text="任务中心"]',
+          //   '[text=""][clickable=false][childCount=1] > Image[width>=76 && width<=80][height>=74 && height<=80][clickable=true]',
+          // ],
+          matches:
+            '@Image[clickable=true][width>70 && width<90] <<4 [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount=2] -n [name$="TextView" || name$="View"] <<(3,4) [vid="webView"]',
+          fastQuery: true,
           snapshotUrls: [
             'https://i.gkd.li/i/23468984', //去绑卡 A
             'https://i.gkd.li/i/22672607', //每日打卡 A
@@ -240,13 +243,16 @@ export default defineGkdApp({
             'https://i.gkd.li/i/22907854', //限时邀好友 B
             'https://i.gkd.li/i/23300823', //去分享视频 B
             'https://i.gkd.li/i/22671674', //添加组件 C
+            'https://i.gkd.li/i/24743239', //瓜分百亿金币 D
           ],
           excludeSnapshotUrls: 'https://i.gkd.li/i/23427912',
         },
         {
           key: 2,
+          // matches: '[text^="任务完成奖励"] -2 [width>=76 && width<=87][height>=74 && height<=88][clickable=true]',
+          fastQuery: true,
           matches:
-            '[text^="任务完成奖励"] -2 [width>=76 && width<=87][height>=74 && height<=88][clickable=true]',
+            '[text^="任务完成奖励"] -2 @[clickable=true][width>70 && width<90] <<2 [index=parent.childCount.minus(1)] <n WebView <<n [vid="webView"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23588323', //看视频赚金币 领奖弹窗
             // 'https://i.gkd.li/i/23606147', //快手的
