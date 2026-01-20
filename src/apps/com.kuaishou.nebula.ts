@@ -317,28 +317,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 11,
-      name: '📘小说-领奖',
-      desc: '①领奖 ②X掉弹窗',
-      fastQuery: true,
-      activityIds: 'com.kuaishou.novel.home.NovelHomeActivity',
-      rules: [
-        {
-          key: 1,
-          actionDelay: 700,
-          matches:
-            '[text="立即领取"][id$="task_item_button"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/22658578',
-        },
-        {
-          key: 2,
-          matches:
-            '[text="恭喜你获得"] - [vid="dialog_close"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/22672261',
-        },
-      ],
-    },
-    {
       key: 12,
       name: '🤳看广告-已看完-退出',
       desc: '已成功领取奖励',
@@ -1191,6 +1169,66 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23381220',
           ],
           activityIds: 'com.yxcorp.login.authorization.AuthActivity',
+        },
+      ],
+    },
+    {
+      key: 1101,
+      name: '📘小说-领奖',
+      desc: '①领奖 ②X掉弹窗',
+      fastQuery: true,
+      activityIds: 'com.kuaishou.novel.home.NovelHomeActivity',
+      rules: [
+        {
+          key: 1,
+          actionDelay: 700,
+          matches:
+            '[text="立即领取"][id$="task_item_button"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/22658578',
+        },
+        {
+          key: 2,
+          matches:
+            '[text="恭喜你获得"] - [vid="dialog_close"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/22672261',
+        },
+      ],
+    },
+    {
+      key: 1102,
+      name: '📘小说-开启自动阅读',
+      desc: '点击 ①设置 ②开启自动阅读',
+      fastQuery: true,
+      activityIds: 'com.kuaishou.novel.home.read.ReaderActivityV2',
+      rules: [
+        {
+          key: 1,
+          name: '①设置',
+          actionMaximum: 1,
+          resetMatch: 'match',
+          matches:
+            '@ImageView[clickable=true][visibleToUser=true] + [text="设置"]',
+          snapshotUrls: 'https://i.gkd.li/i/24738219',
+        },
+        {
+          key: 2,
+          preKeys: [1],
+          name: '②开启自动阅读',
+          matches: '[text="开启自动阅读"][clickable=true][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/24738167',
+        },
+      ],
+    },
+    {
+      key: 1103,
+      name: '📘小说-阅读页-广告-x掉',
+      desc: '下方局部广告',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.kuaishou.novel.home.read.ReaderActivityV2',
+          matches: '@ImageView[clickable=true] <<2 * - * > [text="立即下载"]',
+          snapshotUrls: 'https://i.gkd.li/i/24738559',
         },
       ],
     },
