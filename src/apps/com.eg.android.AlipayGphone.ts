@@ -425,8 +425,10 @@ export default defineGkdApp({
         {
           actionMaximum: 1,
           resetMatch: 'match',
+          // fastQuery: true, // 用快速查询真机不生效
           matches:
             '[text="攒能量不影响排行榜"] -2 [text="攒能量"][clickable=true]',
+          // matches: '[text="攒能量不影响排行榜"] -2 @[text="攒能量"][clickable=true] <<n [index=parent.childCount.minus(1)] -n View <<3 WebView <<n [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           snapshotUrls: [
             'https://i.gkd.li/i/22988030',
             'https://i.gkd.li/i/23393231',
@@ -462,10 +464,13 @@ export default defineGkdApp({
       rules: [
         {
           action: 'clickNode',
-          matches: [
-            '[text="天猫森林集市"]',
-            '@[text="15g"] <2 * + [text="可领取"]',
-          ],
+          // matches: [
+          //   '[text="天猫森林集市"]',
+          //   '@[text="15g"] <2 * + [text="可领取"]',
+          // ],
+          fastQuery: true,
+          matches:
+            '[text="可领取"] - @[getChild(0).name$="Image"][getChild(1).text="15g"] <<n WebView <<n [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           snapshotUrls: ['https://i.gkd.li/i/23413420'],
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
@@ -519,6 +524,17 @@ export default defineGkdApp({
           ],
           fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/24544970',
+        },
+        {
+          key: 5,
+          name: '⑤天猫小程序-x掉',
+          fastQuery: true,
+          matches:
+            '@TextView[text=""][visibleToUser=true] - View[getChild(0).getChild(0).name$="Image"] <<(4,5) WebView <<n [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/24728626',
+            'https://i.gkd.li/i/24728870',
+          ],
         },
       ],
     },
