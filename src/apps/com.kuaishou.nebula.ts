@@ -296,6 +296,7 @@ export default defineGkdApp({
             'com.yxcorp.gifshow.HomeActivity', // A
             'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', // B
             'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity', // C
+            'com.gifshow.kuaishou.floatwidget.activity.GrowthYodaWebViewActivity', // D
           ],
         },
       ],
@@ -469,9 +470,10 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23642264', //未加载完成?
           ],
           activityIds: [
-            'com.yxcorp.gifshow.HomeActivity',
-            'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity',
-            'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
+            'com.yxcorp.gifshow.HomeActivity', // A
+            'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', // B
+            'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity', // C
+            'com.gifshow.kuaishou.floatwidget.activity.GrowthYodaWebViewActivity', // D
           ],
         },
       ],
@@ -481,9 +483,10 @@ export default defineGkdApp({
       name: '🤳看广告-自动开宝箱',
       desc: '①开宝箱 ②(弹窗)去看广告',
       activityIds: [
-        'com.yxcorp.gifshow.HomeActivity',
-        'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity',
-        'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
+        'com.yxcorp.gifshow.HomeActivity', // A
+        'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', // B
+        'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity', // C
+        'com.gifshow.kuaishou.floatwidget.activity.GrowthYodaWebViewActivity', // D
       ],
       rules: [
         {
