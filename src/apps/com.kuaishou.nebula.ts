@@ -1213,8 +1213,7 @@ export default defineGkdApp({
         {
           key: 1,
           name: '①设置',
-          actionMaximum: 1,
-          resetMatch: 'match',
+          actionCd: 10000,
           matches:
             '@ImageView[clickable=true][visibleToUser=true] + [text="设置"]',
           snapshotUrls: 'https://i.gkd.li/i/24738219',
@@ -1236,8 +1235,12 @@ export default defineGkdApp({
         {
           fastQuery: true,
           activityIds: 'com.kuaishou.novel.home.read.ReaderActivityV2',
-          matches: '@ImageView[clickable=true] <<2 * - * > [text="立即下载"]',
-          snapshotUrls: 'https://i.gkd.li/i/24738559',
+          matches:
+            '@ImageView[clickable=true] <<2 * - * > [text="立即下载" || text="立即打开"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/24738559',
+            'https://i.gkd.li/i/24760376',
+          ],
         },
       ],
     },

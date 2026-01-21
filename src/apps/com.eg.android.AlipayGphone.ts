@@ -542,22 +542,22 @@ export default defineGkdApp({
       key: 2401,
       name: '🌲森林-弹窗-x掉',
       desc: '①2026能量攻略 ②新抽抽乐 ③活力值助力成功',
-      fastQuery: true,
       activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
         {
           key: 1,
-          name: '①更多能量攻略-x掉',
+          name: '①2026能量攻略or新抽抽乐-x掉',
           matches:
-            '@TextView[index=parent.childCount.minus(1)] <<n View[index=parent.childCount.minus(1)] <n WebView[text="蚂蚁森林"] <<n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container" || id="com.alipay.mobile.nebula:id/h5_pc_container"]',
+            '@TextView[index=parent.childCount.minus(1)] <<n View[index=parent.childCount.minus(1)] <n WebView[text="蚂蚁森林"] <<n [id$="h5_pc_container"]',
           snapshotUrls: [
-            'https://i.gkd.li/i/24739341', //2026能量攻略
+            'https://i.gkd.li/i/24739341', //2026能量攻略 (快速查询真机不生效)
             'https://i.gkd.li/i/24742469', //新抽抽乐
           ],
         },
         {
           key: 3,
           name: '③活力值助力成功-x掉',
+          fastQuery: true,
           matches:
             '@Button[text="关闭弹窗"][clickable=true] -n [text="助力成功！"] <<n View[index=parent.childCount.minus(1)] <n WebView[text="蚂蚁森林"] <<n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container" || id="com.alipay.mobile.nebula:id/h5_pc_container"]',
           snapshotUrls: 'https://i.gkd.li/i/24742272', //活力值助力成功
