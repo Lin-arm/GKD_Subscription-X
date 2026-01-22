@@ -227,7 +227,10 @@ export default defineGkdApp({
       rules: [
         {
           key: 1,
-          excludeMatches: '[text^="去看广告得"] -4 [text="开宝箱奖励已到账"]',
+          excludeMatches: [
+            '[text^="去看广告得"] -4 [text="开宝箱奖励已到账"]',
+            '[text="赚饲料"]',
+          ],
           // matches: [
           //   '[text="任务中心"]',
           //   '[text=""][clickable=false][childCount=1] > Image[width>=76 && width<=80][height>=74 && height<=80][clickable=true]',
@@ -245,7 +248,10 @@ export default defineGkdApp({
             'https://i.gkd.li/i/22671674', //添加组件 C
             'https://i.gkd.li/i/24743239', //瓜分百亿金币 D
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/23427912',
+          excludeSnapshotUrls: [
+            'https://i.gkd.li/i/23427912',
+            'https://i.gkd.li/i/22908125', //养鸭
+          ],
         },
         {
           key: 2,
