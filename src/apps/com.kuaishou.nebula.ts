@@ -215,7 +215,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 808, //要大于 养鸭-弹窗 的key=32
+      key: 8,
       name: '任务页-弹窗-X掉',
       desc: '组件,绑卡,邀好友,瓜分,...',
       activityIds: [
