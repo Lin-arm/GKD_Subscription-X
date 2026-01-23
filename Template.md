@@ -1,21 +1,23 @@
 <!-- PROJECT LOGO -->
-<div align="center">
+<!-- <div align="center"> -->
 
   <!-- https://www.emojiall.com/zh-hans -->
-  <img src="https://www.emojiall.com/en/header-svg/%F0%9F%A6%9C.svg" alt="鹦鹉图标" width="80" height="80">
+  <!-- <img src="https://www.emojiall.com/en/header-svg/%F0%9F%A6%9C.svg" alt="鹦鹉图标" width="80" height="80"> -->
 
-  <h1 align="center">gkd-Rules</h1>
+  <!-- <h1 align="center">gkd-Rules</h1> -->
 
-  <p align="center">小众的偏向功能类脚本类的GKD规则。</p>
-  <br/><br/>
-</div>
+  <!-- <p align="center">小众的偏向功能类脚本类的GKD规则。</p> -->
+  <!-- <br/><br/> -->
+<!-- </div> -->
 
 <!-- [![SVG Banners](https://svg-banners.vercel.app/api?type=origin&text1=gkd-Rules%20🦜&text2=💖%20Open%20Source&width=800&height=400)](https://github.com/Lin-arm/gkd-Rules) -->
+[![SVG Banners](https://svg-banners.vercel.app/api?type=origin&text1=gkd-Rules%20🦜&text2=🧧小众的偏向功能类脚本类的GKD规则&height=350)](https://github.com/Lin-arm/gkd-Rules)
 
 <!-- [![SVG Banners](https://svg-banners.vercel.app/api?type=luminance&text1=gkd-Rules%20🦜&width=800&height=200)](https://github.com/Lin-arm/gkd-Rules) -->
 
 
----
+<!-- --- -->
+## gkd-Rules🦜
 
 &emsp;&emsp;目前主要研究 `ks`,`ks极速版`,`zfb(蚂蚁森林)`,`起点读书` 等应用的规则, 如有遇到失效规则, 请到 [Issues](https://github.com/Lin-arm/gkd-Rules/issues)提交快照文件或链接,我将尽力适配。
 
