@@ -215,7 +215,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 8,
+      key: 808, //要大于 养鸭-弹窗 的key=32
       name: '任务页-弹窗-X掉',
       desc: '组件,绑卡,邀好友,瓜分,...',
       activityIds: [
@@ -227,17 +227,21 @@ export default defineGkdApp({
       rules: [
         {
           key: 1,
-          excludeMatches: [
-            '[text^="去看广告得"] -4 [text="开宝箱奖励已到账"]',
-            '[text="赚饲料"]',
+          // action: 'clickNode',
+          fastQuery: true,
+          excludeAllMatches: [
+            'Button[text^="去看广告得"] -n * <<2 [index=parent.childCount.minus(1)] -n * > @Image[clickable=true][width>70 && width<90] <<4 [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount=2] -n [name$="TextView" || name$="View"] <<(3,4) [vid="webView"]', //开宝箱-弹窗去看广告
+            // 'Button[text="愉快收下"] -n [text="今日饲料雨收获"] <<3 [index=parent.childCount.minus(1)] -n * > @Image[clickable=true][width>70 && width<90] <<4 [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount=2] -n [name$="TextView" || name$="View"] <<(3,4) [vid="webView"]', //养鸭 饲料雨End 愉快收下
           ],
           // matches: [
           //   '[text="任务中心"]',
           //   '[text=""][clickable=false][childCount=1] > Image[width>=76 && width<=80][height>=74 && height<=80][clickable=true]',
           // ],
-          matches:
+          // matches: 'Button[!(text="立即签到" || text="看广告翻10倍")] <(1,5) [index=parent.childCount.minus(1)] -n * > @Image[clickable=true][width>70 && width<90] <<4 [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount=2] -n [name$="TextView" || name$="View"] <<(3,4) [vid="webView"]',
+          matches: [
+            '[text="任务中心"] <<n [vid="webView"]',
             '@Image[clickable=true][width>70 && width<90] <<4 [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount=2] -n [name$="TextView" || name$="View"] <<(3,4) [vid="webView"]',
-          fastQuery: true,
+          ],
           snapshotUrls: [
             'https://i.gkd.li/i/23468984', //去绑卡 A
             'https://i.gkd.li/i/22672607', //每日打卡 A
@@ -249,8 +253,11 @@ export default defineGkdApp({
             'https://i.gkd.li/i/24743239', //瓜分百亿金币 D
           ],
           excludeSnapshotUrls: [
-            'https://i.gkd.li/i/23427912',
-            'https://i.gkd.li/i/22908125', //养鸭
+            // 'https://i.gkd.li/i/22871644', //养鸭 签到弹窗
+            // 'https://i.gkd.li/i/24448092', //养鸭 饲料雨End 翻10倍
+
+            'https://i.gkd.li/i/23427912', //开宝箱-弹窗去看广告
+            // 'https://i.gkd.li/i/22907925', //养鸭 饲料雨End 愉快收下
           ],
         },
         {
