@@ -221,7 +221,7 @@ export default defineGkdApp({
     {
       key: 11,
       name: '🐤养鸡-家庭👪-弹窗-确认',
-      desc: '①顶梁柱or请客 ②③喂食 ④睡觉',
+      desc: '①顶梁柱or请客 ②③喂食 ④睡觉 ⑤家具上新',
       enable: false,
       activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
@@ -257,6 +257,14 @@ export default defineGkdApp({
           },
           matches: '[text^="亲密度+"] + [text="去睡觉"][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/23762886',
+        },
+        {
+          key: 5,
+          name: '⑤家具上新啦-x掉',
+          fastQuery: true,
+          matches:
+            '@Button[text="关闭"][clickable=true] -n * <<3 [index=parent.childCount.minus(2)] -n * <<3 WebView <<3 [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+          snapshotUrls: 'https://i.gkd.li/i/24821875',
         },
       ],
     },
@@ -697,7 +705,7 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            'Button[text="取消"][id$="negativeBtn"][visibleToUser=true]',
+            '[text="发送一次以下消息"] +n * > Button[text="取消"][id$="negativeBtn"][clickable=true]',
           ],
           fastQuery: true,
           snapshotUrls: [
@@ -713,20 +721,34 @@ export default defineGkdApp({
     },
     {
       key: 30,
-      name: '🎮小游戏-活动弹窗-x掉',
-      desc: 'x掉 ①限时活动弹窗 ②小浮窗',
+      name: '🎮小游戏-弹窗',
+      desc: '①限时活动弹窗or小浮窗-x掉 ③游戏更新-确定',
+      activityIds: [
+        'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$',
+      ],
       rules: [
         {
+          key: 1,
+          name: '①限时活动弹窗or小浮窗-x掉',
           actionCd: 500,
           matchRoot: true,
+          forcedTime: 3500,
           matches:
             'TextView[text=""][(width>75 && width<85 && height>75 && height<85) || (width>30 && width<40 && height>30 && height<40)]',
           snapshotUrls: [
             'https://i.gkd.li/i/24094533', //大弹窗
             'https://i.gkd.li/i/24094570', //小浮窗
           ],
-          activityIds:
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$',
+        },
+        {
+          key: 3,
+          name: '③游戏更新-确定',
+          fastQuery: true,
+          matches: [
+            '[text^="游戏有新版本"]',
+            'Button[text="确定"][clickable=true]',
+          ],
+          snapshotUrls: 'https://i.gkd.li/i/24822192',
         },
       ],
     },
