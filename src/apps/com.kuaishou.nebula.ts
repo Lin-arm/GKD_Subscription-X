@@ -239,7 +239,7 @@ export default defineGkdApp({
           // ],
           // matches: 'Button[!(text="立即签到" || text="看广告翻10倍")] <(1,5) [index=parent.childCount.minus(1)] -n * > @Image[clickable=true][width>70 && width<90] <<4 [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount=2] -n [name$="TextView" || name$="View"] <<(3,4) [vid="webView"]',
           matches: [
-            '[text="任务中心"] <<n [vid="webView"]',
+            '@[name$="View"][text="任务中心"] <2 View <2 View < WebView <<2 [vid="webView"]',
             '@Image[clickable=true][width>70 && width<90] <<4 [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount=2] -n [name$="TextView" || name$="View"] <<(3,4) [vid="webView"]',
           ],
           snapshotUrls: [
