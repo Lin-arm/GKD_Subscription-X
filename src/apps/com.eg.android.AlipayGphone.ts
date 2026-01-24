@@ -857,5 +857,19 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 34,
+      name: '弹窗-当前应用要打开zfb',
+      desc: '点击 打开',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.alipay.mobile.quinox.SchemeLauncherActivity',
+          matches:
+            '[text="当前应用要打开“支付宝”"] <<2 * + * >2 [text="打开"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/24835900',
+        },
+      ],
+    },
   ],
 });
