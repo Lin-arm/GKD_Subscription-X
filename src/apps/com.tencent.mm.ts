@@ -93,7 +93,7 @@ export default defineGkdApp({
     {
       key: 45,
       name: '分段广告-视频号评论区内广告',
-      desc: '注意⚠️：该规则有概率误触，请谨慎开启',
+      desc: '注意⚠️: 有概率误触,有生效范围限制(看示例图)',
       fastQuery: true,
       actionCd: 10,
       activityIds: [
@@ -104,7 +104,6 @@ export default defineGkdApp({
         {
           key: 1,
           name: '①点击[广告]',
-          action: 'clickNode',
           matches:
             '@FrameLayout[clickable=true][visibleToUser=true][index=parent.childCount.minus(2)][top>getPrev(4).bottom] -n ImageView[desc="头像"] <<3 FrameLayout[bottom<getPrev(1).getChild(1).getChild(0).top] <n RecyclerView <<3 FrameLayout - FrameLayout[index=0] >3 TextView[text^="评论"][left<200]',
           // [top>getPrev(4).bottom] 用于避免评论区顶部的遮挡[广告], 在上滑浏览评论时, [广告]可能会被遮挡在顶部
