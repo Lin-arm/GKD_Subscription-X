@@ -67,3 +67,5 @@ git reset --hard upstream/main
 # git push --force origin main
 git push --force origin feature-1
 
+# 提PR时可填   resolves #1774   关联issue
+
