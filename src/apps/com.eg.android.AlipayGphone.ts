@@ -549,7 +549,7 @@ export default defineGkdApp({
     {
       key: 2401,
       name: '🌲森林-弹窗-x掉',
-      desc: '①2026能量攻略 ②新抽抽乐 ③活力值助力成功',
+      desc: '①2026能量攻略 ②新抽抽乐 ③活力值助力 ④种第1棵树',
       activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
         {
@@ -565,13 +565,14 @@ export default defineGkdApp({
         },
         {
           key: 3,
-          name: '③活力值助力成功-x掉',
+          name: '③助力成功or种第1棵树-x掉',
           fastQuery: true,
           matches:
-            '@Button[text="关闭弹窗"][clickable=true] -n [text="助力成功！" || text="来晚啦"] <<n View[index=parent.childCount.minus(1)] <n WebView[text="蚂蚁森林"] <<n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container" || id="com.alipay.mobile.nebula:id/h5_pc_container"]',
+            '@Button[text="关闭弹窗"][clickable=true] -n [text="助力成功！" || text="来晚啦" || text$="第一棵树"] <<n View[index=parent.childCount.minus(1)] <n WebView[text="蚂蚁森林"] <<n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container" || id="com.alipay.mobile.nebula:id/h5_pc_container"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24742272', //活力值助力成功
             'https://i.gkd.li/i/24813156', //活力值助力来晚啦
+            'https://i.gkd.li/i/24861484', //种下xxxx第1棵树
           ],
         },
       ],
@@ -861,6 +862,7 @@ export default defineGkdApp({
       key: 34,
       name: '弹窗-当前应用要打开zfb',
       desc: '点击 打开',
+      enable: false,
       rules: [
         {
           fastQuery: true,
