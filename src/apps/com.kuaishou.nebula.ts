@@ -717,6 +717,7 @@ export default defineGkdApp({
       key: 25,
       name: '📡直播间-红包弹窗-x掉',
       desc: '①天降红包 ②团购红包 ③主播新人券 ④双11券',
+      fastQuery: true,
       activityIds: [
         'com.yxcorp.gifshow.detail.PhotoDetailActivity', //A
         'com.kuaishou.live.core.basic.activity.LivePlayActivity', //B
@@ -729,10 +730,9 @@ export default defineGkdApp({
         {
           key: 1,
           matches: [
-            // 'FrameLayout[vid="krn_content_container"] >(4,5,6,7,8,9) @ImageView[width>94 && width<106][height>94 && height<106][visibleToUser=true] < [index=parent.childCount.minus(1)]',
-            '[index=parent.childCount.minus(1)] > @ImageView[width>94 && width<106][height>94 && height<106][top>1000 && top<1800] <<n [vid="krn_content_container"]',
+            // '[index=parent.childCount.minus(1)] > @ImageView[width>94 && width<106][height>94 && height<106][top>1000 && top<1800] <<n [vid="krn_content_container"]',
+            '@[clickable=true] >2 ImageView[width>94 && width<106][height>94 && height<106][top>getPrev(2).height.div(2)] <<n [index=parent.childCount.minus(1)] -n ViewGroup <<2 [vid="krn_content_container"]',
           ],
-          fastQuery: true,
           snapshotUrls: [
             'https://i.gkd.li/i/22699956', //A 团购红包
             'https://i.gkd.li/i/22781366', //B 天降红包
@@ -740,8 +740,9 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23143270', //E 主播新人券
             'https://i.gkd.li/i/23290583', //A 获得直播惊喜券(双11)
             'https://i.gkd.li/i/23906987', //C >9 直播惊喜券
+            'https://i.gkd.li/i/24862649', //A 年货节直播惊喜券 (第1个有偏移,用[clickable=true]应该能点中)
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/22988215', //  < [index=parent.childCount.minus(1)]
+          excludeSnapshotUrls: 'https://i.gkd.li/i/22988215', // [index=parent.childCount.minus(1)] > @
         },
         {
           key: 2,
