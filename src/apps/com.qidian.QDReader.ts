@@ -264,5 +264,18 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 10,
+      name: '📚书架-开更新提醒-x掉',
+      desc: '小横幅广告',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.ui.activity.MainGroupActivity',
+          matches: 'ImageView < [vid="ivUpdateNoticeClose"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/24913610',
+        },
+      ],
+    },
   ],
 });
