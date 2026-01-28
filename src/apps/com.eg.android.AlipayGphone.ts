@@ -516,11 +516,12 @@ export default defineGkdApp({
           key: 3,
           name: '③专享补贴or添加首页-放弃',
           matches: [
-            '[text$="可用" || text="后失效"] + TextView[text="残忍放弃"][index=parent.childCount.minus(2)]',
+            '[text$="可用" || text="后失效" || text="限时领取"] +(1,2) TextView[text="残忍放弃"][index=parent.childCount.minus(2)]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/24157391', //专享补贴
             'https://i.gkd.li/i/24278961', //添加小程序到首页 (若用快速查询则真机不生效)
+            'https://i.gkd.li/i/24913115', //添加小程序到首页2
           ],
         },
         {
@@ -566,9 +567,8 @@ export default defineGkdApp({
         {
           key: 3,
           name: '③助力成功or种第1棵树-x掉',
-          fastQuery: true,
           matches:
-            '@Button[text="关闭弹窗"][clickable=true] -n [text="助力成功！" || text="来晚啦" || text$="第一棵树"] <<n View[index=parent.childCount.minus(1)] <n WebView[text="蚂蚁森林"] <<n [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container" || id="com.alipay.mobile.nebula:id/h5_pc_container"]',
+            '@Button[text="关闭弹窗"][clickable=true] -n [text="助力成功！" || text="来晚啦" || text$="第一棵树"] <<n View[index=parent.childCount.minus(1)] <n WebView[text="蚂蚁森林"] <<n [id$="h5_pc_container"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24742272', //活力值助力成功
             'https://i.gkd.li/i/24813156', //活力值助力来晚啦
