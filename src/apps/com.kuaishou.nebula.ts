@@ -832,6 +832,13 @@ export default defineGkdApp({
             '[focusable=true][top>2000][index=parent.childCount.minus(1)] > [text^="点击免费送出"]',
           snapshotUrls: 'https://i.gkd.li/i/24455158',
         },
+        {
+          key: 9,
+          name: '⑨今日榜单弹窗-x掉',
+          matches:
+            'ImageView <<2 @[clickable=true] - ViewGroup >4 [text="查看今日榜单"]',
+          snapshotUrls: 'https://i.gkd.li/i/24926207',
+        },
       ],
     },
     {
@@ -898,33 +905,6 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 2,
-          preKeys: [1],
-          name: '②已签到-x掉',
-          matches: [
-            'Image[width>70 && width<85][height>70 || height<85][clickable=true][visibleToUser=true]',
-          ],
-          snapshotUrls: [
-            'https://i.gkd.li/i/22871789',
-            'https://i.gkd.li/i/23427798',
-            'https://i.gkd.li/i/23542661',
-            'https://i.gkd.li/i/23642766',
-          ],
-        },
-        // {
-        //   key: 5,
-        //   name: '⑤抓鸭签到',
-        //   actionMaximum: 1,
-        //   resetMatch: 'app',
-        //   excludeMatches: '[text="饲料雨即将来袭" || (text^="剩余" && text$="秒" && left=0)][visibleToUser=true]', //饲料雨
-        //   matches: '@Button[text^="领今日奖励"][clickable=true] <<n * -3 [text^="已连签"][text$="天"] <<n [text="签到领奖励"] -n * <<2 [id="app"] <<n [vid="webView"]',
-        //   fastQuery: true,
-        //   snapshotUrls: [
-        //     'https://i.gkd.li/i/22783039', //抓鸭签到 领今日奖励
-        //     'https://i.gkd.li/i/23422233', //抓鸭签到
-        //   ],
-        // },
-        {
           key: 6,
           name: '⑥抓鸭签到-返回',
           preKeys: [1],
@@ -939,6 +919,20 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23422249', //待领取x2
           ],
           excludeSnapshotUrls: 'https://i.gkd.li/i/24194609',
+        },
+        {
+          key: 7,
+          preKeys: [1],
+          name: '②已签到-x掉',
+          matches: [
+            'Image[width>70 && width<85][height>70 || height<85][clickable=true][visibleToUser=true]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/22871789',
+            'https://i.gkd.li/i/23427798',
+            'https://i.gkd.li/i/23542661',
+            'https://i.gkd.li/i/23642766',
+          ],
         },
       ],
     },
