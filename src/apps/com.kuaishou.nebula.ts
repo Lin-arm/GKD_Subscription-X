@@ -318,21 +318,32 @@ export default defineGkdApp({
       key: 10,
       name: '❗网络错误-点击重试',
       desc: '任务页加载出错',
+      fastQuery: true,
+      activityIds: [
+        'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
+        'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity',
+        'com.gifshow.kuaishou.floatwidget.activity.GrowthYodaWebViewActivity',
+      ],
       rules: [
         {
+          key: 1,
           actionCd: 3500,
           matches:
             '[vid="retry_btn" && text="点击重试" || text^="点我刷新"][clickable=true]',
-          fastQuery: true,
           snapshotUrls: [
             'https://i.gkd.li/i/24195125',
             'https://i.gkd.li/i/23907716',
             'https://i.gkd.li/i/24337119', //任务页-列表空白-点我刷新
+            'https://i.gkd.li/i/24963623',
           ],
-          activityIds: [
-            'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
-            'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity',
+        },
+        {
+          key: 2,
+          matches: [
+            '[text="网络设置方法"]',
+            '[vid="positive"][text="知道了"][clickable=true]',
           ],
+          snapshotUrls: 'https://i.gkd.li/i/24963673',
         },
       ],
     },
