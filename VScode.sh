@@ -23,12 +23,14 @@ git add .
 
 git commit -m "v10 更新了啥"
 # git commit -m "feat: 123云盘 局部广告"
-# git commit -m "fix: 123云盘 全屏广告-弹窗广告"
+# git commit -m "perf: 123云盘 减少代码冗余"
+# git commit -m "fix: 123云盘 全屏广告-弹窗广告 #1788"  # 在commit内关联issue
+# 提PR时可填   resolves #1774   关联issue
+
 
 git push
 # 推送到指定分支1
 git push origin feature-1
-
 
 
 # 从github拉取并合并
@@ -57,7 +59,6 @@ git checkout main
 
 # 从上游最新代码创建第一个功能分支`feature-1`
 # git checkout -b feature-1 upstream/main
-# git push origin feature-1
 
 
 # 5. 强制合并上游更新（这会覆盖你的本地更改）
@@ -67,5 +68,4 @@ git reset --hard upstream/main
 # git push --force origin main
 git push --force origin feature-1
 
-# 提PR时可填   resolves #1774   关联issue
 

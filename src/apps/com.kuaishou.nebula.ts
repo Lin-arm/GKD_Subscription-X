@@ -209,7 +209,7 @@ export default defineGkdApp({
           key: 17,
           activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
           matches:
-            'Image - [text="金币游乐园"] - @[clickable=true][getChild(0).name$="Image"] <<n [vid="webView"]',
+            'Image - [text="金币游乐园"] - @[clickable=true][getChild(0).name$="Image"] <<3 View <2 View <<3 WebView[text="活动中心"] <<2 [vid="webView"]',
           snapshotUrls: 'https://i.gkd.li/i/24694311', //小游戏乐园
         },
       ],
@@ -265,7 +265,7 @@ export default defineGkdApp({
           // matches: '[text^="任务完成奖励"] -2 [width>=76 && width<=87][height>=74 && height<=88][clickable=true]',
           fastQuery: true,
           matches:
-            '[text^="任务完成奖励"] -2 @[clickable=true][width>70 && width<90] <<2 [index=parent.childCount.minus(1)] <n WebView <<n [vid="webView"]',
+            '[text^="任务完成奖励"] -2 @[clickable=true][width>70 && width<90] <<2 [index=parent.childCount.minus(1)] <n WebView <<2 [vid="webView"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23588323', //看视频赚金币 领奖弹窗
             // 'https://i.gkd.li/i/23606147', //快手的
@@ -661,7 +661,7 @@ export default defineGkdApp({
           matchRoot: true,
           // matches: '[vid="pendant_task_status"][text^="倒计时"][text$="00:01"]', // 倒计时01秒
           matches:
-            '@[vid="pendant_task_status"][text^="倒计时"][text$="00:01"] <<n [vid="kem_activity_task_pendant"] <2 [id="android:id/content"]',
+            '@[vid="pendant_task_status"][text^="倒计时"][text$="00:01"] <<3 [vid="kem_activity_task_pendant"] <2 [id="android:id/content"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23750524',
             'https://i.gkd.li/i/23823031',
