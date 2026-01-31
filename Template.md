@@ -36,7 +36,7 @@
 
 复制以下任意一个链接到 GKD 即可使用本订阅规则
 
-- jsdelivr源（国内镜像，推荐大陆用户使用）
+- jsdelivr源（免翻墙，但可能会慢12小时才同步更新）
 
 ```txt
 https://fastly.jsdelivr.net/gh/Lin-arm/gkd-Rules@main/dist/gkd.json5
