@@ -145,9 +145,12 @@ export default defineGkdApp({
       rules: [
         {
           actionCd: 200,
-          matches: '@[clickable=true] > [text="红包广场"][visibleToUser=true]',
+          matches:
+            '@[clickable=true][childCount>1] > [text="红包广场"][visibleToUser=true]',
           fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/24399266', //起点422
+          excludeSnapshotUrls: 'https://i.gkd.li/i/24993575', // 书架页-弹窗 [childCount>1]
+          exampleUrls: 'https://e.gkd.li/885c5353-7a7f-4fd7-beb6-69203de19522',
           activityIds: '.ui.activity.MainGroupActivity',
         },
       ],
@@ -197,6 +200,7 @@ export default defineGkdApp({
           matches:
             'ImageView[desc$="点\\n已抢完"][clickable=true][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/24323139',
+          exampleUrls: 'https://e.gkd.li/4b8f7243-aff9-42d3-bfdf-772c1088e7c2',
           activityIds: [
             '.ui.activity.MainGroupActivity',
             '.flutter.HongBaoSquareActivity',
@@ -206,7 +210,7 @@ export default defineGkdApp({
     },
     {
       key: 7,
-      name: '🧧抢月包-投月票',
+      name: '🧧抢月包-弹窗-投月票',
       desc: '弹窗-点击 开',
       enable: false,
       rules: [
@@ -214,11 +218,11 @@ export default defineGkdApp({
           actionCd: 100,
           actionDelay: 120, //加个延时,点太快了可能不妥
           excludeMatches: '[text*="验证"][focusable=true][visibleToUser=true]', // 排除验证弹窗
-          matches: [
+          matches:
             '@[clickable=true] > [vid="getHongbaoTv"][visibleToUser=true]',
-          ],
           fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/23299140',
+          exampleUrls: 'https://e.gkd.li/fe7ebb16-94e5-436d-8998-ed76a7cbd65e',
           // excludeSnapshotUrls: [
           //   'https://i.gkd.li/i/23562885',
           //   'https://i.gkd.li/i/23610102', // 422 验证弹窗
@@ -244,6 +248,7 @@ export default defineGkdApp({
           ],
           fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/23291755',
+          exampleUrls: 'https://e.gkd.li/2ed31c5e-f498-4903-a781-58a1e885de69',
           activityIds: [
             'com.qidian.QDReader.ui.activity.MainGroupActivity',
             '.flutter.HongBaoSquareActivity',
@@ -274,6 +279,21 @@ export default defineGkdApp({
           activityIds: '.ui.activity.MainGroupActivity',
           matches: 'ImageView < [vid="ivUpdateNoticeClose"][clickable=true]',
           snapshotUrls: 'https://i.gkd.li/i/24913610',
+        },
+      ],
+    },
+    {
+      key: 11,
+      name: '🎁投月票后开宝箱-确认',
+      desc: '弹窗-确认',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.ui.activity.QDBrowserActivity',
+          matches:
+            '@Button[text="确认"][clickable=true] <3 View < View <2 View <4 WebView[text="月票"] <<3 [vid="webViewContainer"]',
+          snapshotUrls: 'https://i.gkd.li/i/24993649',
+          exampleUrls: 'https://e.gkd.li/a2c614a5-94ee-4cc6-a18a-9c913fb57562',
         },
       ],
     },
