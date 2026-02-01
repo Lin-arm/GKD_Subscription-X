@@ -329,6 +329,7 @@ export default defineGkdApp({
       desc: '任务页加载出错',
       fastQuery: true,
       activityIds: [
+        'com.yxcorp.gifshow.ad.webview.AdYodaActivity',
         'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
         'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity',
         'com.gifshow.kuaishou.floatwidget.activity.GrowthYodaWebViewActivity',
@@ -340,6 +341,7 @@ export default defineGkdApp({
           matches:
             '[vid="retry_btn" && text="点击重试" || text^="点我刷新"][clickable=true]',
           snapshotUrls: [
+            'https://i.gkd.li/i/24994235',
             'https://i.gkd.li/i/24195125',
             'https://i.gkd.li/i/23907716',
             'https://i.gkd.li/i/24337119', //任务页-列表空白-点我刷新
@@ -486,7 +488,7 @@ export default defineGkdApp({
     {
       key: 17,
       name: '🤳任务页-自动去看广告',
-      desc: '①开宝箱 ②(弹窗)去看广告 ③去看广告得金币',
+      desc: '③去看广告得金币(❗遮挡可开shizuku强制点击)',
       activityIds: [
         'com.yxcorp.gifshow.HomeActivity', // A
         'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', // B
@@ -495,21 +497,8 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          key: 1,
-          name: '①开宝箱',
-          matches:
-            'Image + Button[text^="点可领"][text$="金币"][clickable=true]',
-          snapshotUrls: 'https://i.gkd.li/i/23427892',
-        },
-        {
-          key: 2,
-          name: '②(弹窗)去看广告',
-          matches: 'Button[text^="去看广告得"][text$="金币"][clickable=true]',
-          snapshotUrls: 'https://i.gkd.li/i/23427912',
-        },
-        {
-          key: 3,
-          name: '③看广告得金币',
+          // key: 3,
+          // name: '③看广告得金币',
           actionCd: 10000,
           matchDelay: 3500,
           matches:
@@ -526,32 +515,35 @@ export default defineGkdApp({
         },
       ],
     },
-    // {
-    //   key: 18,
-    //   name: '🤳看广告-自动开宝箱',
-    //   desc: '①开宝箱 ②(弹窗)去看广告',
-    //   activityIds: [
-    //     'com.yxcorp.gifshow.HomeActivity', // A
-    //     'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', // B
-    //     'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity', // C
-    //     'com.gifshow.kuaishou.floatwidget.activity.GrowthYodaWebViewActivity', // D
-    //   ],
-    //   rules: [
-    //     {
-    //       key: 1,
-    //       name: '①开宝箱',
-    //       matches: 'Image + Button[text^="点可领"][text$="金币"][clickable=true]',
-    //       snapshotUrls: 'https://i.gkd.li/i/23427892',
-    //     },
-    //     {
-    //       key: 2,
-    //       name: '②(弹窗)去看广告',
-    //       matches:
-    //         'Button[text^="去看广告得"][text$="金币"][clickable=true]',
-    //       snapshotUrls: 'https://i.gkd.li/i/23427912',
-    //     },
-    //   ],
-    // },
+    {
+      key: 18,
+      name: '🤳任务页-自动开宝箱',
+      desc: '①开宝箱 ②(弹窗)去看广告',
+      activityIds: [
+        'com.yxcorp.gifshow.HomeActivity', // A
+        'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', // B
+        'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity', // C
+        'com.gifshow.kuaishou.floatwidget.activity.GrowthYodaWebViewActivity', // D
+      ],
+      rules: [
+        {
+          key: 1,
+          name: '①开宝箱',
+          forcedTime: 15000,
+          // matches: 'Image + Button[text^="点可领"][text$="金币"][clickable=true]',
+          fastQuery: true,
+          matches:
+            '@Button[text^="点可领"][text$="金币"][clickable=true] - Image < [index=parent.childCount.minus(1)] <n [index=parent.childCount.minus(2)][childCount>15] <n View <<3 [vid="webView"]',
+          snapshotUrls: 'https://i.gkd.li/i/23427892',
+        },
+        {
+          key: 2,
+          name: '②(弹窗)去看广告',
+          matches: 'Button[text^="去看广告得"][text$="金币"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/23427912',
+        },
+      ],
+    },
     {
       key: 19,
       name: '🤳看广告-点1次静音',
@@ -1095,8 +1087,8 @@ export default defineGkdApp({
     },
     {
       key: 3501,
-      name: '任务页-搜索赚金币-去搜索',
-      desc: '自动去搜索',
+      name: '🔍任务页-搜索赚金币-去搜索',
+      desc: '自动去搜索(❗遮挡可开shizuku强制点击)',
       enable: false,
       rules: [
         {
@@ -1253,15 +1245,15 @@ export default defineGkdApp({
       rules: [
         {
           key: 1,
-          actionDelay: 700,
+          // actionDelay: 700,
+          actionCd: 3500,
           matches:
-            '[text="立即领取"][id$="task_item_button"][visibleToUser=true]',
+            '@[clickable=true] > [text="立即领取"][id$="task_item_button"]',
           snapshotUrls: 'https://i.gkd.li/i/22658578',
         },
         {
           key: 2,
-          matches:
-            '[text="恭喜你获得"] - [vid="dialog_close"][visibleToUser=true]',
+          matches: '[text="恭喜你获得"] - [vid="dialog_close"][clickable=true]',
           snapshotUrls: 'https://i.gkd.li/i/22672261',
         },
       ],
@@ -1285,7 +1277,7 @@ export default defineGkdApp({
           key: 2,
           preKeys: [1],
           name: '②开启自动阅读',
-          matches: '[text="开启自动阅读"][clickable=true][visibleToUser=true]',
+          matches: '[text="开启自动阅读"][clickable=true]',
           snapshotUrls: 'https://i.gkd.li/i/24738167',
         },
       ],
@@ -1299,10 +1291,11 @@ export default defineGkdApp({
           fastQuery: true,
           activityIds: 'com.kuaishou.novel.home.read.ReaderActivityV2',
           matches:
-            '@ImageView[clickable=true] <<2 * - * > [text="立即下载" || text="立即打开"]',
+            '@ImageView[clickable=true] <<2 * - * > [text="立即下载" || text="立即打开" || text="去逛逛"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24738559',
             'https://i.gkd.li/i/24760376',
+            'https://i.gkd.li/i/24994337',
           ],
         },
       ],
