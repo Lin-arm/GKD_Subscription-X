@@ -1081,6 +1081,28 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 3501,
+      name: '任务页-搜索赚金币-去搜索',
+      desc: '自动去搜索',
+      enable: false,
+      rules: [
+        {
+          // action: 'clickNode',
+          // fastQuery: true,
+          // matches: '@TextView[text="去搜索"][clickable=true] <2 [childCount=2] < [childCount=1] <n View[childCount>15] -n TextView <<4 [vid="webView"]',
+          matches:
+            '@TextView[text="去搜索"][clickable=true] - * > [text="搜索赚金币"]',
+          snapshotUrls: 'https://i.gkd.li/i/24992823',
+          activityIds: [
+            'com.yxcorp.gifshow.HomeActivity', // A
+            'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', // B
+            'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity', // C
+            'com.gifshow.kuaishou.floatwidget.activity.GrowthYodaWebViewActivity', // D
+          ],
+        },
+      ],
+    },
+    {
       key: 35,
       name: '🔍搜索-倒计时结束-返回x2',
       desc: '按返回键2次',
