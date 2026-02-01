@@ -212,6 +212,15 @@ export default defineGkdApp({
             'Image - [text="金币游乐园"] - @[clickable=true][getChild(0).name$="Image"] <<3 View <2 View <<3 WebView[text="活动中心"] <<2 [vid="webView"]',
           snapshotUrls: 'https://i.gkd.li/i/24694311', //小游戏乐园
         },
+        {
+          key: 18,
+          activityIds: 'com.yxcorp.gifshow.detail.PhotoDetailActivity',
+          matches: [
+            '[vid="text"][text="发条有爱评论~"]',
+            '@[vid="left_btn"][desc="返回"][clickable=true] + [desc="查找"] + [vid="filter_btn_layout"]',
+          ],
+          snapshotUrls: 'https://i.gkd.li/i/24992396', //视频广告页
+        },
       ],
     },
     {
