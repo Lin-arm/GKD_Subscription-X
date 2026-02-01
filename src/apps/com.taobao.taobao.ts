@@ -41,7 +41,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 4,
+      key: 2,
       name: '🌾农场-弹窗-x掉',
       desc: '①施肥大礼包 ②首页进入 ③明天提醒',
       rules: [
@@ -63,6 +63,17 @@ export default defineGkdApp({
             'com.taobao.browser.BrowserActivity',
             'com.taobao.tao.welcome.Welcome',
           ],
+        },
+      ],
+    },
+    {
+      key: 3,
+      name: '💰淘金币-签到',
+      rules: [
+        {
+          activityIds: 'com.taobao.themis.container.app.TMSActivity',
+          matches: '@[clickable=true] > [text="点击签到"]',
+          snapshotUrls: 'https://i.gkd.li/i/24993351',
         },
       ],
     },
