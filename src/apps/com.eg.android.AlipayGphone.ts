@@ -550,12 +550,12 @@ export default defineGkdApp({
     {
       key: 2401,
       name: '🌲森林-弹窗-x掉',
-      desc: '①2026能量攻略 ②新抽抽乐 ③活力值助力 ④种第1棵树',
+      desc: '①能量攻略 ②新抽抽乐 ③活力值助力 ④种第1棵树 ⑤证书 ⑥真爱奖励',
       activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
         {
           key: 1,
-          name: '①2026能量攻略or新抽抽乐-x掉',
+          name: '①能量攻略or新抽抽乐-x掉',
           matches:
             '@TextView[index=parent.childCount.minus(1)][text=""][index>1] -n * <<(4,5) View[index=parent.childCount.minus(1)] <n WebView[text="蚂蚁森林"] <<4 [id$="h5_pc_container"]',
           snapshotUrls: [
@@ -574,6 +574,20 @@ export default defineGkdApp({
             'https://i.gkd.li/i/24813156', //活力值助力来晚啦 (快速查询真机不生效)
             'https://i.gkd.li/i/24861484', //种下xxxx第1棵树
           ],
+        },
+        {
+          key: 5,
+          name: '⑤证书-x掉',
+          matches:
+            '[text="查看证书"] < * + @Button[text^="关闭"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/24989781',
+        },
+        {
+          key: 6,
+          name: '⑥真爱树奖励-x掉',
+          matches:
+            '@TextView[index=parent.childCount.minus(1)][text=""][index>1] -n TextView[text^="共"][text$="天"] <<5 View <4 WebView <<4 [id$="h5_pc_container"]',
+          snapshotUrls: 'https://i.gkd.li/i/24989885',
         },
       ],
     },
@@ -861,6 +875,7 @@ export default defineGkdApp({
       desc: '同步名下其他账号银行卡',
       rules: [
         {
+          matchRoot: true,
           matches:
             '@View[width>100 && width<114][height>100 && height<114][left>450][top>1400] < ViewGroup[index=parent.childCount.minus(1)] <2 ViewGroup <<5 [id="android:id/content"]',
           fastQuery: true,
