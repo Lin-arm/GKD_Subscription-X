@@ -260,10 +260,8 @@ export default defineGkdApp({
         {
           actionCd: 10000,
           matchDelay: 3500,
-          anyMatches: [
-            '[text="看广告得金币"] < * + * > [text="领福利"][visibleToUser=true]',
-            '[text="看广告得金币"] < * + [text="领福利"][visibleToUser=true]',
-          ],
+          matches:
+            '@[clickable=true] - * > [text="看广告得金币"] +3 [text^="单日最高"]',
           snapshotUrls: 'https://i.gkd.li/i/23420409',
           activityIds: [
             'com.yxcorp.gifshow.HomeActivity',

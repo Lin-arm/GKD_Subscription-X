@@ -485,36 +485,8 @@ export default defineGkdApp({
     },
     {
       key: 17,
-      name: '🤳看广告-自动看广告',
-      desc: '任务列表-3.5秒点进去看广告',
-      rules: [
-        {
-          actionCd: 10000,
-          matchDelay: 3500,
-          matches:
-            '@[text="看广告得金币"][left=165][visibleToUser=true] +3 [text^="单日最高"]',
-          snapshotUrls: [
-            'https://i.gkd.li/i/22883404',
-            'https://i.gkd.li/i/22882988',
-            'https://i.gkd.li/i/22907324',
-          ],
-          excludeSnapshotUrls: [
-            'https://i.gkd.li/i/23585391',
-            'https://i.gkd.li/i/23642264', //未加载完成?
-          ],
-          activityIds: [
-            'com.yxcorp.gifshow.HomeActivity', // A
-            'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', // B
-            'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity', // C
-            'com.gifshow.kuaishou.floatwidget.activity.GrowthYodaWebViewActivity', // D
-          ],
-        },
-      ],
-    },
-    {
-      key: 18,
-      name: '🤳看广告-自动开宝箱',
-      desc: '①开宝箱 ②(弹窗)去看广告',
+      name: '🤳任务页-自动去看广告',
+      desc: '①开宝箱 ②(弹窗)去看广告 ③去看广告得金币',
       activityIds: [
         'com.yxcorp.gifshow.HomeActivity', // A
         'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', // B
@@ -525,20 +497,61 @@ export default defineGkdApp({
         {
           key: 1,
           name: '①开宝箱',
-          matches: '[text^="点可领"][text$="金币"][visibleToUser=true]',
+          matches:
+            'Image + Button[text^="点可领"][text$="金币"][clickable=true]',
           snapshotUrls: 'https://i.gkd.li/i/23427892',
         },
         {
           key: 2,
           name: '②(弹窗)去看广告',
-          // preKeys: [1],
-          // matchDelay: 3500,
-          matches:
-            '[text^="去看广告得"][text$="金币"][focusable=true][visibleToUser=true]',
+          matches: 'Button[text^="去看广告得"][text$="金币"][clickable=true]',
           snapshotUrls: 'https://i.gkd.li/i/23427912',
+        },
+        {
+          key: 3,
+          name: '③看广告得金币',
+          actionCd: 10000,
+          matchDelay: 3500,
+          matches:
+            '@[clickable=true] - * > [text="看广告得金币"] +3 [text^="单日最高"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/22883404', // A
+            'https://i.gkd.li/i/22882988', // C
+            'https://i.gkd.li/i/22907324', // B
+          ],
+          excludeSnapshotUrls: [
+            'https://i.gkd.li/i/23585391', //倒计时结束继续领金币
+            'https://i.gkd.li/i/23642264', //未加载完成? [clickable=true]
+          ],
         },
       ],
     },
+    // {
+    //   key: 18,
+    //   name: '🤳看广告-自动开宝箱',
+    //   desc: '①开宝箱 ②(弹窗)去看广告',
+    //   activityIds: [
+    //     'com.yxcorp.gifshow.HomeActivity', // A
+    //     'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', // B
+    //     'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity', // C
+    //     'com.gifshow.kuaishou.floatwidget.activity.GrowthYodaWebViewActivity', // D
+    //   ],
+    //   rules: [
+    //     {
+    //       key: 1,
+    //       name: '①开宝箱',
+    //       matches: 'Image + Button[text^="点可领"][text$="金币"][clickable=true]',
+    //       snapshotUrls: 'https://i.gkd.li/i/23427892',
+    //     },
+    //     {
+    //       key: 2,
+    //       name: '②(弹窗)去看广告',
+    //       matches:
+    //         'Button[text^="去看广告得"][text$="金币"][clickable=true]',
+    //       snapshotUrls: 'https://i.gkd.li/i/23427912',
+    //     },
+    //   ],
+    // },
     {
       key: 19,
       name: '🤳看广告-点1次静音',
@@ -549,7 +562,7 @@ export default defineGkdApp({
           actionMaximum: 1,
           resetMatch: 'match',
           matches:
-            '[id="com.kuaishou.nebula.commercial_neo:id/award_video_operate_audio_btn"][clickable=true][focusable=true]',
+            '[id="com.kuaishou.nebula.commercial_neo:id/award_video_operate_audio_btn"][clickable=true]',
           fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/23213280',
           activityIds: [
