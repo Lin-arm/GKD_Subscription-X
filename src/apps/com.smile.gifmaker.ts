@@ -142,8 +142,8 @@ export default defineGkdApp({
           key: 53,
           activityIds: 'com.kwai.frog.game.engine.adapter.engine.base.',
           matches:
-            '[id="com.kuaishou.nebula.minigame:id/v_more_view_close_and_close"][clickable=true]',
-          // snapshotUrls: 'https://i.gkd.li/i/24694286', //小游戏-x掉
+            '[id="com.smile.gifmaker.minigame:id/v_more_view_close_and_close"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/25016961', //小游戏-x掉
         },
         {
           key: 54,
@@ -298,28 +298,46 @@ export default defineGkdApp({
       key: 10,
       name: '🤳看广告-误入xx页-返回',
       desc: '点击返回',
+      fastQuery: true,
       activityIds: 'com.yxcorp.gifshow.ad.webview.AdYodaActivity',
       rules: [
         {
           key: 1,
           matches: [
-            '[vid="title_tv"][text="登录" || text="拼多多" || text="支付宝" || text="渠道五"] + [vid="left_btn"][clickable=true][focusable=true]',
+            '[vid="title_tv"][text="登录" || text="拼多多" || text="支付宝" || text="渠道五" || text="气象通" || text$="广告平台"] + [vid="left_btn"][clickable=true]',
           ],
-          fastQuery: true,
           snapshotUrls: [
             'https://i.gkd.li/i/23439913',
             'https://i.gkd.li/i/23439943',
             'https://i.gkd.li/i/23748402', //渠道五
+            'https://i.gkd.li/i/25017254', //气象通
+            'https://i.gkd.li/i/25017298', //广告平台
           ],
         },
         {
           key: 2,
+          matches:
+            '@Button[text="立即打开"][clickable=true] -n [text="限时福利"] <<2 WebView <<2 [vid="webView"] - * > [vid="title_tv"][text^="限时福利"]',
+          snapshotUrls: 'https://i.gkd.li/i/25017444',
+        },
+        {
+          key: 3,
           matches: [
             '@[text="应用介绍" || text="快手极速版"] -n * <<4 [vid="webView"]',
-            '[vid="left_btn"][clickable=true][focusable=true]',
+            '[vid="left_btn"][clickable=true]',
           ],
-          fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/23689657',
+        },
+        {
+          key: 4, //未加载完毕的广告页
+          matches: [
+            '@Image[text^="此图片未加标签"] <2 WebView <<2 [vid="webView"]',
+            '[vid="left_btn"][clickable=true]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/25017117',
+            'https://i.gkd.li/i/25017179',
+          ],
         },
       ],
     },
@@ -521,7 +539,7 @@ export default defineGkdApp({
           key: 6,
           name: '⑥邀请加入语音派对-x',
           matches:
-            '[id="com.kuaishou.nebula.live_audience_plugin:id/live_voice_party_audience_being_invited_bottom_panel_close"][clickable=true]',
+            '[id="com.smile.gifmaker.live_audience_plugin:id/live_voice_party_audience_being_invited_bottom_panel_close"][clickable=true]',
           // snapshotUrls: 'https://i.gkd.li/i/24203582',
         },
         {
