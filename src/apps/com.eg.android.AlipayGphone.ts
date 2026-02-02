@@ -589,6 +589,13 @@ export default defineGkdApp({
             '@TextView[index=parent.childCount.minus(1)][text=""][index>1] -n TextView[text^="共"][text$="天"] <<5 View <4 WebView <<4 [id$="h5_pc_container"]',
           snapshotUrls: 'https://i.gkd.li/i/24989885',
         },
+        {
+          key: 7,
+          name: '⑦组队种树弹窗-x掉',
+          matches:
+            '@Button[text^="关闭"][clickable=true] <2 View <<3 View <4 View < WebView <<4 [id$="h5_pc_container"]',
+          snapshotUrls: 'https://i.gkd.li/i/25001437',
+        },
       ],
     },
     {
