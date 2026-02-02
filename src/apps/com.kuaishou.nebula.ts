@@ -476,10 +476,11 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 1000,
           matches:
-            '[text^="下载" && text$="立得奖励" || text="快影"][visibleToUser=true]',
+            '[text^="下载" && text$="立得奖励" || text="快影" || text="券和福利"][visibleToUser=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/23431442',
             'https://i.gkd.li/i/24352704', //快影
+            'https://i.gkd.li/i/25002586', //ks年货节
           ],
           activityIds: ['com.kwai.kds.krn.api.page.KwaiRnActivity'],
         },
