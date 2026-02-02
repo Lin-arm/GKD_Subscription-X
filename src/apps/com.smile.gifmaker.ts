@@ -299,10 +299,14 @@ export default defineGkdApp({
       name: '🤳看广告-误入xx页-返回',
       desc: '点击返回',
       fastQuery: true,
-      activityIds: 'com.yxcorp.gifshow.ad.webview.AdYodaActivity',
+      activityIds: [
+        'com.yxcorp.gifshow.ad.webview.AdYodaActivity',
+        'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
+      ],
       rules: [
         {
           key: 1,
+          name: '①点击返回',
           matches: [
             '[vid="title_tv"][text="登录" || text="拼多多" || text="支付宝" || text="渠道五" || text="气象通" || text$="广告平台"] + [vid="left_btn"][clickable=true]',
           ],
@@ -316,20 +320,26 @@ export default defineGkdApp({
         },
         {
           key: 2,
+          name: '②点击返回',
           matches:
-            '@Button[text="立即打开"][clickable=true] -n [text="限时福利"] <<2 WebView <<2 [vid="webView"] - * > [vid="title_tv"][text^="限时福利"]',
-          snapshotUrls: 'https://i.gkd.li/i/25017444',
+            '[vid="title_tv"][text="ksH5"] - [vid="left_btn"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/25018347',
         },
         {
           key: 3,
+          name: '③点击返回',
           matches: [
-            '@[text="应用介绍" || text="快手极速版"] -n * <<4 [vid="webView"]',
+            '@[text="应用介绍" || text="快手极速版" || text^="应用名称"] -n * <<(4,5) [vid="webView"]',
             '[vid="left_btn"][clickable=true]',
           ],
-          snapshotUrls: 'https://i.gkd.li/i/23689657',
+          snapshotUrls: [
+            'https://i.gkd.li/i/23689657',
+            'https://i.gkd.li/i/25017691', //应用名称：趣享天天
+          ],
         },
         {
           key: 4, //未加载完毕的广告页
+          name: '④未加载-点击返回',
           matches: [
             '@Image[text^="此图片未加标签"] <2 WebView <<2 [vid="webView"]',
             '[vid="left_btn"][clickable=true]',
@@ -338,6 +348,13 @@ export default defineGkdApp({
             'https://i.gkd.li/i/25017117',
             'https://i.gkd.li/i/25017179',
           ],
+        },
+        {
+          key: 5,
+          name: '⑤领限时福利',
+          matches:
+            '@Button[text="立即打开"][clickable=true] -n [text="限时福利"] <<2 WebView <<2 [vid="webView"] - * > [vid="title_tv"][text^="限时福利"]',
+          snapshotUrls: 'https://i.gkd.li/i/25017444',
         },
       ],
     },
