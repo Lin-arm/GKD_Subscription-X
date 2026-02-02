@@ -141,12 +141,13 @@ export default defineGkdApp({
       desc: '仅在用脚本自动看广告时打开,其余时间🈲用',
       enable: false,
       fastQuery: true,
-      activityIds: 'com.yxcorp.gifshow.HomeActivity',
+      activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', //子规则里出现最多的界面id
       rules: [
         {
           key: 1,
           matches: '[vid="redFloat"][clickable=true]', //视频页-点击红包浮窗 (配合脚本重启快极后用)
           snapshotUrls: 'https://i.gkd.li/i/23989148',
+          activityIds: 'com.yxcorp.gifshow.HomeActivity',
         },
         {
           key: 2,
@@ -158,26 +159,50 @@ export default defineGkdApp({
             'https://i.gkd.li/i/24164538',
             'https://i.gkd.li/i/24194816',
           ],
+          activityIds: 'com.yxcorp.gifshow.HomeActivity',
         },
 
         // 以下为自动看广告时,误入其他页面后用的返回键
         {
           key: 11,
           action: 'back',
+          matches: '[text="赚饲料"]',
+          fastQuery: false, //这条子规则内禁用快查询,否则真机不生效
+          snapshotUrls: 'https://i.gkd.li/i/22908125', //养鸭
+        },
+        {
+          key: 12,
+          action: 'back',
+          matches: '[text="现金明细"]',
+          snapshotUrls: 'https://i.gkd.li/i/24337097', //我的收益页
+        },
+        {
+          key: 13,
+          action: 'back',
+          matches: 'WebView[text="快手App邀请好友"]',
+          snapshotUrls: 'https://i.gkd.li/i/24431766', //邀请好友
+        },
+        {
+          key: 14,
+          matches:
+            'Image - [text="金币游乐园"] - @[clickable=true][getChild(0).name$="Image"] <<3 View <2 View <<3 WebView[text="活动中心"] <<2 [vid="webView"]',
+          snapshotUrls: 'https://i.gkd.li/i/24694311', //小游戏乐园
+        },
+        {
+          key: 15,
+          matches:
+            '@[text$="瓜分大额奖池"] <2 View < View <2 View <<2 WebView <<2 [vid="webView"]',
+          snapshotUrls: 'https://i.gkd.li/i/25004213', //瓜分百亿金币(3天挑战)
+        },
+        {
+          key: 51,
+          action: 'back',
           matches: '[text="推荐小说"][id$="book_module_title"]',
           snapshotUrls: 'https://i.gkd.li/i/22658578', //小说
           activityIds: 'com.kuaishou.novel.home.NovelHomeActivity',
         },
         {
-          key: 12,
-          action: 'back',
-          matches: '[text="赚饲料"]',
-          fastQuery: false, //这条子规则内禁用快查询,否则真机不生效
-          snapshotUrls: 'https://i.gkd.li/i/22908125', //养鸭
-          activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
-        },
-        {
-          key: 13,
+          key: 52,
           action: 'back',
           matches: '[vid="tab_text"][text^="作品"]',
           snapshotUrls: 'https://i.gkd.li/i/24336755', //直播-用户主页
@@ -185,35 +210,14 @@ export default defineGkdApp({
             'com.yxcorp.gifshow.profile.activity.UserProfileActivity',
         },
         {
-          key: 14,
-          action: 'back',
-          matches: '[text="现金明细"]',
-          snapshotUrls: 'https://i.gkd.li/i/24337097', //我的收益页
-          activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
-        },
-        {
-          key: 15,
-          action: 'back',
-          matches: 'WebView[text="快手App邀请好友"]',
-          snapshotUrls: 'https://i.gkd.li/i/24431766', //邀请好友
-          activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
-        },
-        {
-          key: 16,
+          key: 53,
           activityIds: 'com.kwai.frog.game.engine.adapter.engine.base.',
           matches:
             '[id="com.kuaishou.nebula.minigame:id/v_more_view_close_and_close"][clickable=true]',
           snapshotUrls: 'https://i.gkd.li/i/24694286', //小游戏-x掉
         },
         {
-          key: 17,
-          activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
-          matches:
-            'Image - [text="金币游乐园"] - @[clickable=true][getChild(0).name$="Image"] <<3 View <2 View <<3 WebView[text="活动中心"] <<2 [vid="webView"]',
-          snapshotUrls: 'https://i.gkd.li/i/24694311', //小游戏乐园
-        },
-        {
-          key: 18,
+          key: 54,
           activityIds: 'com.yxcorp.gifshow.detail.PhotoDetailActivity',
           matches: [
             '[vid="text"][text="发条有爱评论~"]',
