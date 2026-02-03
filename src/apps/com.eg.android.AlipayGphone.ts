@@ -593,7 +593,7 @@ export default defineGkdApp({
           key: 7,
           name: '⑦组队种树弹窗-x掉',
           matches:
-            '@Button[text^="关闭"][clickable=true] <2 View <<3 View <4 View < WebView <<4 [id$="h5_pc_container"]',
+            '@Button[text^="关闭"][clickable=true] <2 View <<3 View <4 View < WebView[text="蚂蚁森林"] <<4 [id$="h5_pc_container"]',
           snapshotUrls: 'https://i.gkd.li/i/25001437',
         },
       ],
@@ -643,34 +643,6 @@ export default defineGkdApp({
         },
       ],
     },
-    // {
-    //   key: 26,
-    //   name: '⛪新村-解锁新村',
-    //   desc: '①去看看 ②愿意帮助',
-    //   activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-    //   rules: [
-    //     {
-    //       key: 1,
-    //       name: '去看看',
-    //       matches:
-    //         'WebView[text="蚂蚁新村"] >(3,4,5) Button[text="去看看"][visibleToUser=true]',
-    //       snapshotUrls: [
-    //         'https://i.gkd.li/i/23978812', //3
-    //         'https://i.gkd.li/i/24033641', //4
-    //       ],
-    //     },
-    //     {
-    //       key: 2,
-    //       name: '我愿意帮助她们',
-    //       preKeys: [1],
-    //       matches: '[text^="本村任务"] +2 [text=""]',
-    //       snapshotUrls: [
-    //         'https://i.gkd.li/i/23978826',
-    //         'https://i.gkd.li/i/24269075',
-    //       ],
-    //     },
-    //   ],
-    // },
     {
       key: 27,
       name: '🌾农场-施肥-丰收礼包-领取',
@@ -882,10 +854,11 @@ export default defineGkdApp({
       desc: '同步名下其他账号银行卡',
       rules: [
         {
-          matchRoot: true,
+          // matchRoot: true,
           matches:
-            '@View[width>100 && width<114][height>100 && height<114][left>450][top>1400] < ViewGroup[index=parent.childCount.minus(1)] <2 ViewGroup <<5 [id="android:id/content"]',
-          fastQuery: true,
+            '@View[width>100 && width<114][height>100 && height<114][left>450][top>1400]',
+          // '@View[width>100 && width<114][height>100 && height<114][left>450][top>1400] < ViewGroup[index=parent.childCount.minus(1)] <2 ViewGroup <<5 [id="android:id/content"]',
+          // fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/24447913',
           exampleUrls: 'https://e.gkd.li/87040b65-05e5-4ecc-8109-9a8a158af9b3',
           activityIds: '.AlipayLogin',
