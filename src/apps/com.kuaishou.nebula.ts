@@ -1367,23 +1367,22 @@ export default defineGkdApp({
           actionMaximum: 1,
           resetMatch: 'app',
           matches:
-            '[text$="领睡觉补贴" || text$="领起床补贴"][visibleToUser=true]',
+            '@[clickable=true] >2 [text$="领起床补贴" || text$="领睡觉补贴" || text$="开始起床" || text$="开始睡觉"]',
           snapshotUrls: [
-            'https://i.gkd.li/i/23290616',
-            'https://i.gkd.li/i/23290617',
+            'https://i.gkd.li/i/23290616', //领起床补贴
+            'https://i.gkd.li/i/23290617', //领睡觉补贴
           ],
         },
         {
           key: 2,
           action: 'back',
           actionDelay: 700,
-          matches:
-            '[text="已入睡" || text="已起床"][left<500][visibleToUser=true]',
+          matches: '[childCount=1] > [text="已入睡" || text="已起床"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24368949', //已入睡
             'https://i.gkd.li/i/24309580', //已起床
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/24692945', //任务列表页 [left=849]
+          excludeSnapshotUrls: 'https://i.gkd.li/i/24692945', //任务列表页 [childCount=1] >
         },
       ],
     },
