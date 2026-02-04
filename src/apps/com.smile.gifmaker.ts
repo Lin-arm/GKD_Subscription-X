@@ -308,7 +308,7 @@ export default defineGkdApp({
           key: 1,
           name: '①点击返回',
           matches: [
-            '[vid="title_tv"][text="登录" || text="拼多多" || text="支付宝" || text="渠道五" || text="气象通" || text$="广告平台"] + [vid="left_btn"][clickable=true]',
+            '[vid="title_tv"][text="登录" || text="拼多多" || text="支付宝" || text="渠道五" || text="气象通" || text$="广告平台" || text="腾讯优量汇" || text="‎"] + [vid="left_btn"][clickable=true]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/23439913',
@@ -316,6 +316,8 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23748402', //渠道五
             'https://i.gkd.li/i/25017254', //气象通
             'https://i.gkd.li/i/25017298', //广告平台
+            'https://i.gkd.li/i/25069169', //腾讯优量汇
+            'https://i.gkd.li/i/25069229', // text="‎"
           ],
         },
         {
@@ -1079,20 +1081,37 @@ export default defineGkdApp({
       key: 37,
       name: '🍚饭点-领补贴',
       desc: '①饭补 ②弹窗 ③待补签 ④左下角看广告',
+      activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
       rules: [
         {
-          actionCd: 5000,
-          anyMatches: [
-            '[text="看广告领饭补"][visibleToUser=true]',
-            '[text="看视频最高可得"] +2 [text="金币"][visibleToUser=true]',
-            '[text^="+" || text$="金币"] + [text$="待补签"][visibleToUser=true]',
-            '[text="领金币"] <3 * + @TextView[text="看广告"] + Image',
-          ],
+          key: 1,
+          name: '①中部-领饭补',
+          matches:
+            '[text="看广告领饭补" || text="领取饭补"] <2 [clickable=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/23382637',
-            'https://i.gkd.li/i/23382759',
+            'https://i.gkd.li/i/25069440',
           ],
-          activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
+        },
+        {
+          key: 2,
+          name: '②弹窗',
+          matches:
+            '@[clickable=true][index=parent.childCount.minus(2)] > [text="看视频最高可得" || text="看广告最多再得"] +2 [text="金币"]',
+          snapshotUrls: 'https://i.gkd.li/i/23382759',
+        },
+        {
+          key: 3,
+          name: '③上部-待补签',
+          matches:
+            '[text^="+"][text$="金币"] + [text$="待补签"][clickable=true]',
+        },
+        {
+          key: 4,
+          name: '④左下角-看广告',
+          actionCd: 5000,
+          matches:
+            '@[clickable=true][left=0] > TextView[text="看广告"][top>1800]',
         },
       ],
     },
