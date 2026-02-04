@@ -516,12 +516,13 @@ export default defineGkdApp({
           key: 3,
           name: '③专享补贴or添加首页-放弃',
           matches: [
-            '[text$="可用" || text="后失效" || text="限时领取"] +(1,2) TextView[text="残忍放弃"][index=parent.childCount.minus(2)]',
+            '[text$="可用" || text="后失效" || text="限时领取" || text="限今日"] +(1,2) TextView[text$="放弃"][index=parent.childCount.minus(2)]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/24157391', //专享补贴
             'https://i.gkd.li/i/24278961', //添加小程序到首页 (若用快速查询则真机不生效)
             'https://i.gkd.li/i/24913115', //添加小程序到首页2
+            'https://i.gkd.li/i/25063019', //天猫小程序入群福利
           ],
         },
         {
@@ -898,7 +899,8 @@ export default defineGkdApp({
           key: 2,
           preKeys: [1],
           action: 'back',
-          matches: 'TextView[text="领取福卡"][clickable=true]',
+          actionDelay: 100,
+          matches: '[visibleToUser=true]',
         },
       ],
     },
