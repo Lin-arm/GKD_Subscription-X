@@ -12,8 +12,8 @@ export default defineGkdApp({
       rules: [
         {
           anyMatches: [
-            '[vid="tvDiscoverMoreApps"][text^="前往应用商店"][clickable=true][focusable=true]',
-            '[vid="viewDetail"][text="应用详情"][clickable=true][focusable=true]',
+            '[vid="tvDiscoverMoreApps"][text^="前往应用商店"][clickable=true]',
+            '[vid="viewDetail"][text="应用详情"][clickable=true]',
           ],
           fastQuery: true,
           snapshotUrls: [
