@@ -1453,7 +1453,7 @@ export default defineGkdApp({
           key: 1,
           name: '①中部-领饭补',
           matches:
-            '[text="看广告领饭补" || text^="领取饭补" && text$="金币"][clickable.or(visibleToUser)=true]',
+            '[clickable=true][text^="领取饭补" || getChild(1).text$="领饭补"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24454732',
             'https://i.gkd.li/i/24673042',
@@ -1470,7 +1470,7 @@ export default defineGkdApp({
           key: 3,
           name: '③上部-待补签',
           matches:
-            '[text^="+" && text$="金币"] + [text$="待补签"][clickable=true]',
+            '[text^="+"][text$="金币"] + [text$="待补签"][clickable=true]',
           snapshotUrls: 'https://i.gkd.li/i/23381525',
         },
         {
