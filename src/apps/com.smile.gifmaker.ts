@@ -308,7 +308,7 @@ export default defineGkdApp({
           key: 1,
           name: '①点击返回',
           matches: [
-            '[vid="title_tv"][text="登录" || text="拼多多" || text="支付宝" || text="渠道五" || text="气象通" || text$="广告平台" || text="腾讯优量汇" || text="‎"] + [vid="left_btn"][clickable=true]',
+            '[vid="title_tv"][text="登录" || text="拼多多" || text="支付宝" || text="渠道五" || text="气象通" || text$="广告平台" || text="腾讯优量汇" || text="‎" || text="集惠购"] + [vid="left_btn"][clickable=true]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/23439913',
@@ -318,6 +318,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/25017298', //广告平台
             'https://i.gkd.li/i/25069169', //腾讯优量汇
             'https://i.gkd.li/i/25069229', // text="‎"
+            'https://i.gkd.li/i/25077842', //集惠购
           ],
         },
         {
