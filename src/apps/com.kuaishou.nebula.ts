@@ -234,7 +234,7 @@ export default defineGkdApp({
     },
     {
       key: 8,
-      name: '任务页-弹窗-X掉',
+      name: '⛳任务页-弹窗-X掉',
       desc: '组件,绑卡,邀好友,瓜分,...',
       activityIds: [
         'com.yxcorp.gifshow.HomeActivity', // A
@@ -307,7 +307,7 @@ export default defineGkdApp({
     },
     {
       key: 9,
-      name: '任务页-刷视频赚金币-领取',
+      name: '⛳任务页-刷视频赚金币-领取',
       desc: '有待领金币-立即领取',
       enable: false,
       rules: [
@@ -334,7 +334,7 @@ export default defineGkdApp({
     },
     {
       key: 10,
-      name: '❗网络错误-点击重试',
+      name: '⛳任务页-❗网络错误-点击重试',
       desc: '任务页加载出错',
       fastQuery: true,
       activityIds: [
