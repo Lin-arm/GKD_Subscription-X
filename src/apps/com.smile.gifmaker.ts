@@ -1113,6 +1113,13 @@ export default defineGkdApp({
           matches:
             '@[clickable=true][left=0] > TextView[text="看广告"][top>1800]',
         },
+        {
+          key: 5,
+          name: '⑤弹窗-x掉',
+          matches:
+            '@[clickable=true] - [index=parent.childCount.minus(2)][getChild(0).text="看视频 赚更多"] -n [text^="恭喜获得"][text$="补贴"]',
+          snapshotUrls: 'https://i.gkd.li/i/25074259',
+        },
       ],
     },
     {
