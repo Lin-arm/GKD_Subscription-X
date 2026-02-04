@@ -881,5 +881,26 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 35,
+      name: '🥰消息-私聊-点进送福卡消息-收下', //临时用,过年后删
+      desc: '①点击[开心收下] ②返回键',
+      actionCd: 100,
+      activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+      rules: [
+        {
+          key: 1,
+          matches:
+            '@Button[text="开心收下"][clickable=true] <2 View < [text="福卡领取区域"]',
+          snapshotUrls: 'https://i.gkd.li/i/25061551',
+        },
+        {
+          key: 2,
+          preKeys: [1],
+          action: 'back',
+          matches: 'TextView[text="领取福卡"][clickable=true]',
+        },
+      ],
+    },
   ],
 });
