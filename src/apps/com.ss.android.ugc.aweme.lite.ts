@@ -6,12 +6,12 @@ export default defineGkdApp({
   groups: [
     {
       key: 1,
-      name: '视频页-更新弹窗-以后再说',
+      name: '更新提示-以后再说',
       desc: '不更新',
       rules: [
         {
-          matches: ['[text="以后再说"][clickable=true][focusable=true]'],
           fastQuery: true,
+          matches: '[text="立即升级"] + * > [text="以后再说"][clickable=true]',
           snapshotUrls: 'https://i.gkd.li/i/24126015',
           activityIds: [
             'com.ss.android.ugc.aweme.detail.ui.DetailActivity',
@@ -22,17 +22,14 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '视频页-青少年弹窗-x掉',
-      desc: '启动时的青少年弹窗-关闭',
+      name: '青少年弹窗',
+      desc: '关闭',
       rules: [
         {
-          anyMatches: [
-            '[text="青少年模式"] < * + [desc="关闭"][visibleToUser=true]',
-            '[text="青少年模式"] +3 * > [text="关闭"][visibleToUser=true]',
-          ],
           fastQuery: true,
-          snapshotUrls: ['https://i.gkd.li/i/23427881'],
-          activityIds: ['com.ss.android.ugc.aweme.main.MainActivity'],
+          matches: '@[text="关闭"][clickable=true] < * -n [text="青少年模式"]',
+          snapshotUrls: 'https://i.gkd.li/i/23427881',
+          activityIds: 'com.ss.android.ugc.aweme.main.MainActivity',
         },
       ],
     },
@@ -42,14 +39,13 @@ export default defineGkdApp({
       desc: '已复制-x掉',
       rules: [
         {
-          matches: [
-            '[text^="链接已复制"] + ImageView[vid="m5e"][visibleToUser=true]',
-          ],
+          matches: '@ImageView[clickable=true] - [text^="链接已复制"]',
           fastQuery: true,
           snapshotUrls: [
-            'https://i.gkd.li/i/22944102',
-            'https://i.gkd.li/i/22945101',
+            'https://i.gkd.li/i/22944102', // v31.5.0
+            'https://i.gkd.li/i/25076821', // v37.7.0
           ],
+          exampleUrls: 'https://e.gkd.li/4466ef1e-e38f-4d1c-b548-7d0585c4d79d',
           activityIds: [
             'com.ss.android.ugc.aweme.detail.ui.DetailActivity',
             'com.ss.android.ugc.aweme.main.MainActivity',
@@ -63,15 +59,15 @@ export default defineGkdApp({
       desc: '已成功领取奖励',
       rules: [
         {
-          matches: [
-            '[text="广告"] +(1,3) [text^="领取成功，关闭"][visibleToUser=true]',
-          ],
           fastQuery: true,
+          matches:
+            '[text="广告"] +(1,3) [text^="领取成功，关闭"][clickable=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/23394121',
             'https://i.gkd.li/i/23562150',
           ],
-          activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
+          exampleUrls: 'https://e.gkd.li/493ef811-814f-4ada-a11b-41249743fbd0',
+          activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
         },
       ],
     },
@@ -81,15 +77,15 @@ export default defineGkdApp({
       desc: '再看一个',
       rules: [
         {
-          matches: [
-            '[text^="再看一个"] +(6,13) [text="领取奖励"][visibleToUser=true]',
-          ],
           fastQuery: true,
+          matches:
+            '[text^="再看一个"] +(6,13) [text="领取奖励"][visibleToUser=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/23394181',
             'https://i.gkd.li/i/23562162',
           ],
-          activityIds: ['com.ss.android.excitingvideo.ExcitingVideoActivity'],
+          exampleUrls: 'https://e.gkd.li/32505f12-f430-49dc-b711-fed907d2be35',
+          activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
         },
       ],
     },
@@ -99,12 +95,11 @@ export default defineGkdApp({
       desc: '点击返回',
       rules: [
         {
-          matches: ['[vid="iv_back"][desc="返回"][visibleToUser=true]'],
           fastQuery: true,
-          snapshotUrls: ['https://i.gkd.li/i/23394270'],
-          activityIds: [
+          matches: '[vid="iv_back"][desc="返回"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/23394270',
+          activityIds:
             'com.bytedance.ies.android.rifle.container.RifleContainerActivity',
-          ],
         },
       ],
     },
@@ -114,12 +109,11 @@ export default defineGkdApp({
       desc: '累计获得奖励弹窗-点击评价',
       rules: [
         {
-          matches: [
-            '[text="恭喜累计获得奖励"] +3 [text="评价并收下金币"][visibleToUser=true]',
-          ],
           fastQuery: true,
-          snapshotUrls: ['https://i.gkd.li/i/23394382'],
-          activityIds: ['com.ss.android.ugc.aweme.main.MainActivity'],
+          matches: '[text="评价并收下金币"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/23394382',
+          exampleUrls: 'https://e.gkd.li/a4e9803f-9935-4fc7-8977-5b855120046c',
+          activityIds: 'com.ss.android.ugc.aweme.main.MainActivity',
         },
       ],
     },
