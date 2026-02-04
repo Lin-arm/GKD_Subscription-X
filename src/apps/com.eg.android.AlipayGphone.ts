@@ -110,8 +110,10 @@ export default defineGkdApp({
       desc: '好友来串门种了xx g麦子',
       rules: [
         {
-          matches: ['[text^="七天内不收取"] + TextView[visibleToUser=true]'],
+          matches:
+            '@TextView[text=""] - [text^="七天内不收取"][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/22923502',
+          exampleUrls: 'https://e.gkd.li/bd62215c-15a4-47e3-8907-3421344e4ee5',
           activityIds:
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
         },
@@ -124,10 +126,10 @@ export default defineGkdApp({
       rules: [
         {
           actionCd: 200,
-          matches: [
-            '[text="为好友小鸡种一块麦田"] +4 [text="确认"][visibleToUser=true]',
-          ],
+          matches:
+            '@[text="确认"][clickable=true] -4 [text="为好友小鸡种一块麦田"]',
           snapshotUrls: 'https://i.gkd.li/i/22973904',
+          exampleUrls: 'https://e.gkd.li/b094f34c-bff0-4a6c-97b9-56194041e52a',
           activityIds:
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
         },
@@ -144,11 +146,13 @@ export default defineGkdApp({
           name: '①开宝箱',
           actionCd: 3000,
           matches:
-            '[text="恭喜获得奖励"] +(2,3) [text^="立即开宝箱"][visibleToUser=true]',
+            '@Button[text^="立即开宝箱" || text="开心收下"][clickable=true] -(2,3) [text="恭喜获得奖励"] <<2 View[index=parent.childCount.minus(1)] <n View < WebView[text="蚂蚁庄园"]',
           snapshotUrls: [
             'https://i.gkd.li/i/22983795',
             'https://i.gkd.li/i/22984046',
+            'https://i.gkd.li/i/25063088', //开心收下
           ],
+          exampleUrls: 'https://e.gkd.li/2aba7cd2-b61d-4bb7-bf23-a912fce34fdc',
         },
         {
           key: 2,
@@ -191,78 +195,71 @@ export default defineGkdApp({
       desc: '弹窗恭喜抽中->点击 知道啦',
       rules: [
         {
-          matches: [
+          matches:
             'Dialog >3 [text="知道啦"][index=parent.childCount.minus(2)][visibleToUser=true]',
-          ],
           snapshotUrls: 'https://i.gkd.li/i/22974073',
+          exampleUrls: 'https://e.gkd.li/3c78adf1-c7f6-4f38-87bd-8c9cfed6fe65',
           activityIds:
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
         },
       ],
     },
     {
-      key: 10,
-      name: '🐤养鸡-家庭👪-早安-弹窗确认',
-      desc: '点击 ①确认发送 ②x掉',
-      activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-      rules: [
-        {
-          key: 1,
-          name: '①确认发送',
-          matches: '[text="亲密度+1"] + [text="确认发送"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/22938526',
-        },
-        {
-          key: 2,
-          name: '②x掉',
-          matches: '[text$="传话内容"] < * +2 TextView[visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/22938583',
-        },
-      ],
-    },
-    {
       key: 11,
       name: '🐤养鸡-家庭👪-弹窗-确认',
-      desc: '①顶梁柱or请客 ②③喂食 ④睡觉 ⑤家具上新',
+      desc: '①早安 ③顶梁柱or请客 ④喂食 ⑤睡觉 ⑥家具上新',
       enable: false,
       activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
         {
           key: 1,
-          name: '①顶梁柱or请客',
-          matches: '[text^="提醒Ta"] -2 * > @[text="确认"] + [text^="亲密度+"]',
+          name: '①道早安',
+          matches: '[text="亲密度+1"] + [text="确认发送"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/22938526',
+        },
+        {
+          key: 2,
+          preKeys: [1],
+          name: '②早安传话-x掉',
+          matches:
+            '@TextView[width<110] -2 * > [text$="传话内容"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/22938583',
+        },
+        {
+          key: 3,
+          name: '③顶梁柱or请客',
+          matches:
+            '@[getChild(0).text="确认"] +2 [index=parent.childCount.minus(2)][text^="提醒Ta"] -n [text$="小鸡去干活" || text$="请客吃饭"] <<3 View <3 View < WebView <<4 [id$="h5_pc_container"]',
           snapshotUrls: [
             'https://i.gkd.li/i/22961775',
             'https://i.gkd.li/i/23762991',
           ],
         },
         {
-          key: 2,
-          name: '②喂食-亲密度+1',
+          key: 4,
+          name: '④喂食',
           matches:
-            '[text^="确认"][text$="亲密度+1"][clickable=true][focusable=true]',
-          snapshotUrls: 'https://i.gkd.li/i/23762732',
-        },
-        {
-          key: 3,
-          name: '③喂食',
-          matches:
-            '[text$="投喂了你的小鸡哦"] <<2 * +2 [text="确认"][clickable=true][focusable=true]',
-          snapshotUrls: 'https://i.gkd.li/i/23978998',
-        },
-        {
-          key: 4, // 睡觉,点不了,用相对坐标
-          name: '④去睡觉',
-          position: {
-            left: 'width * 0.5019',
-            top: 'width * 1.2630',
-          },
-          matches: '[text^="亲密度+"] + [text="去睡觉"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/23762886',
+            '@Button[text^="确认"][clickable=true] -4 [text="的小鸡喂食"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/23762732',
+            'https://i.gkd.li/i/23978998',
+          ],
         },
         {
           key: 5,
-          name: '⑤家具上新啦-x掉',
+          name: '⑤去睡觉',
+          // position: {    // 睡觉,点不了,用相对坐标
+          //   left: 'width * 0.5019',
+          //   top: 'width * 1.2630',
+          // },
+          // matches: '[text^="亲密度+"] + [text="去睡觉"][visibleToUser=true]',
+          matches:
+            '[text="去睡觉"] <n @[clickable=true] -n [text="让小鸡睡觉"]',
+          snapshotUrls: 'https://i.gkd.li/i/23762886',
+        },
+        {
+          key: 6,
+          name: '⑥家具上新啦-x掉',
           fastQuery: true,
           matches:
             '@Button[text="关闭"][clickable=true] -n * <<3 [index=parent.childCount.minus(2)] -n * <<3 WebView <<3 [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
@@ -334,15 +331,14 @@ export default defineGkdApp({
       desc: '饲料袋已满 弹窗->点击知道了',
       rules: [
         {
-          matches: [
-            '[text="饲料袋已满"]',
-            '[text="知道了" || text="确认"][clickable=true]',
-          ],
+          matches:
+            '@[text="知道了" || text="确认"][clickable=true] -(1,2,3) [text="饲料袋已满" || getChild(0).text="饲料袋已满"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23238168',
             'https://i.gkd.li/i/23414417',
             'https://i.gkd.li/i/23567547',
           ],
+          exampleUrls: 'https://e.gkd.li/3f69adda-7804-41a9-8a70-099e2c7acbd6',
           activityIds:
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
         },
