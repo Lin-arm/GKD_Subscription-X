@@ -820,8 +820,11 @@ export default defineGkdApp({
           action: 'back',
           actionCd: 2000,
           matches:
-            '[text="主页"] +2 [clickable=true] > [text="关注"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/23542497',
+            '[text="主页"] +(1,2) [clickable=true] > [text="关注"][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/23542497',
+            'https://i.gkd.li/i/25075124',
+          ],
         },
       ],
     },
