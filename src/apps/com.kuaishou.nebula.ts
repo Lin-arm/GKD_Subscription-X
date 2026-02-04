@@ -45,34 +45,19 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
-      name: '📺视频页-好评弹窗-x掉',
-      desc: '点击x掉',
-      rules: [
-        {
-          matches:
-            'ScrollView[vid="body"] -2 ImageView[vid="close"][visibleToUser=true]',
-          fastQuery: true,
-          snapshotUrls: 'https://i.gkd.li/i/22851896',
-          activityIds: 'com.yxcorp.gifshow.HomeActivity',
-        },
-      ],
-    },
-    {
       key: 4,
       name: '📺视频页-xx-不感兴趣',
       desc: '①快手热榜 ②每日打卡',
       rules: [
         {
-          matches: [
-            '[text="上滑继续观看视频"][visibleToUser=true]',
-            'TextView[text="不感兴趣"][clickable.or(visibleToUser)=true]',
-          ],
-          // matches: '[text="上滑继续观看视频"] - ImageView < * -(1,2) * >2 TextView[text="不感兴趣"]',
           fastQuery: true,
+          matches: [
+            '[text="上滑继续观看视频"]',
+            '(@[clickable=true] > [text="不感兴趣"]) || ([text="不感兴趣"][clickable=true])',
+          ],
           snapshotUrls: [
-            'https://i.gkd.li/i/22901405',
-            'https://i.gkd.li/i/22981911',
+            'https://i.gkd.li/i/22901405', //快手热榜
+            'https://i.gkd.li/i/22981911', //每日打卡
           ],
           activityIds: 'com.yxcorp.gifshow.HomeActivity',
         },
@@ -80,19 +65,39 @@ export default defineGkdApp({
     },
     {
       key: 5,
-      name: '📺视频页-长按直播-不感兴趣',
-      desc: '点击不感兴趣',
+      name: '📺视频页-长按直播-不感兴趣该内容',
+      desc: '点击[不感兴趣该内容]',
       rules: [
         {
-          actionCd: 2000,
-          matchDelay: 1700,
-          matches: '[text^="不感兴趣" && vid="item_title"][visibleToUser=true]',
+          // matchDelay: 1700,
           fastQuery: true,
-          snapshotUrls: 'https://i.gkd.li/i/22908240',
+          matches:
+            '@[clickable=true] >(2,3) [vid="item_title"][text="不感兴趣该内容"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/22908240',
+            'https://i.gkd.li/i/25071696',
+          ],
+          exampleUrls: 'https://e.gkd.li/7277dc82-6626-44c8-a84d-f2b03de97252',
           activityIds: [
             'com.yxcorp.gifshow.HomeActivity',
             'com.yxcorp.gifshow.detail.PhotoDetailActivity',
           ],
+        },
+      ],
+    },
+    {
+      key: 501,
+      name: '📺视频页-长按视频-不感兴趣',
+      desc: '点击[不感兴趣]',
+      enable: false,
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.yxcorp.gifshow.HomeActivity',
+          matches:
+            '@[clickable=true] >(2,3) [vid="item_title"][text="不感兴趣"]',
+          exampleUrls: 'https://e.gkd.li/27c8efcd-9cb8-42ae-85fa-14fa5d67a972',
+          snapshotUrls: 'https://i.gkd.li/i/25071878',
         },
       ],
     },
@@ -459,12 +464,14 @@ export default defineGkdApp({
           key: 1,
           matchDelay: 3500,
           matches: [
-            '[vid="title_tv"][text="登录" || text="拼多多" || text="支付宝" || text="正在打开..."]',
+            '[vid="title_tv"][text="登录" || text="拼多多" || text="支付宝" || text="正在打开..." || text="落茄香腾"]',
             '[vid="left_btn"][clickable=true][visibleToUser=true]', //返回
           ],
           snapshotUrls: [
-            'https://i.gkd.li/i/23421971',
-            'https://i.gkd.li/i/23764542',
+            'https://i.gkd.li/i/23421971', //拼多多
+            'https://i.gkd.li/i/23764542', //正在打开...
+            'https://i.gkd.li/i/25070194', //落茄香腾 A
+            'https://i.gkd.li/i/25070202', //落茄香腾 B
           ],
         },
         {
