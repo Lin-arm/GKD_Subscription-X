@@ -30,6 +30,7 @@ export default defineGkdApp({
       desc: '点击[x]',
       rules: [
         {
+          actionCd: 300,
           fastQuery: true,
           excludeMatches: '[text="跳过"][visibleToUser=true]', // 防止提前触发
           matches:

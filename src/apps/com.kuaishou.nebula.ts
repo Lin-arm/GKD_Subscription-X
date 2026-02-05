@@ -195,6 +195,12 @@ export default defineGkdApp({
         },
         {
           key: 15,
+          fastQuery: false,
+          matches: 'Button[text="狠心离开"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/25098334', //小游戏乐园-离开
+        },
+        {
+          key: 16,
           matches:
             '@[text$="瓜分大额奖池"] <2 View < View <2 View <<2 WebView <<2 [vid="webView"]',
           snapshotUrls: 'https://i.gkd.li/i/25004213', //瓜分百亿金币(3天挑战)
@@ -1370,7 +1376,7 @@ export default defineGkdApp({
           actionMaximum: 1,
           resetMatch: 'app',
           matches:
-            '@[clickable=true] >2 [text$="领起床补贴" || text$="领睡觉补贴" || text$="开始起床" || text$="开始睡觉"]',
+            '@[clickable=true] >2 [text$="领起床补贴" || text$="领睡觉补贴" || text="开始起床" || text="开始睡觉"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23290616', //领起床补贴
             'https://i.gkd.li/i/23290617', //领睡觉补贴
@@ -1380,12 +1386,13 @@ export default defineGkdApp({
           key: 2,
           action: 'back',
           actionDelay: 700,
-          matches: '[childCount=1] > [text="已入睡" || text="已起床"]',
+          matches: 'TextView[text="已入睡" || text="已起床"][index=0]',
           snapshotUrls: [
             'https://i.gkd.li/i/24368949', //已入睡
+            'https://i.gkd.li/i/25098137', //已入睡
             'https://i.gkd.li/i/24309580', //已起床
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/24692945', //任务列表页 [childCount=1] >
+          excludeSnapshotUrls: 'https://i.gkd.li/i/24692945', //任务列表页 [index=1]
         },
       ],
     },
