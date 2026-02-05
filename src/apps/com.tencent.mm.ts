@@ -6,73 +6,68 @@ export default defineGkdApp({
   groups: [
     {
       key: 1,
-      name: '🧩抖快-启动页AD-跳过',
-      desc: '小程序-抖快工具(无水印下载视频)',
+      name: '🧩小程序-开屏广告-跳过',
+      desc: '点击[跳过]',
       rules: [
         {
-          matches: ['TextView[text="跳过"][visibleToUser=true]'],
+          actionCd: 200,
           fastQuery: true,
-          snapshotUrls: 'https://i.gkd.li/i/22950301',
-          activityIds: '.plugin.appbrand.ui.AppBrandUI00',
+          matches: 'TextView[text="跳过"][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/22950301',
+            'https://i.gkd.li/i/12785183',
+          ],
+          activityIds: [
+            '.plugin.appbrand.ui.AppBrandUI', //掐头去尾 通配
+            '.plugin.appbrand.launching.AppBrandLaunchProxyUI',
+          ],
         },
       ],
     },
     {
       key: 2,
-      name: '🧩抖快-广告弹窗-x掉',
-      desc: '小程序',
+      name: '🧩小程序-广告弹窗-x掉',
+      desc: '抖快去水印(小程序)',
       rules: [
         {
-          matches: [
-            'FrameLayout[index=parent.childCount.minus(1)] >3 ImageView[width>=80][width<=99][visibleToUser=true]',
-          ],
+          fastQuery: true,
+          matches:
+            '@ImageView[width<130] <<4 [index=parent.childCount.minus(1)] - FrameLayout >4 [text="广告"]',
           snapshotUrls: [
-            'https://i.gkd.li/i/22944255',
-            'https://i.gkd.li/i/22947362',
+            'https://i.gkd.li/i/22944255', //抖快工具
+            'https://i.gkd.li/i/22947362', //抖快工具
           ],
-          activityIds: '.plugin.appbrand.ui.AppBrandUI00',
+          exampleUrls: 'https://e.gkd.li/af240f53-8ce0-466c-b9b2-39054c78159a',
+          activityIds: '.plugin.appbrand.ui.AppBrandUI',
         },
       ],
     },
     {
       key: 3,
-      name: '🧩抖快-剪贴板弹窗-解析',
-      desc: '检测到链接地址-解析',
-      rules: [
-        {
-          matches: [
-            'Button[text="解析"][vid="mm_alert_ok_btn"][visibleToUser=true]',
-          ],
-          fastQuery: true,
-          snapshotUrls: 'https://i.gkd.li/i/22944723',
-          activityIds: '.plugin.appbrand.ui.AppBrandUI00',
-        },
-      ],
-    },
-    {
-      key: 4,
-      name: '🧩抖快-看完广告-x掉',
+      name: '🧩小程序-看完30s广告-x掉',
       desc: '①已完成 ②已获得',
       rules: [
         {
           key: 1,
           name: '①已完成-x掉',
-          matches: ['[desc^="已完成"] -2 ImageView[visibleToUser=true]'],
+          matches:
+            '[desc^="已完成"] -2 ImageView[width<100][visibleToUser=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/22947257',
             'https://i.gkd.li/i/24450981', //七猫免费小说
           ],
           activityIds: [
             '.plugin.sns.ad.landingpage.ui.activity.DynamicCanvasPageUI',
-            '.plugin.appbrand.ui.AppBrandUI00',
+            '.plugin.appbrand.ui.AppBrandUI',
           ],
         },
         {
           key: 2,
           name: '②已获得奖励-x掉',
+          fastQuery: true,
           matches: [
             'TextView[text="已获得奖励"]',
-            '@LinearLayout[clickable=true][focusable=true][index=0] + FrameLayout[desc="浮窗"]',
+            '@LinearLayout[clickable=true][index=0] + [desc="浮窗"] + TextView[text=" "]',
           ],
           snapshotUrls: 'https://i.gkd.li/i/24204085',
           activityIds: '.plugin.finder.ui.FinderShareFeedRelUI',
@@ -80,13 +75,35 @@ export default defineGkdApp({
         {
           key: 3,
           name: '③已获得奖励-关闭',
-          matches: [
-            'TextView[text="已获得奖励"]',
-            'TextView[text="关闭"][top<200]',
-          ],
+          matches:
+            '@[text="关闭"] <<3 [index=parent.childCount.minus(1)] - FrameLayout >3 [text="已获得奖励"]',
           fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/24545151', //微粒贷
-          activityIds: '.plugin.appbrand.ui.AppBrandUI00',
+          activityIds: '.plugin.appbrand.ui.AppBrandUI',
+        },
+        {
+          key: 4,
+          name: '④直播-已获得奖励-x掉',
+          fastQuery: true,
+          activityIds:
+            '.plugin.finder.feed.ui.FinderLiveVisitorWithoutAffinityUI',
+          matches:
+            '@[desc="关闭直播按钮"][clickable=true] <n [index=0] + ViewGroup >2 [text="已获得奖励"]',
+          snapshotUrls: 'https://i.gkd.li/i/25095057',
+        },
+      ],
+    },
+    {
+      key: 4,
+      name: '🧩抖快-剪贴板弹窗-自动解析',
+      desc: '检测到链接地址-点击[解析]',
+      rules: [
+        {
+          fastQuery: true,
+          matches: 'Button[text="解析"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/22944723',
+          exampleUrls: 'https://e.gkd.li/c0c83143-c492-4d1a-ad91-5f8bd15b4775',
+          activityIds: '.plugin.appbrand.ui.AppBrandUI',
         },
       ],
     },
