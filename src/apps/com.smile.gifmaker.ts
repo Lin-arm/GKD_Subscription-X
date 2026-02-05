@@ -307,6 +307,7 @@ export default defineGkdApp({
         {
           key: 1,
           name: '①点击返回',
+          matchDelay: 3500,
           matches: [
             '[vid="title_tv"][text="登录" || text="拼多多" || text="支付宝" || text="渠道五" || text="气象通" || text$="广告平台" || text="腾讯优量汇" || text="‎" || text="集惠购"] + [vid="left_btn"][clickable=true]',
           ],
@@ -322,34 +323,15 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 2,
-          name: '②点击返回',
-          matches:
-            '[vid="title_tv"][text="ksH5"] - [vid="left_btn"][clickable=true]',
-          snapshotUrls: 'https://i.gkd.li/i/25018347',
-        },
-        {
-          key: 3,
-          name: '③点击返回',
-          matches: [
-            '@[text="应用介绍" || text="快手极速版" || text^="应用名称"] -n * <<(4,5) [vid="webView"]',
-            '[vid="left_btn"][clickable=true]',
-          ],
+          key: 2, //等待时间过长(9秒), 直接返回
+          matchDelay: 3500,
+          actionDelay: 9000,
+          matches: '[vid="left_btn"][clickable=true][visibleToUser=true]', //返回
           snapshotUrls: [
+            'https://i.gkd.li/i/25018347', // ksH5
             'https://i.gkd.li/i/23689657',
             'https://i.gkd.li/i/25017691', //应用名称：趣享天天
-          ],
-        },
-        {
-          key: 4, //未加载完毕的广告页
-          name: '④未加载-点击返回',
-          matches: [
-            '@Image[text^="此图片未加标签"] <2 WebView <<2 [vid="webView"]',
-            '[vid="left_btn"][clickable=true]',
-          ],
-          snapshotUrls: [
-            'https://i.gkd.li/i/25017117',
-            'https://i.gkd.li/i/25017179',
+            'https://i.gkd.li/i/25017117', //未加载
           ],
         },
         {
