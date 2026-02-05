@@ -27,17 +27,20 @@ export default defineGkdApp({
     {
       key: 2,
       name: '🧩小程序-广告弹窗-x掉',
-      desc: '抖快去水印(小程序)',
+      desc: '点击[x]',
       rules: [
         {
           fastQuery: true,
+          excludeMatches: '[text="跳过"][visibleToUser=true]', // 防止提前触发
           matches:
             '@ImageView[width<130] <<4 [index=parent.childCount.minus(1)] - FrameLayout >4 [text="广告"]',
           snapshotUrls: [
             'https://i.gkd.li/i/22944255', //抖快工具
             'https://i.gkd.li/i/22947362', //抖快工具
+            'https://i.gkd.li/i/13459614', //提瓦特小助手
           ],
           exampleUrls: 'https://e.gkd.li/af240f53-8ce0-466c-b9b2-39054c78159a',
+          excludeSnapshotUrls: 'https://i.gkd.li/i/16958795',
           activityIds: '.plugin.appbrand.ui.AppBrandUI',
         },
       ],
