@@ -704,20 +704,31 @@ export default defineGkdApp({
     {
       key: 29,
       name: '🎮小游戏-申请发消息-取消',
-      desc: '弹窗-取消',
+      desc: '①保持以上选择 ②点击[取消]',
+      fastQuery: true,
+      activityIds: [
+        'com.alipay.android.phone.messageboxstatic.extension.ProcessTransActivity',
+        'com.alipay.android.phone.mbox.biz.legacy.sbs.', // 通配
+      ],
       rules: [
         {
-          matches: [
+          key: 1,
+          name: '①保持以上选择-✅',
+          matches:
+            '@CheckBox[clickable=true][checked=false] + [text$="不再询问"]',
+          snapshotUrls: 'https://i.gkd.li/i/25098582', // 未选中
+          excludeSnapshotUrls: 'https://i.gkd.li/i/25098563', // [checked=true] 已选中
+          exampleUrls: 'https://e.gkd.li/d0e5b909-7d7d-4fcb-9368-631e50d020d6',
+        },
+        {
+          key: 2,
+          name: '②取消',
+          matchDelay: 200,
+          matches:
             '[text="发送一次以下消息"] +n * > Button[text="取消"][id$="negativeBtn"][clickable=true]',
-          ],
-          fastQuery: true,
           snapshotUrls: [
             'https://i.gkd.li/i/22981739',
             'https://i.gkd.li/i/23238549',
-          ],
-          activityIds: [
-            'com.alipay.android.phone.messageboxstatic.extension.ProcessTransActivity',
-            'com.alipay.android.phone.mbox.biz.legacy.sbs.ui.MBoxProcessTransActivity',
           ],
         },
       ],
