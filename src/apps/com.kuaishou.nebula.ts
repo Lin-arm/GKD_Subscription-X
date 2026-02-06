@@ -93,11 +93,14 @@ export default defineGkdApp({
       rules: [
         {
           fastQuery: true,
-          activityIds: 'com.yxcorp.gifshow.HomeActivity',
           matches:
             '@[clickable=true] >(2,3) [vid="item_title"][text="不感兴趣"]',
           exampleUrls: 'https://e.gkd.li/27c8efcd-9cb8-42ae-85fa-14fa5d67a972',
           snapshotUrls: 'https://i.gkd.li/i/25071878',
+          activityIds: [
+            'com.yxcorp.gifshow.HomeActivity',
+            'com.yxcorp.gifshow.detail.PhotoDetailActivity',
+          ],
         },
       ],
     },

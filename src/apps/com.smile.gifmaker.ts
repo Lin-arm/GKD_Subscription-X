@@ -13,18 +13,32 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '📺视频页-长按直播or广告-不感兴趣',
-      desc: '点击不感兴趣',
+      name: '📺视频页-长按直播-不感兴趣该内容',
+      desc: '点击[不感兴趣该内容]',
       rules: [
         {
-          actionCd: 2000,
-          matchDelay: 1700,
-          matches: '[text^="不感兴趣" && vid="item_title"][visibleToUser=true]',
           fastQuery: true,
-          snapshotUrls: [
-            'https://i.gkd.li/i/23386995',
-            'https://i.gkd.li/i/23567782',
+          matches:
+            '@[clickable=true] >(2,3) [vid="item_title"][text="不感兴趣该内容"]',
+          snapshotUrls: 'https://i.gkd.li/i/23386995',
+          activityIds: [
+            'com.yxcorp.gifshow.HomeActivity',
+            'com.yxcorp.gifshow.detail.PhotoDetailActivity',
           ],
+        },
+      ],
+    },
+    {
+      key: 101,
+      name: '📺视频页-长按视频-不感兴趣',
+      desc: '点击[不感兴趣]',
+      enable: false,
+      rules: [
+        {
+          fastQuery: true,
+          matches:
+            '@[clickable=true] >(2,3) [vid="item_title"][text="不感兴趣"]',
+          snapshotUrls: 'https://i.gkd.li/i/23567782',
           activityIds: [
             'com.yxcorp.gifshow.HomeActivity',
             'com.yxcorp.gifshow.detail.PhotoDetailActivity',
@@ -158,7 +172,7 @@ export default defineGkdApp({
     },
     {
       key: 4,
-      name: '任务页-弹窗-X掉',
+      name: '⛳任务页-弹窗-X掉',
       desc: '添加组件,去绑卡,邀好友,看视频 弹窗',
       activityIds: [
         'com.yxcorp.gifshow.HomeActivity', // A
@@ -192,7 +206,7 @@ export default defineGkdApp({
     },
     {
       key: 5,
-      name: '任务页-刷视频赚金币-领取',
+      name: '⛳任务页-刷视频赚金币-领取',
       desc: '有待领金币-立即领取',
       enable: false,
       rules: [
