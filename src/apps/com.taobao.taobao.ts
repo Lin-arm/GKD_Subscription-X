@@ -72,8 +72,11 @@ export default defineGkdApp({
       rules: [
         {
           activityIds: 'com.taobao.themis.container.app.TMSActivity',
-          matches: '@[clickable=true] > [text="点击签到"]',
-          snapshotUrls: 'https://i.gkd.li/i/24993351',
+          matches: '@[clickable=true] > [text="点击签到" || text="签到领金币"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/24993351',
+            'https://i.gkd.li/i/25126165',
+          ],
         },
       ],
     },
