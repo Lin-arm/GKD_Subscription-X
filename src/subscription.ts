@@ -5,7 +5,7 @@ import globalGroups from './globalGroups';
 
 export default defineGkdSubscription({
   id: 777,
-  name: 'Lin-arm的GKD订阅🧧',
+  name: '偏向功能脚本类的GKD订阅🧧',
   version: 0,
   author: 'Lin-arm',
   checkUpdateUrl: './gkd.version.json5',
