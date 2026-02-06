@@ -112,6 +112,57 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 5,
+      name: '功能类-自动领取微信红包🧧',
+      desc: '自动领取私聊红包,群聊红包',
+      fastQuery: true,
+      rules: [
+        {
+          key: 1,
+          name: '点击别人发的红包',
+          activityIds: [
+            '.ui.LauncherUI',
+            '.ui.chatting.variants.ChattingMainUI',
+          ],
+          matches:
+            'LinearLayout[childCount=1] >2 @FrameLayout[clickable=true] >2 LinearLayout[getChild(1).childCount=1] +2 RelativeLayout > [text="微信红包"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/18134826',
+            'https://i.gkd.li/i/24347101',
+          ],
+          excludeSnapshotUrls: [
+            'https://i.gkd.li/i/18134823', // 自己发的， LinearLayout[childCount=1] 区分
+            'https://i.gkd.li/i/18134833', // 已领取的， getChild(1).childCount=1 区分
+          ],
+        },
+        {
+          preKeys: [1],
+          key: 2,
+          name: '点击红包-开',
+          matchRoot: true,
+          activityIds: '.plugin.luckymoney.ui.LuckyMoney',
+          matches: '@Button[desc="开"] -3 LinearLayout >2 [text$="红包"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/18134828',
+            'https://i.gkd.li/i/21177180',
+          ],
+          excludeSnapshotUrls: 'https://i.gkd.li/i/12567698', // 金币动画的快照
+        },
+        {
+          preKeys: [1, 2],
+          name: '从红包结算界面返回',
+          activityIds: '.plugin.luckymoney.ui.LuckyMoney',
+          matches: '@ImageView[desc="返回"] +n LinearLayout >8 [text$="红包"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/18134829',
+            'https://i.gkd.li/i/18135031',
+            'https://i.gkd.li/i/23825631',
+            'https://i.gkd.li/i/24414957',
+          ],
+        },
+      ],
+    },
+    {
       key: 45,
       name: '分段广告-视频号评论区内广告',
       desc: '注意⚠️: 有概率误触,有生效范围限制(看示例图)',
