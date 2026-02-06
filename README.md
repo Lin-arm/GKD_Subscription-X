@@ -1,17 +1,5 @@
-<!-- PROJECT LOGO -->
-<!-- <div align="center"> -->
 
-  <!-- https://www.emojiall.com/zh-hans -->
-  <!-- <img src="https://www.emojiall.com/en/header-svg/%F0%9F%A6%9C.svg" alt="鹦鹉图标" width="80" height="80"> -->
-
-  <!-- <h1 align="center">gkd-Rules</h1> -->
-
-  <!-- <p align="center">小众的偏向功能类脚本类的GKD规则。</p> -->
-  <!-- <br/><br/> -->
-<!-- </div> -->
-
-<!-- [![SVG Banners](https://svg-banners.vercel.app/api?type=origin&text1=gkd-Rules%20🦜&text2=💖%20Open%20Source&width=800&height=400)](https://github.com/Lin-arm/gkd-Rules) -->
-[![SVG Banners](https://svg-banners.vercel.app/api?type=origin&text1=gkd-Rules%20🦜&text2=🧧小众的偏向功能类脚本类的GKD规则&height=350)](https://github.com/Lin-arm/gkd-Rules)
+[![SVG Banners](https://svg-banners.vercel.app/api?type=origin&text1=gkd-Rules%20🦜&text2=🧧小众的偏向功能脚本类的GKD规则&height=350)](https://github.com/Lin-arm/gkd-Rules)
 
 <!-- [![SVG Banners](https://svg-banners.vercel.app/api?type=luminance&text1=gkd-Rules%20🦜&width=800&height=200)](https://github.com/Lin-arm/gkd-Rules) -->
 
@@ -26,9 +14,9 @@
 > 本订阅仅供学习交流使用，请勿做非法用途
 
 
-- 当前版本: v45
+- 当前版本: v46
 
-- 当前订阅文件已适配 19 个应用，共有 162 应用规则组，0 全局规则组
+- 当前订阅文件已适配 21 个应用，共有 168 应用规则组，0 全局规则组
 
 - 具体有多小众请查看 [适配 APP 列表](./dist/README.md)
 
