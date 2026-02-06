@@ -190,7 +190,7 @@ export default defineGkdApp({
       key: 46,
       name: '功能类-自动拨打1次视频通话',
       desc: '(⚠️慎用)依次点击 ①右下角⊕号 ②视频通话 ③选择视频通话',
-      actionMaximum: 1,
+      // actionMaximum: 1,
       resetMatch: 'app',
       enable: false,
       activityIds: ['.ui.chatting.ChattingUI', '.ui.LauncherUI'],
@@ -198,14 +198,16 @@ export default defineGkdApp({
         {
           key: 1,
           name: '①点击右下角⊕号',
+          actionMaximum: 1,
           matches: '[desc^="更多功能按钮"][clickable=true][bottom>2000]',
           snapshotUrls: 'https://i.gkd.li/i/25118402',
         },
         {
           key: 2,
-          preKeys: [1],
+          // preKeys: [1],
           name: '②视频通话',
           fastQuery: true,
+          actionMaximum: 2, //有些系统(OnePlus Android 16)第1次点击不生效
           actionDelay: 1500,
           matches:
             '@[clickable=true] >3 [getChild(0).name$="ImageView"] + [text="视频通话"]',
@@ -218,6 +220,7 @@ export default defineGkdApp({
           key: 3,
           preKeys: [2],
           name: '③选择视频通话',
+          actionMaximum: 1,
           fastQuery: true,
           actionDelay: 500,
           matches:
