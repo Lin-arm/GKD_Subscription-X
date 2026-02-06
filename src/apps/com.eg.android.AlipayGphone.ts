@@ -769,7 +769,7 @@ export default defineGkdApp({
     },
     {
       key: 31,
-      name: '🙋‍♂️扫码加好友-辅助①',
+      name: '🙋‍♂️扫森林码加好友-辅助①',
       desc: '扫出森林主页->点击 加好友',
       enable: false,
       rules: [
@@ -790,7 +790,7 @@ export default defineGkdApp({
           matchDelay: 1000,
           matches: [
             '[text$="的蚂蚁森林"][id$="textView_title"]',
-            'Button + Button[text="" || text="加好友"][visibleToUser=true]',
+            'Button + Button[text="" || text="加好友"][clickable=true][visibleToUser=true]',
           ],
           fastQuery: true,
           snapshotUrls: [
@@ -805,12 +805,13 @@ export default defineGkdApp({
     {
       key: 32,
       name: '🙋‍♂️加好友-辅助②',
-      desc: '用户主页-> ①加好友 ②x掉捎话弹窗 ③返回键',
+      desc: '点击 ①加好友 ②x掉捎话弹窗 ③返回键',
       fastQuery: true,
       enable: false,
       activityIds: [
         'com.alipay.android.phone.xriver.bundlex.CSGAPushActivity', //A
         'com.alipay.mobile.socialcontactsdk.contact.ui.FriendVerifyNewActivity_', //B
+        'com.alipay.mobile.socialcontactsdk.contact.ui.FriendVerifyNewUIActivity_', //C
       ],
       rules: [
         {
@@ -827,11 +828,11 @@ export default defineGkdApp({
           key: 2,
           name: '②x掉捎话弹窗',
           actionCd: 1500,
-          matches:
-            '[text="给Ta捎句话吧"] - * > [id$="closeButton"] > [text=""][visibleToUser=true]',
+          matches: '[text="给Ta捎句话吧"] - * > @[clickable=true] > [text=""]',
           snapshotUrls: [
             'https://i.gkd.li/i/23280089', //B
             'https://i.gkd.li/i/23280173', //A
+            'https://i.gkd.li/i/25126700', //C 直接再用户森林页,点击加好友就出现的
           ],
         },
         {
