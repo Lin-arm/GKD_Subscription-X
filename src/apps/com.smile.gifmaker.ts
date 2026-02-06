@@ -48,8 +48,8 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '🦜脚本刷视频-误入页面-返回键', //保持在刷视频页
-      desc: '仅在用脚本自动刷视频时打开,其余时间🈲用',
+      name: '🐦脚本刷视频(辅助)-保持在刷视频页',
+      desc: '(⚠️慎用) 误进评论区,直播间,任务中心等 --> 返回键',
       enable: false,
       fastQuery: true,
       priorityTime: 5000,
@@ -87,8 +87,8 @@ export default defineGkdApp({
     },
     {
       key: 3,
-      name: '🦜脚本刷广告-进任务中心', //从隔壁'快极'复制过来的
-      desc: '仅在用脚本自动看广告时打开,其余时间🈲用',
+      name: '🐦脚本刷广告(辅助)-保持在刷广告相关页', //从隔壁'快极'复制过来的
+      desc: '⚠️ ①重启自进任务中心 ②误进与看广告无关页会返回',
       enable: false,
       fastQuery: true,
       activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', //子规则里出现最多的界面id
@@ -1020,11 +1020,10 @@ export default defineGkdApp({
           key: 2,
           action: 'back',
           actionDelay: 700,
-          matches: 'TextView[text="已入睡" || text="已起床"][index=0]',
-          // snapshotUrls: [
-          //   'https://i.gkd.li/i/24368949', //已入睡
-          //   'https://i.gkd.li/i/24309580', //已起床
-          // ],
+          matches: '[text="已入睡" || text="已起床"][index=0]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/25127852', //已入睡
+          ],
           excludeSnapshotUrls: 'https://i.gkd.li/i/25116719', //任务列表页 [index=1]
         },
       ],
