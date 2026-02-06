@@ -534,7 +534,7 @@ export default defineGkdApp({
           key: 5,
           name: '⑤右侧边栏-关闭',
           matches:
-            '[vid="photo_feed_side_bar_close_view"][clickable=true][focusable=true][visibleToUser=true]',
+            '[vid="photo_feed_side_bar_close_view"][clickable=true][visibleToUser=true]',
           // snapshotUrls: 'https://i.gkd.li/i/23300668',
         },
         {
@@ -628,27 +628,6 @@ export default defineGkdApp({
           matches:
             '[vid="red_packet_container_view"] +2 ImageView[vid="close_view"][clickable=true][focusable=true]',
           snapshotUrls: 'https://i.gkd.li/i/23654976', // 口令红包 未中奖
-        },
-      ],
-    },
-    {
-      key: 22,
-      name: '📡直播间-右侧边栏-关闭',
-      desc: '关闭',
-      activityIds: [
-        'com.yxcorp.gifshow.detail.PhotoDetailActivity',
-        'com.kuaishou.live.core.basic.activity.LiveSlideActivity',
-        'com.kuaishou.live.core.basic.activity.LivePlayActivity',
-        'com.yxcorp.gifshow.ad.neo.video.award.AwardVideoPlayActivity',
-        'com.yxcorp.gifshow.ad.neo.videov2.award.AwardVideoPlayActivityV2',
-        'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity',
-      ],
-      rules: [
-        {
-          matches:
-            '[vid="photo_feed_side_bar_close_view"][clickable=true][focusable=true][visibleToUser=true]',
-          fastQuery: true,
-          // snapshotUrls: 'https://i.gkd.li/i/23300668',
         },
       ],
     },
@@ -1027,11 +1006,12 @@ export default defineGkdApp({
           key: 2,
           action: 'back',
           actionDelay: 700,
-          matches: '[text="已入睡" || text="已起床"][visibleToUser=true]',
+          matches: 'TextView[text="已入睡" || text="已起床"][index=0]',
           // snapshotUrls: [
           //   'https://i.gkd.li/i/24368949', //已入睡
           //   'https://i.gkd.li/i/24309580', //已起床
           // ],
+          excludeSnapshotUrls: 'https://i.gkd.li/i/25116719', //任务列表页 [index=1]
         },
       ],
     },
