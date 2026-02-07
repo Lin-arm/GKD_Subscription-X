@@ -49,7 +49,7 @@ export default defineGkdApp({
     {
       key: 2,
       name: '🐦脚本刷视频(辅助)-保持在刷视频页',
-      desc: '(⚠️慎用) 误进评论区,直播间,任务中心等 --> 返回键',
+      desc: '⚠️误进评论区,直播间,任务中心等-->返回键',
       enable: false,
       fastQuery: true,
       priorityTime: 5000,
@@ -59,27 +59,39 @@ export default defineGkdApp({
           key: 1,
           action: 'back',
           matches: [
-            '[vid="profile_feed_title" || vid="share_panel" || vid="tab_text" && text*="评论" || vid="webView"][visibleToUser=true]',
+            '[vid="design_bottom_sheet" || (vid="tab_text" && text*="评论") || vid="profile_feed_title" || vid="kcube_tab_strip" || vid="user_name_info_layout" || (vid="tabs" && getChild(0).getChild(0).desc="消息") || vid="webView"][visibleToUser=true]',
           ],
-          // snapshotUrls: [
-          //   'https://i.gkd.li/i/23777346', //视频页-她的作品(右侧边栏)
-          //   'https://i.gkd.li/i/23777882', //视频页-分享(下方弹窗)
-          //   'https://i.gkd.li/i/23777756', //视频页-评论区
-          //   'https://i.gkd.li/i/22883404', //其他 webView (任务中心)
-          // ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/25143290', //视频页-分享(下方弹窗)
+            'https://i.gkd.li/i/25143296', //视频页-评论区
+            'https://i.gkd.li/i/25143327', //视频页-她的作品(右侧边栏)
+            'https://i.gkd.li/i/25143392', //首页-顶部频道栏
+            'https://i.gkd.li/i/25143478', //我-用户资料
+            'https://i.gkd.li/i/25143535', //消息页
+            // 'https://i.gkd.li/i/22883404', //(参考快极)其他 webView (任务中心)
+          ],
         },
         {
           key: 2,
+          name: '②左边工具栏-返回键',
           action: 'back',
           matches:
             '@SlidingPaneLayout[childCount=1] < [vid="home_activity_root"]',
-          // snapshotUrls: 'https://i.gkd.li/i/23778737', //视频页-左边工具栏
-          // excludeSnapshotUrls: 'https://i.gkd.li/i/23778837', //正常刷视频页  [childCount=2]
+          snapshotUrls: 'https://i.gkd.li/i/25143446', //视频页-左边工具栏
+          excludeSnapshotUrls: 'https://i.gkd.li/i/25143448', //正常刷视频页  [childCount=2]
+        },
+        {
+          key: 3,
+          name: '③误进横屏-返回键',
+          action: 'back',
+          matches: '[parent=null][width>height]',
+          snapshotUrls: 'https://i.gkd.li/i/25143597', //进入横屏
         },
         {
           key: 444, //进入非视频页,直接返回
+          name: '④进入非视频界面-返回键',
           action: 'back',
-          matches: '[id="android:id/content"][visibleToUser=true]',
+          matches: '[parent=null]',
           excludeActivityIds: 'com.yxcorp.gifshow.HomeActivity',
           activityIds: [],
         },
@@ -88,7 +100,7 @@ export default defineGkdApp({
     {
       key: 3,
       name: '🐦脚本刷广告(辅助)-保持在刷广告相关页', //从隔壁'快极'复制过来的
-      desc: '⚠️ ①重启自进任务中心 ②误进与看广告无关页会返回',
+      desc: '⚠️①重启自进任务中心 ②误进与看广告无关页会返回',
       enable: false,
       fastQuery: true,
       activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', //子规则里出现最多的界面id

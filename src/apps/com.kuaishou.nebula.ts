@@ -107,7 +107,7 @@ export default defineGkdApp({
     {
       key: 6,
       name: '🦜脚本刷视频(辅助)-保持在刷视频页',
-      desc: '(⚠️慎用) 误进评论区,直播间,任务中心等 --> 返回键',
+      desc: '⚠️误进评论区,直播间,任务中心等-->返回键',
       enable: false,
       fastQuery: true,
       priorityTime: 5000,
@@ -117,17 +117,20 @@ export default defineGkdApp({
           key: 1,
           action: 'back',
           matches: [
-            '[vid="profile_feed_title" || vid="share_panel" || vid="tab_text" && text*="评论" || vid="webView"][visibleToUser=true]',
+            '[vid="design_bottom_sheet" || (vid="tab_text" && text*="评论") || vid="profile_feed_title" || vid="find_friend_btn" || vid="webView"][visibleToUser=true]',
           ],
           snapshotUrls: [
-            'https://i.gkd.li/i/23777346', //视频页-她的作品(右侧边栏)
             'https://i.gkd.li/i/23777882', //视频页-分享(下方弹窗)
             'https://i.gkd.li/i/23777756', //视频页-评论区
+            'https://i.gkd.li/i/23777346', //视频页-她的作品(右侧边栏)
+            // 'https://i.gkd.li/i/25071878', //长按视频
+            'https://i.gkd.li/i/25146300', //朋友-动态页
             'https://i.gkd.li/i/22883404', //其他 webView (任务中心)
           ],
         },
         {
           key: 2,
+          name: '②左边工具栏-返回键',
           action: 'back',
           matches:
             '@SlidingPaneLayout[childCount=1] < [vid="home_activity_root"]',
@@ -135,9 +138,36 @@ export default defineGkdApp({
           excludeSnapshotUrls: 'https://i.gkd.li/i/23778837', //正常刷视频页  [childCount=2]
         },
         {
-          key: 444, //进入非视频页,直接返回
+          key: 3,
+          name: '③误进横屏-返回键',
           action: 'back',
-          matches: '[id="android:id/content"][visibleToUser=true]',
+          matches: '[parent=null][width>height]',
+          // snapshotUrls: 'https://i.gkd.li/i/25143597', //(参考快手)进入横屏
+        },
+        {
+          key: 4,
+          name: '④误进[我]页-点击[首页]',
+          matches: [
+            '[vid="user_name_info_layout"][visibleToUser=true]',
+            '@[clickable=true] >3 [text="首页"]',
+          ],
+          snapshotUrls: 'https://i.gkd.li/i/25144133',
+        },
+        {
+          key: 5,
+          name: '⑤从[关注]页-点击[发现]',
+          matches: [
+            '@[vid="follow_button"][childCount=0] - [vid="follow_avatar_view"][visibleToUser=true]',
+            '@[clickable=true] > [vid="textView"][desc="发现"]',
+          ],
+          snapshotUrls: 'https://i.gkd.li/i/25148876', //在刷[关注]页的视频
+          excludeSnapshotUrls: 'https://i.gkd.li/i/25148885', //在刷[发现]页的视频 [childCount=1]
+        },
+        {
+          key: 444, //进入非视频页,直接返回
+          name: '④进入非视频界面-返回键',
+          action: 'back',
+          matches: '[parent=null]', //所有界面都存在的 根节点
           excludeActivityIds: 'com.yxcorp.gifshow.HomeActivity',
           activityIds: [],
         },
@@ -146,7 +176,7 @@ export default defineGkdApp({
     {
       key: 7,
       name: '🦜脚本刷广告(辅助)-保持在刷广告相关页',
-      desc: '⚠️ ①重启自进任务中心 ②误进与看广告无关页会返回',
+      desc: '⚠️①重启自进任务中心 ②误进与看广告无关页会返回',
       enable: false,
       fastQuery: true,
       activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', //子规则里出现最多的界面id
@@ -301,7 +331,7 @@ export default defineGkdApp({
         {
           key: 3,
           matches: [
-            '[childCount=1] > ImageView[width>95 && width<106][height>95 && height<106][top>300 && top<1000][visibleToUser=true]',
+            '[childCount=1] > ImageView[id=null][width>95 && width<106][height>95 && height<106][top>300 && top<1000][visibleToUser=true]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/24352727', //A 2025年度回忆
@@ -310,6 +340,7 @@ export default defineGkdApp({
           excludeSnapshotUrls: [
             'https://i.gkd.li/i/24357473', //视频页 top>300
             'https://i.gkd.li/i/24642377', //视频页 top<1000
+            'https://i.gkd.li/i/25144133', //我-用户信息页 [id=null]
           ],
         },
       ],
