@@ -894,7 +894,7 @@ export default defineGkdApp({
       key: 35,
       name: '🥰消息-私聊-点进送福卡消息-收下', //临时用,过年后删
       desc: '①点击[开心收下] ②返回键',
-      actionCd: 100,
+      actionCd: 300,
       activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
         {
@@ -907,8 +907,8 @@ export default defineGkdApp({
           key: 2,
           preKeys: [1],
           action: 'back',
-          actionDelay: 100,
-          matches: '[visibleToUser=true]',
+          actionDelay: 200, //留点时间给 key1
+          matches: '[parent=null]',
         },
       ],
     },
