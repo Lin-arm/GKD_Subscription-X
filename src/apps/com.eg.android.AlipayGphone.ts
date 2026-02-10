@@ -594,6 +594,13 @@ export default defineGkdApp({
             '@Button[text^="关闭"][clickable=true] <2 View <<3 View <4 View < WebView[text="蚂蚁森林"] <<4 [id$="h5_pc_container"]',
           snapshotUrls: 'https://i.gkd.li/i/25001437',
         },
+        {
+          key: 8,
+          name: '⑧参与pk赛弹窗-x掉',
+          matches:
+            '@Button[text^="关闭"][clickable=true][index=parent.childCount.minus(1)] <n View <3 View <<2 View <4 WebView[text="蚂蚁森林"] <<4 [id$="h5_pc_container"]',
+          snapshotUrls: 'https://i.gkd.li/i/25210236',
+        },
       ],
     },
     {
