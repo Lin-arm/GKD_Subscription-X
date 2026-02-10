@@ -71,9 +71,13 @@ export default defineGkdApp({
       name: '💰淘金币-签到',
       rules: [
         {
-          activityIds: 'com.taobao.themis.container.app.TMSActivity',
+          activityIds: [
+            'com.taobao.tao.welcome.Welcome',
+            'com.taobao.themis.container.app.TMSActivity',
+          ],
           matches: '@[clickable=true] > [text="点击签到" || text="签到领金币"]',
           snapshotUrls: [
+            'https://i.gkd.li/i/25199367',
             'https://i.gkd.li/i/24993351',
             'https://i.gkd.li/i/25126165',
           ],
