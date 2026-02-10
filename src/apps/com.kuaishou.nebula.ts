@@ -58,6 +58,7 @@ export default defineGkdApp({
           snapshotUrls: [
             'https://i.gkd.li/i/22901405', //快手热榜
             'https://i.gkd.li/i/22981911', //每日打卡
+            'https://i.gkd.li/i/25210377', //签到
           ],
           activityIds: 'com.yxcorp.gifshow.HomeActivity',
         },
