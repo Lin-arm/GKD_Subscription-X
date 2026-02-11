@@ -586,8 +586,11 @@ export default defineGkdApp({
           // matches: 'Image + Button[text^="点可领"][text$="金币"][clickable=true]',
           fastQuery: true,
           matches:
-            '@Button[text^="点可领"][text$="金币"][clickable=true] - Image < [index=parent.childCount.minus(1)] <n [index=parent.childCount.minus(2)][childCount>15] <n View <<3 [vid="webView"]',
-          snapshotUrls: 'https://i.gkd.li/i/23427892',
+            '@Button[text^="点可领"][text$="金币"][clickable=true] - Image <<(1,2) [index=parent.childCount.minus(1)] <n [index=parent.childCount.minus(2)][childCount>4] <n View <<3 [vid="webView"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/23427892',
+            'https://i.gkd.li/i/25236905',
+          ],
         },
         {
           key: 2,
