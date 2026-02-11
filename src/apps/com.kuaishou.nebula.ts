@@ -180,6 +180,7 @@ export default defineGkdApp({
       desc: '⚠️①重启自进任务中心 ②误进与看广告无关页会返回',
       enable: false,
       fastQuery: true,
+      forcedTime: 10000,
       activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', //子规则里出现最多的界面id
       rules: [
         {
@@ -552,6 +553,7 @@ export default defineGkdApp({
         {
           // key: 3,
           // name: '③看广告得金币',
+          forcedTime: 15000,
           actionCd: 10000,
           matchDelay: 3500,
           matches:
