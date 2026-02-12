@@ -6,20 +6,21 @@ export default defineGkdApp({
   groups: [
     {
       key: 1,
-      name: '插数据线连接电脑-USB提示-取消',
-      desc: '(小米📱)USB用于xxx -取消',
+      name: '功能类-🔌插USB后用于xxx-取消',
+      desc: '(小米📱)点击[取消]',
       enable: false,
       rules: [
         {
           matches: [
-            '[vid="alertTitle" || id="miui:id/alertTitle"][text="USB 用于"]',
-            '[text="取消"][clickable=true][focusable=true]',
+            '[text="USB 用于"][visibleToUser=true]',
+            '[text="取消"][clickable=true]',
           ],
           fastQuery: true,
           snapshotUrls: [
             'https://i.gkd.li/i/23428639', // 设置v12
             'https://i.gkd.li/i/23696166', // 设置v11
           ],
+          exampleUrls: 'https://e.gkd.li/1ab102bd-99dd-471a-8841-33a7aaf2790a',
           activityIds: '.connecteddevice.usb.UsbModeChooserActivity',
         },
       ],
@@ -33,7 +34,7 @@ export default defineGkdApp({
         {
           matches: [
             '[vid="title"][text*="自动精灵"]',
-            '[text="允许"][clickable=true][focusable=true]',
+            '[text="允许"][clickable=true]',
           ],
           fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/23588703',
