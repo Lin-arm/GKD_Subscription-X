@@ -74,5 +74,56 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 5,
+      name: '功能类-自动允许这台计算机进行USB调试',
+      desc: '点击 ①✅一律允许 ②确定',
+      enable: false,
+      fastQuery: true,
+      // activityIds: [
+      //   '.usb.HwUsbDebuggingActivity', //华为
+      //   '.usb.UsbDebuggingActivity',   //小米
+      // ],
+      rules: [
+        {
+          key: 1,
+          matches:
+            '[text$="这台计算机进行调试"][clickable=true][checked=false]',
+          exampleUrls: 'https://e.gkd.li/124fdf00-8901-463e-bb0b-ed6e8aadf3f7',
+          snapshotUrls: [
+            'https://i.gkd.li/i/25254577', //真我📱 无界面id
+            'https://i.gkd.li/i/25256690', //华为📱
+            'https://i.gkd.li/i/25256846', //红米📱 [checked=true]是选中状态
+            'https://i.gkd.li/i/25257004', //小米📱
+          ],
+        },
+        {
+          key: 2,
+          preKeys: [1],
+          matches: '[text="允许" || text="确定"][clickable=true]',
+        },
+      ],
+    },
+    {
+      key: 6,
+      name: '功能类-自动允许通过此wifi进行无线调试',
+      desc: '点击 ①✅始终允许 ②允许',
+      enable: false,
+      fastQuery: true,
+      rules: [
+        {
+          key: 1,
+          matches:
+            '[text$="通过此网络进行调试"][clickable=true][checked=false]',
+          exampleUrls: 'https://e.gkd.li/7e2c5172-1b35-4ddf-8a4c-b19d25330d64',
+          snapshotUrls: 'https://i.gkd.li/i/25256451', //真我📱 无界面id
+        },
+        {
+          key: 2,
+          preKeys: [1],
+          matches: '[text="允许" || text="确定"][clickable=true]',
+        },
+      ],
+    },
   ],
 });
