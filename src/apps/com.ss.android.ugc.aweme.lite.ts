@@ -57,8 +57,10 @@ export default defineGkdApp({
       key: 3,
       name: '🤳看广告-已看完-退出',
       desc: '已成功领取奖励',
+      activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
       rules: [
         {
+          key: 1,
           fastQuery: true,
           matches:
             '[text="广告"] +(1,3) [text^="领取成功，关闭"][clickable=true]',
@@ -67,7 +69,11 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23562150',
           ],
           exampleUrls: 'https://e.gkd.li/493ef811-814f-4ada-a11b-41249743fbd0',
-          activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
+        },
+        {
+          key: 2,
+          matches: 'ImageView < [desc^="领取成功，关闭"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/25285401',
         },
       ],
     },
