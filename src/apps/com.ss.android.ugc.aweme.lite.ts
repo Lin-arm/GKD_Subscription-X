@@ -92,14 +92,20 @@ export default defineGkdApp({
     {
       key: 5,
       name: '🤳看广告-误入app下载页-返回',
-      desc: '点击返回',
+      desc: '点击左上角返回',
       rules: [
         {
           fastQuery: true,
           matches: '[vid="iv_back"][desc="返回"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/23394270',
-          activityIds:
+          snapshotUrls: [
+            'https://i.gkd.li/i/23394270',
+            'https://i.gkd.li/i/25285191',
+          ],
+          exampleUrls: 'https://e.gkd.li/69f32350-a10d-4b2a-a336-68312401c605',
+          activityIds: [
             'com.bytedance.ies.android.rifle.container.RifleContainerActivity',
+            'com.bytedance.android.sif.container.SifContainerActivity',
+          ],
         },
       ],
     },
