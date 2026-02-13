@@ -1,7 +1,26 @@
 {
-  "name": "@gkd-kit/subscription-template",
+  "name": "@lin_arm/gkd-rules",
   "version": "0.0.0",
+  "description": "GKD 第三方订阅规则",
+  "keywords": [
+    "gkd",
+    "subscription",
+    "android",
+    "跳过广告"
+  ],
+  "author": "lin_arm",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lin-arm/gkd-Rules.git"
+  },
   "type": "module",
+  "gkd": {
+    "outDir": "dist",
+    "file": "gkd.json5",
+    "versionFile": "gkd.version.json5",
+    "changelog": "CHANGELOG.md",
+    "README.md": "README.md"
+  },
   "scripts": {
     "postinstall": "simple-git-hooks",
     "format": "prettier --cache --write ./**/*.{js,cjs,mjs,ts,jsx,tsx,json}",
@@ -11,6 +30,7 @@
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm exec lint-staged",
+    "commit-msg": "pnpm exec commitlint --config commitlint.config.ts --edit ${1}",
     "pre-push": "pnpm run check"
   },
   "lint-staged": {
@@ -30,6 +50,9 @@
     "./dist"
   ],
   "dependencies": {
+    "@commitlint/cli": "20.2.0",
+    "@commitlint/config-conventional": "20.2.0",
+    "@commitlint/types": "20.2.0",
     "@eslint/js": "9.33.0",
     "@gkd-kit/api": "0.8.0",
     "@gkd-kit/define": "0.0.1",

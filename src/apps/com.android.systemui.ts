@@ -26,7 +26,7 @@ export default defineGkdApp({
     {
       key: 2,
       name: 'GKD-获取屏幕内容-允许',
-      desc: '点击[立即开始]',
+      desc: '(华为📱)点击[立即开始]',
       rules: [
         {
           matches: [
