@@ -241,6 +241,12 @@ export default defineGkdApp({
           snapshotUrls: 'https://i.gkd.li/i/25004213', //瓜分百亿金币(3天挑战)
         },
         {
+          key: 17,
+          matches:
+            '@View[text^="App版本过低"] <3 View <<3 WebView <<2 [vid="webView"]',
+          snapshotUrls: 'https://i.gkd.li/i/25285773', //版本过低
+        },
+        {
           key: 51,
           action: 'back',
           matches: '[text="推荐小说"][id$="book_module_title"]',
