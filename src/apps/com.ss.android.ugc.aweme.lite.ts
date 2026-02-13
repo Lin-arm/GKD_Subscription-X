@@ -80,7 +80,7 @@ export default defineGkdApp({
     {
       key: 4,
       name: '🤳看广告-退出弹窗-再看',
-      desc: '再看一个',
+      desc: '再看一个 (v37.7.0失效)',
       rules: [
         {
           fastQuery: true,
@@ -88,7 +88,8 @@ export default defineGkdApp({
             '[text^="再看一个"] +(6,13) [text="领取奖励"][visibleToUser=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/23394181',
-            'https://i.gkd.li/i/23562162',
+            'https://i.gkd.li/i/23562162', // v31.5.0
+            // 'https://i.gkd.li/i/25285457',   // v37.7.0 无直接节点,失效
           ],
           exampleUrls: 'https://e.gkd.li/32505f12-f430-49dc-b711-fed907d2be35',
           activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
@@ -118,12 +119,15 @@ export default defineGkdApp({
     {
       key: 6,
       name: '🤳看广告-弹窗-评价收金币',
-      desc: '累计获得奖励弹窗-点击评价',
+      desc: '累计获得奖励弹窗-点击评价 (v37.7.0失效)',
       rules: [
         {
           fastQuery: true,
           matches: '[text="评价并收下金币"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/23394382',
+          snapshotUrls: [
+            'https://i.gkd.li/i/23394382',
+            // 'https://i.gkd.li/i/25285568', // v37.7.0 无直接节点,失效
+          ],
           exampleUrls: 'https://e.gkd.li/a4e9803f-9935-4fc7-8977-5b855120046c',
           activityIds: 'com.ss.android.ugc.aweme.main.MainActivity',
         },
