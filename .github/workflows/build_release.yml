@@ -53,7 +53,7 @@ jobs:
           # 创建贡献者文件
           echo "## 🥇 贡献者" > ./dist/CONTRIBUTORS.md
           echo "" >> ./dist/CONTRIBUTORS.md
-          echo "感谢以下开发者对本版本的贡献: " >> ./dist/CONTRIBUTORS.md
+          echo "感谢本期开发人员: " >> ./dist/CONTRIBUTORS.md
           echo "" >> ./dist/CONTRIBUTORS.md
           
           # 开始HTML表格

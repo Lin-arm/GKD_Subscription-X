@@ -68,7 +68,7 @@ export default defineGkdApp({
     },
     {
       key: 3,
-      name: '💰淘金币-签到',
+      name: '💰淘金币-签到(很慢)',
       rules: [
         {
           activityIds: [

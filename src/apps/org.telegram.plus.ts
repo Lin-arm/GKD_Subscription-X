@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '更多-下载①',
-      desc: '右上角菜单-点击 下载',
+      desc: '右上角菜单-点击[下载]',
       enable: false,
       rules: [
         {
