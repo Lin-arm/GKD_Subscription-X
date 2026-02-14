@@ -27,6 +27,22 @@ git commit -m "v10 更新了啥"
 # git commit -m "fix: 123云盘 全屏广告-弹窗广告 #1788"  # 在commit内关联issue
 # 提PR时可填   resolves #1774   关联issue
 
+# Git 提交类型及其含义对照表
+cat << 'EOF'
+| 类型 | 含义 | 使用场景 |
+|------|------|----------|
+| feat | feature | 新功能：给项目增加一个新功能 |
+| fix | bug fix | 修复 bug |
+| docs | documentation | 文档更新：如 README、注释等 |
+| style | code style | 代码风格调整：不影响代码逻辑 |
+| refactor | refactor | 代码重构：不新增功能、不修 bug |
+| perf | performance | 性能优化：提升代码执行效率 |
+| test | test | 测试相关：添加或修改测试用例 |
+| chore | chore | 杂务：如构建工具、依赖更新等 |
+| ci | continuous integration | CI 配置：如 GitHub Actions 修改 |
+| revert | revert | 回滚：撤销之前的提交 |
+EOF
+
 
 git push
 # 推送到指定分支1
