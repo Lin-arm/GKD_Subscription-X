@@ -50,8 +50,8 @@ git push origin feature-1
 
 
 # 从github拉取并合并
-git pull origin main
-
+# git pull origin main
+git pull --rebase origin main
 
 
 
@@ -70,6 +70,8 @@ git fetch upstream
 
 # 4. 切换到你的 main 分支, (不要用main分支提交AIsouler/GKD_subscription的PR)
 git checkout main
+# 查看本地分支及其最后一次提交信息
+git branch -v
 # 强制删除分支`feature-1`
 # git branch -D feature-1
 
