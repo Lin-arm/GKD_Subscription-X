@@ -6,13 +6,13 @@ export default defineGkdApp({
   groups: [
     {
       key: 1,
-      name: '自动精灵-获取屏幕内容-允许',
-      desc: '点击[立即开始]',
+      name: '功能类-允许(自动精灵)获取屏幕内容',
+      desc: '点击[允许]',
       rules: [
         {
           matches: [
-            '[vid="dialog_title" || id="android:id/message"][text*="自动精灵"]',
-            '[text="立即开始"][clickable=true]',
+            '[text*="自动精灵"][text*="屏幕" || text*="内容"]',
+            '[text="立即开始" || text="允许"][clickable=true]',
           ],
           fastQuery: true,
           snapshotUrls: [
@@ -25,12 +25,12 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '功能类-允许GKD获取屏幕内容', //一些华为机型的GKD截屏服务会经常失效,需要重新授权才能截快照
+      name: '功能类-允许(GKD)获取屏幕内容', //一些华为机型的GKD截屏服务会经常失效,需要重新授权才能截快照
       desc: '(华为📱)点击[允许]',
       rules: [
         {
           matches: [
-            '[text*="GKD"][text*="屏幕"]',
+            '[text*="GKD"][text*="屏幕" || text*="内容"]',
             '[text="立即开始" || text="允许"][clickable=true]',
           ],
           fastQuery: true,
@@ -45,13 +45,13 @@ export default defineGkdApp({
     },
     {
       key: 3,
-      name: '瞬译-获取屏幕内容-允许',
-      desc: '点击[立即开始]',
+      name: '功能类-允许(瞬译)获取屏幕内容',
+      desc: '点击[允许]',
       rules: [
         {
           matches: [
-            '[vid="dialog_title" || id="android:id/message"][text*="瞬译"]',
-            '[text="立即开始"][clickable=true]',
+            '[text*="瞬译"][text*="屏幕" || text*="内容"]',
+            '[text="立即开始" || text="允许"][clickable=true]',
           ],
           fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/24421941',
@@ -80,7 +80,7 @@ export default defineGkdApp({
     },
     {
       key: 5,
-      name: '功能类-自动允许这台计算机进行USB调试',
+      name: '功能类-允许这台计算机进行USB调试',
       desc: '点击 ①✅一律允许 ②确定',
       enable: false,
       fastQuery: true,
@@ -110,7 +110,7 @@ export default defineGkdApp({
     },
     {
       key: 6,
-      name: '功能类-自动允许通过此wifi进行无线调试',
+      name: '功能类-允许通过此wifi进行无线调试',
       desc: '点击 ①✅始终允许 ②允许',
       enable: false,
       fastQuery: true,
