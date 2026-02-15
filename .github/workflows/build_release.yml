@@ -5,39 +5,44 @@ on: workflow_dispatch
 jobs:
   build_release:
     runs-on: ubuntu-latest
-    outputs:
-      version: ${{ steps.version.outputs.version }}
     steps:
-      - uses: actions/checkout@v4
+      - name: 拉取仓库代码
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - name: 安装 Node.js 环境
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - uses: pnpm/action-setup@v4
+      - name: 安装 pnpm
+        uses: pnpm/action-setup@v4
 
-      - run: pnpm install
+      - name: 安装依赖
+        run: pnpm install
 
-      - run: pnpm run build
+      - name: 执行构建
+        run: pnpm run build
 
-      - id: version
+      - name: 读取版本号
+        id: version
         run: |
           version=$(node -e "import('@gkd-kit/tools').then((m) => m.stdoutGkdVersion());")
           echo "version=${version}" >> "$GITHUB_OUTPUT"
+          echo "VERSION=${version}" >> "$GITHUB_ENV"
 
-      - name: Git commit
+      - name: 提交构建产物到仓库
         id: commit
         run: |
           git config --local user.email github-actions[bot]@users.noreply.github.com
           git config --local user.name github-actions[bot]
           git status
           git add .
-          git commit -a -m "chore: v${{steps.version.outputs.version}}"
+          git commit -a -m "chore: v${{ env.VERSION }}"
         continue-on-error: true
 
-      - name: Git push
+      - name: 推送代码到远程仓库
         if: ${{ steps.commit.outcome == 'success' }}
         uses: ad-m/github-push-action@master
         with:
@@ -45,19 +50,25 @@ jobs:
           branch: ${{ github.ref }}
           tags: true
       
-      - name: Create Release
+      - name: 复制一份带版本号的订阅文件
+        run: |
+          cp dist/gkd.json5 dist/gkd-Rules离线导入版_v${{ env.VERSION }}.json5
+
+      - name: 创建 GitHub 发布版本
         if: ${{ steps.commit.outcome == 'success' }}
         uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ steps.version.outputs.version }}
-          name: v${{ steps.version.outputs.version }}
+          tag_name: v${{ env.VERSION }}
+          name: v${{ env.VERSION }}
           body_path: ./dist/CHANGELOG.md
           generate_release_notes: true
           append_body: true
+          files: |
+            dist/gkd-Rules离线导入版_v${{ env.VERSION }}.json5
 
-      - name: Publish package
+      - name: 发布 NPM 包
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         if: ${{ steps.commit.outcome == 'success' && env.NPM_TOKEN != '' }}
