@@ -133,5 +133,20 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 7,
+      name: '其它-提示无HMS-确定',
+      desc: '(华为📱)卸载HMS Core,进抖音会提示',
+      enable: false,
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.huawei.hms.activity.BridgeActivity',
+          matches: ['[text*="HMS Core"]', '[text="OK"][clickable=true]'],
+          exampleUrls: 'https://e.gkd.li/e42e3f30-1b91-40fc-b2f1-c8425fa215f1',
+          snapshotUrls: 'https://i.gkd.li/i/25325208',
+        },
+      ],
+    },
   ],
 });
