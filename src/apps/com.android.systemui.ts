@@ -25,16 +25,20 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: 'GKD-获取屏幕内容-允许',
-      desc: '(华为📱)点击[立即开始]',
+      name: '功能类-允许GKD获取屏幕内容', //一些华为机型的GKD截屏服务会经常失效,需要重新授权才能截快照
+      desc: '(华为📱)点击[允许]',
       rules: [
         {
           matches: [
-            '[vid="dialog_title" || id="android:id/message"][text*="GKD"]',
-            '[text="立即开始"][clickable=true]',
+            '[text*="GKD"][text*="屏幕"]',
+            '[text="立即开始" || text="允许"][clickable=true]',
           ],
           fastQuery: true,
-          snapshotUrls: 'https://i.gkd.li/i/23415064',
+          snapshotUrls: [
+            'https://i.gkd.li/i/23415064', // Android 10
+            'https://i.gkd.li/i/25325310', // HarmonyOS 3
+          ],
+          exampleUrls: 'https://e.gkd.li/48af0969-567d-4db3-8853-2addfdff0b30',
           activityIds: '.media.MediaProjectionPermissionActivity',
         },
       ],
