@@ -236,16 +236,20 @@ export default defineGkdApp({
         },
         {
           key: 16,
+          action: 'back',
           matches:
             '@[text$="瓜分大额奖池"] <2 View < View <2 View <<2 WebView <<2 [vid="webView"]',
           snapshotUrls: 'https://i.gkd.li/i/25004213', //瓜分百亿金币(3天挑战)
         },
         {
           key: 17,
+          action: 'back',
           matches:
             '@View[text^="App版本过低"] <3 View <<3 WebView <<2 [vid="webView"]',
           snapshotUrls: 'https://i.gkd.li/i/25285773', //版本过低
         },
+
+        // 以下为其它界面id的
         {
           key: 51,
           action: 'back',
@@ -276,6 +280,13 @@ export default defineGkdApp({
             '@[vid="left_btn"][desc="返回"][clickable=true] + [desc="查找"] + [vid="filter_btn_layout"]',
           ],
           snapshotUrls: 'https://i.gkd.li/i/24992396', //视频广告页
+        },
+        {
+          key: 55,
+          action: 'back',
+          matches: '[text*="APP版本过低"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/25341424', //版本过低
+          activityIds: 'com.kwai.kds.krn.api.page.KwaiRnActivity',
         },
       ],
     },
