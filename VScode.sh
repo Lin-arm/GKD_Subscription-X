@@ -21,8 +21,7 @@ pnpm exec tsx scripts/check.ts
 git add .
 # git add src/apps/com.ss.android.ugc.aweme.lite.ts    # 提交单个文件
 
-git commit -m "v10 更新了啥"
-# git commit -m "feat: 123云盘 局部广告"
+git commit -m "feat: 123云盘 局部广告"
 # git commit -m "perf: 123云盘 减少代码冗余"
 # git commit -m "fix: 123云盘 全屏广告-弹窗广告 #1788"  # 在commit内关联issue
 # 提PR时可填   resolves #1774   关联issue
@@ -40,16 +39,14 @@ git commit -m "v10 更新了啥"
 # git commit -m "revert: 回滚：撤销之前的提交"
 
 
-git push
-# 推送到指定分支1
-git push origin feature-1
-
-
 # 从github拉取并合并
 # git pull origin main
 git pull --rebase origin main
 
 
+git push
+# 推送到指定分支feature-1
+git push origin feature-1
 
 
 
