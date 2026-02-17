@@ -182,6 +182,7 @@ export default defineGkdApp({
           preKeys: [1],
           name: '②已领取-返回键',
           action: 'back',
+          // actionDelay: 150, //留点时间给 key1
           matches: '[parent=null]',
           // matches: '[text="领取每日限量食材"] + [text="已领取"][visibleToUser=true]',
           // snapshotUrls: 'https://i.gkd.li/i/23450722',
@@ -902,28 +903,6 @@ export default defineGkdApp({
           matches:
             '[text="当前应用要打开“支付宝”"] <<2 * + * >2 [text="打开"][clickable=true]',
           snapshotUrls: 'https://i.gkd.li/i/24835900',
-        },
-      ],
-    },
-    {
-      key: 35,
-      name: '🥰消息-私聊-点进送福卡消息-收下', //临时用,过年后删
-      desc: '①点击[开心收下] ②返回键',
-      actionCd: 300,
-      activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-      rules: [
-        {
-          key: 1,
-          matches:
-            '@Button[text="开心收下"][clickable=true] <2 View < [text="福卡领取区域"]',
-          snapshotUrls: 'https://i.gkd.li/i/25061551',
-        },
-        {
-          key: 2,
-          preKeys: [1],
-          action: 'back',
-          actionDelay: 200, //留点时间给 key1
-          matches: '[parent=null]',
         },
       ],
     },
