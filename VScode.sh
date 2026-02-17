@@ -80,3 +80,19 @@ git reset --hard upstream/main
 git push --force origin feature-1
 
 
+
+# 在分支上改完后,如果要推送到远程分支,需要先拉取远程分支的更新,检查差异,然后再 rebase,最后推送. 下面是具体命令: 
+# 先刷新远程引用
+git fetch origin
+
+# 然后再检查差异 (docs/refactor-guide 是分支名)
+git log --oneline HEAD..origin/docs/refactor-guide
+
+# 然后再 rebase
+git rebase origin/docs/refactor-guide
+
+# 最后推送
+git push origin docs/refactor-guide
+
+
+
