@@ -733,7 +733,7 @@ export default defineGkdApp({
           name: '②取消',
           matchDelay: 200,
           matches:
-            '[text="发送一次以下消息"] +n * > Button[text="取消"][id$="negativeBtn"][clickable=true]',
+            '[text="发送一次以下消息"] +n * > Button[text="取消"][clickable=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/22981739',
             'https://i.gkd.li/i/23238549',
