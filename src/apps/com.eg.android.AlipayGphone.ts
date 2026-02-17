@@ -564,12 +564,13 @@ export default defineGkdApp({
           key: 3,
           name: '③助力成功or种第1棵树-x掉',
           matches:
-            '@Button[text="关闭弹窗"][clickable=true] -n [text="助力成功！" || text="来晚啦" || text*="第一棵"] <<(3,4) View[index=parent.childCount.minus(1)] <n WebView[text="蚂蚁森林"] <<4 [id$="h5_pc_container"]',
+            '@Button[text="关闭弹窗"][clickable=true] -n [text="助力成功！" || text="来晚啦" || text*="第一棵" || text="爱，种在这里"] <<(3,4) View[index=parent.childCount.minus(1)] <n WebView[text="蚂蚁森林"] <<4 [id$="h5_pc_container"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24742272', //活力值助力成功
             'https://i.gkd.li/i/24813156', //活力值助力来晚啦 (快速查询真机不生效)
             'https://i.gkd.li/i/24861484', //种下xxxx第一棵树
             'https://i.gkd.li/i/25060919', //种下2026年第一棵杨柴
+            'https://i.gkd.li/i/25368019', //爱，种在这里
           ],
         },
         {
