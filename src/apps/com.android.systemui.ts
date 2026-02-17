@@ -61,7 +61,7 @@ export default defineGkdApp({
     },
     {
       key: 4,
-      name: '功能类-🔌插USB后用于xxx-返回键',
+      name: '功能类-插USB后用于xxx-返回键',
       desc: '(真我📱)按下[返回键]',
       enable: false,
       rules: [
