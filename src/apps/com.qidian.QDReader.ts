@@ -39,7 +39,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23562885',
             'https://i.gkd.li/i/23610102', // 422 验证弹窗
           ],
-          activityIds: 'com.qidian.QDReader.ui.activity.QDBrowserActivity',
+          activityIds: '.ui.activity.QDBrowserActivity',
         },
       ],
     },
@@ -248,7 +248,7 @@ export default defineGkdApp({
           snapshotUrls: 'https://i.gkd.li/i/23291755',
           exampleUrls: 'https://e.gkd.li/2ed31c5e-f498-4903-a781-58a1e885de69',
           activityIds: [
-            'com.qidian.QDReader.ui.activity.MainGroupActivity',
+            '.ui.activity.MainGroupActivity',
             '.flutter.HongBaoSquareActivity',
           ],
         },

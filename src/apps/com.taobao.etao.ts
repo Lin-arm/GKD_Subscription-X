@@ -11,10 +11,7 @@ export default defineGkdApp({
       rules: [
         {
           // versionCode: { include: 975 },
-          matches: [
-            '[text="更新提示"][id="android:id/alertTitle"]',
-            'Button[text="取消"][clickable=true][focusable=true]',
-          ],
+          matches: ['[text="更新提示"]', 'Button[text="取消"][clickable=true]'],
           fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/23607482',
           activityIds: '.app.homev4.HomeV4Activity',
@@ -43,42 +40,33 @@ export default defineGkdApp({
       rules: [
         {
           matches: [
-            'Button[id="android:id/button1"][text="打开"][visibleToUser=true]',
+            '[text^="正在离开一淘"]',
+            '[text="取消"] + [text="打开"][clickable=true]',
           ],
           fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/23239468',
-          activityIds: ['com.taobao.sns.activity.ISWebViewActivity'],
+          activityIds: 'com.taobao.sns.activity.ISWebViewActivity',
         },
       ],
     },
     {
       key: 4,
       name: '签到-🧧领取现金奖励',
-      desc: '已做任务->点击领取',
+      desc: '已做任务->点击[领取]',
+      actionCd: 1500,
+      activityIds: 'com.taobao.sns.activity.ISWebViewActivity',
       rules: [
         {
-          actionCd: 1500,
-          matches: [
-            '[text="现金"] - * < * - * < * + [text="领取"][visibleToUser=true]',
-          ],
+          key: 1,
+          matches: '@[text="领取"] - View >2 [text="现金"][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/22974322',
-          activityIds: 'com.taobao.sns.activity.ISWebViewActivity',
         },
-      ],
-    },
-    {
-      key: 5,
-      name: '签到-🧧领取现金奖励-下',
-      desc: '已做任务->点击领取',
-      rules: [
         {
-          actionCd: 1500,
+          key: 2,
           actionMaximum: 2,
-          matches: [
+          matches:
             '@View -2 [text="恭喜你！可以领取现金啦"][visibleToUser=true]',
-          ],
           snapshotUrls: 'https://i.gkd.li/i/23213435',
-          activityIds: 'com.taobao.sns.activity.ISWebViewActivity',
         },
       ],
     },
