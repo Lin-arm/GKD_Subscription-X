@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '📢说明',
-      desc: '(点击查看详情) 🔵目前在用的支付宝版本有两个: 🔸v10.7.76.8100 🔸v10.7.16.8000 ,如果你用其他版本的支付宝,估计有些规则不生效,如遇失效或误触请截取快照拿到github反馈. 🔵另外,这些规则大都是在模块(芝麻糊、芝麻粒-tk等)不做这些任务的时候,用gkd来减少手动操作的,如果模块能做的任务,请关掉这些任务对应的gkd规则,开多了会费电. ',
+      desc: '(点击查看详情) 🔵目前在本人用的支付宝版本有三个: 🔸v10.7.76.8100 🔸v10.7.16.8000 🔸v10.8.30.8000 ,如果你用其他版本的支付宝,估计有些规则不生效,如遇失效或误触请截取快照拿到github反馈. 🔵另外,这些规则大都是在模块(芝麻糊、芝麻粒-tk等)不做这些任务的时候,用gkd来减少手动操作的,如果模块能做的任务,请关掉这些任务对应的gkd规则,开多了会费电. ',
       enable: false,
       rules: [
         {
@@ -167,28 +167,27 @@ export default defineGkdApp({
       key: 7,
       name: '🐤养鸡-做美食-食材店-领取',
       desc: '爱心食材店 ①领10g食材 ②返回键',
+      actionMaximum: 1,
+      resetMatch: 'match',
+      activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
         {
           key: 1,
           name: '①领10g食材',
-          matches: '[text="领10g食材"][visibleToUser=true]',
+          matches: '@[clickable=true] > [text="领10g食材"]',
           snapshotUrls: 'https://i.gkd.li/i/23450712',
-          activityIds:
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
         },
         {
           key: 2,
+          preKeys: [1],
           name: '②已领取-返回键',
           action: 'back',
-          matches:
-            '[text="领取每日限量食材"] + [text="已领取"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/23450722',
-          activityIds:
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          matches: '[parent=null]',
+          // matches: '[text="领取每日限量食材"] + [text="已领取"][visibleToUser=true]',
+          // snapshotUrls: 'https://i.gkd.li/i/23450722',
         },
       ],
     },
-
     {
       key: 9,
       name: '🐤养鸡-抽抽乐🎰-抽中弹窗-知道啦',
