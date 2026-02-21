@@ -83,9 +83,9 @@ jobs:
         run: |
           # 刷新 gkd.json5
           echo "刷新 gkd.json5..."
-          HTTP_CODE=$(curl -X GET -s -o /dev/null -w "%{http_code}" 'https://purge.jsdelivr.net/gh/Lin-arm/gkd-Rules@main/dist/gkd.json5')
-          if [ "$HTTP_CODE" -eq 200 ] || [ "$HTTP_CODE" -eq 201 ] || [ "$HTTP_CODE" -eq 404 ]; then
-            echo "✅ gkd.json5 刷新请求已发送"
+          HTTP_CODE=$(curl -X PUT -s -o /dev/null -w "%{http_code}" 'https://purge.jsdelivr.net/gh/Lin-arm/gkd-Rules@main/dist/gkd.json5')
+          if [ "$HTTP_CODE" -eq 200 ] || [ "$HTTP_CODE" -eq 201 ]; then
+            echo "✅ gkd.json5 刷新成功"
           else
             echo "❌ gkd.json5 刷新失败 (HTTP $HTTP_CODE)"
             exit 1
@@ -93,9 +93,9 @@ jobs:
           
           # 刷新 gkd.version.json5
           echo "刷新 gkd.version.json5..."
-          HTTP_CODE=$(curl -X GET -s -o /dev/null -w "%{http_code}" 'https://purge.jsdelivr.net/gh/Lin-arm/gkd-Rules@main/dist/gkd.version.json5')
-          if [ "$HTTP_CODE" -eq 200 ] || [ "$HTTP_CODE" -eq 201 ] || [ "$HTTP_CODE" -eq 404 ]; then
-            echo "✅ gkd.version.json5 刷新请求已发送"
+          HTTP_CODE=$(curl -X PUT -s -o /dev/null -w "%{http_code}" 'https://purge.jsdelivr.net/gh/Lin-arm/gkd-Rules@main/dist/gkd.version.json5')
+          if [ "$HTTP_CODE" -eq 200 ] || [ "$HTTP_CODE" -eq 200 ]; then
+            echo "✅ gkd.version.json5 刷新成功"
           else
             echo "❌ gkd.version.json5 刷新失败 (HTTP $HTTP_CODE)"
             exit 1
