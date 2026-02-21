@@ -6,29 +6,29 @@ export default defineGkdApp({
   groups: [
     {
       key: 1,
-      name: '更多-下载①',
-      desc: '右上角菜单-点击[下载]',
+      name: '功能类-更多-①保存到相册',
+      desc: '右上角菜单-点击[保存到相册]',
       enable: false,
       rules: [
         {
-          matches: '@[clickable=true][left>350] > [text="保存到相册"]',
           fastQuery: true,
+          matches: '@[clickable=true][left>350] > [text="保存到相册"]',
           snapshotUrls: 'https://i.gkd.li/i/24337783',
-          exampleUrls: 'https://e.gkd.li/d09a281b-5652-4072-ae19-42d944f01d95',
           excludeSnapshotUrls: 'https://i.gkd.li/i/24450853', // [left=83]
+          exampleUrls: 'https://e.gkd.li/d09a281b-5652-4072-ae19-42d944f01d95',
           activityIds: 'org.telegram.ui.LaunchActivity',
         },
       ],
     },
     {
       key: 2,
-      name: '更多-下载②-单个媒体',
-      desc: '弹窗-点击 这张图片or这个媒体',
+      name: '功能类-更多-②只保存单个媒体',
+      desc: '弹窗-点击 [这张图片]或[这个媒体]',
       rules: [
         {
-          matches:
-            '[text="取消"] + TextView[text="这张图片" || text="这个媒体"][clickable=true]',
           fastQuery: true,
+          matches:
+            '[getChild(0).text^="保存"] +2 * > [text="这张图片" || text="这个媒体"][clickable=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/22945715', //图片
             'https://i.gkd.li/i/22945853', //视频
