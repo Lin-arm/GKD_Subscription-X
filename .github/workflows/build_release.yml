@@ -77,3 +77,26 @@ jobs:
           node -e "import('@gkd-kit/tools').then((m) => m.updatePkgVersion());"
           pnpm publish --no-git-checks
           node -e "import('@gkd-kit/tools').then((m) => m.syncNpmmirror());"
+
+      - name: 刷新 jsDelivr CDN
+        if: ${{ steps.commit.outcome == 'success' }}
+        run: |
+          # 刷新 gkd.json5
+          echo "刷新 gkd.json5..."
+          HTTP_CODE=$(curl -X PUT -s -o /dev/null -w "%{http_code}" 'https://purge.jsdelivr.net/gh/Lin-arm/gkd-Rules@main/dist/gkd.json5')
+          if [ "$HTTP_CODE" -eq 200 ] || [ "$HTTP_CODE" -eq 201 ]; then
+            echo "✅ gkd.json5 刷新成功"
+          else
+            echo "❌ gkd.json5 刷新失败 (HTTP $HTTP_CODE)"
+            exit 1
+          fi
+          
+          # 刷新 gkd.version.json5
+          echo "刷新 gkd.version.json5..."
+          HTTP_CODE=$(curl -X PUT -s -o /dev/null -w "%{http_code}" 'https://purge.jsdelivr.net/gh/Lin-arm/gkd-Rules@main/dist/gkd.version.json5')
+          if [ "$HTTP_CODE" -eq 200 ] || [ "$HTTP_CODE" -eq 200 ]; then
+            echo "✅ gkd.version.json5 刷新成功"
+          else
+            echo "❌ gkd.version.json5 刷新失败 (HTTP $HTTP_CODE)"
+            exit 1
+          fi
