@@ -1,0 +1,37 @@
+name: issue_content_check
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  check-issue-content:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 缺少快照时自动标记并关闭 Issue
+        if: |
+          contains(github.event.issue.body, 'i.gkd.li/') == false &&
+          contains(github.event.issue.body, '.zip') == false
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: add-labels,create-comment,close-issue
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          labels: 'invalid'
+          body: |
+            您好 ${{ github.event.issue.user.login }}，由于您没有提供快照，此issue已被自动关闭。
+
+      - name: 快照链接不可访问时自动标记并提醒
+        if: contains(github.event.issue.body, 'i.gkd.li/snapshot/') == true
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: add-labels,create-comment
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          labels: 'invalid'
+          body: |
+            您好 ${{ github.event.issue.user.login }}，检测到您提供了他人无法访问的链接，
+            请点击查看 [正确的分享快照方式说明](https://gkd.li/guide/snapshot#share-note) 。
+
+            可在下方评论区补充
