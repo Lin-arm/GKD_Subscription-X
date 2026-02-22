@@ -48,6 +48,12 @@ git push
 # 推送到指定分支feature-1
 git push origin feature-1
 
+# 查看提交历史
+git log --oneline
+# 执行撤销 (f8e9d7c)
+git revert f8e9d7c
+# 按 i 进入插入模式(不需要)
+# Esc → :wq → Enter 保存并退出
 
 
 # 强制同步Fork仓库与上游仓库一致的步骤：
