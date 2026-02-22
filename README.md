@@ -1,28 +1,24 @@
 
-[![SVG Banners](https://svg-banners.vercel.app/api?type=origin&text1=gkd-Rules%20🦜&text2=🧧小众的偏向功能脚本类的GKD规则&height=350)](https://github.com/Lin-arm/gkd-Rules)
-
 <!-- [![SVG Banners](https://svg-banners.vercel.app/api?type=luminance&text1=gkd-Rules%20🦜&width=800&height=200)](https://github.com/Lin-arm/gkd-Rules) -->
+[![SVG Banners](https://svg-banners.vercel.app/api?type=origin&text1=GKD个人自用订阅%20🦜&text2=🧧gkd-Rules&height=350)](https://github.com/Lin-arm/gkd-Rules)
 
+[![Release](https://img.shields.io/badge/release-v52-blue)](https://github.com/Lin-arm/GKD_subscription/releases/latest)
+[![已适配应用](https://img.shields.io/badge/已适配应用-19-brightgreen)](./dist/README.md#应用规则)
+[![全局规则组](https://img.shields.io/badge/全局规则组-0-blueviolet)](./dist/README.md#全局规则)
+[![应用规则组](https://img.shields.io/badge/应用规则组-169-orange)](./dist/README.md#应用规则)
 
-<!-- --- -->
-## gkd-Rules🦜
+## 📑说明
 
-&emsp;&emsp;目前主要研究 `ks`,`ks极速版`,`zfb(蚂蚁森林)`,`起点读书` 等应用的规则, 如有遇到失效规则, 请到 [Issues](https://github.com/Lin-arm/gkd-Rules/issues)提交快照文件或链接,我将尽力适配。
-
-另外 订阅后请进`应用规则`里，再逐个进app里斟酌是否需要关闭某条规则, 本订阅的规则大部分默认是开着的。
-
+> [!IMPORTANT]
 > 本订阅仅供学习交流使用，请勿做非法用途
 
+- 目前主要研究 `ks`,`ks极速版`,`zfb(蚂蚁森林)`,`起点读书` 等应用的规则, 如有遇到失效规则, 请到 [Issues](https://github.com/Lin-arm/gkd-Rules/issues)提交快照文件或链接,我将尽力适配。
 
-- 当前版本: v51
-
-- 当前订阅文件已适配 19 个应用，共有 169 应用规则组，0 全局规则组
-
-- 具体有多小众请查看 [适配 APP 列表](./dist/README.md)
+- 另外 订阅后请进`应用规则`里，再逐个进app里斟酌是否需要关闭某条规则, 本订阅的规则大部分默认是开着的。
 
 ## 🚀订阅
 
-复制以下任意一个链接到 GKD 即可使用本订阅规则
+复制以下任意一个链接到 GKD 订阅的右下角 **+** 号那里导入，即可使用
 
 - jsdelivr源（免翻墙，但可能会慢12小时才同步更新）
 
@@ -36,6 +32,12 @@ https://fastly.jsdelivr.net/gh/Lin-arm/gkd-Rules@main/dist/gkd.json5
 https://raw.githubusercontent.com/Lin-arm/gkd-Rules/main/dist/gkd.json5
 ```
 
+- 当前版本: v52
+
+- 当前订阅文件已适配 19 个应用，共有 169 应用规则组，0 全局规则组
+
+- 具体情况请查看 [适配 APP 列表](./dist/README.md)
+
 ## 🌈其他
 
 - 在 [GKD官网](https://gkd.li/) 查看 [GKD基础使用教程](https://gkd.li/guide/) 、[常见问题](https://gkd.li/guide/faq) 以及 [API文档](https://gkd.li/api/)
@@ -44,4 +46,9 @@ https://raw.githubusercontent.com/Lin-arm/gkd-Rules/main/dist/gkd.json5
 
 - 使用 [GKD网页审查工具增强脚本](https://github.com/adproqwq/MakeGKDInspectBetter) 可以高度自定义从网页复制出来的规则，提高规则编写效率
 
-- 本订阅基本只更新`功能类`的规则, 如需`跳广告类`的规则订阅请移步 [AIsouler/GKD_subscription](https://github.com/AIsouler/GKD_subscription) 
+- 本订阅往后只更新 `自用` 的规则, 如需 `更全面` 的规则订阅请移步 [GKD_subscription (Fork版)](https://github.com/Lin-arm/GKD_subscription) 
+
+## 🎉感谢以下项目
+
+- [GKD订阅模板](https://github.com/gkd-kit/subscription-template)
+- [AIsouler/GKD_subscription](https://github.com/AIsouler/GKD_subscription)
