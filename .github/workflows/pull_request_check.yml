@@ -9,11 +9,12 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: 检出仓库代码
+        uses: actions/checkout@v4
 
-      - name: Get changed files
+      - name: 获取 PR 变更文件列表
         id: changed_files
-        uses: tj-actions/changed-files@v44
+        uses: tj-actions/changed-files@v46
         with:
           files: |
             src/apps/*.ts
@@ -21,7 +22,7 @@ jobs:
             src/globalGroups.ts
             src/subscription.ts
 
-      - name: Check changed files
+      - name: 校验订阅文件变更数量
         run: |
           for file in ${{ steps.changed_files.outputs.all_changed_files }}; do
             echo "$file was changed"
@@ -31,21 +32,27 @@ jobs:
             exit 1
           fi
 
-      - uses: actions/setup-node@v4
+      - name: 配置 Node.js 运行环境
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - uses: pnpm/action-setup@v4
+      - name: 配置 pnpm 包管理器
+        uses: pnpm/action-setup@v4
 
-      - run: pnpm install
+      - name: 安装项目依赖
+        run: pnpm install
 
-      - run: pnpm run check
+      - name: 执行项目检查
+        run: pnpm run check
 
-      - run: pnpm run format
+      - name: 执行代码格式化
+        run: pnpm run format
 
-      - run: pnpm run lint
+      - name: 执行代码静态检查
+        run: pnpm run lint
 
-      - name: check format status
+      - name: 校验代码格式化结果
         run: |
           status=$(git status --porcelain)
           if [ -n "$status" ]; then

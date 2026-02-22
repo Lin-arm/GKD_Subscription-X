@@ -13,23 +13,30 @@ jobs:
     if: |
       ${{ github.event.head_commit.message!='chore(actions): check_format_lint' }}
     steps:
-      - uses: actions/checkout@v4
+      - name: 检出仓库代码
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: 配置 Node.js 运行环境
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - uses: pnpm/action-setup@v4
+      - name: 配置 pnpm 包管理器
+        uses: pnpm/action-setup@v4
 
-      - run: pnpm install
+      - name: 安装项目依赖
+        run: pnpm install
 
-      - run: pnpm run check
+      - name: 执行项目检查
+        run: pnpm run check
 
-      - run: pnpm run format
+      - name: 执行代码格式化
+        run: pnpm run format
 
-      - run: pnpm run lint
+      - name: 执行代码静态检查
+        run: pnpm run lint
 
-      - name: Git commit
+      - name: 提交自动修复结果
         id: commit
         run: |
           git config --local user.email github-actions[bot]@users.noreply.github.com
@@ -39,7 +46,7 @@ jobs:
           git commit -a -m "chore(actions): check_format_lint"
         continue-on-error: true
 
-      - name: Git push
+      - name: 推送修复后的代码
         uses: ad-m/github-push-action@master
         if: ${{ steps.commit.outcome == 'success' }}
         with:

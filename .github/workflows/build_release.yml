@@ -11,28 +11,28 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 安装 Node.js 环境
+      - name: 配置 Node.js 运行环境
         uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - name: 安装 pnpm
+      - name: 配置 pnpm 包管理器
         uses: pnpm/action-setup@v4
 
-      - name: 安装依赖
+      - name: 安装项目依赖
         run: pnpm install
 
-      - name: 执行构建
+      - name: 构建项目
         run: pnpm run build
 
-      - name: 读取版本号
+      - name: 生成版本号
         id: version
         run: |
           version=$(node -e "import('@gkd-kit/tools').then((m) => m.stdoutGkdVersion());")
           echo "version=${version}" >> "$GITHUB_OUTPUT"
           echo "VERSION=${version}" >> "$GITHUB_ENV"
 
-      - name: 提交构建产物到仓库
+      - name: 提交构建产物
         id: commit
         run: |
           git config --local user.email github-actions[bot]@users.noreply.github.com
@@ -50,7 +50,7 @@ jobs:
           branch: ${{ github.ref }}
           tags: true
       
-      - name: 临时生成用于离线导入的订阅文件
+      - name: 生成离线订阅文件（用于发行版）
         run: |
           cp dist/gkd.json5 dist/gkd-rules-offline-id777-v${{ env.VERSION }}.json5
 
