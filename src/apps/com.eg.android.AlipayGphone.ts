@@ -248,14 +248,12 @@ export default defineGkdApp({
         {
           key: 5,
           name: '⑤去睡觉',
-          // position: {    // 睡觉,点不了,用相对坐标
-          //   left: 'width * 0.5019',
-          //   top: 'width * 1.2630',
-          // },
-          // matches: '[text^="亲密度+"] + [text="去睡觉"][visibleToUser=true]',
           matches:
-            '[text="去睡觉"] <n @[clickable=true] -n [text="让小鸡睡觉"]',
-          snapshotUrls: 'https://i.gkd.li/i/23762886',
+            '[text="去睡觉"] <n @[clickable.or(visibleToUser)=true] -n [text="让小鸡睡觉"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/23762886',
+            'https://i.gkd.li/i/25470516', // clickable=false
+          ],
         },
         {
           key: 6,
