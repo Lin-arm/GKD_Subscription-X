@@ -2,7 +2,7 @@
 <!-- [![SVG Banners](https://svg-banners.vercel.app/api?type=luminance&text1=gkd-Rules%20🦜&width=800&height=200)](https://github.com/Lin-arm/gkd-Rules) -->
 [![SVG Banners](https://svg-banners.vercel.app/api?type=origin&text1=GKD个人自用订阅%20🦜&text2=🧧gkd-Rules&height=350)](https://github.com/Lin-arm/gkd-Rules)
 
-[![Release](https://img.shields.io/badge/release-v52-blue)](https://github.com/Lin-arm/GKD_subscription/releases/latest)
+[![Release](https://img.shields.io/badge/release-v53-blue)](https://github.com/Lin-arm/GKD_subscription/releases/latest)
 [![已适配应用](https://img.shields.io/badge/已适配应用-19-brightgreen)](./dist/README.md#应用规则)
 [![全局规则组](https://img.shields.io/badge/全局规则组-0-blueviolet)](./dist/README.md#全局规则)
 [![应用规则组](https://img.shields.io/badge/应用规则组-169-orange)](./dist/README.md#应用规则)
@@ -32,7 +32,7 @@ https://fastly.jsdelivr.net/gh/Lin-arm/gkd-Rules@main/dist/gkd.json5
 https://raw.githubusercontent.com/Lin-arm/gkd-Rules/main/dist/gkd.json5
 ```
 
-- 当前版本: v52
+- 当前版本: v53
 
 - 当前订阅文件已适配 19 个应用，共有 169 应用规则组，0 全局规则组
 
