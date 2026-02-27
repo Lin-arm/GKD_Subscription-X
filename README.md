@@ -20,6 +20,12 @@
 
 复制以下任意一个链接到 GKD 订阅的右下角 **+** 号那里导入，即可使用
 
+- CloudFlare源（国内推荐）
+
+```txt
+https://gkd-rules-777.pages.dev/gkd.json5
+```
+
 - jsdelivr源（免翻墙，但可能会慢12小时才同步更新）
 
 ```txt
