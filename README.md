@@ -26,16 +26,16 @@
 https://gkd-rules-777.pages.dev/gkd.json5
 ```
 
-- jsdelivr源（免翻墙，但可能会慢12小时才同步更新）
-
-```txt
-https://fastly.jsdelivr.net/gh/Lin-arm/gkd-Rules@main/dist/gkd.json5
-```
-
 - GitHub源
 
 ```txt
 https://raw.githubusercontent.com/Lin-arm/gkd-Rules/main/dist/gkd.json5
+```
+
+- jsdelivr源（免翻墙，但可能会慢12小时才同步更新）
+
+```txt
+https://fastly.jsdelivr.net/gh/Lin-arm/gkd-Rules@main/dist/gkd.json5
 ```
 
 - 当前版本: v53
