@@ -58,3 +58,13 @@ https://fastly.jsdelivr.net/gh/Lin-arm/gkd-Rules@main/dist/gkd.json5
 
 - [GKD订阅模板](https://github.com/gkd-kit/subscription-template)
 - [AIsouler/GKD_subscription](https://github.com/AIsouler/GKD_subscription)
+
+## Star History 测试
+
+<a href="https://www.star-history.com/#Lin-arm/GKD_subscription&type=timeline&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Lin-arm/GKD_subscription&type=timeline&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Lin-arm/GKD_subscription&type=timeline&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Lin-arm/GKD_subscription&type=timeline&legend=top-left" />
+ </picture>
+</a>
