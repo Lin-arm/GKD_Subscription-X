@@ -1583,7 +1583,7 @@ export default defineGkdApp({
     {
       key: 48,
       name: '局部广告-提现完-优惠券弹窗',
-      desc: '①x掉 ②返回键',
+      desc: '①x掉 ②返回键 ③弹窗-点击[知道了]',
       activityIds: 'com.yxcorp.gateway.pay.activity.PayYodaWebViewActivity',
       rules: [
         {
@@ -1602,6 +1602,15 @@ export default defineGkdApp({
           action: 'back',
           actionDelay: 200,
           matches: '[parent=null]',
+        },
+        {
+          key: 3,
+          name: '③弹窗-点击[知道了]',
+          fastQuery: true,
+          activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
+          matches:
+            '@[text="知道了"][clickable=true] -n [text*="领取成功"] <<2 [index=parent.childCount.minus(1)] <6 WebView <<2 [vid="webView"]',
+          snapshotUrls: 'https://i.gkd.li/i/25730402',
         },
       ],
     },
