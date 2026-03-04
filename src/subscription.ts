@@ -5,9 +5,9 @@ import globalGroups from './globalGroups';
 
 export default defineGkdSubscription({
   id: 777,
-  name: 'Lin-arm的GKD订阅🧧',
+  name: '🎤💃🎶🏀的GKD订阅',
   version: 0,
-  author: 'Lin-arm',
+  author: '鲲门杂役',
   checkUpdateUrl: './gkd.version.json5',
   supportUri: 'https://github.com/Lin-arm/gkd-Rules',
   categories,
