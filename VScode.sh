@@ -48,6 +48,12 @@ git push
 # 推送到指定分支feature-1
 git push origin feature-1
 
+# 修改最近一次的提交记录
+# 进vim插入模式改
+git commit --amend
+# 直接快捷修改
+git commit --amend -m "fix: 哔哩哔哩 分段广告-视频详情页下方推广 (#40)"
+
 # 查看提交历史
 git log --oneline
 # 执行撤销 (f8e9d7c)
