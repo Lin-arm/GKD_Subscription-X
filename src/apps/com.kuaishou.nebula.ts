@@ -303,28 +303,20 @@ export default defineGkdApp({
       rules: [
         {
           key: 1,
-          // action: 'clickNode',
           fastQuery: true,
-          excludeAllMatches: [
-            'Button[text^="去看广告得"] -n * <<2 [index=parent.childCount.minus(1)] -n * > @Image[clickable=true][width>70 && width<90] <<4 [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount=2] -n [name$="TextView" || name$="View"] <<(3,4) [vid="webView"]', //开宝箱-弹窗去看广告
-            // 'Button[text="愉快收下"] -n [text="今日饲料雨收获"] <<3 [index=parent.childCount.minus(1)] -n * > @Image[clickable=true][width>70 && width<90] <<4 [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount=2] -n [name$="TextView" || name$="View"] <<(3,4) [vid="webView"]', //养鸭 饲料雨End 愉快收下
-          ],
-          // matches: [
-          //   '[text="任务中心"]',
-          //   '[text=""][clickable=false][childCount=1] > Image[width>=76 && width<=80][height>=74 && height<=80][clickable=true]',
-          // ],
-          // matches: 'Button[!(text="立即签到" || text="看广告翻10倍")] <(1,5) [index=parent.childCount.minus(1)] -n * > @Image[clickable=true][width>70 && width<90] <<4 [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount=2] -n [name$="TextView" || name$="View"] <<(3,4) [vid="webView"]',
           matches: [
             '@[name$="View"][text="任务中心"] <2 View <2 View < WebView <<2 [vid="webView"]',
-            '@Image[clickable=true][width>70 && width<90] <<4 [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount=2] -n [name$="TextView" || name$="View"] <<(3,4) [vid="webView"]',
+            'Button[!(text^="去看广告得" || text="愉快收下")] -n * <<(2,3) [index=parent.childCount.minus(1)] -n * > @[name$="Image" || name$="View"][clickable=true][width>70 && width<90] <<(2,3,4) [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount<3] -n [name$="TextView" || name$="View"] <<(3,4) [vid="webView"]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/23468984', //去绑卡 A
             'https://i.gkd.li/i/22672607', //每日打卡 A
             'https://i.gkd.li/i/23574778', //瓜分百亿金币 A
             'https://i.gkd.li/i/23749900', //开宝箱奖励已到账-看视频 A
+            'https://i.gkd.li/i/23588323', //看视频赚金币 领奖弹窗 A
             'https://i.gkd.li/i/22907854', //限时邀好友 B
             'https://i.gkd.li/i/23300823', //去分享视频 B
+            'https://i.gkd.li/i/25729758', //助力口令已复制 B
             'https://i.gkd.li/i/22671674', //添加组件 C
             'https://i.gkd.li/i/24743239', //瓜分百亿金币 D
           ],
@@ -333,25 +325,14 @@ export default defineGkdApp({
             // 'https://i.gkd.li/i/24448092', //养鸭 饲料雨End 翻10倍
 
             'https://i.gkd.li/i/23427912', //开宝箱-弹窗去看广告
-            // 'https://i.gkd.li/i/22907925', //养鸭 饲料雨End 愉快收下
-          ],
-        },
-        {
-          key: 2,
-          // matches: '[text^="任务完成奖励"] -2 [width>=76 && width<=87][height>=74 && height<=88][clickable=true]',
-          fastQuery: true,
-          matches:
-            '[text^="任务完成奖励"] -2 @[clickable=true][width>70 && width<90] <<2 [index=parent.childCount.minus(1)] <n WebView <<2 [vid="webView"]',
-          snapshotUrls: [
-            'https://i.gkd.li/i/23588323', //看视频赚金币 领奖弹窗
-            // 'https://i.gkd.li/i/23606147', //快手的
+            'https://i.gkd.li/i/22907925', //养鸭 饲料雨End 愉快收下
           ],
         },
         {
           key: 3,
-          matches: [
-            '[childCount=1] > ImageView[id=null][width>95 && width<106][height>95 && height<106][top>300 && top<1000][visibleToUser=true]',
-          ],
+          fastQuery: true,
+          matches:
+            '[childCount=1] > @ImageView[id=null][width>95 && width<106][height>95 && height<106][top>300 && top<1000][visibleToUser=true] <<3 ViewGroup <2 ViewGroup <2 ViewGroup <2 ViewGroup <3 FrameLayout < [vid="krn_content_container"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24352727', //A 2025年度回忆
             'https://i.gkd.li/i/24352736', //A h5回测dtk
