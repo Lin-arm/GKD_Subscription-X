@@ -248,6 +248,12 @@ export default defineGkdApp({
             '@View[text^="App版本过低"] <3 View <<3 WebView <<2 [vid="webView"]',
           snapshotUrls: 'https://i.gkd.li/i/25285773', //版本过低
         },
+        {
+          key: 18,
+          matches:
+            '[text="签到日历"] - @View[clickable=true][getChild(0).name$="Image"] <<5 WebView <<2 [vid="webView"]',
+          snapshotUrls: 'https://i.gkd.li/i/25730030', //签到日历
+        },
 
         // 以下为其它界面id的
         {
