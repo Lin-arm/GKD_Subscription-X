@@ -55,6 +55,9 @@ git revert f8e9d7c
 # 按 i 进入插入模式(不需要)
 # Esc → :wq → Enter 保存并退出
 
+# 彻底回退
+git reset --hard f8e9d7c
+
 
 # 强制同步Fork仓库与上游仓库一致的步骤：
 # 1. 克隆你的 Fork（如果还没克隆）
