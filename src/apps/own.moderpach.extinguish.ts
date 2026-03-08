@@ -7,6 +7,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '功能类-自动点击[启动]',
+      enable: false,
       rules: [
         {
           activityIds: '.MainActivity',
