@@ -40,7 +40,7 @@
     https://fastly.jsdelivr.net/gh/Lin-arm/gkd-Rules@main/dist/gkd.json5
     ```
 
-</details><br>
+</details>
 
 - 当前版本: v{{VERSION}}
 
