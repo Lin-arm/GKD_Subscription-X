@@ -56,6 +56,13 @@ git commit --amend -m "fix: 哔哩哔哩 分段广告-视频详情页下方推�
 
 # 查看提交历史
 git log --oneline
+# 筛选，忽略大小写（匹配 VID/vid/Vid 等），并高亮关键词
+git log --oneline | grep -i "vid"
+# 显示包含 vid 的提交（带作者、时间、简短信息）
+git log --pretty=format:"%h %an %ad %s" --date=short | grep -i "vid"
+# 输出该提交的详细细节，然后可以拿完整哈希去github搜commit记录
+git show f8e9d7c
+
 # 执行撤销 (f8e9d7c)
 git revert f8e9d7c
 # 按 i 进入插入模式(不需要)
