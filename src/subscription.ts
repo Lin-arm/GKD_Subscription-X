@@ -8,6 +8,7 @@ export default defineGkdSubscription({
   name: '🎤💃🎶🏀的GKD订阅',
   version: 0,
   author: '鲲门杂役',
+  updateUrl: 'https://gkd-rules-777.pages.dev/gkd.json5',
   checkUpdateUrl: './gkd.version.json5',
   supportUri: 'https://github.com/Lin-arm/gkd-Rules',
   categories,

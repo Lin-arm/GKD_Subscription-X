@@ -18,25 +18,29 @@
 
 ## 🚀订阅
 
-复制以下任意一个链接到 GKD 订阅的右下角 **+** 号那里导入，即可使用
+复制以下链接到 GKD 订阅的右下角 **+** 号那里导入，即可使用
 
 - CloudFlare源（国内推荐）
 
-```txt
-https://gkd-rules-777.pages.dev/gkd.json5
-```
+    ```txt
+    https://gkd-rules-777.pages.dev/gkd.json5
+    ```
+<details>
+<summary>备用源</summary>
 
 - GitHub源
 
-```txt
-https://raw.githubusercontent.com/Lin-arm/gkd-Rules/main/dist/gkd.json5
-```
+    ```txt
+    https://raw.githubusercontent.com/Lin-arm/gkd-Rules/main/dist/gkd.json5
+    ```
 
 - jsdelivr源（免翻墙，但可能会慢12小时才同步更新）
 
-```txt
-https://fastly.jsdelivr.net/gh/Lin-arm/gkd-Rules@main/dist/gkd.json5
-```
+    ```txt
+    https://fastly.jsdelivr.net/gh/Lin-arm/gkd-Rules@main/dist/gkd.json5
+    ```
+
+</details><br>
 
 - 当前版本: v{{VERSION}}
 
