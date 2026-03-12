@@ -141,10 +141,13 @@ export default defineGkdApp({
           name: '点击红包-开',
           matchRoot: true,
           activityIds: '.plugin.luckymoney.ui.LuckyMoney',
-          matches: '@Button[desc="开"] -3 LinearLayout >2 [text$="红包"]',
+          matches:
+            '@Button[desc="开" || desc="開"] -(2,3) LinearLayout >2 [text$="红包" || text$="紅包"]',
           snapshotUrls: [
             'https://i.gkd.li/i/18134828',
             'https://i.gkd.li/i/21177180',
+            'https://i.gkd.li/i/25901145',
+            'https://i.gkd.li/i/25315061', //zh_TW
           ],
           excludeSnapshotUrls: 'https://i.gkd.li/i/12567698', // 金币动画的快照
         },
@@ -152,12 +155,14 @@ export default defineGkdApp({
           preKeys: [1, 2],
           name: '从红包结算界面返回',
           activityIds: '.plugin.luckymoney.ui.LuckyMoney',
-          matches: '@ImageView[desc="返回"] +n LinearLayout >8 [text$="红包"]',
+          matches:
+            '@ImageView[desc="返回"] +n LinearLayout >8 [text$="红包" || text$="紅包"]',
           snapshotUrls: [
             'https://i.gkd.li/i/18134829',
             'https://i.gkd.li/i/18135031',
             'https://i.gkd.li/i/23825631',
             'https://i.gkd.li/i/24414957',
+            'https://i.gkd.li/i/25315062', //zh_TW
           ],
         },
       ],
