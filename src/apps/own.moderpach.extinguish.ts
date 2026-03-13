@@ -9,8 +9,7 @@ export default defineGkdApp({
       name: '功能类-自动[启动]后返回',
       desc: '①点击[启动] ②返回键',
       enable: false,
-      // actionMaximum: 1,
-      // resetMatch: 'app',
+      matchTime: 1200,
       activityIds: '.MainActivity',
       rules: [
         {

@@ -10,6 +10,7 @@ export default defineGkdApp({
       desc: '进app后 ①点击[启动] ②返回键',
       fastQuery: true,
       activityIds: 'com.github.kr328.clash.MainActivity',
+      matchTime: 1200, //防止进app手动关闭梯子时还触发
       rules: [
         {
           key: 1,
