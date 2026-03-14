@@ -9,7 +9,9 @@ export default defineGkdApp({
       name: '📢说明',
       desc: '(点击查看详情) 目前在用的快极版本有两个: 🔸v13.2.10.9610 🔸v12.8.20.8680 ,如果你用其他版本的快极,估计有些规则不生效,如遇失效或误触请截取快照拿到github反馈. 🟢相关脚本已在自动精灵app上传,请到脚本市场搜`🦜快极_自动刷视频`',
       enable: false,
-      rules: [],
+      rules: [
+        // snapshotUrls: 'https://i.gkd.li/i/24078870', //养鸭-饲料雨
+      ],
     },
     {
       key: 1,
@@ -283,9 +285,12 @@ export default defineGkdApp({
           activityIds: 'com.yxcorp.gifshow.detail.PhotoDetailActivity',
           matches: [
             '[vid="text"][text="发条有爱评论~"]',
-            '@[vid="left_btn"][desc="返回"][clickable=true] + [desc="查找"] + [vid="filter_btn_layout"]',
+            '[vid="front_top_view"] >2 [vid="left_btn"][desc="返回"][clickable=true]',
           ],
-          snapshotUrls: 'https://i.gkd.li/i/24992396', //视频广告页
+          snapshotUrls: [
+            'https://i.gkd.li/i/24992396', //视频广告页
+            'https://i.gkd.li/i/25996122',
+          ],
         },
         {
           key: 55,
@@ -293,6 +298,17 @@ export default defineGkdApp({
           matches: '[text*="APP版本过低"][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/25341424', //版本过低
           activityIds: 'com.kwai.kds.krn.api.page.KwaiRnActivity',
+        },
+        {
+          key: 56,
+          action: 'back',
+          activityIds: 'com.kwai.kds.krn.api.page.tabs.KrnMultiTabActivity',
+          matches: [
+            '[text="观看记录"]',
+            '[text="当前热播"]',
+            '[text="重磅推荐"]',
+          ],
+          snapshotUrls: 'https://i.gkd.li/i/25995937', //快手短剧
         },
       ],
     },
@@ -310,9 +326,11 @@ export default defineGkdApp({
         {
           key: 1,
           fastQuery: true,
+          order: 2, //迟点匹配,让key18 任务页-自动开宝箱 先
           matches: [
             '@[name$="View"][text="任务中心"] <2 View <2 View < WebView <<2 [vid="webView"]',
-            'Button[!(text^="去看广告得" || text="愉快收下")] -n * <<(2,3) [index=parent.childCount.minus(1)] -n * > @[name$="Image" || name$="View"][clickable=true][width>70 && width<90] <<(2,3,4) [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount<3] -n [name$="TextView" || name$="View"] <<(3,4) [vid="webView"]',
+            // 'Button[!(text^="去看广告得" || text="愉快收下")] -n * <<(2,3,5) [index=parent.childCount.minus(1)] -n * > @[name$="Image" || name$="View"][clickable=true][width>70 && width<90] <<(2,3,4) [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount<3] -n [name$="TextView" || name$="View"] <<(3,4) [vid="webView"]',
+            '@[name$="Image" || name$="View"][clickable=true][width>70 && width<90] <<(2,3,4) [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount<3] -n [name$="TextView" || name$="View"] <<(3,4) [vid="webView"]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/23468984', //去绑卡 A
@@ -325,12 +343,14 @@ export default defineGkdApp({
             'https://i.gkd.li/i/25729758', //助力口令已复制 B
             'https://i.gkd.li/i/22671674', //添加组件 C
             'https://i.gkd.li/i/24743239', //瓜分百亿金币 D
+            // 'https://i.gkd.li/i/25996072', //瓜分百亿金币 D    * <<(2,3,5)  的 5
+            // 'https://i.gkd.li/i/25996219', //看视频赚金币 领奖弹窗 B
           ],
           excludeSnapshotUrls: [
             // 'https://i.gkd.li/i/22871644', //养鸭 签到弹窗
             // 'https://i.gkd.li/i/24448092', //养鸭 饲料雨End 翻10倍
 
-            'https://i.gkd.li/i/23427912', //开宝箱-弹窗去看广告
+            // 'https://i.gkd.li/i/23427912', //开宝箱-弹窗去看广告
             'https://i.gkd.li/i/22907925', //养鸭 饲料雨End 愉快收下
           ],
         },
@@ -591,6 +611,7 @@ export default defineGkdApp({
           forcedTime: 15000,
           // matches: 'Image + Button[text^="点可领"][text$="金币"][clickable=true]',
           fastQuery: true,
+          matchRoot: true,
           matches:
             '@Button[text^="点可领"][text$="金币"][clickable=true] - Image <<(1,2) [index=parent.childCount.minus(1)] <n [index=parent.childCount.minus(2)][childCount>4] <n View <<3 [vid="webView"]',
           snapshotUrls: [
@@ -935,18 +956,15 @@ export default defineGkdApp({
           key: 1,
           actionMaximum: 1,
           resetMatch: 'match',
-          excludeMatches:
-            '@[clickable=true][focusable=true] > [text="流畅" || text="高清"]', //已经是'高清'
-          matches:
-            '@[clickable=true][focusable=true] > [text="清晰度" || text="自动"]',
+          excludeMatches: '@[clickable=true] > [text="流畅" || text="高清"]',
+          matches: '@[clickable=true] > [text="清晰度" || text="自动"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23607208', //清晰度
             'https://i.gkd.li/i/23642513', //自动
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/23908016',
+          excludeSnapshotUrls: 'https://i.gkd.li/i/23908016', //已经是'高清'
         },
         {
-          key: 2,
           preKeys: [1],
           matches:
             '@[index=parent.childCount.minus(2)][clickable=true] > [text="流畅" || text="高清"][visibleToUser=true]',
@@ -965,7 +983,6 @@ export default defineGkdApp({
           excludeMatches:
             '[text="饲料雨即将来袭" || (text^="剩余" && text$="秒" && left=0)][visibleToUser=true]', //饲料雨
           matches: [
-            // '@Button[text="立即签到" || text="明天来喂鸭" || text^="继续喂" || text="愉快收下" || text="看广告翻10倍" || text^="领今日奖励"][clickable=true] <<n * - [id="app"] <<n [vid="webView"]',
             'Button[text="立即签到" || text="明天来喂鸭" || text^="继续喂" || text="愉快收下" || text="看广告翻10倍" || text^="领今日奖励"][clickable=true]',
           ],
           snapshotUrls: [
@@ -985,7 +1002,6 @@ export default defineGkdApp({
           preKeys: [1],
           action: 'back',
           excludeMatches: '[text="今日步数"]',
-          // matches: '@[text="签到领奖励"] -n * <<2 [id="app"] <<n [vid="webView"]',
           matches:
             'Button[text^="待领取" || text^="已领取"][clickable=true][visibleToUser=true]',
           snapshotUrls: [
@@ -1011,23 +1027,6 @@ export default defineGkdApp({
         },
       ],
     },
-    // {
-    //   key: 24,
-    //   name: '🦆养鸭-饲料雨(test)',
-    //   desc: '每晚8~10点',
-    //   rules: [
-    //     {
-    //       actionCd: 150,  //真机测试1秒左右才点击1次😢
-    //       position: {     //往下偏移
-    //         left: 'width * 0.5000',
-    //         top: 'width * 2.0000',  //上下范围大概 1.6~2.4 倍
-    //       },
-    //       matches: 'Image[text="饲料"][width>=159 && width<=163]',
-    //       snapshotUrls: 'https://i.gkd.li/i/24078870',
-    //       activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
-    //     },
-    //   ],
-    // },
     {
       key: 33,
       name: '🦆养鸭-自动喂鸭',
@@ -1063,7 +1062,6 @@ export default defineGkdApp({
           actionCd: 6000,
           excludeMatches:
             '[text="赚饲料" || text="签到提醒" || text="饲料雨即将来袭" || (text^="剩余" && text$="秒" && left=0) || text="今日饲料雨收获"][visibleToUser=true]',
-          // matches: 'View[id="foodBottomIcon"] < * + [visibleToUser=true]',
           matches:
             '[id="app"][parent.childCount=1] >(6,7,8) View[id="foodBottomIcon"] < * + [visibleToUser=true]',
           snapshotUrls: [
@@ -1142,9 +1140,6 @@ export default defineGkdApp({
       enable: false,
       rules: [
         {
-          // action: 'clickNode',
-          // fastQuery: true,
-          // matches: '@TextView[text="去搜索"][clickable=true] <2 [childCount=2] < [childCount=1] <n View[childCount>15] -n TextView <<4 [vid="webView"]',
           matches:
             '@TextView[text="去搜索"][clickable=true] - * > [text="搜索赚金币"]',
           snapshotUrls: 'https://i.gkd.li/i/24992823',
@@ -1493,7 +1488,7 @@ export default defineGkdApp({
         {
           key: 2, // 弹窗,点击开心收下(坐标)
           preKeys: [1],
-          actionDelay: 2500,
+          actionDelay: 2000,
           position: {
             left: 'width * 0.4945',
             top: 'width * 1.3142',
@@ -1584,12 +1579,12 @@ export default defineGkdApp({
       key: 48,
       name: '局部广告-提现完-优惠券弹窗',
       desc: '①x掉 ②返回键 ③弹窗-点击[知道了]',
+      fastQuery: true,
       activityIds: 'com.yxcorp.gateway.pay.activity.PayYodaWebViewActivity',
       rules: [
         {
           key: 1,
           name: '①x掉',
-          fastQuery: true,
           matches:
             '[text="优惠券即将到期"] - @View[clickable=true][width<80][getChild(0).name$="TextView"] < View <2 View <3 WebView <<3 [vid="web_view_container"]',
           exampleUrls: 'https://e.gkd.li/a5083e28-4cf6-454a-b37f-12cc06781c9a',
@@ -1605,12 +1600,15 @@ export default defineGkdApp({
         },
         {
           key: 3,
+          // preKeys: [1,2],
           name: '③弹窗-点击[知道了]',
-          fastQuery: true,
           activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
           matches:
-            '@[text="知道了"][clickable=true] -n [text*="领取成功"] <<2 [index=parent.childCount.minus(1)] <6 WebView <<2 [vid="webView"]',
-          snapshotUrls: 'https://i.gkd.li/i/25730402',
+            '@[text="知道了"][clickable=true] -n View <<2 [index=parent.childCount.minus(1)] <6 WebView <<2 [vid="webView"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/25730402',
+            'https://i.gkd.li/i/25996186',
+          ],
         },
       ],
     },
