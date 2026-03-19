@@ -76,5 +76,9 @@
   "packageManager": "pnpm@10.14.0",
   "engines": {
     "node": ">=22"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "8.49.0",
+    "@typescript-eslint/parser": "8.49.0"
   }
 }
