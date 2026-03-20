@@ -9,8 +9,9 @@ export default defineGkdApp({
       name: '功能类-自动[启动]后返回',
       desc: '进app后 ①点击[启动] ②返回键',
       fastQuery: true,
-      activityIds: 'com.github.kr328.clash.MainActivity',
+      activityIds: 'com.github.kr328.clash.', //通配
       matchTime: 1200, //防止进app手动关闭梯子时还触发
+      resetMatch: 'app', //防止在梯子关闭状态下,由其它界面返回 MainActivity 时还触发
       rules: [
         {
           key: 1,
