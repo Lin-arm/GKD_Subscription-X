@@ -897,6 +897,13 @@ export default defineGkdApp({
             'https://i.gkd.li/i/25075124',
           ],
         },
+        {
+          key: 13,
+          name: '13.意向城市-返回键',
+          action: 'back',
+          matches: 'ImageView <<2 @[clickable=true] +2 [text*="意向城市"]',
+          snapshotUrls: 'https://i.gkd.li/i/26160402',
+        },
       ],
     },
     {
