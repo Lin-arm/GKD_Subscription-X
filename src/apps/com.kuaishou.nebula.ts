@@ -310,6 +310,13 @@ export default defineGkdApp({
           ],
           snapshotUrls: 'https://i.gkd.li/i/25995937', //快手短剧
         },
+        {
+          key: 57,
+          activityIds:
+            'com.yxcorp.gifshow.ad.neo.videov2.award.AwardVideoPlayActivityV2',
+          matches: '[text^="谢谢参与"] + [text="知道了"]',
+          snapshotUrls: 'https://i.gkd.li/i/26160549', //谢谢参与，下次再试试吧
+        },
       ],
     },
     {
