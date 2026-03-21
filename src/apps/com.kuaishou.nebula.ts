@@ -215,7 +215,7 @@ export default defineGkdApp({
         {
           key: 12,
           action: 'back',
-          matches: '[text="现金明细"]',
+          matches: '@[text="我的收益"] <2 View <<5 WebView <<2 [vid="webView"]',
           snapshotUrls: 'https://i.gkd.li/i/24337097', //我的收益页
         },
         {
