@@ -1586,9 +1586,12 @@ export default defineGkdApp({
           key: 1,
           name: '①x掉',
           matches:
-            '[text="优惠券即将到期"] - @View[clickable=true][width<80][getChild(0).name$="TextView"] < View <2 View <3 WebView <<3 [vid="web_view_container"]',
+            '[text="优惠券即将到期"] - @[name$="View"][clickable=true][width<80] < View <2 View <3 WebView <<3 [vid="web_view_container"]',
           exampleUrls: 'https://e.gkd.li/a5083e28-4cf6-454a-b37f-12cc06781c9a',
-          snapshotUrls: 'https://i.gkd.li/i/25730266',
+          snapshotUrls: [
+            'https://i.gkd.li/i/25730266',
+            'https://i.gkd.li/i/26159736',
+          ],
         },
         {
           key: 2,
@@ -1604,10 +1607,11 @@ export default defineGkdApp({
           name: '③弹窗-点击[知道了]',
           activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
           matches:
-            '@[text="知道了"][clickable=true] -n View <<2 [index=parent.childCount.minus(1)] <6 WebView <<2 [vid="webView"]',
+            '@[text="知道了"][clickable=true] -n [name$="View"] <<2 [index=parent.childCount.minus(1)] <6 WebView <<2 [vid="webView"]',
           snapshotUrls: [
             'https://i.gkd.li/i/25730402',
             'https://i.gkd.li/i/25996186',
+            'https://i.gkd.li/i/26159607',
           ],
         },
       ],
