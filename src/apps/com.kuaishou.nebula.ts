@@ -1336,11 +1336,12 @@ export default defineGkdApp({
           fastQuery: true,
           activityIds: 'com.kuaishou.novel.home.read.ReaderActivityV2',
           matches:
-            '@ImageView[clickable=true] <<2 * - * > [text="立即下载" || text="立即打开" || text="去逛逛"]',
+            '@ImageView[clickable=true] <<2 * - * > [text^="立即" || text*="下载" || text="去逛逛" || text="免费观看"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24738559',
             'https://i.gkd.li/i/24760376',
             'https://i.gkd.li/i/24994337',
+            'https://i.gkd.li/i/26160311', //免费观看
           ],
         },
       ],
