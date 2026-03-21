@@ -123,6 +123,7 @@ export default defineGkdApp({
       key: 4,
       name: '📆每日福利-阅读得积分-领取',
       desc: '点击领积分(❗遮挡可开shizuku强制点击)',
+      order: 2,
       activityIds: '.ui.activity.QDBrowserActivity',
       rules: [
         {
