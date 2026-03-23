@@ -792,6 +792,30 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 2301,
+      name: '📡直播间-看36s后退出',
+      desc: '没有倒计时的时候用',
+      enable: false,
+      rules: [
+        {
+          actionCd: 3000,
+          actionDelay: 36000,
+          fastQuery: true,
+          matches:
+            '[id="com.kuaishou.nebula.live_audience_plugin:id/live_close_place_holder"]',
+          snapshotUrls: 'https://i.gkd.li/i/26178461',
+          activityIds: [
+            'com.yxcorp.gifshow.detail.PhotoDetailActivity',
+            'com.kuaishou.live.core.basic.activity.LiveSlideActivity',
+            'com.kuaishou.live.core.basic.activity.LivePlayActivity',
+            'com.yxcorp.gifshow.ad.neo.video.award.AwardVideoPlayActivity',
+            'com.yxcorp.gifshow.ad.neo.videov2.award.AwardVideoPlayActivityV2',
+            'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity',
+          ],
+        },
+      ],
+    },
+    {
       key: 24,
       name: '📡直播间-弹窗',
       desc: '①主播争霸赛 ②拍了拍我 ③招工 ④预约直播 ⑤右侧边栏 ⑥邀加语音聊天',
