@@ -702,9 +702,12 @@ export default defineGkdApp({
           name: '④去玩小游戏-x掉',
           matches: [
             '[text^="还差"][text$="次领肥料"]',
-            'Image[width=812] + Button[text="关闭"][index=parent.childCount.minus(1)][visibleToUser=true]',
+            'Image[width>782] +(1,2) Button[text="关闭"][index=parent.childCount.minus(1)][visibleToUser=true]',
           ],
-          snapshotUrls: 'https://i.gkd.li/i/24203073', //去玩小游戏赚取海量肥料
+          snapshotUrls: [
+            'https://i.gkd.li/i/24203073', //去玩小游戏赚取海量肥料
+            'https://i.gkd.li/i/26184579', //玩游戏领支付红包
+          ],
         },
       ],
     },
