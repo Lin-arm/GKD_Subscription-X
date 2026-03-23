@@ -2,10 +2,10 @@
 <!-- [![SVG Banners](https://svg-banners.vercel.app/api?type=luminance&text1=gkd-Rules%20🦜&width=800&height=200)](https://github.com/Lin-arm/gkd-Rules) -->
 [![SVG Banners](https://svg-banners.vercel.app/api?type=origin&text1=GKD个人自用订阅%20🦜&text2=🧧gkd-Rules&height=350)](https://github.com/Lin-arm/gkd-Rules)
 
-[![Release](https://img.shields.io/badge/发行版-v58-firebrick)](https://github.com/Lin-arm/gkd-Rules/releases/latest)
+[![Release](https://img.shields.io/badge/发行版-v59-firebrick)](https://github.com/Lin-arm/gkd-Rules/releases/latest)
 [![已适配应用](https://img.shields.io/badge/已适配应用-22-brightgreen)](./dist/README.md#应用规则)
 [![全局规则组](https://img.shields.io/badge/全局规则组-0-blueviolet)](./dist/README.md#全局规则)
-[![应用规则组](https://img.shields.io/badge/应用规则组-173-orange)](./dist/README.md#应用规则)
+[![应用规则组](https://img.shields.io/badge/应用规则组-174-orange)](./dist/README.md#应用规则)
 
 ## 📑说明
 
@@ -42,9 +42,9 @@
 
 </details>
 
-<!-- - 当前版本: v58 -->
+<!-- - 当前版本: v59 -->
 
-<!-- - 当前订阅文件已适配 22 个应用，共有 173 应用规则组，0 全局规则组 -->
+<!-- - 当前订阅文件已适配 22 个应用，共有 174 应用规则组，0 全局规则组 -->
 
 <!-- - 具体情况请查看 [适配 APP 列表](./dist/README.md) -->
 
