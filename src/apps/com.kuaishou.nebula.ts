@@ -605,6 +605,7 @@ export default defineGkdApp({
       key: 18,
       name: '🤳任务页-自动开宝箱',
       desc: '①开宝箱 ②(弹窗)去看广告',
+      order: -1,
       activityIds: [
         'com.yxcorp.gifshow.HomeActivity', // A
         'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', // B
