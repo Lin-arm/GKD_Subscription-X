@@ -296,5 +296,39 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 16,
+      name: '功能类-订阅至最新章后自动[返回]',
+      desc: '返回小说正文页 (对于自定义订阅不可用)',
+      fastQuery: true,
+      activityIds: '.ui.activity.QDDirectoryActivity',
+      rules: [
+        {
+          key: 1,
+          name: '①未订最新章-待后续',
+          action: 'none',
+          actionMaximum: 1, //不点击,防止触发记录过多
+          matches: '[text^="订阅后续付费章"]',
+          snapshotUrls: 'https://i.gkd.li/i/26221300',
+        },
+        {
+          key: 2,
+          preKeys: [1],
+          name: '②已订最新章-返回键',
+          action: 'back',
+          matches: '[text="已订阅至最新章节"]',
+          snapshotUrls: 'https://i.gkd.li/i/26220488',
+          exampleUrls: 'https://e.gkd.li/40df3df2-a5a5-4044-bf82-8622396bf39a',
+        },
+        {
+          key: 3,
+          preKeys: [2],
+          name: '③退出目录',
+          matches:
+            '@[vid="btnBack"][clickable=true] + * >6 [vid="layoutTitle"][text="目录"]',
+          snapshotUrls: 'https://i.gkd.li/i/26221238',
+        },
+      ],
+    },
   ],
 });
