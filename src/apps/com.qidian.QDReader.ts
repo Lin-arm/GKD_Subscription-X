@@ -79,8 +79,11 @@ export default defineGkdApp({
           key: 3,
           name: '③抽完奖-x掉',
           matches:
-            '[text="明天再来"] +3 [clickable=true][childCount=1][index=parent.childCount.minus(1)]',
-          snapshotUrls: 'https://i.gkd.li/i/24369440',
+            '[text^="明"][text$="再来"] +3 [clickable=true][childCount=1][index=parent.childCount.minus(1)]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/24369440', //明天再来
+            'https://i.gkd.li/i/26273751', //明日再来
+          ],
         },
       ],
     },
