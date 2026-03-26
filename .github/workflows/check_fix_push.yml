@@ -23,9 +23,12 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: 22
+          package-manager-cache: false
 
-      - name: 配置 pnpm 包管理器
-        uses: pnpm/action-setup@v4
+      - name: 启用 corepack 并安装 pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
 
       - name: 安装项目依赖
         run: pnpm install
