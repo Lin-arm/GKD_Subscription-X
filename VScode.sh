@@ -26,6 +26,14 @@ git commit -m "feat: 123云盘 局部广告"
 # git commit -m "fix: 123云盘 全屏广告-弹窗广告 #1788"  # 在commit内关联issue
 # 提PR时可填   resolves #1774   关联issue
 
+# 输入多行提交信息
+git commit -m "perf: 优化
+> 1. id 转 vid
+> 2. activityId 去掉包名前缀"
+
+# 打开编辑器写多行
+git commit
+
 # Git 提交类型及其含义
 # git commit -m "feat: 新功能：给项目增加一个新功能"
 # git commit -m "fix: 修复 bug"
