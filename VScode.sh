@@ -26,11 +26,13 @@ git commit -m "perf: 123云盘 减少代码冗余"
 git commit -m "fix: 123云盘 全屏广告-弹窗广告 (#1788)"  # 在commit内关联issue
 # 同时关闭议题 #1788
 git commit -m "fix: 123云盘 全屏广告-弹窗广告 (#1788)
+>
 > close #1788"
 # 在github提PR时可填   resolves #1774   关联issue
 
-# 输入多行提交信息(不写"号,按回车键换行)
+# 输入多行提交信息(不写"号,按回车键换行,标题和正文之间留空一行)
 git commit -m "perf: 优化
+>
 > - 将 id 转 vid
 > - 去掉 activityIds 包名前缀"
 
