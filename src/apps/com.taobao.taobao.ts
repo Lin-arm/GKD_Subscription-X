@@ -37,7 +37,7 @@ export default defineGkdApp({
           key: 3,
           name: '③右边肥料袋-领取',
           actionMaximum: 1,
-          matchDelay: 2000,
+          actionDelay: 2000,
           resetMatch: 'app',
           matches: '[text$="肥料，点击领取"][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/23393987',
