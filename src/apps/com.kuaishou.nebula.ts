@@ -1099,6 +1099,7 @@ export default defineGkdApp({
           name: '③6秒喂1次鸭',
           actionMaximum: 120,
           actionCd: 6000,
+          order: 5,
           excludeMatches:
             '[text="赚饲料" || text="签到提醒" || text="饲料雨即将来袭" || (text^="剩余" && text$="秒" && left=0) || text="今日饲料雨收获"][visibleToUser=true]',
           matches:

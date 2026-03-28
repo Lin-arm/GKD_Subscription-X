@@ -95,6 +95,8 @@ git remote add upstream https://github.com/AIsouler/GKD_subscription.git
 
 # 3. 获取上游所有更新
 git fetch upstream
+# 安全把上游 main 合并到你的本地
+git rebase upstream/main
 
 # 4. 切换到你的 main 分支, (不要用main分支提交AIsouler/GKD_subscription的PR)
 git checkout main
