@@ -908,5 +908,19 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 35,
+      name: '功能类-转账完自动[回首页]',
+      desc: '转账成功后点击右上角[回首页]',
+      enable: false,
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.alipay.android.msp.ui.views.MspContainerActivity',
+          matches: ['[text="转账成功"]', '[text="回首页"][clickable=true]'],
+          snapshotUrls: 'https://i.gkd.li/i/26331129',
+        },
+      ],
+    },
   ],
 });
