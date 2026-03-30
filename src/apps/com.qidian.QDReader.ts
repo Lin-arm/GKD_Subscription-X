@@ -27,8 +27,10 @@ export default defineGkdApp({
       rules: [
         {
           actionCd: 1700, // 配合QD模块,免看广告领奖励 使用
-          excludeMatches: '[text*="验证"][focusable=true][visibleToUser=true]', // 排除验证弹窗(遇则停)
-          matches: '[id="video"] >(1,2) [text="去完成"][visibleToUser=true]',
+          // excludeMatches: '[text*="验证"][focusable=true][visibleToUser=true]', // 排除验证弹窗(遇则停)
+          // matches: '[id="video"] >(1,2) [text="去完成"][visibleToUser=true]',
+          matches:
+            'WebView[!(getChild(childCount.minus(1)).id*="tcaptcha" || getChild(childCount.minus(2)).id*="tcaptcha")] >2 [id="video"] >(1,2) [text="去完成"][visibleToUser=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/23290942', // 422
             'https://i.gkd.li/i/23565148', // 422
@@ -38,6 +40,7 @@ export default defineGkdApp({
           excludeSnapshotUrls: [
             'https://i.gkd.li/i/23562885',
             'https://i.gkd.li/i/23610102', // 422 验证弹窗
+            'https://i.gkd.li/i/26336514', // 428 验证弹窗 (个别手机出了验证弹窗还继续点击[去完成])
           ],
           activityIds: '.ui.activity.QDBrowserActivity',
         },
