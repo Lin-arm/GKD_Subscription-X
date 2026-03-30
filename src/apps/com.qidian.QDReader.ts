@@ -167,8 +167,10 @@ export default defineGkdApp({
       name: '🧧发现-红包广场-抢月包',
       desc: '点击 抢(章节卡不抢)', // 若是手动从红包广场进来, activity没变, 此规则可能不触发. 需手动下拉刷新, 或通过gkd自动进红包广场.
       enable: false,
+      order: -2,
       actionCd: 300,
-      actionMaximum: 2,
+      actionMaximum: 3,
+      actionMaximumKey: 1, //所有子rule合起来最多点击3次
       activityIds: [
         '.ui.activity.MainGroupActivity',
         '.flutter.HongBaoSquareActivity',
@@ -220,6 +222,7 @@ export default defineGkdApp({
       enable: false,
       rules: [
         {
+          order: -2,
           actionCd: 100,
           actionDelay: 120, //加个延时,点太快了可能不妥
           excludeMatches: '[text*="验证"][focusable=true][visibleToUser=true]', // 排除验证弹窗
@@ -246,6 +249,7 @@ export default defineGkdApp({
       enable: false,
       rules: [
         {
+          order: -2,
           actionCd: 100,
           matches: [
             '[text="已抢完"]',
