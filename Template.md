@@ -1,6 +1,12 @@
+<!-- # gkd-Rules -->
 
-<!-- [![SVG Banners](https://svg-banners.vercel.app/api?type=luminance&text1=gkd-Rules%20🦜&width=800&height=200)](https://github.com/Lin-arm/gkd-Rules) -->
-[![SVG Banners](https://svg-banners.vercel.app/api?type=origin&text1=GKD个人自用订阅%20🦜&text2=🧧gkd-Rules&height=350)](https://github.com/Lin-arm/gkd-Rules)
+<!-- 来源: https://github.com/Akshay090/svg-banners -->
+<!-- [![SVG Banners](https://svg-banners.vercel.app/api?type=rainbow&text1=个人自用订阅%20🦜&width=800&height=200)](https://github.com/Lin-arm/gkd-Rules) -->
+<!-- [![SVG Banners](https://svg-banners.vercel.app/api?type=typeWriter&text1=个人自用订阅%20🦜&width=800&height=200)](https://github.com/Lin-arm/gkd-Rules) -->
+<!-- [![SVG Banners](https://svg-banners.vercel.app/api?type=glitch&text1=个人自用订阅%20🦜&width=800&height=250)](https://github.com/Lin-arm/gkd-Rules) -->
+[![SVG Banners](https://svg-banners.vercel.app/api?type=textBox&text1=个人自用GKD订阅%20🦜&width=800&height=180)](https://github.com/Lin-arm/gkd-Rules)
+<!-- [![SVG Banners](https://svg-banners.vercel.app/api?type=luminance&text1=个人自用订阅&width=800&height=200)](https://github.com/Lin-arm/gkd-Rules) -->
+<!-- [![SVG Banners](https://svg-banners.vercel.app/api?type=origin&text1=GKD个人自用订阅%20🦜&text2=🧧gkd-Rules&height=350)](https://github.com/Lin-arm/gkd-Rules) -->
 
 [![Release](https://img.shields.io/badge/发行版-v{{VERSION}}-firebrick)](https://github.com/Lin-arm/gkd-Rules/releases/latest)
 [![已适配应用](https://img.shields.io/badge/已适配应用-{{APP_SIZE}}-brightgreen)](./dist/README.md#应用规则)
@@ -12,7 +18,7 @@
 > [!IMPORTANT]
 > 本订阅仅供学习交流使用，请勿做非法用途
 
-- 目前主要研究 `ks`,`ks极速版`,`zfb(蚂蚁森林)`,`起点读书` 等应用的规则, 如有遇到失效规则, 请到 [Issues](https://github.com/Lin-arm/gkd-Rules/issues)提交快照文件或链接,我将尽力适配。
+- 目前主要研究 `ks` , `ks极速版` , `zfb(蚂蚁🌲🐤)` , `起.读📚` 等应用的规则, 如有遇到失效规则, 请到 [Issues](https://github.com/Lin-arm/gkd-Rules/issues)提交快照文件或链接,我将尽力适配。
 
 - 另外 订阅后请进`应用规则`里，再逐个进app里斟酌是否需要关闭某条规则, 本订阅的规则大部分默认是开着的。
 
