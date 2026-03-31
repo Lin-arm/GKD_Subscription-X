@@ -551,8 +551,10 @@ export default defineGkdApp({
           key: 2, //等待时间过长(9秒), 直接返回
           matchDelay: 3500,
           actionDelay: 9000,
-          matches: '[vid="left_btn"][clickable=true][visibleToUser=true]', //返回
+          matches:
+            '[vid="left_btn"][desc="返回"][clickable=true][visibleToUser=true]', //返回
           snapshotUrls: 'https://i.gkd.li/i/23908857',
+          excludeSnapshotUrls: 'https://i.gkd.li/i/26376188', //加 [desc="返回"] 排除, GKD捉不到 activityId 时会误触
         },
         {
           key: 3,
