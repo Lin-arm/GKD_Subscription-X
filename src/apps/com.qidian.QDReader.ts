@@ -165,9 +165,11 @@ export default defineGkdApp({
     {
       key: 5,
       name: '🧧发现-红包广场-抢月包',
-      desc: '点击 抢(章节卡不抢)', // 若是手动从红包广场进来, activity没变, 此规则可能不触发. 需手动下拉刷新, 或通过gkd自动进红包广场.
+      desc: '点击 抢(章节卡不抢) (起点422)',
       enable: false,
       order: -2,
+      fastQuery: true,
+      matchRoot: true,
       actionCd: 300,
       actionMaximum: 3,
       actionMaximumKey: 1, //所有子rule合起来最多点击3次
@@ -180,19 +182,22 @@ export default defineGkdApp({
           key: 1,
           name: '①抢点币过10万的',
           matches:
-            'ImageView[desc$="万\\n点\\n抢"][desc.length>6][clickable=true]',
+            '@ImageView[desc$="万\\n点\\n抢"][desc.length>6][clickable=true] <6 View <n ScrollView <3 View[childCount=3] <4 View[childCount=4] <<5 [id="android:id/content"]',
         },
         {
           key: 2,
           name: '②抢万点币的',
-          matches: 'ImageView[desc$="万\\n点\\n抢"][clickable=true]',
+          matches:
+            '@ImageView[desc$="万\\n点\\n抢"][clickable=true] <6 View <n ScrollView <3 View[childCount=3] <4 View[childCount=4] <<5 [id="android:id/content"]',
+          // matches: 'ImageView[desc$="万\\n点\\n抢"][clickable=true]',
           // 不要用 [visibleToUser=true] ,每月1号中午12点、3号下午3点 发的包很多, 大包可能被顶下去
           snapshotUrls: 'https://i.gkd.li/i/23291716', //起点422
         },
         {
           key: 3,
           name: '③抢点币的',
-          matches: 'ImageView[desc$="点\\n抢"][clickable=true]',
+          matches:
+            '@ImageView[desc$="点\\n抢"][clickable=true] <6 View <n ScrollView <3 View[childCount=3] <4 View[childCount=4] <<5 [id="android:id/content"]',
         },
       ],
     },
@@ -203,9 +208,12 @@ export default defineGkdApp({
       enable: false,
       rules: [
         {
+          fastQuery: true,
+          matchRoot: true,
           actionCd: 300,
           actionMaximum: 3,
-          matches: 'ImageView[desc$="点\\n已抢完"][clickable=true]',
+          matches:
+            '@ImageView[desc$="点\\n已抢完"][clickable=true] <6 View <n ScrollView <3 View[childCount=3] <4 View[childCount=4] <<5 [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/24323139',
           exampleUrls: 'https://e.gkd.li/4b8f7243-aff9-42d3-bfdf-772c1088e7c2',
           activityIds: [
