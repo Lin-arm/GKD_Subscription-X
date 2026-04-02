@@ -110,13 +110,13 @@ export default defineGkdApp({
       key: 4,
       name: '🐤养鸡-收麦子弹窗-x掉',
       desc: '好友来串门种了xx g麦子',
-      order: NO_FAST_QUERY,
       rules: [
         {
+          fastQuery: true,
           matches:
-            '@TextView[text=""] - [text^="七天内不收取"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/22923502',
-          exampleUrls: 'https://e.gkd.li/bd62215c-15a4-47e3-8907-3421344e4ee5',
+            '[text^="七天内不收取"] + @TextView[index=parent.childCount.minus(2)] <n View[childCount>6] <<7 WebView[text="蚂蚁庄园"] <<3 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
+          snapshotUrls: 'https://i.gkd.li/i/26428751',
+          exampleUrls: 'https://e.gkd.li/9ef153bc-838d-45e3-96e5-e88fa2438448',
           activityIds:
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
         },
