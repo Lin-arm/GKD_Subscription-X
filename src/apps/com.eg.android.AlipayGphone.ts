@@ -9,7 +9,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '📢说明',
-      desc: '(点击查看详情) 🔵目前在本人用的支付宝版本有三个: 🔸v10.7.76.8100 🔸v10.7.16.8000 🔸v10.8.30.8000 ,如果你用其他版本的支付宝,估计有些规则不生效,如遇失效或误触请截取快照拿到github反馈. 🔵另外,这些规则大都是在模块(芝麻糊、芝麻粒-tk等)不做这些任务的时候,用gkd来减少手动操作的,如果模块能做的任务,请关掉这些任务对应的gkd规则,开多了会费电. ',
+      desc: '(点击查看详情) 🔵目前在本人用的支付宝版本有一个: 🔸v10.8.56.2300 ,如果你用其他版本的支付宝,估计有些规则不生效,如遇失效或误触请截取快照拿到github反馈. 🔵另外,这些规则大都是在模块(芝麻糊、芝麻粒-tk等)不做这些任务的时候,用gkd来减少手动操作的,如果模块能做的任务,请关掉这些任务对应的gkd规则,开多了会费电. ',
       enable: false,
       rules: [
         {
@@ -27,10 +27,9 @@ export default defineGkdApp({
       rules: [
         {
           fastQuery: true,
-          matches: [
-            // '[text="恭喜获得小组件优先体验权"] - * > Image[visibleToUser=true]',
-            '[text="恭喜获得小组件优先体验权"] - @View[getChild(0).name$="Image"] <<5 WebView <2 FrameLayout <<2 [id="android:id/content"]',
-          ],
+          matchRoot: true,
+          matches:
+            '[text="恭喜获得小组件优先体验权"] - @View[getChild(0).name$="Image"] <<5 WebView <2 FrameLayout[desc.length>20] <<2 [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/22923315',
           activityIds:
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
@@ -39,24 +38,25 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '🌲🐤弹窗-确认兑换',
-      desc: '①活力值 ②乐园币 ③🐤抽抽乐2',
+      name: '🌲🐤弹窗-[确认兑换]物品',
+      desc: '用 ①活力值 ②乐园币 ③🐤抽抽乐2 兑换物品',
       enable: false,
-      order: NO_FAST_QUERY,
       rules: [
         {
+          fastQuery: true,
+          matchRoot: true,
           matches:
-            '[text="暂不兑换"] + Button[text="确认兑换"][clickable=true]',
+            '@Button[text="确认兑换"] <(5,6) View[childCount>4] <<(2,4) View[index=parent.childCount.minus(1)] <n View < WebView[text*="兑换" || text="乐园集市"] <<4 [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24100272', //森林活力值兑换物品
             'https://i.gkd.li/i/24100284', //小鸡乐园币兑换物品
             'https://i.gkd.li/i/24100291', //小鸡抽抽乐2兑换物品
           ],
-          excludeSnapshotUrls: [
-            'https://i.gkd.li/i/23013746', //森林寻宝活力值兑换抽奖机会
-            'https://i.gkd.li/i/23238643', //小鸡抽抽乐90g饲料换机会
-            'https://i.gkd.li/i/24100558', //会员积分
-          ],
+          // excludeSnapshotUrls: [
+          //   'https://i.gkd.li/i/23013746', //森林寻宝活力值兑换抽奖机会
+          //   'https://i.gkd.li/i/23238643', //小鸡抽抽乐90g饲料换机会
+          //   'https://i.gkd.li/i/24100558', //会员积分
+          // ],
           activityIds:
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
         },
@@ -64,25 +64,21 @@ export default defineGkdApp({
     },
     {
       key: 202,
-      name: '🌲🐤-抽抽乐-弹窗-确认兑换',
-      desc: '①活力值 ②饲料 兑换抽奖机会',
-      matchRoot: true,
-      order: NO_FAST_QUERY,
-      activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+      name: '🌲🐤-抽抽乐[确认兑换]抽奖机会',
+      desc: '用 ①活力值 ②饲料 兑换抽奖机会',
+      enable: false,
       rules: [
         {
-          key: 1,
-          name: '①用活力值兑换',
+          fastQuery: true,
+          matchRoot: true,
+          activityIds:
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           matches:
-            '[text$="兑1次抽奖机会"] < * + * > [text="确认兑换"][clickable=true]',
-          snapshotUrls: 'https://i.gkd.li/i/23013746',
-        },
-        {
-          key: 2,
-          name: '②用饲料兑换',
-          matches:
-            '[text^="消耗90g饲料"] + * > [text="确认兑换"][clickable=true]',
-          snapshotUrls: 'https://i.gkd.li/i/23238643',
+            '@Button[text="确认兑换"] <(1,2) View <n View[childCount>2] <<(3,4) View[index=parent.childCount.minus(1)] <n View[parent.name$="WebView"] <<5 [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/23013746', //森林 用活力值兑换
+            'https://i.gkd.li/i/23238643', //庄园 用饲料兑换
+          ],
         },
       ],
     },
