@@ -86,6 +86,7 @@ export default defineGkdApp({
       key: 3,
       name: '🌲🐤逛街-已完成-返回键',
       desc: '已完成逛15s街任务->按下返回键',
+      enable: false,
       order: NO_FAST_QUERY,
       rules: [
         {
@@ -125,6 +126,7 @@ export default defineGkdApp({
       key: 5,
       name: '🐤养鸡-好友-种麦子-确认',
       desc: '去好友家种麦子-自动确认',
+      enable: false,
       order: NO_FAST_QUERY,
       rules: [
         {
@@ -171,6 +173,7 @@ export default defineGkdApp({
       key: 7,
       name: '🐤养鸡-做美食-食材店-领取',
       desc: '爱心食材店 ①领10g食材 ②返回键',
+      enable: false,
       order: NO_FAST_QUERY,
       actionMaximum: 1,
       resetMatch: 'match',
@@ -198,6 +201,7 @@ export default defineGkdApp({
       key: 9,
       name: '🐤养鸡-抽抽乐🎰-抽中弹窗-知道啦',
       desc: '弹窗恭喜抽中->点击 知道啦',
+      enable: false,
       order: NO_FAST_QUERY,
       rules: [
         {
@@ -357,6 +361,7 @@ export default defineGkdApp({
       key: 14,
       name: '🌲森林-寻宝🎁-帮ta助力',
       desc: '弹窗-①帮ta助力 ②x掉',
+      enable: false,
       order: NO_FAST_QUERY,
       activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
@@ -381,6 +386,7 @@ export default defineGkdApp({
       key: 15,
       name: '🌲森林-寻宝🎁-已完成任务-自动领取',
       desc: '①签到 ②领取',
+      enable: false,
       order: NO_FAST_QUERY,
       rules: [
         {
@@ -418,6 +424,7 @@ export default defineGkdApp({
       key: 19,
       name: '🌲森林-寻宝🎁抽奖弹窗-再抽or知道了',
       desc: '抽奖->弹窗->点击 再抽or知道了',
+      enable: false,
       order: NO_FAST_QUERY,
       rules: [
         {
