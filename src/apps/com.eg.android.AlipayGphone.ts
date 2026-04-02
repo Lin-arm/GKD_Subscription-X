@@ -1,5 +1,7 @@
 import { defineGkdApp } from '@gkd-kit/define';
 
+export const NO_FAST_QUERY = 2; // 不支持快速查寻的
+
 export default defineGkdApp({
   id: 'com.eg.android.AlipayGphone',
   name: '支付宝',
@@ -40,6 +42,7 @@ export default defineGkdApp({
       name: '🌲🐤弹窗-确认兑换',
       desc: '①活力值 ②乐园币 ③🐤抽抽乐2',
       enable: false,
+      order: NO_FAST_QUERY,
       rules: [
         {
           matches:
@@ -64,6 +67,7 @@ export default defineGkdApp({
       name: '🌲🐤-抽抽乐-弹窗-确认兑换',
       desc: '①活力值 ②饲料 兑换抽奖机会',
       matchRoot: true,
+      order: NO_FAST_QUERY,
       activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
         {
@@ -86,6 +90,7 @@ export default defineGkdApp({
       key: 3,
       name: '🌲🐤逛街-已完成-返回键',
       desc: '已完成逛15s街任务->按下返回键',
+      order: NO_FAST_QUERY,
       rules: [
         {
           action: 'back',
@@ -108,6 +113,7 @@ export default defineGkdApp({
       key: 4,
       name: '🐤养鸡-收麦子弹窗-x掉',
       desc: '好友来串门种了xx g麦子',
+      order: NO_FAST_QUERY,
       rules: [
         {
           matches:
@@ -123,6 +129,7 @@ export default defineGkdApp({
       key: 5,
       name: '🐤养鸡-好友-种麦子-确认',
       desc: '去好友家种麦子-自动确认',
+      order: NO_FAST_QUERY,
       rules: [
         {
           actionCd: 200,
@@ -139,6 +146,7 @@ export default defineGkdApp({
       key: 6,
       name: '🐤养鸡-乐园🎈-开宝箱',
       desc: '乐园弹窗->点击 ①开宝箱 ②x掉',
+      order: NO_FAST_QUERY,
       activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
         {
@@ -167,6 +175,7 @@ export default defineGkdApp({
       key: 7,
       name: '🐤养鸡-做美食-食材店-领取',
       desc: '爱心食材店 ①领10g食材 ②返回键',
+      order: NO_FAST_QUERY,
       actionMaximum: 1,
       resetMatch: 'match',
       activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
@@ -193,6 +202,7 @@ export default defineGkdApp({
       key: 9,
       name: '🐤养鸡-抽抽乐🎰-抽中弹窗-知道啦',
       desc: '弹窗恭喜抽中->点击 知道啦',
+      order: NO_FAST_QUERY,
       rules: [
         {
           matches:
@@ -209,6 +219,7 @@ export default defineGkdApp({
       name: '🐤养鸡-家庭👪-弹窗-确认',
       desc: '①早安 ③顶梁柱or请客 ④喂食 ⑤睡觉 ⑥家具上新',
       enable: false,
+      order: NO_FAST_QUERY,
       activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
         {
@@ -259,6 +270,7 @@ export default defineGkdApp({
           key: 6,
           name: '⑥家具上新啦-x掉',
           fastQuery: true,
+          order: 1,
           matches:
             '@Button[text="关闭"][clickable=true] -n * <<3 [index=parent.childCount.minus(2)] -n * <<3 WebView <<3 [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           snapshotUrls: [
@@ -272,6 +284,7 @@ export default defineGkdApp({
       key: 12,
       name: '🐤养鸡-家庭👪-去捐步',
       desc: '①去捐步 ②立即捐步 ③知道了(返回键) ④x掉',
+      order: NO_FAST_QUERY,
       activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
         {
@@ -304,6 +317,7 @@ export default defineGkdApp({
           actionDelay: 500,
           matches: '[text="行走捐" || text="支付宝公益"][id$="textView_title"]',
           fastQuery: true,
+          order: 1,
           snapshotUrls: [
             'https://i.gkd.li/i/22931262',
             'https://i.gkd.li/i/23978873', // key2 双击了才会进的页面
@@ -327,6 +341,7 @@ export default defineGkdApp({
       key: 13,
       name: '🐤养鸡-领饲料-已满-知道了',
       desc: '饲料袋已满 弹窗->点击知道了',
+      order: NO_FAST_QUERY,
       rules: [
         {
           matches:
@@ -346,6 +361,7 @@ export default defineGkdApp({
       key: 14,
       name: '🌲森林-寻宝🎁-帮ta助力',
       desc: '弹窗-①帮ta助力 ②x掉',
+      order: NO_FAST_QUERY,
       activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
         {
@@ -369,6 +385,7 @@ export default defineGkdApp({
       key: 15,
       name: '🌲森林-寻宝🎁-已完成任务-自动领取',
       desc: '①签到 ②领取',
+      order: NO_FAST_QUERY,
       rules: [
         {
           actionCd: 1500,
@@ -388,6 +405,7 @@ export default defineGkdApp({
       key: 18,
       name: '🌲森林-寻宝🎁-自动抽奖',
       desc: '寻宝->点击立即抽奖',
+      order: NO_FAST_QUERY,
       enable: false,
       rules: [
         {
@@ -404,6 +422,7 @@ export default defineGkdApp({
       key: 19,
       name: '🌲森林-寻宝🎁抽奖弹窗-再抽or知道了',
       desc: '抽奖->弹窗->点击 再抽or知道了',
+      order: NO_FAST_QUERY,
       rules: [
         {
           excludeMatches: 'WebView[text="光盘打卡" || text="蚂蚁庄园"]',
@@ -449,6 +468,7 @@ export default defineGkdApp({
       name: '🌲森林-好友页-浇水弹窗-送给ta',
       desc: '自动确认浇水(⚠️开启前请先设好浇多少g)',
       enable: false,
+      order: NO_FAST_QUERY,
       rules: [
         {
           actionCd: 50,
@@ -509,9 +529,9 @@ export default defineGkdApp({
         {
           key: 3,
           name: '③专享补贴or添加首页-放弃',
-          matches: [
+          order: NO_FAST_QUERY,
+          matches:
             '[text$="可用" || text="后失效" || text^="限时" || text="限今日"] +(1,2) TextView[text$="放弃"][index=parent.childCount.minus(2)]',
-          ],
           snapshotUrls: [
             'https://i.gkd.li/i/24157391', //专享补贴
             'https://i.gkd.li/i/24278961', //添加小程序到首页 (若用快速查询则真机不生效)
@@ -547,6 +567,7 @@ export default defineGkdApp({
       key: 2401,
       name: '🌲森林-弹窗-x掉',
       desc: '①能量攻略 ②新抽抽乐 ③活力值助力 ④种第1棵树 ⑤证书 ⑥真爱奖励',
+      order: NO_FAST_QUERY,
       activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
         {
@@ -652,6 +673,7 @@ export default defineGkdApp({
       key: 27,
       name: '🌾农场-施肥-丰收礼包-领取',
       desc: '施肥n次领肥料->待领取弹窗->点击 领取',
+      order: NO_FAST_QUERY,
       rules: [
         {
           anyMatches: [
@@ -671,6 +693,7 @@ export default defineGkdApp({
       key: 28,
       name: '🌾农场-弹窗-x掉',
       desc: '①丰收礼包 ②恭喜获得 ③去快手 ④小游戏',
+      order: NO_FAST_QUERY,
       activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
         {
@@ -790,6 +813,7 @@ export default defineGkdApp({
       name: '🙋‍♂️扫森林码加好友-辅助①',
       desc: '扫出森林主页->点击 加好友',
       enable: false,
+      fastQuery: true,
       rules: [
         {
           key: 1,
@@ -797,7 +821,6 @@ export default defineGkdApp({
           action: 'none', // 前置条件，防 key 2 误触
           matches:
             '[text="扫码"][id$="scan_bottom_view_text"][visibleToUser=true]',
-          fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/23393349',
           activityIds: 'com.alipay.mobile.scan.as.main.MainCaptureActivity',
         },
@@ -810,7 +833,6 @@ export default defineGkdApp({
             '[text$="的蚂蚁森林"][id$="textView_title"]',
             'Button + Button[text="" || text="加好友"][clickable=true][visibleToUser=true]',
           ],
-          fastQuery: true,
           snapshotUrls: [
             'https://i.gkd.li/i/23279949',
             'https://i.gkd.li/i/24278939', // pk好友
@@ -880,6 +902,7 @@ export default defineGkdApp({
       key: 33,
       name: '首页-弹窗-x掉',
       desc: '同步名下其他账号银行卡',
+      order: NO_FAST_QUERY,
       rules: [
         {
           // matchRoot: true,
