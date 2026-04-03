@@ -8,29 +8,34 @@ export default defineGkdApp({
       key: 1,
       name: '🌾农场-自动领肥料',
       desc: '①施满n次肥 ②兔兔挖肥料 ③右边肥料袋',
+      fastQuery: true,
+      matchRoot: true,
+      matchDelay: 1500, //节点加载缓慢,延迟匹配
       activityIds: [
-        'com.taobao.themis.container.app.TMSActivity',
-        'com.taobao.browser.BrowserActivity',
-        'com.taobao.tao.welcome.Welcome',
+        'com.taobao.themis.container.app.TMSActivity', // A
+        'com.taobao.browser.BrowserActivity', // B
+        'com.taobao.tao.welcome.Welcome', // C
       ],
       rules: [
         {
           key: 1,
           name: '①施满n次肥-领取',
-          matches: '[text$="肥料 领取"][visibleToUser=true]',
+          actionCd: 2000, //点击后有弹窗动画耗时
+          matches:
+            '@Button[text$="肥料 领取"][clickable=true] <<8 View[id="ice-container"] <3 WebView[text="芭芭农场"] <<(6,7) [id="android:id/content"]',
           snapshotUrls: [
-            'https://i.gkd.li/i/23240421',
-            'https://i.gkd.li/i/23263684',
+            'https://i.gkd.li/i/23240421', //A 有肥料领: 中
           ],
         },
         {
           key: 2,
           name: '②兔兔挖肥料-领取',
           actionCd: 5000,
-          matches: '[text^="兔兔挖肥料"][text$="可领取"][visibleToUser=true]',
+          matches:
+            '@Button[text^="兔兔挖肥料"][clickable=true] <3 View[childCount=7] <<5 WebView[text="芭芭农场"] <<(6,7) [id="android:id/content"]',
           snapshotUrls: [
-            'https://i.gkd.li/i/23263684',
-            'https://i.gkd.li/i/24163618',
+            'https://i.gkd.li/i/23263684', //B 有肥料领: 左,中
+            'https://i.gkd.li/i/24163618', //C 有肥料领: 左,右
           ],
         },
         {
@@ -39,8 +44,9 @@ export default defineGkdApp({
           actionMaximum: 1,
           actionDelay: 1800,
           resetMatch: 'app',
-          matches: '[text$="肥料，点击领取"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/23393987',
+          matches:
+            '@Button[text$="肥料，点击领取"][clickable=true] <5 View[childCount=7] <<5 WebView[text="芭芭农场"] <<(6,7) [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/23393987', //B 有肥料领: 右
         },
       ],
     },
