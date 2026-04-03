@@ -50,15 +50,18 @@ export default defineGkdApp({
       key: 3,
       name: '🧩小程序-看完30s广告-x掉',
       desc: '①已完成 ②已获得',
+      fastQuery: true,
       rules: [
         {
           key: 1,
           name: '①已完成-x掉',
+          matchRoot: true,
           matches:
-            '[desc^="已完成"] -2 ImageView[width<100][visibleToUser=true]',
+            '[desc^="已完成"] -(1,2) @ImageView[width<100][visibleToUser=true] <n View[childCount>5] <<(6,7) [id="android:id/content"]',
           snapshotUrls: [
             'https://i.gkd.li/i/22947257',
             'https://i.gkd.li/i/24450981', //七猫免费小说
+            'https://i.gkd.li/i/26452506', //七猫免费小说2
           ],
           activityIds: [
             '.plugin.sns.ad.landingpage.ui.activity.DynamicCanvasPageUI',
@@ -68,12 +71,11 @@ export default defineGkdApp({
         {
           key: 2,
           name: '②已获得奖励-x掉',
-          fastQuery: true,
           matches: [
             'TextView[text="已获得奖励"]',
             '@LinearLayout[clickable=true][index=0] + [desc="浮窗"] + TextView[text=" "]',
           ],
-          snapshotUrls: 'https://i.gkd.li/i/24204085',
+          snapshotUrls: 'https://i.gkd.li/i/24204085', //视频号广告
           activityIds: '.plugin.finder.ui.FinderShareFeedRelUI',
         },
         {
@@ -81,14 +83,12 @@ export default defineGkdApp({
           name: '③已获得奖励-关闭',
           matches:
             '@[text="关闭"] <<3 [index=parent.childCount.minus(1)] - FrameLayout >3 [text="已获得奖励"]',
-          fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/24545151', //微粒贷
           activityIds: '.plugin.appbrand.ui.AppBrandUI',
         },
         {
           key: 4,
           name: '④直播-已获得奖励-x掉',
-          fastQuery: true,
           activityIds:
             '.plugin.finder.feed.ui.FinderLiveVisitorWithoutAffinityUI',
           matches:
