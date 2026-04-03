@@ -54,6 +54,7 @@ export default defineGkdApp({
       key: 2,
       name: '🌾农场-弹窗-x掉',
       desc: '①施肥大礼包 ②首页进入 ③明天提醒',
+      order: 2, //无快查,降低优先级
       rules: [
         {
           matches: [
@@ -78,18 +79,22 @@ export default defineGkdApp({
     },
     {
       key: 3,
-      name: '💰淘金币-签到(很慢)',
+      name: '💰淘金币-签到',
       rules: [
         {
+          fastQuery: true,
+          matchRoot: true,
           activityIds: [
-            'com.taobao.tao.welcome.Welcome',
-            'com.taobao.themis.container.app.TMSActivity',
+            'com.taobao.tao.welcome.Welcome', // A
+            'com.taobao.themis.container.app.TMSActivity', // B
           ],
-          matches: '@[clickable=true] > [text="点击签到" || text="签到领金币"]',
+          matches:
+            '[text*="签到"] < @[clickable=true] <2 [childCount=3] <(2,3) View <(2,3) View < [childCount=3] <2 [id="ice-container"] <<(9,13) [id="android:id/content"]',
           snapshotUrls: [
-            'https://i.gkd.li/i/25199367',
-            'https://i.gkd.li/i/24993351',
-            'https://i.gkd.li/i/25126165',
+            'https://i.gkd.li/i/25199367', //A
+            'https://i.gkd.li/i/24993351', //B
+            'https://i.gkd.li/i/25126165', //B
+            'https://i.gkd.li/i/26468417', //B <<(9,13) 的13
           ],
         },
       ],
