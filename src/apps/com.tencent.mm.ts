@@ -63,6 +63,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/24450981', //七猫免费小说
             'https://i.gkd.li/i/26452506', //七猫免费小说2
           ],
+          exampleUrls: 'https://e.gkd.li/fb891df0-5e38-433f-8920-7389dd522800',
           activityIds: [
             '.plugin.sns.ad.landingpage.ui.activity.DynamicCanvasPageUI',
             '.plugin.appbrand.ui.AppBrandUI',
@@ -76,6 +77,7 @@ export default defineGkdApp({
             '@LinearLayout[clickable=true][index=0] + [desc="浮窗"] + TextView[text=" "]',
           ],
           snapshotUrls: 'https://i.gkd.li/i/24204085', //视频号广告
+          exampleUrls: 'https://e.gkd.li/4da635f3-e7fc-411d-a56c-0564cd8c4031', // P过的图,并压缩成.webP格式
           activityIds: '.plugin.finder.ui.FinderShareFeedRelUI',
         },
         {
@@ -84,6 +86,7 @@ export default defineGkdApp({
           matches:
             '@[text="关闭"] <<3 [index=parent.childCount.minus(1)] - FrameLayout >3 [text="已获得奖励"]',
           snapshotUrls: 'https://i.gkd.li/i/24545151', //微粒贷
+          exampleUrls: 'https://e.gkd.li/1ec650be-9fa6-413f-88a5-f8118e836fa6', // P过
           activityIds: '.plugin.appbrand.ui.AppBrandUI',
         },
         {
@@ -94,6 +97,7 @@ export default defineGkdApp({
           matches:
             '@[desc="关闭直播按钮"][clickable=true] <n [index=0] + ViewGroup >2 [text="已获得奖励"]',
           snapshotUrls: 'https://i.gkd.li/i/25095057',
+          exampleUrls: 'https://e.gkd.li/00a82942-dca2-4bca-8c85-2ac094a993c5', // P过
         },
       ],
     },
