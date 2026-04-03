@@ -2,7 +2,7 @@ import { defineGkdApp } from '@gkd-kit/define';
 
 export default defineGkdApp({
   id: 'com.github.metacubex.clash.meta',
-  name: 'Clash Meta for Android',
+  name: 'CMFA',
   groups: [
     {
       key: 1,
@@ -10,7 +10,7 @@ export default defineGkdApp({
       desc: '进app后 ①点击[启动] ②返回键',
       fastQuery: true,
       activityIds: 'com.github.kr328.clash.', //通配
-      matchTime: 1200, //防止进app手动关闭梯子时还触发
+      matchTime: 600, //防止进app手动关闭梯子时还触发
       resetMatch: 'app', //防止在梯子关闭状态下,由其它界面返回 MainActivity 时还触发
       rules: [
         {
