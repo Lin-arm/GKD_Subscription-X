@@ -655,7 +655,8 @@ export default defineGkdApp({
         {
           fastQuery: true,
           matchRoot: true,
-          matches: '@Button[text="返回新村"][clickable=true] < [index=parent.childCount.minus(1)] <n [childCount>9] <<(3,4) View <2 WebView[text="蚂蚁新村"] <<4 [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+          matches:
+            '@Button[text="返回新村"][clickable=true] < [index=parent.childCount.minus(1)] <n [childCount>9] <<(3,4) View <2 WebView[text="蚂蚁新村"] <<4 [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24142230',
             'https://i.gkd.li/i/24957008',
