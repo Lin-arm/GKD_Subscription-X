@@ -55,13 +55,14 @@ export default defineGkdApp({
       key: 2,
       name: '🌾农场-弹窗-x掉',
       desc: '①施肥大礼包 ②首页进入 ③明天提醒',
-      order: 2, //无快查,降低优先级
       rules: [
         {
-          matches: [
-            // 'Button[text="" || text="关闭"][width=107 || width=108][height>=107 && height<=110][clickable=true][focusable=true]',
-            '[name$="TextView" || name$="Button"][text="" || text="关闭"][width=107 || width=108][height>=107 && height<=110][clickable=true || focusable=true]',
-          ],
+          fastQuery: true,
+          matchRoot: true,
+          actionCd: 500,
+          matches:
+            '@[index=parent.childCount.minus(1)][width>88 && width<138][height>88 && height<138] <n View <(1,2,3) * <<(3,4) [id^="wrap-widget"] <n WebView[text="芭芭农场"] <<(6,7,11) [id="android:id/content"]',
+          // '[name$="TextView" || name$="Button"][text="" || text="关闭"][width=107 || width=108][height>=107 && height<=110][clickable=true || focusable=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/23300544', //恭喜获得施肥大礼包
             'https://i.gkd.li/i/23393863', //从淘宝首页进入农场
