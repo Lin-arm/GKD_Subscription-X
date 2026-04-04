@@ -116,6 +116,20 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 401,
+      name: '功能类-长按后[保存图片]',
+      desc: '🧩抖快小程序内',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.plugin.subapp.ui.gallery.GestureGalleryUI',
+          matches: '@[clickable=true] >3 [text="保存图片"]',
+          exampleUrls: 'https://e.gkd.li/d12cb1fe-0e43-4851-af8b-d9ff15d856a0',
+          snapshotUrls: 'https://i.gkd.li/i/26482711',
+        },
+      ],
+    },
+    {
       key: 5,
       name: '功能类-自动领取微信红包🧧',
       desc: '自动领取私聊红包,群聊红包',
