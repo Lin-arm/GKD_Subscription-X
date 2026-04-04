@@ -2,7 +2,7 @@ import { defineGkdApp } from '@gkd-kit/define';
 
 export default defineGkdApp({
   id: 'com.github.metacubex.clash.meta',
-  name: 'CMFA',
+  name: 'Clash Meta for Android',
   groups: [
     {
       key: 1,
