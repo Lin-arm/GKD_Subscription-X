@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: 1,
       name: '📆每日福利-看完广告-知道了',
-      desc: '点击知道了',
+      desc: '点击[知道了]',
       rules: [
         {
           matches: 'TextView[text="知道了"][visibleToUser=true]',
@@ -21,8 +21,8 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '📆每日福利-自动看广告',
-      desc: '点击去完成(❗配合QD模块用)',
+      name: '📆每日福利-自动去看广告',
+      desc: '点击[去完成](❗配合QD模块用)',
       enable: false,
       rules: [
         {
@@ -129,26 +129,20 @@ export default defineGkdApp({
     {
       key: 4,
       name: '📆每日福利-阅读得积分-领取',
-      desc: '点击领积分(❗遮挡可开shizuku强制点击)',
+      desc: '点击[领积分]',
       order: 2,
-      activityIds: '.ui.activity.QDBrowserActivity',
       rules: [
         {
-          key: 1,
-          action: 'clickNode', //配合shizuku,挡住也能点击
-          matches: '[id="read"] >(1,2) [text="领积分"][clickable=true]',
+          activityIds: '.ui.activity.QDBrowserActivity',
+          matches: '[id="read"] >(1,2) [text="领积分"]',
           snapshotUrls: 'https://i.gkd.li/i/24100818',
-        },
-        {
-          key: 2,
-          matches: '[id="read"] >(1,2) [text="领积分"][visibleToUser=true]',
         },
       ],
     },
     {
       key: 501,
-      name: '🧧发现-自动进红包广场',
-      desc: '点击 红包广场(❗用前请到开发者选项关闭那3个动画)',
+      name: '🧧发现-自动进[红包广场]',
+      desc: '点击[红包广场](❗用前请到开发者选项关闭那3个动画)',
       enable: false,
       rules: [
         {
