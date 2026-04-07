@@ -372,7 +372,10 @@ export default defineGkdApp({
           name: '②活动弹窗-x掉',
           matches:
             '@Button[text="关闭"][clickable=true] <2 View[childCount=2] <<7 WebView[text="蚂蚁庄园"] <<3 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
-          snapshotUrls: 'https://i.gkd.li/i/26524387',
+          snapshotUrls: [
+            'https://i.gkd.li/i/26524387', //新款小盲盒
+            'https://i.gkd.li/i/26527688', //助力圆梦活动
+          ],
         },
       ],
     },
