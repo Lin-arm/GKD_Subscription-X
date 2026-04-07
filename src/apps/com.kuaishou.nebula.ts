@@ -1623,15 +1623,21 @@ export default defineGkdApp({
       name: '局部广告-提现完-优惠券弹窗',
       desc: '①x掉 ②返回键 ③弹窗-点击[知道了]',
       fastQuery: true,
-      activityIds: 'com.yxcorp.gateway.pay.activity.PayYodaWebViewActivity',
+      activityIds: [
+        'com.kwai.kds.krn.api.page.KwaiRnActivity',
+        'com.yxcorp.gateway.pay.activity.PayYodaWebViewActivity',
+      ],
       rules: [
         {
           key: 1,
           name: '①x掉',
-          matches:
+          anyMatches: [
+            'ImageView < @[clickable=true][width<134][height<134] - [text="优惠券即将到期"]',
             '[text="优惠券即将到期"] - @[name$="View"][clickable=true][width<80] < View <2 View <3 WebView <<3 [vid="web_view_container"]',
+          ],
           exampleUrls: 'https://e.gkd.li/a5083e28-4cf6-454a-b37f-12cc06781c9a',
           snapshotUrls: [
+            'https://i.gkd.li/i/26527978',
             'https://i.gkd.li/i/25730266',
             'https://i.gkd.li/i/26159736',
           ],
