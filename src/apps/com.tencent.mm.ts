@@ -51,6 +51,7 @@ export default defineGkdApp({
       name: '🧩小程序-看完30s广告-x掉',
       desc: '①已完成 ②已获得',
       fastQuery: true,
+      forcedTime: 30500,
       rules: [
         {
           key: 1,
