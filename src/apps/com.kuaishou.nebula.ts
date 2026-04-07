@@ -444,6 +444,7 @@ export default defineGkdApp({
       key: 12,
       name: '🤳看广告-已看完-退出',
       desc: '已成功领取奖励',
+      fastQuery: true,
       activityIds: [
         'com.yxcorp.gifshow.ad.neo.videov2.award.AwardVideoPlayActivityV2',
         'com.yxcorp.gifshow.ad.neo.video.award.AwardVideoPlayActivity',
@@ -454,10 +455,8 @@ export default defineGkdApp({
           key: 1,
           actionDelay: 1500,
           forcedTime: 31000, // 防睡死不触发(test)
-          matches: [
+          matches:
             '@[id$="video_countdown_end_icon"] - [text^="已成功"][visibleToUser=true]',
-          ],
-          fastQuery: true,
           snapshotUrls: [
             'https://i.gkd.li/i/22658960',
             'https://i.gkd.li/i/22662987',
@@ -468,7 +467,7 @@ export default defineGkdApp({
           key: 2,
           matches: [
             '[vid="ad_download_text"][text="立即下载"]',
-            '[id="com.kuaishou.nebula.commercial_neo:id/video_close_icon"][clickable=true][focusable=true]',
+            '[id="com.kuaishou.nebula.commercial_neo:id/video_close_icon"][clickable=true]',
           ],
           snapshotUrls: 'https://i.gkd.li/i/24279152',
         },
