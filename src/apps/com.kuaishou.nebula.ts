@@ -1418,10 +1418,12 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          preKeys: [1], // 先点key1,再点key2 就会领两样金币
+          // preKeys: [1], // 先点key1,再点key2 就会领两样金币
+          actionDelay: 2000,
           name: '②点击签到',
           matches:
             '@[text^="+"][text$="0"] + [text="点击领取"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/26543122',
         },
         {
           key: 3,
