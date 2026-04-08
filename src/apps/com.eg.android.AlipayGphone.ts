@@ -668,7 +668,8 @@ export default defineGkdApp({
           fastQuery: true,
           matchRoot: true,
           matches:
-            '@Button[text$="领取"][clickable=true] <n [childCount>3] <n View[index=parent.childCount.minus(1)] <n Dialog <<6 WebView[text="蚂蚁新村"] <<4 [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '@Button[text$="领取"][clickable=true] <n [childCount>3] <n View[index=parent.childCount.minus(1)] <n Dialog < * < * <3 * < WebView[text="蚂蚁新村"] < WebView <2 * < [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+          // '@Button[text$="领取"][clickable=true] <n [childCount>3] <n View[index=parent.childCount.minus(1)] <n Dialog <<6 WebView[text="蚂蚁新村"] <<4 [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',    //用了 << 在GKD会提示缓慢查询
           snapshotUrls: [
             'https://i.gkd.li/i/24956311',
             'https://i.gkd.li/i/24956360',
