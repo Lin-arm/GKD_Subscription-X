@@ -582,11 +582,12 @@ export default defineGkdApp({
           fastQuery: true,
           order: 1,
           matches:
-            '@TextView[text=""][visibleToUser=true] - View[getChild(0).getChild(0).name$="Image"] <<(4,5) WebView <2 [index=parent.childCount.minus(1)] <n [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '@TextView[text=""][width<138][visibleToUser=true] - View[getChild(0).getChild(0).name$="Image"] <<(4,5) WebView <2 [index=parent.childCount.minus(1)] <n [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24728626',
             'https://i.gkd.li/i/24728870',
           ],
+          excludeSnapshotUrls: 'https://i.gkd.li/i/26556897', //小鸡家庭页误触, [width<138] 排除
         },
       ],
     },
