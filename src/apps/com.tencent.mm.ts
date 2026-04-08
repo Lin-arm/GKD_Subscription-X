@@ -31,6 +31,7 @@ export default defineGkdApp({
       rules: [
         {
           actionCd: 300,
+          actionDelay: 300, // 太早易误触
           fastQuery: true,
           excludeMatches: '[text="跳过"][visibleToUser=true]', // 防止提前触发
           matches:
@@ -51,7 +52,7 @@ export default defineGkdApp({
       name: '🧩小程序-看完30s广告-x掉',
       desc: '①已完成 ②已获得',
       fastQuery: true,
-      forcedTime: 30500,
+      forcedTime: 35000, // 35秒内一直主动参与屏幕查询
       rules: [
         {
           key: 1,

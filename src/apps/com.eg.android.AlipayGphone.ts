@@ -517,12 +517,12 @@ export default defineGkdApp({
         {
           action: 'clickNode',
           fastQuery: true,
+          forcedTime: 30000,
           matches:
-            '[text="可领取"] - @[getChild(0).name$="Image"][getChild(1).text="15g"] <3 View <<2 View <2 View < View <2 View <<3 WebView <2 [index=parent.childCount.minus(1)] <n [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
-          snapshotUrls: ['https://i.gkd.li/i/23413420'],
-          activityIds: [
+            '[text="可领取"] - @[getChild(0).name$="Image"][getChild(1).text="15g"] <3 View < * < View <2 View < View <2 View < * < * < WebView <2 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
+          snapshotUrls: 'https://i.gkd.li/i/23413420',
+          activityIds:
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-          ],
         },
       ],
     },
@@ -667,6 +667,7 @@ export default defineGkdApp({
         {
           fastQuery: true,
           matchRoot: true,
+          forcedTime: 10000,
           matches:
             '@Button[text$="领取"][clickable=true] <n [childCount>3] <n View[index=parent.childCount.minus(1)] <n Dialog < * < * <3 * < WebView[text="蚂蚁新村"] < WebView <2 * < [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           // '@Button[text$="领取"][clickable=true] <n [childCount>3] <n View[index=parent.childCount.minus(1)] <n Dialog <<6 WebView[text="蚂蚁新村"] <<4 [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',    //用了 << 在GKD会提示缓慢查询

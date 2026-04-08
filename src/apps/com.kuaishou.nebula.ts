@@ -454,7 +454,7 @@ export default defineGkdApp({
         {
           key: 1,
           actionDelay: 1500,
-          forcedTime: 31000, // 防睡死不触发(test)
+          forcedTime: 60000, // 60秒内一直主动参与屏幕查询
           matches:
             '@[id$="video_countdown_end_icon"] - [text^="已成功"][visibleToUser=true]',
           snapshotUrls: [
