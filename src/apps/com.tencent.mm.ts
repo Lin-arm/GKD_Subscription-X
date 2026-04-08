@@ -34,7 +34,7 @@ export default defineGkdApp({
           fastQuery: true,
           excludeMatches: '[text="跳过"][visibleToUser=true]', // 防止提前触发
           matches:
-            '@ImageView[width<130] <<4 [index=parent.childCount.minus(1)] - FrameLayout >4 [text="广告"]',
+            '@ImageView[width<130] < FrameLayout < FrameLayout <2 [index=parent.childCount.minus(1)] - FrameLayout >4 [text="广告"]',
           snapshotUrls: [
             'https://i.gkd.li/i/22944255', //抖快工具
             'https://i.gkd.li/i/22947362', //抖快工具
