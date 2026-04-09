@@ -5,7 +5,7 @@ import globalGroups from './globalGroups';
 
 export default defineGkdSubscription({
   id: 777,
-  name: '🎤💃🎶🏀的GKD订阅',
+  name: '🎤💃🎶🏀的GKD订阅test',
   version: 0,
   author: '鲲门杂役',
   updateUrl: 'https://gkd-rules-777.pages.dev/gkd.json5',
