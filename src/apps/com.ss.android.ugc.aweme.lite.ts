@@ -5,38 +5,10 @@ export default defineGkdApp({
   name: '抖音极速版',
   groups: [
     {
-      key: 1,
-      name: '更新提示-以后再说',
-      desc: '不更新',
-      rules: [
-        {
-          fastQuery: true,
-          matches: '[text="立即升级"] + * > [text="以后再说"][clickable=true]',
-          snapshotUrls: 'https://i.gkd.li/i/24126015',
-          activityIds: [
-            'com.ss.android.ugc.aweme.detail.ui.DetailActivity',
-            'com.ss.android.ugc.aweme.main.MainActivity',
-          ],
-        },
-      ],
-    },
-    {
-      key: 2,
-      name: '青少年弹窗',
-      desc: '关闭',
-      rules: [
-        {
-          fastQuery: true,
-          matches: '@[text="关闭"][clickable=true] < * -n [text="青少年模式"]',
-          snapshotUrls: 'https://i.gkd.li/i/23427881',
-          activityIds: 'com.ss.android.ugc.aweme.main.MainActivity',
-        },
-      ],
-    },
-    {
       key: 103,
       name: '视频页-分享-复制链接-x掉',
       desc: '已复制-x掉',
+      forcedTime: 3600000, // 1小时内主动查询，避免睡死
       rules: [
         {
           matches: '@ImageView[clickable=true] - [text^="链接已复制"]',
