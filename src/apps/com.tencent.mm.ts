@@ -133,22 +133,25 @@ export default defineGkdApp({
     },
     {
       key: 5,
-      name: '功能类-自动领取微信红包🧧',
-      desc: '自动领取私聊红包,群聊红包',
+      name: '功能类-自动抢红包🧧',
+      desc: '需进聊天界面才会点击别人发的[红包],蹲抢之前建议进开发者选项关闭那3个动画',
       fastQuery: true,
+      actionCd: 500,
+      order: -11, // 比其它例如开屏广告(-10)优先匹配
       rules: [
         {
           key: 1,
-          name: '点击别人发的红包',
+          name: '①点击[红包]',
           activityIds: [
             '.ui.LauncherUI',
             '.ui.chatting.variants.ChattingMainUI',
           ],
           matches:
-            'LinearLayout[childCount=1] >2 @FrameLayout[clickable=true] >2 LinearLayout[getChild(1).childCount=1] +2 RelativeLayout > [text="微信红包"]',
+            'LinearLayout[childCount=1] >2 @FrameLayout[clickable=true] >2 LinearLayout[getChild(1).childCount=1] +(1,2) RelativeLayout > [text="微信红包"]',
           snapshotUrls: [
             'https://i.gkd.li/i/18134826',
             'https://i.gkd.li/i/24347101',
+            'https://i.gkd.li/i/26586606',
           ],
           excludeSnapshotUrls: [
             'https://i.gkd.li/i/18134823', // 自己发的， LinearLayout[childCount=1] 区分
@@ -158,7 +161,7 @@ export default defineGkdApp({
         {
           preKeys: [1],
           key: 2,
-          name: '点击红包-开',
+          name: '②点击[开]红包',
           matchRoot: true,
           activityIds: '.plugin.luckymoney.ui.LuckyMoney',
           matches:
@@ -173,7 +176,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [1, 2],
-          name: '从红包结算界面返回',
+          name: '③从红包结算界面[返回]',
           activityIds: '.plugin.luckymoney.ui.LuckyMoney',
           matches:
             '@ImageView[desc="返回"] +n LinearLayout >8 [text$="红包" || text$="紅包"]',
@@ -206,20 +209,12 @@ export default defineGkdApp({
             // FrameLayout[index<parent.childCount.minus(1)] 整个广告框不是末尾节点, 如此应该可让后续坐标点击时 ②[关闭该广告]、③[直接关闭] 出现在 ①[广告] 的下方, 而不是出现在上方
             // 后续第二段、第三段的相对坐标用的都是第一段的选择器
           ],
-          // 旧思路 (有效点击范围)
-          // matches: [
-          //   '@FrameLayout[clickable=true][visibleToUser=true][index=parent.childCount.minus(2)][top>getPrev(4).bottom] -n ImageView[desc="头像"] <<3 FrameLayout[bottom<getPrev(1).getChild(1).getChild(0).top] <n RecyclerView <<3 FrameLayout - FrameLayout[index=0] >3 TextView[text^="评论"][left<200]',
-          // // [top>getPrev(4).bottom] 用于避免评论区顶部的遮挡[广告], 在上滑浏览评论时, [广告]可能会被遮挡在顶部
-          // // FrameLayout[bottom<getPrev(1).getChild(1).getChild(0).top] 整个广告框的bottom要小于评论输入框的top, 如此可让 ②[关闭该广告]、③[直接关闭] 出现在 ①[广告] 的下方, 而不是出现在上方(懒得额外适配), 这样后续用坐标点击才不会误触
-          // ],
-          // exampleUrls: 'https://e.gkd.li/c904d421-53d6-4e73-88f7-fdf0a5511fd6', // 大概的有效范围示意图
           snapshotUrls: [
             'https://i.gkd.li/i/24834498',
             'https://i.gkd.li/i/24834499',
           ],
           excludeSnapshotUrls: [
             'https://i.gkd.li/i/24835207', // 输入法遮挡 [visibleToUser=true]
-            // 'https://i.gkd.li/i/24835410', // ②[关闭该广告]出现在上方(懒得额外适配,需要另写一套点击坐标,还要判断触发哪一套,很麻烦)
           ],
         },
         {
