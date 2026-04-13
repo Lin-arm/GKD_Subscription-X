@@ -569,6 +569,13 @@ export default defineGkdApp({
           ],
           activityIds: ['com.kwai.kds.krn.api.page.KwaiRnActivity'],
         },
+        {
+          key: 4,
+          name: '下载apk页-x掉',
+          activityIds: 'com.yxcorp.gifshow.ad.webview.AdYodaActivity',
+          matches: '[text="立即下载"] - LinearLayout >2 [vid="close"]',
+          snapshotUrls: 'https://i.gkd.li/i/26678104',
+        },
       ],
     },
     {
