@@ -617,8 +617,7 @@ export default defineGkdApp({
         {
           key: 1,
           name: '①开宝箱',
-          forcedTime: 15000,
-          // matches: 'Image + Button[text^="点可领"][text$="金币"][clickable=true]',
+          forcedTime: 30000,
           fastQuery: true,
           matchRoot: true,
           matches:
@@ -1377,12 +1376,13 @@ export default defineGkdApp({
           fastQuery: true,
           activityIds: 'com.kuaishou.novel.home.read.ReaderActivityV2',
           matches:
-            '@ImageView[clickable=true] <<2 * - * > [text^="立即" || text*="下载" || text="去逛逛" || text="免费观看"]',
+            '@ImageView[clickable=true] < * < * - * > [text^="立即" || text*="下载" || text="去逛逛" || text="免费观看" || text="继续看"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24738559',
             'https://i.gkd.li/i/24760376',
             'https://i.gkd.li/i/24994337',
             'https://i.gkd.li/i/26160311', //免费观看
+            'https://i.gkd.li/i/26677074', //继续看
           ],
         },
       ],
