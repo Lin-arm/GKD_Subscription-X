@@ -144,15 +144,16 @@ export default defineGkdApp({
       key: 6,
       name: '🐤养鸡-乐园🎈-开宝箱',
       desc: '乐园弹窗->点击 ①开宝箱 ②x掉',
-      order: NO_FAST_QUERY,
+      fastQuery: true,
+      matchRoot: true,
       activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
         {
           key: 1,
           name: '①开宝箱',
-          actionCd: 3000,
+          actionDelay: 500, // 太早点击无效
           matches:
-            '@Button[text^="立即开宝箱" || text="开心收下"][clickable=true] -(2,3) [text="恭喜获得奖励"] <<2 View[index=parent.childCount.minus(1)] <n View < WebView[text="蚂蚁庄园"]',
+            '@Button[text^="立即" || text="开心收下"][clickable=true] -(2,3) [text="恭喜获得奖励"] < * < View[index=parent.childCount.minus(1)] <n [childCount>3] < WebView[text="蚂蚁庄园"] < * <2 * - RelativeLayout >3 [text="松开刷新"]',
           snapshotUrls: [
             'https://i.gkd.li/i/22983795',
             'https://i.gkd.li/i/22984046',
@@ -164,8 +165,17 @@ export default defineGkdApp({
           key: 2,
           name: '②立即兑换奖励-x掉',
           preKeys: [1],
-          matches: '[text="立即兑换奖励"] + [text=""][visibleToUser=true]',
+          matches:
+            '@TextView[width<110] <3 View -2 [text*="恭喜"] < View < View < View < View < View[index=parent.childCount.minus(1)] <n [childCount>3] < WebView[text="蚂蚁庄园"] < * <2 * - RelativeLayout >3 [text="松开刷新"]',
           snapshotUrls: 'https://i.gkd.li/i/22983810',
+        },
+        {
+          key: 3,
+          name: '③限定活动-x掉',
+          preKeys: [1, 2],
+          matches:
+            '@TextView[index=parent.childCount.minus(1)] -n [text="活动剩余时间"] <2 View[childCount>5] < View < View < View[index=parent.childCount.minus(1)] <n [childCount>3] < WebView[text="蚂蚁庄园"] < * <2 * - RelativeLayout >3 [text="松开刷新"]',
+          snapshotUrls: 'https://i.gkd.li/i/26679805',
         },
       ],
     },
