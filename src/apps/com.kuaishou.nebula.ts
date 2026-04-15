@@ -1385,14 +1385,16 @@ export default defineGkdApp({
           fastQuery: true,
           activityIds: 'com.kuaishou.novel.home.read.ReaderActivityV2',
           matches:
-            '@ImageView[clickable=true] < * < * - * > [text^="立即" || text*="下载" || text="去逛逛" || text="免费观看" || text="继续看"]',
+            '@ImageView[clickable=true] < * < * -2 [childCount=2] >2 [text="广告"][visibleToUser=true]',
           snapshotUrls: [
-            'https://i.gkd.li/i/24738559',
-            'https://i.gkd.li/i/24760376',
-            'https://i.gkd.li/i/24994337',
+            'https://i.gkd.li/i/24738559', //立即下载
+            'https://i.gkd.li/i/24760376', //立即打开
+            'https://i.gkd.li/i/24994337', //去逛逛
             'https://i.gkd.li/i/26160311', //免费观看
             'https://i.gkd.li/i/26677074', //继续看
+            'https://i.gkd.li/i/26748106', //私信咨询
           ],
+          exampleUrls: 'https://e.gkd.li/93dbd857-9b6f-4b72-9d41-6c275810d1a9',
         },
       ],
     },
