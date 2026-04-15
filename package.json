@@ -67,7 +67,7 @@
     "simple-git-hooks": "2.13.1",
     "tsx": "4.20.4",
     "typescript": "5.9.2",
-    "typescript-eslint": "8.39.1"
+    "typescript-eslint": "8.58.2"
   },
   "volta": {
     "node": "24.6.0",
@@ -78,7 +78,7 @@
     "node": ">=22"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "8.49.0",
-    "@typescript-eslint/parser": "8.49.0"
+    "@typescript-eslint/eslint-plugin": "8.58.2",
+    "@typescript-eslint/parser": "8.58.2"
   }
 }
