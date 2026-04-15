@@ -534,30 +534,32 @@ export default defineGkdApp({
       rules: [
         {
           key: 1,
-          matchDelay: 3500,
-          matches: [
-            '[vid="title_tv"][text="登录" || text="拼多多" || text="支付宝" || text="正在打开..." || text="落茄香腾"]',
-            '[vid="left_btn"][clickable=true][visibleToUser=true]', //返回
-          ],
+          name: '①刚切回快极app-返回键',
+          matchTime: 3000, // 刚刚切回快极app的3秒内有效
+          actionDelay: 500,
+          resetMatch: 'app',
+          matches:
+            '[vid="title_tv"] <(1,2) [vid="title_root"] > [vid="left_btn"][desc="返回"][clickable=true][visibleToUser=true]', //返回
           snapshotUrls: [
+            'https://i.gkd.li/i/23908857',
             'https://i.gkd.li/i/23421971', //拼多多
             'https://i.gkd.li/i/23764542', //正在打开...
             'https://i.gkd.li/i/25070194', //落茄香腾 A
             'https://i.gkd.li/i/25070202', //落茄香腾 B
           ],
-        },
-        {
-          key: 2, //等待时间过长(9秒), 直接返回
-          matchDelay: 3500,
-          actionDelay: 9000,
-          matches:
-            '[vid="left_btn"][desc="返回"][clickable=true][visibleToUser=true]', //返回
-          snapshotUrls: 'https://i.gkd.li/i/23908857',
           excludeSnapshotUrls: 'https://i.gkd.li/i/26376188', //加 [desc="返回"] 排除, GKD捉不到 activityId 时会误触
         },
         {
+          key: 2,
+          name: '②待4.5秒后-返回键',
+          matchDelay: 3000,
+          actionDelay: 4500,
+          matches:
+            '[vid="title_tv"] <(1,2) [vid="title_root"] > [vid="left_btn"][desc="返回"][clickable=true][visibleToUser=true]', //返回
+        },
+        {
           key: 3,
-          name: 'xx下载页-返回键',
+          name: '③xx下载页-返回键',
           action: 'back',
           actionDelay: 1000,
           matches:
@@ -571,7 +573,7 @@ export default defineGkdApp({
         },
         {
           key: 4,
-          name: '下载apk页-x掉',
+          name: '④下载apk页-x掉',
           activityIds: 'com.yxcorp.gifshow.ad.webview.AdYodaActivity',
           matches: '[text="立即下载"] - LinearLayout >2 [vid="close"]',
           snapshotUrls: 'https://i.gkd.li/i/26678104',
