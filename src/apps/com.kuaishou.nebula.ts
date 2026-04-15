@@ -15,41 +15,29 @@ export default defineGkdApp({
     },
     {
       key: 1,
-      name: '启动页-视频广告页-返回',
-      desc: 'app跳转ks时出现(❗有误触)',
+      name: '功能类-自动[退出]视频广告页',
+      desc: 'app跳转ks时出现',
       enable: false,
       rules: [
         {
+          fastQuery: true,
           actionMaximum: 1,
           matchTime: 3500,
           resetMatch: 'app',
-          matches: 'ImageView[vid="left_btn"][visibleToUser=true]',
-          fastQuery: true,
+          matches: [
+            '[vid="comment_button"] - [vid="like_button"]',
+            'ImageView[vid="left_btn"][desc="返回"][visibleToUser=true]',
+          ],
           snapshotUrls: 'https://i.gkd.li/i/22658635',
+          exampleUrls: 'https://e.gkd.li/40f503eb-07fe-4b1c-b0b0-2ce4ecd18355',
           activityIds: 'com.yxcorp.gifshow.detail.PhotoDetailActivity',
         },
       ],
     },
     {
-      key: 2,
-      name: '启动页-365天打卡-返回键', // zfb新村跳转快极时出现
-      desc: '重选商品(弹窗)-返回键',
-      rules: [
-        {
-          action: 'back',
-          actionCd: 2000,
-          excludeMatches: '[text="任务中心"]',
-          matches:
-            '[text^="完成365天打卡" || text="重新选择商品"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/23606935',
-          activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
-        },
-      ],
-    },
-    {
       key: 4,
-      name: '📺视频页-xx-不感兴趣',
-      desc: '①快手热榜 ②每日打卡',
+      name: '📺视频页-[不感兴趣]这些活动',
+      desc: '①快手热榜 ②每日打卡 ③签到',
       rules: [
         {
           fastQuery: true,
@@ -62,6 +50,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/22981911', //每日打卡
             'https://i.gkd.li/i/25210377', //签到
           ],
+          exampleUrls: 'https://e.gkd.li/9c4705ce-76d3-4f76-9d4d-2da8771820c0',
           activityIds: 'com.yxcorp.gifshow.HomeActivity',
         },
       ],
@@ -255,6 +244,13 @@ export default defineGkdApp({
           matches:
             '[text="签到日历"] - @View[clickable=true][getChild(0).name$="Image"] <<5 WebView <<2 [vid="webView"]',
           snapshotUrls: 'https://i.gkd.li/i/25730030', //签到日历
+        },
+        {
+          key: 19,
+          action: 'back',
+          matches:
+            '@[text*="天打卡任务"] < View < View <2 View <<8 [vid="webView"]',
+          snapshotUrls: 'https://i.gkd.li/i/23606935', //365天打卡
         },
 
         // 以下为其它界面id的
