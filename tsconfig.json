@@ -10,7 +10,10 @@
     "sourceMap": false,
     "noUnusedLocals": true,
     "esModuleInterop": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "types": ["node"],
+    "lib": ["ESNext"],
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src", "scripts"]
 }

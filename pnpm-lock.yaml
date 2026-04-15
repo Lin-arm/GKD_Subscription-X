@@ -29,9 +29,6 @@ importers:
       '@gkd-kit/tools':
         specifier: 0.8.0
         version: 0.8.0(@gkd-kit/api@0.9.3)(json5@2.2.3)
-      '@types/node':
-        specifier: 24.12.2
-        version: 24.12.2
       eslint:
         specifier: 10.0.1
         version: 10.0.1(jiti@2.6.1)
@@ -63,6 +60,9 @@ importers:
         specifier: 8.58.2
         version: 8.58.2(eslint@10.0.1(jiti@2.6.1))(typescript@6.0.2)
     devDependencies:
+      '@types/node':
+        specifier: 24.12.2
+        version: 24.12.2
       '@typescript-eslint/eslint-plugin':
         specifier: 8.58.2
         version: 8.58.2(@typescript-eslint/parser@8.58.2(eslint@10.0.1(jiti@2.6.1))(typescript@6.0.2))(eslint@10.0.1(jiti@2.6.1))(typescript@6.0.2)
