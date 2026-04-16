@@ -342,11 +342,13 @@ export default defineGkdApp({
       key: 13,
       name: '🐤养鸡-领饲料-已满-知道了',
       desc: '饲料袋已满 弹窗->点击知道了',
-      order: NO_FAST_QUERY,
       rules: [
         {
+          forcedTime: 30000,
+          fastQuery: true,
+          matchRoot: true,
           matches:
-            '@[text="知道了" || text="确认"][clickable=true] -(1,2,3) [text="饲料袋已满" || getChild(0).text="饲料袋已满"]',
+            '[text="饲料袋已满" || getChild(0).text="饲料袋已满"] +(1,2,3) @[index=parent.childCount.minus(1)][text="知道了" || text="确认"] <n [childCount>3] <<(3,4) View <4 [childCount=4] < WebView[text="蚂蚁庄园"] < * <2 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23238168',
             'https://i.gkd.li/i/23414417',
