@@ -29,7 +29,7 @@ export default defineGkdApp({
           fastQuery: true,
           matchRoot: true,
           matches:
-            '[text="恭喜获得小组件优先体验权"] - @View[getChild(0).name$="Image"] <<5 WebView <2 FrameLayout[desc.length>20] <<2 [id="android:id/content"]',
+            '[text="恭喜获得小组件优先体验权"] - @View[getChild(0).name$="Image"] < [childCount>3] < * < * < * < WebView <2 FrameLayout[desc.length>20] < * < [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/22923315',
           activityIds:
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
@@ -71,6 +71,7 @@ export default defineGkdApp({
         {
           fastQuery: true,
           matchRoot: true,
+          forcedTime: 60000,
           activityIds:
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           matches:
@@ -113,8 +114,10 @@ export default defineGkdApp({
       rules: [
         {
           fastQuery: true,
+          matchRoot: true,
+          forcedTime: 30000,
           matches:
-            '[text^="七天内不收取"] + @TextView[index=parent.childCount.minus(2)] <n View[childCount>6] <<7 WebView[text="蚂蚁庄园"] <<3 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
+            '[text^="七天内不收取"] + @TextView[index=parent.childCount.minus(2)] <n View[childCount>6] < View <2 [childCount=2] < View < View < WebView[text="蚂蚁庄园"] < * <2 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
           snapshotUrls: 'https://i.gkd.li/i/26428751',
           exampleUrls: 'https://e.gkd.li/9ef153bc-838d-45e3-96e5-e88fa2438448',
           activityIds:
@@ -146,6 +149,7 @@ export default defineGkdApp({
       desc: '乐园弹窗->点击 ①开宝箱 ②x掉',
       fastQuery: true,
       matchRoot: true,
+      forcedTime: 60000,
       activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
         {
