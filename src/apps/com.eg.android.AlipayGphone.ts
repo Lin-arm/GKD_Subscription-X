@@ -383,7 +383,7 @@ export default defineGkdApp({
           key: 2,
           name: '②活动弹窗-x掉',
           matches:
-            '@Button[text="关闭"][clickable=true] <2 View[childCount=2] <<7 WebView[text="蚂蚁庄园"] <<3 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
+            '@Button[text="关闭"][clickable=true] <2 View[childCount=2] <<7 WebView[text="蚂蚁庄园"] < * <2 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
           snapshotUrls: [
             'https://i.gkd.li/i/26524387', //新款小盲盒
             'https://i.gkd.li/i/26527688', //助力圆梦活动
@@ -568,8 +568,11 @@ export default defineGkdApp({
         {
           key: 3,
           name: '③专享补贴or添加首页-放弃',
+          fastQuery: true,
+          order: 1,
           matches:
-            ' [text$="可用" || text="后失效" || text^="限时" || text="限今日" || text="当天有效"] +(1,2) TextView[index=parent.childCount.minus(2)][text$="放弃"]', //无快查
+            '@TextView[index=parent.childCount.minus(2)][text$="放弃"] <n [childCount>4] <<(1,4) View <2 [childCount>1] < WebView < * <2 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
+          // ' [text$="可用" || text="后失效" || text^="限时" || text="限今日" || text="当天有效"] +(1,2) TextView[index=parent.childCount.minus(2)][text$="放弃"]', //无快查
           snapshotUrls: [
             'https://i.gkd.li/i/24157391', //专享补贴
             'https://i.gkd.li/i/24278961', //添加小程序到首页 (若用快速查询则真机不生效)
@@ -595,7 +598,7 @@ export default defineGkdApp({
           fastQuery: true,
           order: 1,
           matches:
-            '@TextView[text=""][width<138][visibleToUser=true] - View[getChild(0).getChild(0).name$="Image"] <<(4,5) WebView <2 [index=parent.childCount.minus(1)] <n [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '@TextView[text=""][width<138][visibleToUser=true] - View[getChild(0).getChild(0).name$="Image"] <<(4,5) WebView <2 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24728626',
             'https://i.gkd.li/i/24728870',
@@ -680,7 +683,7 @@ export default defineGkdApp({
         {
           fastQuery: true,
           matchRoot: true,
-          forcedTime: 10000,
+          forcedTime: 30000,
           matches:
             '@Button[text$="领取"][clickable=true] <n [childCount>3] <n View[index=parent.childCount.minus(1)] <n Dialog < * < * <3 * < WebView[text="蚂蚁新村"] < WebView <2 * < [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           // '@Button[text$="领取"][clickable=true] <n [childCount>3] <n View[index=parent.childCount.minus(1)] <n Dialog <<6 WebView[text="蚂蚁新村"] <<4 [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',    //用了 << 在GKD会提示缓慢查询
@@ -701,6 +704,7 @@ export default defineGkdApp({
         {
           fastQuery: true,
           matchRoot: true,
+          forcedTime: 30000,
           matches:
             '@Button[text="返回新村"][clickable=true] < [index=parent.childCount.minus(1)] <n [childCount>9] <<(3,4) View <2 WebView[text="蚂蚁新村"] <<4 [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           snapshotUrls: [
