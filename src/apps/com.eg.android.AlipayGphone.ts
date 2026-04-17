@@ -1018,7 +1018,7 @@ export default defineGkdApp({
     {
       key: 37,
       name: '其它-[退出]中转页',
-      desc: '跳转别的app做完任务后切回支付宝中转页',
+      desc: '在别的app做完任务后切回支付宝中转页',
       fastQuery: true,
       matchTime: 3000, // 3秒后休眠
       actionCd: 300,
@@ -1033,11 +1033,12 @@ export default defineGkdApp({
             'com.alipay.mobile.wallet.promo.ui.page.AppDetailsActivity',
           ],
           matches:
-            '@[desc="返回"] + RelativeLayout >(1,5) [text="正在跳转" || text="闲鱼币狂欢"]',
+            '@[desc="返回"] + RelativeLayout >(1,5) [text="正在跳转" || text="闲鱼币狂欢" || text="薅羊毛赚话费"]',
           snapshotUrls: [
             'https://i.gkd.li/i/26655913', // 淘宝
             'https://i.gkd.li/i/26737562', // 一淘
             'https://i.gkd.li/i/26738164', // 闲鱼
+            'https://i.gkd.li/i/26833985', // 淘宝
           ],
           exampleUrls: 'https://e.gkd.li/3020bb78-324e-46f6-8d32-60296ea83d4b',
         },
