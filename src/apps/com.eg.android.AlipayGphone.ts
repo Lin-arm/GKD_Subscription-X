@@ -569,13 +569,14 @@ export default defineGkdApp({
           key: 3,
           name: '③专享补贴or添加首页-放弃',
           matches:
-            '[text$="可用" || text="后失效" || text^="限时" || text="限今日"] +(1,2) TextView[index=parent.childCount.minus(2)][text$="放弃"]', //无快查
+            ' [text$="可用" || text="后失效" || text^="限时" || text="限今日" || text="当天有效"] +(1,2) TextView[index=parent.childCount.minus(2)][text$="放弃"]', //无快查
           snapshotUrls: [
             'https://i.gkd.li/i/24157391', //专享补贴
             'https://i.gkd.li/i/24278961', //添加小程序到首页 (若用快速查询则真机不生效)
             'https://i.gkd.li/i/24913115', //添加小程序到首页2
             'https://i.gkd.li/i/25063019', //天猫小程序入群福利
             'https://i.gkd.li/i/25470291', //天猫小程序
+            'https://i.gkd.li/i/26805474', //天猫小程序2
           ],
         },
         {
