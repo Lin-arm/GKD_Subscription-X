@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Skip if actor is renovate[bot]
+        if: github.actor == 'renovate[bot]'
+        run: exit 0
+
       - name: 缺少快照时自动标记并关闭 Issue
         if: |
           contains(github.event.issue.body, 'i.gkd.li/') == false &&
