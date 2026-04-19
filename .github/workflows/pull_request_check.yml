@@ -17,7 +17,7 @@ jobs:
 
       - name: 获取 PR 变更文件列表
         id: changed_files
-        uses: tj-actions/changed-files@v46
+        uses: tj-actions/changed-files@v47
         with:
           files: |
             src/apps/*.ts
