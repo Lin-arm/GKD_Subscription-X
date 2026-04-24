@@ -470,35 +470,21 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 13,
-      name: '🤳看广告-退出弹窗-下载领奖-放弃',
-      desc: '弹窗-下载并体验20秒-放弃奖励',
-      rules: [
-        {
-          actionDelay: 1500,
-          matches: [
-            '[text^="下载并体验"] < * +2 * > [text="放弃奖励"][id$="award_video_close_dialog_abandon_button"][visibleToUser=true]',
-          ],
-          fastQuery: true,
-          snapshotUrls: 'https://i.gkd.li/i/22882796',
-          activityIds: [
-            'com.yxcorp.gifshow.ad.neo.video.award.AwardVideoPlayActivity',
-            'com.yxcorp.gifshow.ad.neo.videov2.award.AwardVideoPlayActivityV2',
-            'com.yxcorp.plugin.search.SearchActivity',
-          ],
-        },
-      ],
-    },
-    {
       key: 14,
       name: '🤳看广告-额外获取xx金币',
       desc: '含跳转app,不含下载app',
       enable: false,
+      fastQuery: true,
+      actionDelay: 1500,
+      activityIds: [
+        'com.yxcorp.gifshow.ad.neo.video.award.AwardVideoPlayActivity',
+        'com.yxcorp.gifshow.ad.neo.videov2.award.AwardVideoPlayActivityV2',
+        'com.yxcorp.plugin.search.SearchActivity',
+      ],
       rules: [
         {
+          key: 1,
           name: '①点击[额外]获取金币',
-          fastQuery: true,
-          actionDelay: 1500,
           matches:
             '@[clickable=true] >(1,2,3) [vid="ad_download_text" || text*="额外"][!(text*="下载")]',
           snapshotUrls: [
@@ -508,11 +494,13 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23654193', // 点击额外获取
           ],
           excludeSnapshotUrls: 'https://i.gkd.li/i/23392869', // [!(text*="下载")]
-          activityIds: [
-            'com.yxcorp.gifshow.ad.neo.video.award.AwardVideoPlayActivity',
-            'com.yxcorp.gifshow.ad.neo.videov2.award.AwardVideoPlayActivityV2',
-            'com.yxcorp.plugin.search.SearchActivity',
-          ],
+        },
+        {
+          key: 2,
+          name: '②[放弃]需下载app的任务',
+          matches:
+            '[text^="下载并体验"] < * +2 * > [text="放弃奖励"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/22882796',
         },
       ],
     },
