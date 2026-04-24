@@ -379,15 +379,13 @@ export default defineGkdApp({
       name: '⛳任务页-刷视频赚金币-领取',
       desc: '有待领金币-立即领取',
       enable: false,
+      matchTime: 10000,
       rules: [
         {
-          actionMaximum: 3,
+          actionMaximum: 2,
           resetMatch: 'match',
           matchDelay: 2500,
-          anyMatches: [
-            '[text^="待领"][text$="金币"] +2 TextView[text="立即领取"][index=2]',
-            '[text^="待领"][text$="金币立即领取"][visibleToUser=true]',
-          ],
+          matches: '@[clickable=true] >(1,2) [text^="待领"][text*="金币"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23907888',
             'https://i.gkd.li/i/23979731',
