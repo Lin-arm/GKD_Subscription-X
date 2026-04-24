@@ -492,24 +492,22 @@ export default defineGkdApp({
     {
       key: 14,
       name: '🤳看广告-额外获取xx金币',
-      desc: '点击额外获取xx金币(跳转app)',
+      desc: '含跳转app,不含下载app',
       enable: false,
       rules: [
         {
-          actionDelay: 1500,
-          excludeMatches: '[vid="ad_download_text"][text^="i 下载"]',
-          anyMatches: [
-            '[vid="ad_download_text"][text^="点击额外获取" || text^="i 打开并体验"][text$="金币"][visibleToUser=true]',
-            '[text^="打开并体验" && text$="额外得" || text="点击额外获取"]', //13.2.10.9610
-          ],
+          name: '①点击[额外]获取金币',
           fastQuery: true,
+          actionDelay: 1500,
+          matches:
+            '@[clickable=true] >(1,2,3) [vid="ad_download_text" || text*="额外"][!(text*="下载")]',
           snapshotUrls: [
-            'https://i.gkd.li/i/23392746', //12.8.20.8680
-            'https://i.gkd.li/i/23476308', //12.8.20.8680
-            'https://i.gkd.li/i/23588212', //13.2.10.9610
-            'https://i.gkd.li/i/23654193', //13.2.10.9610
+            'https://i.gkd.li/i/23392746', // [vid="ad_download_text"]
+            'https://i.gkd.li/i/23476308', // [vid="ad_download_text"]
+            'https://i.gkd.li/i/23588212', // 打开并体验 20 秒 额外得
+            'https://i.gkd.li/i/23654193', // 点击额外获取
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/23392869',
+          excludeSnapshotUrls: 'https://i.gkd.li/i/23392869', // [!(text*="下载")]
           activityIds: [
             'com.yxcorp.gifshow.ad.neo.video.award.AwardVideoPlayActivity',
             'com.yxcorp.gifshow.ad.neo.videov2.award.AwardVideoPlayActivityV2',
