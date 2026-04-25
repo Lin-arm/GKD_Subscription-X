@@ -483,15 +483,17 @@ export default defineGkdApp({
         {
           key: 1,
           name: '①点击[额外]获取金币',
-          matches:
-            '@[clickable=true] >(1,2,3) [vid="ad_download_text" || text*="额外"][!(text*="下载")]',
+          matches: '@[clickable=true] >(1,2,3) [text*="额外"][!(text*="下载")]',
           snapshotUrls: [
-            'https://i.gkd.li/i/23392746', // [vid="ad_download_text"]
-            'https://i.gkd.li/i/23476308', // [vid="ad_download_text"]
+            'https://i.gkd.li/i/23392746', // 点击额外获取90金币
+            'https://i.gkd.li/i/23476308', // i 打开并体验20秒 额外领100金币
             'https://i.gkd.li/i/23588212', // 打开并体验 20 秒 额外得
             'https://i.gkd.li/i/23654193', // 点击额外获取
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/23392869', // [!(text*="下载")]
+          excludeSnapshotUrls: [
+            'https://i.gkd.li/i/22658960', // 不可单单用 [vid="ad_download_text"] , 换用 [text*="额外"]  排除
+            'https://i.gkd.li/i/23392869', // [!(text*="下载")]
+          ],
         },
         {
           key: 2,
