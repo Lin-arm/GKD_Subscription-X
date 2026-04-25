@@ -46,6 +46,7 @@ export default defineGkdApp({
         {
           fastQuery: true,
           matchRoot: true,
+          forcedTime: 60000,
           matches:
             '@Button[text="确认兑换"] <(5,6) View[childCount>4] <<(2,4) View[index=parent.childCount.minus(1)] <n View < WebView[text*="兑换" || text="乐园集市"] <<4 [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           snapshotUrls: [
@@ -535,7 +536,8 @@ export default defineGkdApp({
         {
           action: 'clickNode',
           fastQuery: true,
-          forcedTime: 30000,
+          matchRoot: true,
+          forcedTime: 60000,
           matches:
             '[text="可领取"] - @[getChild(0).name$="Image"][getChild(1).text="15g"] <3 View < * < View <2 View < View <2 View < * < * < WebView <2 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
           snapshotUrls: 'https://i.gkd.li/i/23413420',
