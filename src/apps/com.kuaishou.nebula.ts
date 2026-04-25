@@ -229,14 +229,14 @@ export default defineGkdApp({
           key: 16,
           action: 'back',
           matches:
-            '@[text$="瓜分大额奖池"] <2 View < View <2 View <<2 WebView <<2 [vid="webView"]',
+            '@[text$="瓜分大额奖池"] <2 View < View <2 View < * < WebView < * < [vid="webView"]',
           snapshotUrls: 'https://i.gkd.li/i/25004213', //瓜分百亿金币(3天挑战)
         },
         {
           key: 17,
           action: 'back',
           matches:
-            '@View[text^="App版本过低"] <3 View <<3 WebView <<2 [vid="webView"]',
+            '@View[text^="App版本过低"] <3 View < * < * < WebView < * < [vid="webView"]',
           snapshotUrls: 'https://i.gkd.li/i/25285773', //版本过低
         },
         {
@@ -331,7 +331,7 @@ export default defineGkdApp({
           fastQuery: true,
           order: 2, //迟点匹配,让key18 任务页-自动开宝箱 先
           matches: [
-            '@[name$="View"][text="任务中心"] <2 View <2 View < WebView <<2 [vid="webView"]',
+            '@[name$="View"][text="任务中心"] <2 View <2 View < WebView < * < [vid="webView"]',
             // 'Button[!(text^="去看广告得" || text="愉快收下")] -n * <<(2,3,5) [index=parent.childCount.minus(1)] -n * > @[name$="Image" || name$="View"][clickable=true][width>70 && width<90] <<(2,3,4) [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount<3] -n [name$="TextView" || name$="View"] <<(3,4) [vid="webView"]',
             '@[name$="Image" || name$="View"][clickable=true][width>70 && width<90] <<(2,3,4) [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount<3] -n [name$="TextView" || name$="View"] <<(3,4) [vid="webView"]',
           ],
@@ -361,7 +361,7 @@ export default defineGkdApp({
           key: 3,
           fastQuery: true,
           matches:
-            '[childCount=1] > @ImageView[id=null][width>95 && width<106][height>95 && height<106][top>300 && top<1000][visibleToUser=true] <<3 ViewGroup <2 ViewGroup <2 ViewGroup <2 ViewGroup <3 FrameLayout < [vid="krn_content_container"]',
+            '@ImageView[id=null][width>95 && width<106][height>95 && height<106][top>300 && top<1000][visibleToUser=true] < [childCount=1] < * < ViewGroup <2 ViewGroup <2 ViewGroup <2 ViewGroup <3 FrameLayout < [vid="krn_content_container"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24352727', //A 2025年度回忆
             'https://i.gkd.li/i/24352736', //A h5回测dtk
@@ -676,14 +676,13 @@ export default defineGkdApp({
       enable: false,
       rules: [
         {
+          fastQuery: true,
           actionMaximum: 1,
           excludeMatches:
             '([vid="ad_download_progress_click_progress"]) || ([text^="已成功"])',
-          matches: [
-            '@ImageView < [desc="close_view"] <2 [desc="container_view"] <<3 [id="com.kuaishou.nebula.commercial_neo:id/award_video_card_container"]',
-          ],
-          fastQuery: true,
-          snapshotUrls: ['https://i.gkd.li/i/23213280'],
+          matches:
+            'ImageView < @[clickable=true][desc="close_view"] <2 [desc="container_view"] < * < * < [id="com.kuaishou.nebula.commercial_neo:id/award_video_card_container"]',
+          snapshotUrls: 'https://i.gkd.li/i/23213280',
           excludeSnapshotUrls: 'https://i.gkd.li/i/23450320',
           activityIds: [
             'com.yxcorp.gifshow.detail.PhotoDetailActivity',
@@ -766,12 +765,11 @@ export default defineGkdApp({
           key: 2, // 去金币购 看的3次直播
           action: 'none',
           matchRoot: true,
-          // matches: '[vid="pendant_task_status"][text^="倒计时"][text$="00:01"]', // 倒计时01秒
           matches:
-            '@[vid="pendant_task_status"][text^="倒计时"][text$="00:01"] <<3 [vid="kem_activity_task_pendant"] <2 [id="android:id/content"]',
+            '@[text^="倒计时"][text$="00:01"] <2 * < [vid="kem_activity_task_pendant"] <2 [id="android:id/content"]',
           snapshotUrls: [
-            'https://i.gkd.li/i/23750524',
-            'https://i.gkd.li/i/23823031',
+            'https://i.gkd.li/i/23750524', // [text="倒计时 00:54"]
+            'https://i.gkd.li/i/23823031', // [text="倒计时 00:40"]
           ],
         },
         {
@@ -850,7 +848,7 @@ export default defineGkdApp({
           key: 4,
           name: '④预约直播弹窗-x',
           matches:
-            'ImageView[width<80][height<80][visibleToUser=true] <<2 @[clickable=true] <2 * <2 * < [vid="krn_content_container"]',
+            'ImageView[width<80][height<80][visibleToUser=true] < * < @[clickable=true] <2 * <2 * < [vid="krn_content_container"]',
           snapshotUrls: 'https://i.gkd.li/i/23235749',
         },
         {
@@ -890,7 +888,7 @@ export default defineGkdApp({
           key: 9,
           name: '⑨今日榜单弹窗-x掉',
           matches:
-            'ImageView <<2 @[clickable=true] - ViewGroup >4 [text="查看今日榜单"]',
+            ' ImageView < * < @[clickable=true] - ViewGroup >4 [text="查看今日榜单"]',
           snapshotUrls: 'https://i.gkd.li/i/24926207',
         },
         {
@@ -924,7 +922,7 @@ export default defineGkdApp({
           key: 13,
           name: '13.意向城市-返回键',
           action: 'back',
-          matches: 'ImageView <<2 @[clickable=true] +2 [text*="意向城市"]',
+          matches: 'ImageView < * < @[clickable=true] +2 [text*="意向城市"]',
           snapshotUrls: 'https://i.gkd.li/i/26160402',
         },
       ],
@@ -1285,7 +1283,7 @@ export default defineGkdApp({
       rules: [
         {
           matches:
-            'ImageView <<(1,2) @[clickable=true] < * + [text="我的小游戏"]',
+            'ImageView < * < @[clickable=true] < * + [text="我的小游戏"]',
           fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/22865063',
           activityIds:
@@ -1627,7 +1625,7 @@ export default defineGkdApp({
           name: '①x掉',
           anyMatches: [
             'ImageView < @[clickable=true][width<134][height<134] - [text="优惠券即将到期"]',
-            '[text="优惠券即将到期"] - @[name$="View"][clickable=true][width<80] < View <2 View <3 WebView <<3 [vid="web_view_container"]',
+            '[text="优惠券即将到期"] - @[name$="View"][clickable=true][width<80] < View <2 View <3 WebView < * < * < [vid="web_view_container"]',
           ],
           exampleUrls: 'https://e.gkd.li/a5083e28-4cf6-454a-b37f-12cc06781c9a',
           snapshotUrls: [
@@ -1650,7 +1648,7 @@ export default defineGkdApp({
           name: '③弹窗-点击[知道了]',
           activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
           matches:
-            '@[text="知道了"][clickable=true] -n [name$="View"] <<2 [index=parent.childCount.minus(1)] <6 WebView <<2 [vid="webView"]',
+            '@[text="知道了"][clickable=true] -n [name$="View"] < * < [index=parent.childCount.minus(1)] <6 WebView < * < [vid="webView"]',
           snapshotUrls: [
             'https://i.gkd.li/i/25730402',
             'https://i.gkd.li/i/25996186',
