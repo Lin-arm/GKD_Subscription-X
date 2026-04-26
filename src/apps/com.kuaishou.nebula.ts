@@ -521,9 +521,9 @@ export default defineGkdApp({
           actionDelay: 500,
           resetMatch: 'app',
           matches:
-            '[vid="title_tv"] <(1,2) [vid="title_root"] > [vid="left_btn"][desc="返回"][clickable=true][visibleToUser=true]', //返回
+            '[vid="title_root"] > [vid="left_btn"][desc="返回"][clickable=true][visibleToUser=true]', //返回
           snapshotUrls: [
-            'https://i.gkd.li/i/23908857',
+            'https://i.gkd.li/i/23908857', // 无 [vid="title_tv"]
             'https://i.gkd.li/i/23421971', //拼多多
             'https://i.gkd.li/i/23764542', //正在打开...
             'https://i.gkd.li/i/25070194', //落茄香腾 A
@@ -537,7 +537,7 @@ export default defineGkdApp({
           matchDelay: 3000,
           actionDelay: 4500,
           matches:
-            '[vid="title_tv"] <(1,2) [vid="title_root"] > [vid="left_btn"][desc="返回"][clickable=true][visibleToUser=true]', //返回
+            '[vid="title_root"] > [vid="left_btn"][desc="返回"][clickable=true][visibleToUser=true]', //返回
         },
         {
           key: 3,
