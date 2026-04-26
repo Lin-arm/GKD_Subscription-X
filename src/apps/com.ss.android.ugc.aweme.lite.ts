@@ -6,21 +6,24 @@ export default defineGkdApp({
   groups: [
     {
       key: 103,
-      name: '视频页-分享-复制链接-x掉',
-      desc: '已复制-x掉',
-      forcedTime: 3600000, // 1小时内主动查询，避免睡死
+      name: '功能类-复制分享链接后[返回]',
+      desc: '已复制-点击[x]掉',
       rules: [
         {
-          matches: '@ImageView[clickable=true] - [text^="链接已复制"]',
+          name: '①点击[x]掉',
           fastQuery: true,
+          forcedTime: 3600000, // 1小时内主动查询，避免睡死
+          matches: '@ImageView[clickable=true] - [text^="链接已复制"]',
           snapshotUrls: [
-            'https://i.gkd.li/i/22944102', // v31.5.0
-            'https://i.gkd.li/i/25076821', // v37.7.0
+            'https://i.gkd.li/i/22944102',
+            'https://i.gkd.li/i/25076821',
+            'https://i.gkd.li/i/27101825',
           ],
           exampleUrls: 'https://e.gkd.li/4466ef1e-e38f-4d1c-b548-7d0585c4d79d',
           activityIds: [
             'com.ss.android.ugc.aweme.detail.ui.DetailActivity',
             'com.ss.android.ugc.aweme.main.MainActivity',
+            'com.ss.android.ugc.aweme.detail.ultra.ui.UltraDetailActivity',
           ],
         },
       ],
