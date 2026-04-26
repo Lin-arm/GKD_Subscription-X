@@ -30,55 +30,83 @@ export default defineGkdApp({
     },
     {
       key: 3,
-      name: '🤳看广告-已看完-退出',
+      name: '🤳看广告-已看完-[退出]',
       desc: '已成功领取奖励',
+      fastQuery: true,
       activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
       rules: [
         {
           key: 1,
-          fastQuery: true,
+          name: '①点击[关闭]',
           matches:
             '[text="广告"] +(1,3) [text^="领取成功，关闭"][clickable=true]',
           snapshotUrls: [
-            'https://i.gkd.li/i/23394121',
-            'https://i.gkd.li/i/23562150',
+            'https://i.gkd.li/i/23394121', // v31.5.0
+            'https://i.gkd.li/i/23562150', // v31.5.0
           ],
           exampleUrls: 'https://e.gkd.li/493ef811-814f-4ada-a11b-41249743fbd0',
         },
         {
           key: 2,
-          matches: 'ImageView < [desc^="领取成功，关闭"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/25285401',
+          name: '②点击[关闭]',
+          matches:
+            'ImageView < @[desc^="领取成功，关闭"][height>10] <n ViewGroup[childCount>3] < * < * < * < * < * < [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/25285401', // v37.7.0
+        },
+        {
+          key: 3,
+          name: '③点击坐标[关闭]',
+          actionCd: 3500, // 等待 key4-2 触发点击[领取奖励]
+          position: {
+            left: 'width * 0.5',
+            top: 'width * 0.1231',
+          },
+          matches:
+            'ImageView < @[desc^="领取成功，关闭"] <2 * < * <2 [childCount=2] < [height=0] <3 FrameLayout[childCount>3] < * < * < * < * < [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/27102387', // v37.7.0 [height=0]
         },
       ],
     },
     {
       key: 4,
-      name: '🤳看广告-退出弹窗-再看',
-      desc: '再看一个 (v37.7.0失效)',
+      name: '🤳看广告-弹窗-再看一个',
+      desc: '点击[领取奖励]',
+      activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
       rules: [
         {
+          key: 1,
+          name: '①点击[领取奖励]',
           fastQuery: true,
           matches:
             '[text^="再看一个"] +(6,13) [text="领取奖励"][visibleToUser=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/23394181',
             'https://i.gkd.li/i/23562162', // v31.5.0
-            // 'https://i.gkd.li/i/25285457',   // v37.7.0 无直接节点,失效
           ],
           exampleUrls: 'https://e.gkd.li/32505f12-f430-49dc-b711-fed907d2be35',
-          activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
+        },
+        {
+          key: 2,
+          name: '②点击[领取奖励]',
+          matches:
+            '@[desc="领取奖励"] < * < [childCount=2] -2 [desc^="再看一个"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/27102618',
+            'https://i.gkd.li/i/27102723',
+            // 'https://i.gkd.li/i/25285457',   // v37.7.0 无直接节点,失效
+          ],
         },
       ],
     },
     {
       key: 5,
-      name: '🤳看广告-误入app下载页-返回',
-      desc: '点击左上角返回',
+      name: '🤳看广告-[退出]app下载页',
+      desc: '点击左上角[返回]',
       rules: [
         {
           fastQuery: true,
-          matches: '[vid="iv_back"][desc="返回"][visibleToUser=true]',
+          matches:
+            '[vid="iv_back"][desc="返回"][clickable=true][visibleToUser=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/23394270',
             'https://i.gkd.li/i/25285191',
