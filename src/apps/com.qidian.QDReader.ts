@@ -332,6 +332,7 @@ export default defineGkdApp({
       activityIds: [
         '.ui.activity.QDDirectoryActivity',
         '.ui.activity.SplashActivity',
+        '.ui.activity.QDReaderActivity',
       ],
       rules: [
         {
@@ -351,6 +352,7 @@ export default defineGkdApp({
           snapshotUrls: [
             'https://i.gkd.li/i/26220488',
             'https://i.gkd.li/i/27051045',
+            'https://i.gkd.li/i/27156111', // 小说正文页
           ],
           exampleUrls: 'https://e.gkd.li/40df3df2-a5a5-4044-bf82-8622396bf39a',
         },
