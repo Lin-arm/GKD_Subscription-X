@@ -352,6 +352,8 @@ export default defineGkdApp({
       desc: '饲料袋已满 弹窗->点击知道了',
       rules: [
         {
+          actionCd: 500,
+          actionDelay: 300, // 有个弹窗动画耗时
           forcedTime: 30000,
           fastQuery: true,
           matchRoot: true,
