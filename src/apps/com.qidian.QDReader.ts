@@ -140,21 +140,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 401,
-      name: '📆每日福利-新作揭秘弹窗',
-      desc: 'x掉',
-      rules: [
-        {
-          fastQuery: true,
-          matchRoot: true,
-          activityIds: '.ui.activity.QDBrowserActivity',
-          matches:
-            'Image[width<98] < @[index=parent.childCount.minus(1)][clickable=true] <n View <2 View <2 WebView[text="福利中心"] < * < * < [vid="webViewContainer"]',
-          snapshotUrls: 'https://i.gkd.li/i/27085320',
-        },
-      ],
-    },
-    {
       key: 501,
       name: '🧧发现-自动进[红包广场]',
       desc: '点击[红包广场](❗用前请到开发者选项关闭那3个动画)',
