@@ -586,7 +586,7 @@ export default defineGkdApp({
           fastQuery: true,
           order: 1,
           matches:
-            '@TextView[index=parent.childCount.minus(2)][text$="放弃"] <n [childCount>4] <<(1,4) View <2 [childCount>1] < WebView < * <2 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
+            '@TextView[index=parent.childCount.minus(2)][text$="放弃"] <n [childCount>4] <<(1,4) View <2 [childCount>1] < WebView < * <2 FrameLayout <2 [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           // ' [text$="可用" || text="后失效" || text^="限时" || text="限今日" || text="当天有效"] +(1,2) TextView[index=parent.childCount.minus(2)][text$="放弃"]', //无快查
           snapshotUrls: [
             'https://i.gkd.li/i/24157391', //专享补贴
@@ -594,7 +594,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/24913115', //添加小程序到首页2
             'https://i.gkd.li/i/25063019', //天猫小程序入群福利
             'https://i.gkd.li/i/25470291', //天猫小程序
-            'https://i.gkd.li/i/26805474', //天猫小程序2
+            'https://i.gkd.li/i/27156727', //天猫小程序2 (无 [text="松开刷新"] 快查节点)
           ],
         },
         {
@@ -613,7 +613,7 @@ export default defineGkdApp({
           fastQuery: true,
           order: 1,
           matches:
-            '@TextView[text=""][width<138][visibleToUser=true] - View[getChild(0).getChild(0).name$="Image"] <<(4,5) WebView <2 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
+            '@TextView[text=""][width<138][visibleToUser=true] - View[getChild(0).getChild(0).name$="Image"] <<(4,5) WebView <2 FrameLayout <2 [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24728626',
             'https://i.gkd.li/i/24728870',
@@ -1032,7 +1032,7 @@ export default defineGkdApp({
       name: '其它-[退出]中转页',
       desc: '在别的app做完任务后切回支付宝中转页',
       fastQuery: true,
-      matchTime: 3000, // 3秒后休眠
+      matchTime: 5000, // 5秒后休眠 (key1 有时连点三四次都不响应)
       actionCd: 300,
       resetMatch: 'app',
       rules: [
