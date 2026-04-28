@@ -117,6 +117,7 @@ export default defineGkdApp({
         {
           fastQuery: true,
           matchRoot: true,
+          actionCd: 200,
           forcedTime: 30000,
           matches:
             '[text^="七天内不收取"] + @TextView[index=parent.childCount.minus(2)] <n View[childCount>6] < View <2 [childCount=2] < View < View < WebView[text="蚂蚁庄园"] < * <2 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
@@ -534,13 +535,17 @@ export default defineGkdApp({
       enable: false,
       rules: [
         {
+          actionCd: 200, // 有时需第2次点击才成功[领取]
           action: 'clickNode',
           fastQuery: true,
           matchRoot: true,
           forcedTime: 60000,
           matches:
-            '[text="可领取"] - @[getChild(0).name$="Image"][getChild(1).text="15g"] <3 View < * < View <2 View < View <2 View < * < * < WebView <2 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
-          snapshotUrls: 'https://i.gkd.li/i/23413420',
+            ' [text="可领取"] - @[getChild(0).name$="Image"][getChild(1).text="15g"] <3 View < * < View <2 View < View <2 View < * < * < WebView <2 FrameLayout <2 [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/23413420',
+            'https://i.gkd.li/i/27151345', // 无 [text="松开刷新"] 快查节点
+          ],
           activityIds:
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
         },
