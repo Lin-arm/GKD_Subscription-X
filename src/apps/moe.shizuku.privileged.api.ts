@@ -14,8 +14,12 @@ export default defineGkdApp({
           matchTime: 2000, // 2秒后休眠
           resetMatch: 'app',
           activityIds: 'moe.shizuku.manager.MainActivity',
-          matches: '[childCount=1] > Button[text="启动"]',
-          snapshotUrls: 'https://i.gkd.li/i/27246993',
+          matches:
+            '[!(getChild(childCount.minus(2)).text="配对")] > Button[text="启动"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/27246993', // thedjchi 分支版
+            'https://i.gkd.li/i/27248071', // RikkaApps 原版
+          ],
         },
       ],
     },
