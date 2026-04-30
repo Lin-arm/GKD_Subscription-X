@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '📢说明',
-      desc: '(点击查看详情) 目前在用的快极版本有两个: 🔸v13.2.10.9610 🔸v12.8.20.8680 ,如果你用其他版本的快极,估计有些规则不生效,如遇失效或误触请截取快照拿到github反馈. 🟢相关脚本已在自动精灵app上传,请到脚本市场搜`🦜快极_自动刷视频`',
+      desc: '(点击查看详情) 目前在用的快极版本有三个: 🔸v14.3.30.11384 🔸v13.2.10.9610 🔸v12.8.20.8680 ,如果你用其他版本的快极,估计有些规则不生效,如遇失效或误触请截取快照拿到github反馈. 🟢相关脚本已在自动精灵app上传,请到脚本市场搜`🦜快极_自动刷视频`',
       enable: false,
       rules: [
         // snapshotUrls: 'https://i.gkd.li/i/24078870', //养鸭-饲料雨
@@ -148,16 +148,21 @@ export default defineGkdApp({
         {
           key: 5,
           name: '⑤从[关注]页-点击[发现]',
+          actionCd: 5000, //有时在[发现]页也刷到已关注的人的视频, cd长一点, 触发记录少一点
           matches: [
-            '@[vid="follow_button"][childCount=0] - [vid="follow_avatar_view"][visibleToUser=true]',
+            '[vid="follow_avatar_view"] +(1,2) [vid="follow_button"][childCount=0][visibleToUser=true]',
             '@[clickable=true] > [vid="textView"][desc="发现"]',
           ],
-          snapshotUrls: 'https://i.gkd.li/i/25148876', //在刷[关注]页的视频
+          snapshotUrls: [
+            //在刷[关注]页的视频
+            'https://i.gkd.li/i/25148876',
+            'https://i.gkd.li/i/27245691',
+          ],
           excludeSnapshotUrls: 'https://i.gkd.li/i/25148885', //在刷[发现]页的视频 [childCount=1]
         },
         {
           key: 444, //进入非视频页,直接返回
-          name: '④进入非视频界面-返回键',
+          name: '⑥进入非视频界面-返回键',
           action: 'back',
           matches: '[parent=null]', //所有界面都存在的 根节点
           excludeActivityIds: 'com.yxcorp.gifshow.HomeActivity',
