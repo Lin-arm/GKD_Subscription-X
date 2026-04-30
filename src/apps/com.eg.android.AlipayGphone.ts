@@ -924,18 +924,20 @@ export default defineGkdApp({
           actionMaximum: 1,
           resetMatch: 'match',
           matches:
-            '[childCount=7] > ViewGroup[index=6][index=parent.childCount.minus(1)] > View',
+            '@View < [childCount=1] <7 [childCount=7] <2 FrameLayout[childCount=2] < ViewGroup <2 FrameLayout[childCount=2] <<6 [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/23280044', //A
         },
         {
           key: 2,
           name: '②x掉捎话弹窗',
           actionCd: 1500,
-          matches: '[text="给Ta捎句话吧"] - * > @[clickable=true] > [text=""]',
+          matches:
+            '[text*="给Ta捎句话吧"] - * > @[clickable=true] > [text=""]',
           snapshotUrls: [
             'https://i.gkd.li/i/23280089', //B
             'https://i.gkd.li/i/23280173', //A
             'https://i.gkd.li/i/25126700', //C 直接再用户森林页,点击加好友就出现的
+            'https://i.gkd.li/i/27250498', //C
           ],
         },
         {
@@ -947,7 +949,7 @@ export default defineGkdApp({
           actionMaximum: 1,
           resetMatch: 'match',
           matches:
-            '[childCount>=7] > ViewGroup[index=parent.childCount.minus(1)] > View',
+            '@View < [childCount=1] <8 [childCount=8] <2 FrameLayout[childCount=2] < ViewGroup <2 FrameLayout[childCount=2] <<6 [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/23280202', //A 含免验证直接通过的
         },
         {
