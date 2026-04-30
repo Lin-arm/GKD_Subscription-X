@@ -181,19 +181,21 @@ export default defineGkdApp({
       rules: [
         {
           key: 1,
+          name: '①视频页-点击红包浮窗',
           matches: '[vid="redFloat"][clickable=true]', //视频页-点击红包浮窗 (配合脚本重启快极后用)
           snapshotUrls: 'https://i.gkd.li/i/23989148',
           activityIds: 'com.yxcorp.gifshow.HomeActivity',
         },
         {
           key: 2,
-          matches: [
-            '[vid="nasa_groot_view_pager"]',
-            '[id="android:id/content"] >5 ImageView + ViewGroup[width>120 && width<140][height>120 && height<140]',
-          ],
+          name: '②视频页-点击红包浮窗坐标',
+          action: 'clickCenter',
+          matches:
+            '@[clickable=true][visibleToUser=true] -(1,2) [vid="home_activity_root"] >n [vid="nasa_groot_view_pager"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24164538',
             'https://i.gkd.li/i/24194816',
+            'https://i.gkd.li/i/27251344', // clickNode 点击不生效
           ],
           activityIds: 'com.yxcorp.gifshow.HomeActivity',
         },
