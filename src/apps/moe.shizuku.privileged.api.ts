@@ -8,6 +8,7 @@ export default defineGkdApp({
       key: 1,
       name: '功能类-直接以root方式[启动]',
       desc: '进app后点击[启动], (仅GKD以无障碍模式工作可用)',
+      enable: false,
       rules: [
         {
           fastQuery: true,
