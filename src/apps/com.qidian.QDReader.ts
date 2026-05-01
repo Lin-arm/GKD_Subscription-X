@@ -254,10 +254,7 @@ export default defineGkdApp({
         {
           order: -2,
           actionCd: 100,
-          matches: [
-            '[text="已抢完"]',
-            '[vid="btnHongbaoClose"][visibleToUser=true]',
-          ],
+          matches: '@[vid="btnHongbaoClose"] - * >2 [text="已抢完"]',
           fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/23291755',
           exampleUrls: 'https://e.gkd.li/2ed31c5e-f498-4903-a781-58a1e885de69',
