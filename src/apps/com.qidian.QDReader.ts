@@ -201,10 +201,18 @@ export default defineGkdApp({
       name: '🐞发现-红包广场-抢月包(测试)',
       desc: '点击 已抢完 (测试用,真抢时请关闭)',
       enable: false,
+      fastQuery: true,
+      matchRoot: true,
       rules: [
         {
-          fastQuery: true,
-          matchRoot: true,
+          key: 0,
+          name: '初进Activity时间点🔴🟡🟢',
+          action: 'none',
+          actionMaximum: 1,
+          matches: '[parent=null]', // 根节点
+        },
+        {
+          key: 1,
           actionCd: 300,
           actionMaximum: 3,
           matches:
