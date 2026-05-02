@@ -954,9 +954,10 @@ export default defineGkdApp({
     },
     {
       key: 31,
-      name: '📡直播间-清晰度-高清',
-      desc: '设清晰度为 流畅or高清',
+      name: '📡直播间-自动调低画质',
+      desc: '设清晰度为[流畅/高清]',
       fastQuery: true,
+      actionMaximum: 1,
       activityIds: [
         'com.yxcorp.gifshow.detail.PhotoDetailActivity',
         'com.kuaishou.live.core.basic.activity.LiveSlideActivity',
@@ -968,18 +969,38 @@ export default defineGkdApp({
       rules: [
         {
           key: 1,
-          actionMaximum: 1,
+          name: '①点击右下角[更多]',
+          matchDelay: 4500, // 初进直播间,缓几秒加载节点
+          resetMatch: 'app',
+          matches: '@[clickable=true] > [vid="live_bottom_bar_icon"]',
+          snapshotUrls: 'https://i.gkd.li/i/22705740',
+        },
+        {
+          key: 2,
+          preKeys: [1],
+          name: '②已是高清-按[返回键]',
+          action: 'back',
+          matches:
+            '@[clickable=true] >(1,2) [text="流畅" || text="高清"][index=0]',
+          snapshotUrls: 'https://i.gkd.li/i/23908016', //已经是'高清'
+        },
+        {
+          key: 3,
+          name: '③点击[清晰度]',
           resetMatch: 'match',
-          excludeMatches: '@[clickable=true] > [text="流畅" || text="高清"]',
-          matches: '@[clickable=true] > [text="清晰度" || text="自动"]',
+          // excludeMatches: '@[clickable=true] >(1,2) [text="流畅" || text="高清"][index=0]', // 前面子key2 已有
+          matches: '@[clickable=true] >(1,2) [text="清晰度" || text="自动"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23607208', //清晰度
             'https://i.gkd.li/i/23642513', //自动
+            'https://i.gkd.li/i/27304171', //自动
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/23908016', //已经是'高清'
+          // excludeSnapshotUrls: 'https://i.gkd.li/i/23908016', //已经是'高清'
         },
         {
-          preKeys: [1],
+          key: 4,
+          preKeys: [3],
+          name: '④选择[流畅/高清]',
           matches:
             '@[index=parent.childCount.minus(2)][clickable=true] > [text="流畅" || text="高清"][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/22705855',
