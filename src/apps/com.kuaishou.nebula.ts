@@ -1169,36 +1169,54 @@ export default defineGkdApp({
     },
     {
       key: 35,
-      name: '🔍搜索-倒计时结束-返回x2',
-      desc: '按返回键2次',
+      name: '🔍搜索-倒计时结束后[返回]',
+      desc: '退出搜索页',
       fastQuery: true,
       activityIds: 'com.yxcorp.plugin.search.SearchActivity',
       rules: [
         {
-          key: 1,
+          key: 0,
+          name: '①养鸭任务1s后结束',
           action: 'none',
-          matches: '[vid="pendant_task_status"][text$=":01"]', // 倒计时01秒
-          snapshotUrls: [
-            'https://i.gkd.li/i/23689726',
-            'https://i.gkd.li/i/23748508',
-          ],
+          matches: '[childCount=2] > [vid="pendant_task_status"][text$=":01"]', // 倒计时1秒
+          snapshotUrls: 'https://i.gkd.li/i/23689726',
         },
         {
-          key: 2,
-          preKeys: [1],
-          actionDelay: 1500,
-          action: 'back',
-          matches:
-            '[vid="kem_activity_task_pendant"] >2 [vid="pendant_bg"][visibleToUser=true]',
+          key: 1,
+          name: '①金币任务1s后结束',
+          action: 'none',
+          matches: '[childCount=3] > [vid="pendant_task_status"][text$=":01"]',
+          snapshotUrls: 'https://i.gkd.li/i/23748508',
+        },
+
+        // 第二段
+        {
+          key: 20,
+          preKeys: [0],
+          name: '②点击饲料[任务已完成]',
+          actionDelay: 500,
+          matches: '@[clickable=true] > [childCount=1] > [vid="pendant_bg"]',
           snapshotUrls: 'https://i.gkd.li/i/22850681',
         },
         {
-          key: 3,
-          preKeys: [2],
+          key: 21,
+          preKeys: [1],
+          name: '②按[返回键]',
           action: 'back',
-          matchDelay: 200,
-          matches: '[text="搜索"][vid="right_button" || vid="right_tv"]',
-          snapshotUrls: 'https://i.gkd.li/i/22702438',
+          actionDelay: 1300, // 需大于1秒
+          matches: '[text="搜索"]',
+          snapshotUrls: 'https://i.gkd.li/i/22850681', // 第1次返回
+        },
+
+        // 第三段
+        {
+          key: 31,
+          preKeys: [21],
+          name: '③按[返回键]',
+          action: 'back',
+          actionDelay: 300,
+          matches: '[text="搜索"]',
+          snapshotUrls: 'https://i.gkd.li/i/22702438', // 第2次返回
         },
       ],
     },
