@@ -634,27 +634,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 19,
-      name: '🤳看广告-点1次静音',
-      desc: 'app内切换界面后重置',
-      enable: false,
-      rules: [
-        {
-          actionMaximum: 1,
-          resetMatch: 'match',
-          matches:
-            '[id="com.kuaishou.nebula.commercial_neo:id/award_video_operate_audio_btn"][clickable=true]',
-          fastQuery: true,
-          snapshotUrls: 'https://i.gkd.li/i/23213280',
-          activityIds: [
-            'com.yxcorp.gifshow.ad.neo.videov2.award.AwardVideoPlayActivityV2',
-            'com.yxcorp.gifshow.ad.neo.video.award.AwardVideoPlayActivity',
-            'com.yxcorp.plugin.search.SearchActivity',
-          ],
-        },
-      ],
-    },
-    {
       key: 20,
       name: '🤳看广告-退出弹窗-再看',
       desc: '再看一个',
