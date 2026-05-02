@@ -1405,15 +1405,54 @@ export default defineGkdApp({
     },
     {
       key: 41,
-      name: '去金币购-签到💰',
-      desc: '点击今日签到',
+      name: '去金币购-自动[签到]+进入[直播]',
+      desc: '①[签到] ②进[直播] ⑤看完3个直播-返回',
+      order: 2, // 无快查,降低优先级
+      activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
       rules: [
         {
+          key: 1,
+          name: '①签到',
           matches:
-            'TextView[text="今日签到"][index=parent.childCount.minus(1)][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/22865238',
-          excludeSnapshotUrls: 'https://i.gkd.li/i/23380995',
-          activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
+            '@[clickable=true][top>50] > TextView[text="今日签到" || text="看直播可领"][index=parent.childCount.minus(1)][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/22865238',
+            'https://i.gkd.li/i/27305251',
+          ],
+          exampleUrls: 'https://e.gkd.li/66035f03-44b6-4a54-a3e7-85483d740da4',
+          excludeSnapshotUrls: [
+            'https://i.gkd.li/i/23380995', // 养鸭 [text="今日签到"]
+            'https://i.gkd.li/i/27305343', // [top=0]
+          ],
+        },
+        {
+          key: 2,
+          name: '②进第1个直播',
+          matchDelay: 5000, // 等待直播列表加载完
+          matches:
+            '@[clickable=true] < [childCount>5] - [childCount>5] > [text="0"] - [text="已完成("] -n [text^="看直播领"]',
+          excludeSnapshotUrls: 'https://i.gkd.li/i/27305500', // 0/3 正在加载 直播列表
+        },
+        {
+          key: 3,
+          name: '③进第2个直播',
+          matchDelay: 5000,
+          matches:
+            '@[clickable=true] <2 [childCount>5] - [childCount>5] > [text="1"] - [text="已完成("] -n [text^="看直播领"]',
+          snapshotUrls: 'https://i.gkd.li/i/27305343', // 已完成第1/3个, 点进第2个直播
+        },
+        {
+          key: 4,
+          name: '④进第3个直播',
+          matchDelay: 5000,
+          matches:
+            '@[clickable=true] <3 [childCount>5] - [childCount>5] > [text="2"] - [text="已完成("] -n [text^="看直播领"]',
+        },
+        {
+          key: 5,
+          name: '⑤看完3个直播-返回',
+          action: 'back',
+          matches: '[text="3"] - [text="已完成("] -n [text^="看直播领"]',
         },
       ],
     },
