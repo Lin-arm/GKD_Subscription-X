@@ -5,6 +5,135 @@ export default defineGkdApp({
   name: '微信',
   groups: [
     {
+      key: 0,
+      name: '分段广告-朋友圈广告',
+      desc: '⚠️概率误触,子key1误触会按[返回键]',
+      enable: false,
+      activityIds: [
+        '.plugin.sns.ui.SnsTimeLineUI',
+        '.plugin.sns.ui.improve.ImproveSnsTimelineUI',
+        '.plugin.profile.ui.ContactInfoUI',
+      ],
+      rules: [
+        {
+          key: 0,
+          fastQuery: true,
+          matches:
+            '@LinearLayout[clickable=true] > [text="广告" || text="廣告" || text="Sponsored"][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/13000395',
+            'https://i.gkd.li/i/12905837',
+            'https://i.gkd.li/i/13791200',
+            'https://i.gkd.li/i/16568338',
+          ],
+        },
+        {
+          key: 1,
+          fastQuery: true,
+          actionDelay: 300,
+          position: {
+            left: 'width * 0.9223',
+            top: 'height * 0.5',
+          },
+          anyMatches: [
+            '@LinearLayout >2 [text="广告"][visibleToUser=false]',
+            'RecyclerView > FrameLayout[childCount=1] > RelativeLayout > FrameLayout > LinearLayout > LinearLayout > LinearLayout > @LinearLayout[childCount=2][getChild(0).getChild(0).text!=null] > LinearLayout[index=1][clickable=false][visibleToUser=false]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/14783802',
+            'https://i.gkd.li/i/15531539',
+            'https://i.gkd.li/i/19665911',
+          ],
+          excludeSnapshotUrls: 'https://i.gkd.li/i/19717709',
+        },
+        {
+          key: 2,
+          matches:
+            '[name$="RecyclerView"||name$="ListView"] >(1,2) RelativeLayout >3 LinearLayout > LinearLayout > LinearLayout[childCount=2] > LinearLayout[index=1][clickable=true][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/14647413',
+            'https://i.gkd.li/i/19633571',
+          ],
+        },
+
+        // 预留key
+        // 第二段
+        {
+          preKeys: [0, 1, 2],
+          key: 25,
+          name: '②点击[关闭]',
+          fastQuery: true,
+          anyMatches: [
+            '[text^="关闭" || text*="Close" || text="關閉此廣告"][clickable=true][visibleToUser=true]', //1
+            '@LinearLayout[clickable=true] > [text="关闭该广告" || text*="Close"][visibleToUser=true]', //2
+            '@LinearLayout[index=1][clickable=true] <2 * < * - [text*="广告"]', //3
+            '@[text="关闭该广告"] -2 [text^="对这条广告不感兴趣"][visibleToUser=true]', //4
+          ],
+          snapshotUrls: [
+            //1
+            'https://i.gkd.li/i/13926578',
+            'https://i.gkd.li/i/15531274',
+            'https://i.gkd.li/i/14207480',
+            'https://i.gkd.li/i/15137016',
+            'https://i.gkd.li/i/13791202',
+            //2
+            'https://i.gkd.li/i/14783820',
+            'https://i.gkd.li/i/15284966',
+            //3
+            'https://i.gkd.li/i/14647839',
+            'https://i.gkd.li/i/19666176',
+            //4
+            'https://i.gkd.li/i/19633486',
+          ],
+        },
+
+        // 预留key
+        // 第三段
+        {
+          preKeys: [25],
+          key: 50,
+          name: '③点击[关闭]',
+          matches: '[text*="关闭" || text="Close"][clickable=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/12663984',
+            'https://i.gkd.li/i/12905846',
+            'https://i.gkd.li/i/14647940',
+            'https://i.gkd.li/i/14783534',
+          ],
+        },
+
+        // 预留key
+        // 第四段
+        {
+          preKeys: [50],
+          key: 75,
+          name: '④点击[确认]',
+          fastQuery: true,
+          matches:
+            '@[text="确认"][visibleToUser=true] -2 [text="不感兴趣原因"]',
+          snapshotUrls: 'https://i.gkd.li/i/14647940',
+        },
+
+        // 误触后,进入其它界面时按下[返回键]
+        {
+          key: 404,
+          preKeys: [1], // 子key1 用坐标点击容易误触
+          name: '⑤误触后-按[返回键]',
+          action: 'back',
+          fastQuery: true,
+          matchRoot: true,
+          excludeActivityIds: [
+            // 这是正常朋友圈的 ActivityId, 排除
+            '.plugin.sns.ui.SnsTimeLineUI',
+            '.plugin.sns.ui.improve.ImproveSnsTimelineUI',
+            '.plugin.profile.ui.ContactInfoUI',
+          ],
+          activityIds: [], // 匹配其它因误触而进入的界面
+          matches: '[parent=null]',
+        },
+      ],
+    },
+    {
       key: 1,
       name: '🧩小程序-开屏广告-跳过',
       desc: '点击[跳过]',
