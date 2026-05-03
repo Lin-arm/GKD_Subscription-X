@@ -1034,14 +1034,13 @@ export default defineGkdApp({
       name: '其它-[退出]中转页',
       desc: '在别的app做完任务后切回支付宝中转页',
       fastQuery: true,
-      matchTime: 5000, // 5秒后休眠 (key1 有时连点三四次都不响应)
       actionCd: 300,
       resetMatch: 'app',
       rules: [
         {
           key: 1,
           name: '①正在跳转页-点击[返回]',
-          // actionDelay: 1000,
+          matchTime: 3000, // 3秒后休眠 (key1 有时连点三四次都不响应)
           activityIds: [
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
             'com.alipay.mobile.wallet.promo.ui.page.AppDetailsActivity',
