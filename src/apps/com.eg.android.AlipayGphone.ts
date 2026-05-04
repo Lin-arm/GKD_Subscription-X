@@ -1032,7 +1032,7 @@ export default defineGkdApp({
     {
       key: 37,
       name: '其它-[退出]中转页',
-      desc: '在别的app做完任务后切回支付宝中转页',
+      desc: '在别的 界面/app 做完任务后切回支付宝中转页',
       fastQuery: true,
       actionCd: 300,
       resetMatch: 'app',
@@ -1065,6 +1065,29 @@ export default defineGkdApp({
             '@[desc="返回"] + RelativeLayout > [text^="https:"][text.length>50]',
           snapshotUrls: 'https://i.gkd.li/i/26656358',
           exampleUrls: 'https://e.gkd.li/9d52454c-fed8-410a-97cf-af95583b773b',
+        },
+
+        // 蚂蚁新村任务: 【限时】去游戏中心抢金条
+        {
+          key: 3,
+          name: '③小游戏页-等30秒',
+          action: 'none',
+          matchRoot: true,
+          actionMaximum: 1,
+          actionDelay: 5000, // 至少在目标Activity待够5秒,防止抖动
+          activityIds:
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity$XRiverLite', // 通配
+          matches: '[parent=null]',
+          snapshotUrls: 'https://i.gkd.li/i/27359421',
+        },
+        {
+          key: 4,
+          preKeys: [3],
+          name: '④游戏福利节-点击[返回]',
+          activityIds:
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          matches: '@[desc="返回"] + RelativeLayout >(1,5) [text="游戏福利节"]',
+          snapshotUrls: 'https://i.gkd.li/i/27359350',
         },
       ],
     },
