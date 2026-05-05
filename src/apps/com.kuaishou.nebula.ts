@@ -975,7 +975,7 @@ export default defineGkdApp({
         {
           key: 1,
           name: '①点击右下角[更多]',
-          matchDelay: 4500, // 初进直播间,缓几秒加载节点
+          matchDelay: 8000, // 初进直播间,缓几秒加载节点,可能还有红包弹窗啥的
           resetMatch: 'app',
           matches: '@[clickable=true] > [vid="live_bottom_bar_icon"]',
           snapshotUrls: 'https://i.gkd.li/i/22705740',
@@ -1019,6 +1019,15 @@ export default defineGkdApp({
           matches:
             '@[index=parent.childCount.minus(2)][clickable=true] > [text="流畅" || text="高清"][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/22705855',
+        },
+        {
+          key: 6,
+          name: '⑥等太久-[返回键]',
+          action: 'back',
+          actionDelay: 5000,
+          matches:
+            '[id$="live_audience_quality_recycler_view"] - [text="选择清晰度"]',
+          snapshotUrls: 'https://i.gkd.li/i/27397036', // 已选择[流畅/高清]
         },
       ],
     },
