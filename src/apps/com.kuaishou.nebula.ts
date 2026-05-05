@@ -986,7 +986,17 @@ export default defineGkdApp({
         },
         {
           key: 3,
-          name: '③点击[清晰度]',
+          preKeys: [1],
+          name: '③不存在调画质-按[返回键]',
+          action: 'back',
+          excludeMatches:
+            '@[clickable=true] >(1,2) [text="清晰度" || text="自动"]',
+          matches: '[vid="live_bottom_bar_recycle_view"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/27384944', //没有设置清晰度的选项
+        },
+        {
+          key: 4,
+          name: '④点击[清晰度]',
           resetMatch: 'match',
           // excludeMatches: '@[clickable=true] >(1,2) [text="流畅" || text="高清"][index=0]', // 前面子key2 已有
           matches: '@[clickable=true] >(1,2) [text="清晰度" || text="自动"]',
@@ -998,9 +1008,9 @@ export default defineGkdApp({
           // excludeSnapshotUrls: 'https://i.gkd.li/i/23908016', //已经是'高清'
         },
         {
-          key: 4,
-          preKeys: [3],
-          name: '④选择[流畅/高清]',
+          key: 5,
+          preKeys: [4],
+          name: '⑤选择[流畅/高清]',
           matches:
             '@[index=parent.childCount.minus(2)][clickable=true] > [text="流畅" || text="高清"][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/22705855',
