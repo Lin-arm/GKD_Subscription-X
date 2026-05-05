@@ -489,7 +489,21 @@ export default defineGkdApp({
       rules: [
         {
           key: 1,
-          name: '①点击[额外]获取金币',
+          name: '①[放弃]需下载app的任务',
+          matches:
+            '[text^="下载并体验"] < * +2 * > [text="放弃奖励"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/22882796', // key3 也能匹配, 故调换位置让 key1 先匹配
+        },
+        {
+          key: 2,
+          name: '②x掉需下载app的任务',
+          matches:
+            '@[clickable=true][desc="close_view"] +2 [text^="下载并体验"]',
+          snapshotUrls: 'https://i.gkd.li/i/27400869',
+        },
+        {
+          key: 3,
+          name: '③点击[额外]获取金币',
           matches: '@[clickable=true] >(1,2,3) [text*="额外"][!(text*="下载")]',
           snapshotUrls: [
             'https://i.gkd.li/i/23392746', // 点击额外获取90金币
@@ -502,20 +516,6 @@ export default defineGkdApp({
             'https://i.gkd.li/i/22658960', // 不可单单用 [vid="ad_download_text"] , 换用 [text*="额外"]  排除
             'https://i.gkd.li/i/23392869', // [!(text*="下载")]
           ],
-        },
-        {
-          key: 2,
-          name: '②[放弃]需下载app的任务',
-          matches:
-            '[text^="下载并体验"] < * +2 * > [text="放弃奖励"][clickable=true]',
-          snapshotUrls: 'https://i.gkd.li/i/22882796',
-        },
-        {
-          key: 3,
-          name: '③x掉需下载app的任务',
-          matches:
-            '@[clickable=true][desc="close_view"] +2 [text^="下载并体验"]',
-          snapshotUrls: 'https://i.gkd.li/i/27400869',
         },
       ],
     },
