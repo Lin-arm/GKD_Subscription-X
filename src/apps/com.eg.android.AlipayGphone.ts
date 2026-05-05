@@ -173,8 +173,11 @@ export default defineGkdApp({
           name: '②立即兑换奖励-x掉',
           preKeys: [1],
           matches:
-            '@TextView[width<110] <3 View -2 [text*="恭喜"] < View < View < View < View < View[index=parent.childCount.minus(1)] <n [childCount>3] < WebView[text="蚂蚁庄园"] < * <2 * - RelativeLayout >3 [text="松开刷新"]',
-          snapshotUrls: 'https://i.gkd.li/i/22983810',
+            '@TextView[width<110] <3 View -2 [text*="恭喜"] < View < View <n View < View < View[index=parent.childCount.minus(1)] <n [childCount>3] < WebView[text="蚂蚁庄园"] < * <2 * - RelativeLayout >3 [text="松开刷新"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/22983810',
+            'https://i.gkd.li/i/27383968',
+          ],
         },
         {
           key: 3,
