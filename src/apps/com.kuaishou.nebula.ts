@@ -1433,7 +1433,7 @@ export default defineGkdApp({
           name: '③进第2个直播',
           matchDelay: 5000,
           matches:
-            '@[clickable=true] <2 [childCount>5] - [childCount>5] > [text="/3)"] - [text="1"] - [text="已完成("]',
+            '@[clickable=true] <2 [childCount>5] - [childCount>4] > [text="/3)"] - [text="1"] - [text="已完成("]',
           snapshotUrls: 'https://i.gkd.li/i/27305343', // 已完成第1/3个, 点进第2个直播
         },
         {
@@ -1441,7 +1441,7 @@ export default defineGkdApp({
           name: '④进第3个直播',
           matchDelay: 5000,
           matches:
-            '@[clickable=true] <3 [childCount>5] - [childCount>5] > [text="/3)"] - [text="2"] - [text="已完成("]',
+            '@[clickable=true] <3 [childCount>5] - [childCount>4] > [text="/3)"] - [text="2"] - [text="已完成("]',
         },
         {
           key: 5,
