@@ -1419,27 +1419,37 @@ export default defineGkdApp({
         {
           key: 2,
           name: '②进第1个直播',
-          matchDelay: 5000, // 等待直播列表加载完
-          matches:
-            '@[clickable=true] < [childCount>5] - [childCount>4] > [text="/3)"] - [text="0"] - [text="已完成("]',
-          // '@[clickable=true] < [childCount>5] - [childCount>5] > [text="0"] - [text="已完成("] -n [text^="看直播领"]',
+          // matchDelay: 5000, // 等待直播列表加载完
+          actionDelay: 1500,
+          position: {
+            left: 'width * -5.35',
+            top: 'width * 6',
+          },
+          matches: '[text="/3)"] - [text="0"] - [text="已完成("]',
+          // '@[clickable=true] < [childCount>5] - [childCount>4] > [text="/3)"] - [text="0"] - [text="已完成("]', // 经常未加载目标节点,换用坐标点击
           snapshotUrls: 'https://i.gkd.li/i/27385406', // 已完成第0/3个
           excludeSnapshotUrls: 'https://i.gkd.li/i/27305500', // 0/3 正在加载 直播列表
         },
         {
           key: 3,
           name: '③进第2个直播',
-          matchDelay: 5000,
-          matches:
-            '@[clickable=true] <2 [childCount>5] - [childCount>4] > [text="/3)"] - [text="1"] - [text="已完成("]',
+          actionDelay: 1500,
+          position: {
+            left: 'width * -0.25',
+            top: 'width * 6',
+          },
+          matches: '[text="/3)"] - [text="1"] - [text="已完成("]',
           snapshotUrls: 'https://i.gkd.li/i/27305343', // 已完成第1/3个, 点进第2个直播
         },
         {
           key: 4,
           name: '④进第3个直播',
-          matchDelay: 5000,
-          matches:
-            '@[clickable=true] <3 [childCount>5] - [childCount>4] > [text="/3)"] - [text="2"] - [text="已完成("]',
+          actionDelay: 1500,
+          position: {
+            left: 'width * -5.35',
+            top: 'width * 15',
+          },
+          matches: '[text="/3)"] - [text="2"] - [text="已完成("]',
         },
         {
           key: 5,
