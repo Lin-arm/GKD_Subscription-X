@@ -496,6 +496,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23476308', // i 打开并体验20秒 额外领100金币
             'https://i.gkd.li/i/23588212', // 打开并体验 20 秒 额外得
             'https://i.gkd.li/i/23654193', // 点击额外获取
+            'https://i.gkd.li/i/27400979', // 领取额外金币 (弹窗)
           ],
           excludeSnapshotUrls: [
             'https://i.gkd.li/i/22658960', // 不可单单用 [vid="ad_download_text"] , 换用 [text*="额外"]  排除
@@ -508,6 +509,13 @@ export default defineGkdApp({
           matches:
             '[text^="下载并体验"] < * +2 * > [text="放弃奖励"][clickable=true]',
           snapshotUrls: 'https://i.gkd.li/i/22882796',
+        },
+        {
+          key: 3,
+          name: '③x掉需下载app的任务',
+          matches:
+            '@[clickable=true][desc="close_view"] +2 [text^="下载并体验"]',
+          snapshotUrls: 'https://i.gkd.li/i/27400869',
         },
       ],
     },
