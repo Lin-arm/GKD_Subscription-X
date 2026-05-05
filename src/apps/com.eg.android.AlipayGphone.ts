@@ -645,7 +645,7 @@ export default defineGkdApp({
           key: 3,
           name: '③助力成功or种第1棵树-x掉',
           matches:
-            '@Button[text="关闭弹窗"][clickable=true] -n [text="助力成功！" || text="来晚啦" || text*="种" || text*="棵" || text*="树"] <<(3,4) View[index=parent.childCount.minus(1)] <n WebView[text="蚂蚁森林"] <<4 [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '@Button[text="关闭弹窗"][clickable=true] -n [text="助力成功！" || text="来晚啦" || text*="种" || text*="棵" || text*="树" || text$="返场"] <<(3,4) View[index=parent.childCount.minus(1)] <n WebView[text="蚂蚁森林"] <<4 [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24742272', //活力值助力成功
             'https://i.gkd.li/i/24813156', //活力值助力来晚啦
@@ -653,6 +653,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/25060919', //种下2026年第一棵杨柴
             'https://i.gkd.li/i/25368019', //爱，种在这里
             'https://i.gkd.li/i/27059396', //十年树木，向善而行
+            'https://i.gkd.li/i/27383864', //鄂尔多斯沙柳返场
           ],
         },
         {
