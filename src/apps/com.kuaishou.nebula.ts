@@ -929,20 +929,18 @@ export default defineGkdApp({
       rules: [
         {
           key: 1,
-          matches: [
-            // '[index=parent.childCount.minus(1)] > @ImageView[width>94 && width<106][height>94 && height<106][top>1000 && top<1800] <<n [vid="krn_content_container"]',
-            '@[clickable=true] >2 ImageView[width>94 && width<106][height>94 && height<106][top>getPrev(2).height.div(2)] <<n [index=parent.childCount.minus(1)] -n ViewGroup <<2 [vid="krn_content_container"]',
-          ],
+          matches:
+            'ImageView[width>84 && width<124][height>84 && height<124] <<2 @[index=parent.childCount.minus(1)][clickable=true][visibleToUser=true] <<n [childCount>1] < [vid="krn_content_container"]',
           snapshotUrls: [
             'https://i.gkd.li/i/22699956', //A 团购红包
             'https://i.gkd.li/i/22781366', //B 天降红包
             'https://i.gkd.li/i/23011158', //F 主播新人券
             'https://i.gkd.li/i/23143270', //E 主播新人券
             'https://i.gkd.li/i/23290583', //A 获得直播惊喜券(双11)
-            'https://i.gkd.li/i/23906987', //C >9 直播惊喜券
-            'https://i.gkd.li/i/24862649', //A 年货节直播惊喜券 (第1个有偏移,用[clickable=true]应该能点中)
+            'https://i.gkd.li/i/23906987', //C 直播惊喜券       @ 排除 [visibleToUser=false] 伪节点
+            'https://i.gkd.li/i/24862649', //A 年货节直播惊喜券  @ [visibleToUser=false]
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/22988215', // [index=parent.childCount.minus(1)] > @
+          // excludeSnapshotUrls: 'https://i.gkd.li/i/22988215', // 旧选择器才误触,目前已解决
         },
         {
           key: 2,
