@@ -1223,9 +1223,10 @@ export default defineGkdApp({
         // 第三段
         {
           key: 31,
-          preKeys: [21],
+          preKeys: [21, 31], // 偶尔会有输入法,需再点一次返回
           name: '③按[返回键]',
           action: 'back',
+          actionCd: 100,
           actionDelay: 300,
           matches: '[text="搜索"]',
           snapshotUrls: 'https://i.gkd.li/i/22702438', // 第2次返回
