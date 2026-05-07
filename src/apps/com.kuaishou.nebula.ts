@@ -1628,12 +1628,13 @@ export default defineGkdApp({
           key: 1,
           name: '①中部-领饭补',
           matches:
-            '[clickable=true][text*="领" && text*="饭补" || getChild(1).text$="领饭补"]',
+            '[clickable=true][text*="领" && text*="饭补" || getChild(1).text$="领饭补"][!(text*="明")]',
           snapshotUrls: [
             'https://i.gkd.li/i/24454732',
             'https://i.gkd.li/i/24673042',
             'https://i.gkd.li/i/27396449', // 适合key 1,3,4
           ],
+          excludeSnapshotUrls: 'https://i.gkd.li/i/27478766', // !(text*="明")
         },
         {
           key: 2,
