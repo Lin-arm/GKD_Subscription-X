@@ -1215,47 +1215,33 @@ export default defineGkdApp({
       activityIds: 'com.yxcorp.plugin.search.SearchActivity',
       rules: [
         {
-          key: 0,
-          name: '①养鸭任务1s后结束',
-          action: 'none',
-          matches: '[childCount=2] > [vid="pendant_task_status"][text$=":01"]', // 倒计时1秒
-          snapshotUrls: 'https://i.gkd.li/i/23689726',
-        },
-        {
           key: 1,
-          name: '①金币任务1s后结束',
+          name: '①任务1s后结束',
           action: 'none',
-          matches: '[childCount=3] > [vid="pendant_task_status"][text$=":01"]',
-          snapshotUrls: 'https://i.gkd.li/i/23748508',
-        },
-
-        // 第二段
-        {
-          key: 20,
-          preKeys: [0],
-          name: '②点击饲料[任务已完成]',
-          actionDelay: 500,
-          matches: '@[clickable=true] > [childCount=1] > [vid="pendant_bg"]',
-          snapshotUrls: 'https://i.gkd.li/i/22850681',
+          matchDelay: 10000, // 一般倒计时从 15s 或 29s 开始
+          forcedTime: 25000, // 需主动检测
+          matches: '[vid="pendant_task_status"][text$=":01"]', // 倒计时剩1秒
+          snapshotUrls: [
+            'https://i.gkd.li/i/23689726', // 养鸭任务
+            'https://i.gkd.li/i/23748508', // 金币任务
+          ],
         },
         {
-          key: 21,
+          key: 2,
           preKeys: [1],
           name: '②按[返回键]',
           action: 'back',
-          actionDelay: 1300, // 需大于1秒
+          actionDelay: 1500, // 需大于1秒
           matches: '[text="搜索"]',
           snapshotUrls: 'https://i.gkd.li/i/22850681', // 第1次返回
         },
-
-        // 第三段
         {
-          key: 31,
-          preKeys: [21, 31], // 偶尔会有输入法,需再点一次返回
-          name: '③按[返回键]',
+          key: 3,
+          preKeys: [2, 3], // 偶尔会有输入法,需再点一次返回
+          name: '③再按[返回键]',
           action: 'back',
           actionCd: 100,
-          actionDelay: 300,
+          actionDelay: 150,
           matches: '[text="搜索"]',
           snapshotUrls: 'https://i.gkd.li/i/22702438', // 第2次返回
         },
