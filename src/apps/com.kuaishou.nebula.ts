@@ -1249,22 +1249,25 @@ export default defineGkdApp({
     },
     {
       key: 36,
-      name: '🔍搜索页-自动点击搜索',
-      desc: '1.5秒后点击搜索',
+      name: '🔍搜索页-自动[搜索]',
+      desc: '进页面1.5秒后点击[搜索]',
       rules: [
         {
+          fastQuery: true,
+          actionCd: 4000,
+          actionDelay: 1500,
+          matchTime: 3000,
           actionMaximum: 1,
           resetMatch: 'match',
-          actionDelay: 1500,
-          actionCd: 4000,
           matches: [
+            '[vid="tv_title"][text="历史搜索"]',
             '[text="搜索"][vid="right_button" || vid="right_tv"][clickable=true]',
           ],
-          fastQuery: true,
           snapshotUrls: [
             'https://i.gkd.li/i/22702438',
             'https://i.gkd.li/i/23381126',
           ],
+          excludeSnapshotUrls: 'https://i.gkd.li/i/23748508', // 已在搜索结果页面
           activityIds: 'com.yxcorp.plugin.search.SearchActivity',
         },
       ],
