@@ -504,6 +504,7 @@ export default defineGkdApp({
         {
           key: 3,
           name: '③点击[额外]获取金币',
+          action: 'clickCenter', // v14.3.30.11384 版不响应 clickNode 事件
           matches: '@[clickable=true] >(1,2,3) [text*="额外"][!(text*="下载")]',
           snapshotUrls: [
             'https://i.gkd.li/i/23392746', // 点击额外获取90金币
