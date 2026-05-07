@@ -1158,11 +1158,12 @@ export default defineGkdApp({
           key: 1,
           name: '①去签到or领奖or去搜索or观看',
           matches:
-            '[text="今日签到" || text$="3次" || text^="搜索并" || text="看精彩广告"] <<(1,2) * + @Button[text="去签到" || text="领奖励" || text="去搜索" || text="去观看"] <3 [childCount=3] <n [id="taskPanelScrollBox"] <2 [childCount=2] <4 [visibleToUser=true] - [id="bubbleContainer"] <<3 [id="app"][parent.childCount=1] <<4 [vid="webView"]',
+            '[text="今日签到" || text$="奖励(3/3)" || text^="搜索并" || text="看精彩广告"] <<(6-n) * + @Button[clickable=true] <3 [childCount=3][visibleToUser=true] <n [id="taskPanelScrollBox"] <2 [childCount=2] <4 [visibleToUser=true] - [id="bubbleContainer"] <<3 [id="app"][parent.childCount=1] <<4 [vid="webView"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24035851', // 去签到
             'https://i.gkd.li/i/23558181', // 领奖励/去搜索/去观看
-            // 'https://i.gkd.li/i/24279125', // 给鸭鸭喂食3次 节点未更换
+            'https://i.gkd.li/i/24279125', // 给鸭鸭喂食3次 (任务已完成但节点未更新)
+            'https://i.gkd.li/i/27479616', // 收定时奖励3次 (任务已完成但节点未更新)
           ],
           // excludeSnapshotUrls: 'https://i.gkd.li/i/23558030', // (旧) 被遮挡的匹配节点 [left=781]
         },
