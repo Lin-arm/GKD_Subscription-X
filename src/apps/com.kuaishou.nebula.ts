@@ -505,7 +505,8 @@ export default defineGkdApp({
           key: 3,
           name: '③点击[额外]获取金币',
           action: 'clickCenter', // v14.3.30.11384 版不响应 clickNode 事件
-          matches: '@[clickable=true] >(1,2,3) [text*="额外"][!(text*="下载")]',
+          matches:
+            '@[clickable=true] >(1,2,3) [text*="额外"][!(text*="下载" || text*="付费")]',
           snapshotUrls: [
             'https://i.gkd.li/i/23392746', // 点击额外获取90金币
             'https://i.gkd.li/i/23476308', // i 打开并体验20秒 额外领100金币
@@ -515,7 +516,8 @@ export default defineGkdApp({
           ],
           excludeSnapshotUrls: [
             'https://i.gkd.li/i/22658960', // 不可单单用 [vid="ad_download_text"] , 换用 [text*="额外"]  排除
-            'https://i.gkd.li/i/23392869', // [!(text*="下载")]
+            'https://i.gkd.li/i/23392869', // 下载
+            'https://i.gkd.li/i/27516606', // 付费
           ],
         },
       ],
@@ -528,6 +530,7 @@ export default defineGkdApp({
       activityIds: [
         'com.yxcorp.gifshow.ad.webview.AdYodaActivity',
         'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
+        'com.yxcorp.gifshow.ad.tachikoma.page.AdMKPageActivity',
       ],
       rules: [
         {
@@ -544,6 +547,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23764542', //正在打开...
             'https://i.gkd.li/i/25070194', //落茄香腾 A
             'https://i.gkd.li/i/25070202', //落茄香腾 B
+            'https://i.gkd.li/i/27516409',
           ],
           excludeSnapshotUrls: 'https://i.gkd.li/i/26376188', //加 [desc="返回"] 排除, GKD捉不到 activityId 时会误触
         },
