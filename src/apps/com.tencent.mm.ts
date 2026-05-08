@@ -32,6 +32,7 @@ export default defineGkdApp({
           key: 1,
           name: '①坐标点击[广告]',
           fastQuery: true,
+          actionCd: 300,
           actionDelay: 50,
           position: {
             left: 'width * 0.9223',
