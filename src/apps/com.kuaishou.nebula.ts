@@ -1627,34 +1627,41 @@ export default defineGkdApp({
     {
       key: 46,
       name: '🍚饭点-领补贴',
-      desc: '①饭补 ②弹窗 ③待补签 ④左下角看广告',
+      desc: '①[返回键] ②弹窗 ③领饭补 ④左下角看广告',
       activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
       rules: [
         {
           key: 1,
-          name: '①中部-领饭补',
-          matches:
-            '[clickable=true][text*="领" && text*="饭补" || getChild(1).text$="领饭补"][!(text*="明")]',
-          snapshotUrls: [
-            'https://i.gkd.li/i/24454732',
-            'https://i.gkd.li/i/24673042',
-            'https://i.gkd.li/i/27396449', // 适合key 1,3,4
-          ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/27478766', // !(text*="明")
+          name: '①加载中-按[返回键]',
+          action: 'back',
+          actionDelay: 1500,
+          fastQuery: true,
+          matches: '[text="加载中"]',
+          snapshotUrls: 'https://i.gkd.li/i/27516819',
         },
         {
           key: 2,
           name: '②弹窗',
+          fastQuery: true,
           matches:
-            '@[clickable=true][index=parent.childCount.minus(2)] > [text="看视频最高可得" || text="看广告最多再得"] +2 [text="金币"]',
-          snapshotUrls: 'https://i.gkd.li/i/24455031',
+            '@[clickable=true][getChild(0).text^="看广告" || childCount=0] <n View <3 View < [id="app"] < WebView < WebView < [vid="webView"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/24455031', // 看广告
+            'https://i.gkd.li/i/25074585', // x掉
+          ],
         },
         {
           key: 3,
-          name: '③上部-待补签',
+          name: '③领饭补',
           matches:
-            '[text^="+"][text$="金币"] + [text$="待补签"][clickable=true]',
-          snapshotUrls: 'https://i.gkd.li/i/23381525',
+            '[clickable=true][text*="领" && text*="饭补" || getChild(1).text$="领饭补" || text$="待补签"][!(text*="明")]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/24454732',
+            'https://i.gkd.li/i/24673042',
+            'https://i.gkd.li/i/27396449', // 适合key 3、4
+            'https://i.gkd.li/i/23381525', // 上方-待补签
+          ],
+          excludeSnapshotUrls: 'https://i.gkd.li/i/27478766', // !(text*="明")
         },
         {
           key: 4,
@@ -1662,13 +1669,6 @@ export default defineGkdApp({
           actionCd: 5000,
           matches:
             '@[clickable=true][left=0] > TextView[text="看广告"][top>1800]',
-        },
-        {
-          key: 5,
-          name: '⑤弹窗-x掉',
-          matches:
-            '@[clickable=true] - [index=parent.childCount.minus(2)][getChild(0).text="看视频 赚更多"] -n [text^="恭喜获得"][text$="补贴"]',
-          snapshotUrls: 'https://i.gkd.li/i/25074585',
         },
       ],
     },
