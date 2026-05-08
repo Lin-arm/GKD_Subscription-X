@@ -17,6 +17,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 0,
+          name: '①点击[广告]',
           fastQuery: true,
           matches:
             '@LinearLayout[clickable=true] > [text="广告" || text="廣告" || text="Sponsored"][visibleToUser=true]',
@@ -29,27 +30,29 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          name: '①坐标点击[广告]',
           fastQuery: true,
-          actionDelay: 300,
+          actionDelay: 50,
           position: {
             left: 'width * 0.9223',
             top: 'height * 0.5',
           },
           anyMatches: [
             '@LinearLayout >2 [text="广告"][visibleToUser=false]',
-            'RecyclerView > FrameLayout[childCount=1] > RelativeLayout > FrameLayout > LinearLayout > LinearLayout > LinearLayout > @LinearLayout[childCount=2][getChild(0).getChild(0).text!=null] > LinearLayout[index=1][clickable=false][visibleToUser=false]',
+            '[getChild(0).desc$="的头像"] >2 @LinearLayout[childCount=2][getChild(0).getChild(0).text!=null][getChild(1).visibleToUser=false]',
           ],
           snapshotUrls: [
-            'https://i.gkd.li/i/14783802',
-            'https://i.gkd.li/i/15531539',
+            'https://i.gkd.li/i/14783802', // [text="广告"]
+            'https://i.gkd.li/i/15531539', // [text="广告"]
             'https://i.gkd.li/i/19665911',
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/19717709',
+          excludeSnapshotUrls: 'https://i.gkd.li/i/19717709', // 加 [getChild(0).getChild(0).text!=null] 排除误触评论区
         },
         {
           key: 2,
+          name: '①点击[广告]',
           matches:
-            '[name$="RecyclerView"||name$="ListView"] >(1,2) RelativeLayout >3 LinearLayout > LinearLayout > LinearLayout[childCount=2] > LinearLayout[index=1][clickable=true][visibleToUser=true]',
+            '[getChild(0).desc$="的头像"] >2 [childCount=2] > LinearLayout[text=null][clickable=true][childCount=0][index=1]',
           snapshotUrls: [
             'https://i.gkd.li/i/14647413',
             'https://i.gkd.li/i/19633571',

@@ -74,7 +74,7 @@ git log --oneline | grep -i "vid"
 # 显示包含 vid 的提交（带作者、时间、简短信息）
 git log --pretty=format:"%h %an %ad %s" --date=short | grep -i "vid"
 # 输出该提交的详细细节，然后可以拿完整哈希去github搜commit记录
-git show f8e9d7c
+git show 36feb1815d37f7d62127b861a52cd02d7b3b0551
 
 # 执行撤销 (f8e9d7c)
 git revert f8e9d7c
