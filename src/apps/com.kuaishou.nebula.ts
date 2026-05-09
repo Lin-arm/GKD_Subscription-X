@@ -497,6 +497,7 @@ export default defineGkdApp({
         {
           key: 2,
           name: '②x掉需下载app的任务',
+          forcedTime: 3600000,
           matches:
             '@[clickable=true][desc="close_view"] +2 [text^="下载并体验"]',
           snapshotUrls: 'https://i.gkd.li/i/27400869',
@@ -505,6 +506,8 @@ export default defineGkdApp({
           key: 3,
           name: '③点击[额外]获取金币',
           action: 'clickCenter', // v14.3.30.11384 版不响应 clickNode 事件
+          actionCd: 14500,
+          resetMatch: 'app', // 对 actionCd 也生效
           matches:
             '@[clickable=true] >(1,2,3) [text*="额外"][!(text*="下载" || text*="付费")]',
           snapshotUrls: [
@@ -632,10 +635,11 @@ export default defineGkdApp({
           fastQuery: true,
           matchRoot: true,
           matches:
-            '@Button[text^="点可领"][text$="金币"][clickable=true] - Image <<(1,2) [index=parent.childCount.minus(1)] <n [index=parent.childCount.minus(2)][childCount>4] <n View <<3 [vid="webView"]',
+            '@Button[text^="点可领"][text$="金币"][clickable=true][parent.getChild(0).name$="Image"] <<(2,3) [index=parent.childCount.minus(1)][id=null] <n [index>=parent.childCount.minus(2)][childCount>4] <n View <<3 [vid="webView"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23427892',
             'https://i.gkd.li/i/25236905',
+            'https://i.gkd.li/i/27550426',
           ],
         },
         {
@@ -913,7 +917,7 @@ export default defineGkdApp({
           name: '11.久看邀关注-返回键',
           action: 'back',
           actionCd: 2000,
-          matches: '[text$="看了这么久，帮我点个关注吧！"][visibleToUser=true]',
+          matches: '[text*="看了这么久"][text*="关注"][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/23300455',
         },
         {
@@ -922,10 +926,11 @@ export default defineGkdApp({
           action: 'back',
           actionCd: 2000,
           matches:
-            '[text="主页"] +(1,2) [clickable=true] > [text="关注"][visibleToUser=true]',
+            '[id$="live_profile_bottom_bar_container" || id$="live_profile_bottom_container"] >(3,6) [text="关注"][visibleToUser=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/23542497',
             'https://i.gkd.li/i/25075124',
+            'https://i.gkd.li/i/27550556',
           ],
         },
         {
