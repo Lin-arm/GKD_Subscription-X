@@ -51,7 +51,7 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          name: '①点击[广告]',
+          name: '①单击[广告]', // 子key 的 name 不能相同啊, check 检查会报错, 直接复制进GKD里又可以....
           matches:
             '[getChild(0).desc$="的头像"] >2 [childCount=2] > LinearLayout[text=null][clickable=true][childCount=0][index=1]',
           snapshotUrls: [
