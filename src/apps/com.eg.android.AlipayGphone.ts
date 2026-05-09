@@ -739,20 +739,28 @@ export default defineGkdApp({
     {
       key: 27,
       name: '🌾农场-施肥-丰收礼包-领取',
-      desc: '施肥n次领肥料->待领取弹窗->点击 领取',
-      order: NO_FAST_QUERY,
+      desc: '①点击[立即领肥] ②弹窗-点击[立即领取]',
+      fastQuery: true,
+      activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
         {
-          anyMatches: [
-            '[text="丰收礼包待领取"] +3 [text="立即领取"][visibleToUser=true]',
-            '[text="立即领肥"][visibleToUser=true]',
-          ],
+          key: 1,
+          name: '①点击[立即领肥]',
+          actionCd: 2000,
+          matches:
+            '@Button[text="立即领肥"] <<7 [getChild(0).text="任务列表"] <2 View[childCount=7][!(parent.parent.getChild(1).visibleToUser=true)] <<(6,7) FrameLayout - RelativeLayout >3 [text="松开刷新"]',
           snapshotUrls: [
-            'https://i.gkd.li/i/23014157',
             'https://i.gkd.li/i/23440796',
+            'https://i.gkd.li/i/27554121',
           ],
-          activityIds:
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          excludeSnapshotUrls: 'https://i.gkd.li/i/23014157', // 有弹窗 [!(parent.parent.getChild(1).visibleToUser=true)]
+        },
+        {
+          key: 2,
+          name: '②弹窗-点击[立即领取]',
+          matches:
+            '@Button[text="立即领取"] <4 View < View < View < View <2 View < WebView < WebView <2 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
+          snapshotUrls: 'https://i.gkd.li/i/23014157',
         },
       ],
     },
