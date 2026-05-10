@@ -768,41 +768,22 @@ export default defineGkdApp({
       key: 28,
       name: '🌾农场-弹窗-x掉',
       desc: '①丰收礼包 ②恭喜获得 ③去快手 ④小游戏',
-      order: NO_FAST_QUERY,
-      activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
         {
           key: 1,
-          name: '①丰收礼包or恭喜获得-x掉',
-          matches: [
-            '[text*="丰收礼包" || text^="恭喜获得"] +(4,5) [text="关闭"][visibleToUser=true]',
-          ],
+          fastQuery: true,
+          activityIds:
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          matches:
+            '@Button[text="关闭"][clickable=true] <n View < View < View < View[visibleToUser=true] <2 View < WebView[!(text="蚂蚁森林")] < WebView <2 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23014209',
             'https://i.gkd.li/i/23440721',
             'https://i.gkd.li/i/23548285',
             'https://i.gkd.li/i/23979020', //还差n次领丰收礼包
             'https://i.gkd.li/i/24142169', //恭喜获得滴滴打车券
-          ],
-        },
-        {
-          key: 3,
-          name: '③去快手逛逛-x掉',
-          matches:
-            'Image[width=866] <<2 * + Button[text="关闭"][index=parent.childCount.minus(1)][visibleToUser=true]',
-          snapshotUrls: [
             'https://i.gkd.li/i/23550292', //去快手逛逛再得肥+1200
             'https://i.gkd.li/i/23557965', //去快手逛逛再得肥+1200
-          ],
-        },
-        {
-          key: 4,
-          name: '④去玩小游戏-x掉',
-          matches: [
-            '[text^="还差"][text$="次领肥料"]',
-            'Image[width>782] +(1,2) Button[text="关闭"][index=parent.childCount.minus(1)][visibleToUser=true]',
-          ],
-          snapshotUrls: [
             'https://i.gkd.li/i/24203073', //去玩小游戏赚取海量肥料
             'https://i.gkd.li/i/26184579', //玩游戏领支付红包
           ],
