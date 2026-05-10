@@ -1267,7 +1267,7 @@ export default defineGkdApp({
           fastQuery: true,
           actionCd: 4000,
           actionDelay: 1500,
-          matchTime: 3000,
+          forcedTime: 3500, // v14.3.30.11384 版易睡死
           actionMaximum: 1,
           resetMatch: 'match',
           matches: [
