@@ -748,19 +748,25 @@ export default defineGkdApp({
           name: '①点击[立即领肥]',
           actionCd: 2000,
           matches:
-            '@Button[text="立即领肥"] <<7 [getChild(0).text="任务列表"] <2 View[childCount=7][!(parent.parent.getChild(1).visibleToUser=true)] <<(6,7) FrameLayout - RelativeLayout >3 [text="松开刷新"]',
+            '@Button[text="立即领肥"] <<7 [getChild(0).text="任务列表"] <2 View[childCount=7][!(parent.parent.getChild(1).visibleToUser=true)][parent.parent.parent.childCount=1] <<(6,7) FrameLayout - * >3 [text="松开刷新"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23440796',
             'https://i.gkd.li/i/27554121',
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/23014157', // 有弹窗 [!(parent.parent.getChild(1).visibleToUser=true)]
+          excludeSnapshotUrls: [
+            'https://i.gkd.li/i/23014157', // 有弹窗 [!(parent.parent.getChild(1).visibleToUser=true)]
+            'https://i.gkd.li/i/27581874', // 加 [parent.parent.parent.childCount=1] 排除
+          ],
         },
         {
           key: 2,
           name: '②弹窗-点击[立即领取]',
           matches:
-            '@Button[text="立即领取"] <4 View < View < View < View <2 View < WebView < WebView <2 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
-          snapshotUrls: 'https://i.gkd.li/i/23014157',
+            '@Button[text="立即领取"] <4 View < View < View < View <(2,3) View < WebView < WebView <2 FrameLayout - * >3 [text="松开刷新"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/23014157',
+            'https://i.gkd.li/i/27581874',
+          ],
         },
       ],
     },
@@ -775,7 +781,7 @@ export default defineGkdApp({
           activityIds:
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           matches:
-            '@Button[text="关闭"][clickable=true] <n View < View < View < View[visibleToUser=true] <2 View < WebView[!(text="蚂蚁森林")] < WebView <2 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
+            '@Button[text="关闭"][clickable=true] <n View < View < View < View <2 View < WebView[!(text="蚂蚁森林")] < WebView <2 FrameLayout - * >3 [text="松开刷新"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23014209',
             'https://i.gkd.li/i/23440721',
@@ -786,6 +792,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23557965', //去快手逛逛再得肥+1200
             'https://i.gkd.li/i/24203073', //去玩小游戏赚取海量肥料
             'https://i.gkd.li/i/26184579', //玩游戏领支付红包
+            'https://i.gkd.li/i/27582147', // [visibleToUser=false]
           ],
         },
       ],
