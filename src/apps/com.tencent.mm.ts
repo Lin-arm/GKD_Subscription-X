@@ -33,7 +33,7 @@ export default defineGkdApp({
           name: '①坐标点击[广告]',
           fastQuery: true,
           actionCd: 300,
-          actionDelay: 50,
+          actionDelay: 100,
           position: {
             left: 'width * 0.9223',
             top: 'height * 0.5',
@@ -126,6 +126,7 @@ export default defineGkdApp({
           action: 'back',
           fastQuery: true,
           matchRoot: true,
+          actionDelay: 50,
           excludeActivityIds: [
             // 这是正常朋友圈的 ActivityId, 排除
             '.plugin.sns.ui.SnsTimeLineUI',
