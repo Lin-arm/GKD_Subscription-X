@@ -822,7 +822,7 @@ export default defineGkdApp({
     {
       key: 24,
       name: '📡直播间-弹窗',
-      desc: '①②按[返回键] ③④④[x]掉 ④预约直播 ⑤右侧边栏 ④今日榜单',
+      desc: '①②按[返回键] ③④⑥[x]掉 ④预约直播 ⑤右侧边栏 ⑥今日榜单',
       enable: false,
       fastQuery: true,
       activityIds: [
@@ -1615,14 +1615,17 @@ export default defineGkdApp({
           key: 3,
           name: '③领饭补',
           matches:
-            '[clickable=true][text*="领" && text*="饭补" || getChild(1).text$="领饭补" || text$="待补签"][!(text*="明")]',
+            '[clickable=true][text*="领" && text*="饭补" || getChild(1).text$="领饭补" || text$="待补签"][!(text*="明" || text*="后")]',
           snapshotUrls: [
             'https://i.gkd.li/i/24454732',
             'https://i.gkd.li/i/24673042',
             'https://i.gkd.li/i/27396449', // 适合key 3、4
             'https://i.gkd.li/i/23381525', // 上方-待补签
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/27478766', // !(text*="明")
+          excludeSnapshotUrls: [
+            'https://i.gkd.li/i/27478766', // !(text*="明")
+            'https://i.gkd.li/i/27695066', // !(text*="后")
+          ],
         },
         {
           key: 4,
