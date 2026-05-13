@@ -822,7 +822,7 @@ export default defineGkdApp({
     {
       key: 24,
       name: '📡直播间-弹窗',
-      desc: '①主播争霸赛 ②拍了拍我 ③招工 ④预约直播 ⑤右侧边栏 ⑥邀加语音聊天',
+      desc: '①②按[返回键] ③④④[x]掉 ④预约直播 ⑤右侧边栏 ④今日榜单',
       enable: false,
       fastQuery: true,
       activityIds: [
@@ -836,93 +836,23 @@ export default defineGkdApp({
       rules: [
         {
           key: 1,
-          name: '①主播争霸赛-返回',
+          name: '①按[返回键]',
           action: 'back',
           actionCd: 2000,
-          matches: [
-            '[text^="助力主播登榜"]',
-            '[text="黑马榜"][visibleToUser=true]',
+          matches:
+            '[vid="krn_content_container" || id$="ultron_container"] >n [text="黑马榜" || text^="主播拍了拍我" || text$="助我上榜" || (text*="看了这么久" && text*="关注") || ((text="订单" || text="购物车") && parent.childCount=2)][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/22982128', // 主播争霸赛
+            // 'https://i.gkd.li/i/24127641', // (参考快手) 主播拍了拍我
+            'https://i.gkd.li/i/24455158', // 助我上榜
+            'https://i.gkd.li/i/23300455', // 久看邀关注
+            'https://i.gkd.li/i/24352654', // 商品列表1  id$="ultron_container"  购物车
+            'https://i.gkd.li/i/24352662', // 商品列表2  订单
           ],
-          snapshotUrls: 'https://i.gkd.li/i/22982128',
         },
         {
           key: 2,
-          name: '②主播拍了拍我-返回',
-          action: 'back',
-          matches: '[text^="主播拍了拍我"][visibleToUser=true]',
-          // snapshotUrls: 'https://i.gkd.li/i/24127641', //参考快手
-        },
-        {
-          key: 3,
-          name: '③招工弹窗-x',
-          matches: 'ImageView < @[clickable=true] - [text$="为您推荐优选职位"]',
-          snapshotUrls: 'https://i.gkd.li/i/23211116',
-        },
-        {
-          key: 4,
-          name: '④预约直播弹窗-x',
-          matches:
-            'ImageView[width<80][height<80][visibleToUser=true] < * < @[clickable=true] <2 * <2 * < [vid="krn_content_container"]',
-          snapshotUrls: 'https://i.gkd.li/i/23235749',
-        },
-        {
-          key: 5,
-          name: '⑤右侧边栏-关闭',
-          matches:
-            '[vid="photo_feed_side_bar_close_view"][clickable=true][focusable=true][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/23300668',
-        },
-        {
-          key: 6,
-          name: '⑥邀请加入语音派对-x',
-          matches:
-            '[id="com.kuaishou.nebula.live_audience_plugin:id/live_voice_party_audience_being_invited_bottom_panel_close"][clickable=true]',
-          snapshotUrls: 'https://i.gkd.li/i/24203582',
-        },
-        {
-          key: 7,
-          name: '⑦商品列表',
-          action: 'back',
-          matches:
-            '@[clickable=true][focusable=true] >(1,2) [text="订单" || text="购物车"][visibleToUser=true]',
-          snapshotUrls: [
-            'https://i.gkd.li/i/24352654',
-            'https://i.gkd.li/i/24352662',
-          ],
-        },
-        {
-          key: 8,
-          name: '⑧送票助我上人气榜',
-          action: 'back',
-          matches:
-            '[focusable=true][top>2000][index=parent.childCount.minus(1)] > [text^="点击免费送出"]',
-          snapshotUrls: 'https://i.gkd.li/i/24455158',
-        },
-        {
-          key: 9,
-          name: '⑨今日榜单弹窗-x掉',
-          matches:
-            ' ImageView < * < @[clickable=true] - ViewGroup >4 [text="查看今日榜单"]',
-          snapshotUrls: 'https://i.gkd.li/i/24926207',
-        },
-        {
-          key: 10,
-          name: '10.邀关注-x掉',
-          matches:
-            '@ImageView[id$="anchor_close"][clickable=true] +n [text="立即关注"]',
-          snapshotUrls: 'https://i.gkd.li/i/22659582',
-        },
-        {
-          key: 11,
-          name: '11.久看邀关注-返回键',
-          action: 'back',
-          actionCd: 2000,
-          matches: '[text*="看了这么久"][text*="关注"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/23300455',
-        },
-        {
-          key: 12,
-          name: '12.出半个主播主页-返回键',
+          name: '②出半个主播主页-[返回键]',
           action: 'back',
           actionCd: 2000,
           matches:
@@ -934,11 +864,36 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 13,
-          name: '13.意向城市-返回键',
-          action: 'back',
-          matches: 'ImageView < * < @[clickable=true] +2 [text*="意向城市"]',
-          snapshotUrls: 'https://i.gkd.li/i/26160402',
+          key: 3,
+          name: '③弹窗-x掉',
+          matches:
+            '@[clickable=true][width<140][height<140] +n [text*="立刻投递" || text*="意向城市" || text="立即关注" || text*="接受邀请"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/23211116', // 招工
+            'https://i.gkd.li/i/26160402', // 意向城市
+            'https://i.gkd.li/i/22659582', // 邀关注
+            'https://i.gkd.li/i/24203582', // 邀请加入语音派对
+          ],
+        },
+        {
+          key: 4,
+          name: '④预约直播弹窗-x',
+          matches:
+            'ImageView[width<80][height<80][visibleToUser=true] < * < @[clickable=true] <2 * <2 * < [vid="krn_content_container"]',
+          snapshotUrls: 'https://i.gkd.li/i/23235749',
+        },
+        {
+          key: 5,
+          name: '⑤右侧边栏-关闭',
+          matches: '[vid="photo_feed_side_bar_close_view"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/23300668',
+        },
+        {
+          key: 6,
+          name: '⑥今日榜单弹窗-x掉',
+          matches:
+            'ImageView < * < @[clickable=true] - ViewGroup >4 [text="查看今日榜单"]',
+          snapshotUrls: 'https://i.gkd.li/i/24926207',
         },
       ],
     },
@@ -1229,12 +1184,13 @@ export default defineGkdApp({
           key: 1,
           name: '①任务1s后结束',
           action: 'none',
-          matchDelay: 10000, // 一般倒计时从 15s 或 29s 开始
-          forcedTime: 25000, // 需主动检测
-          matches: '[vid="pendant_task_status"][text$=":01"]', // 倒计时剩1秒
+          forcedTime: 35000, // 需主动检测
+          matches:
+            '([vid="pendant_task_status"][text$=":01"]) || ([childCount=1] > [vid="pendant_bg"])', // 倒计时剩1秒
           snapshotUrls: [
             'https://i.gkd.li/i/23689726', // 养鸭任务
             'https://i.gkd.li/i/23748508', // 金币任务
+            'https://i.gkd.li/i/22850681', // 养鸭任务倒计时结束
           ],
         },
         {
