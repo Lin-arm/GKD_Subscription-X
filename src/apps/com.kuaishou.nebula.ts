@@ -708,8 +708,8 @@ export default defineGkdApp({
     },
     {
       key: 22,
-      name: '📡直播间-退出弹窗-确认',
-      desc: '退出直播间',
+      name: '📡直播间-确认[退出]直播',
+      desc: '①点击[退出] ②直播中途结束-[返回键] ③点击[放弃]',
       fastQuery: true,
       activityIds: [
         'com.yxcorp.gifshow.detail.PhotoDetailActivity',
@@ -722,7 +722,9 @@ export default defineGkdApp({
       rules: [
         {
           key: 1,
-          matches: 'TextView[text^="退出"][visibleToUser=true]',
+          name: '①点击[退出]',
+          matches:
+            '@[clickable=true][childCount=1] > [text^="退出"][text.length<8]',
           snapshotUrls: [
             'https://i.gkd.li/i/22658742',
             'https://i.gkd.li/i/22781433',
@@ -731,10 +733,11 @@ export default defineGkdApp({
             'https://i.gkd.li/i/22700047',
             'https://i.gkd.li/i/23210943',
           ],
+          exampleUrls: 'https://e.gkd.li/12150536-d5e6-41ad-971d-b9a2d2e38810',
         },
         {
           key: 2,
-          name: '②直播中途结束-返回键',
+          name: '②直播中途结束-[返回键]',
           action: 'back',
           actionCd: 15000,
           matches:
@@ -746,9 +749,10 @@ export default defineGkdApp({
         },
         {
           key: 3,
-          name: '③直播中途结束-弹窗放弃',
-          matches: '[text="换一个"] -2 [text="放弃奖励"][visibleToUser=true]',
+          name: '③直播中途结束-点击[放弃]',
+          matches: '[text="换一个"] -2 [text^="放弃"][clickable=true]',
           snapshotUrls: 'https://i.gkd.li/i/23421843',
+          exampleUrls: 'https://e.gkd.li/acad22ef-8fc1-441e-af46-677b52402d14',
         },
       ],
     },
