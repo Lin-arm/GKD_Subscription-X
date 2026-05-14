@@ -1527,41 +1527,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 44,
-      name: '浏览ks商城30s后-领金币',
-      desc: '点击去领取',
-      activityIds: 'com.yxcorp.gifshow.HomeActivity',
-      rules: [
-        {
-          key: 1,
-          // excludeMatches: '[text="任务中心"]',
-          matches: [
-            '[vid="textView"][desc="商城"][visibleToUser=true]',
-            '[text="去领取"][clickable=false][visibleToUser=true]',
-          ],
-          fastQuery: true,
-          snapshotUrls: [
-            'https://i.gkd.li/i/23655591',
-            'https://i.gkd.li/i/23655619',
-            'https://i.gkd.li/i/23749982', //含 [text="任务中心"]
-          ],
-          // excludeSnapshotUrls: 'https://i.gkd.li/i/23658912',
-        },
-        {
-          key: 2,
-          preKeys: [1],
-          matches: [
-            '[text="已完成"]',
-            'ViewGroup > ImageView[width=94][height=93 || height=94][visibleToUser=true]',
-          ],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23655648',
-            'https://i.gkd.li/i/23689450',
-          ],
-        },
-      ],
-    },
-    {
       key: 45,
       name: '🚶‍♂️走路赚金币-领金币',
       desc: '点击领取xxx金币',
