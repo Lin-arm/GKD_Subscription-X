@@ -509,7 +509,7 @@ export default defineGkdApp({
           actionCd: 14500,
           resetMatch: 'app', // 对 actionCd 也生效
           matches:
-            '@[clickable=true] >(1,2,3) [text*="额外"][!(text*="下载" || text*="付费")]',
+            '@[clickable=true] >(1,2,3) [text*="额外"][!(text*="下载" || text*="付费" || text*="买入")]',
           snapshotUrls: [
             'https://i.gkd.li/i/23392746', // 点击额外获取90金币
             'https://i.gkd.li/i/23476308', // i 打开并体验20秒 额外领100金币
@@ -521,6 +521,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/22658960', // 不可单单用 [vid="ad_download_text"] , 换用 [text*="额外"]  排除
             'https://i.gkd.li/i/23392869', // 下载
             'https://i.gkd.li/i/27516606', // 付费
+            'https://i.gkd.li/i/27841529', // 买入
           ],
         },
       ],
