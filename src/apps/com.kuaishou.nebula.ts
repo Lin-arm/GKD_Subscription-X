@@ -1246,17 +1246,35 @@ export default defineGkdApp({
     },
     {
       key: 37,
-      name: '🔍搜索页-开定位-以后再说',
-      desc: '弹窗开定位-以后再说',
+      name: '权限提示-定位权限',
+      desc: '拒绝',
+      enable: false,
       rules: [
         {
-          matches: [
-            '[vid="title"][text="开启定位服务"]',
-            '[vid="negative"][text="以后再说"][clickable=true]',
-          ],
           fastQuery: true,
+          matches:
+            '[text*="定位"] +2 [vid="button"] >2 [vid="negative"][clickable=true]',
           snapshotUrls: 'https://i.gkd.li/i/23979856',
           activityIds: 'com.yxcorp.plugin.search.SearchActivity',
+        },
+      ],
+    },
+    {
+      key: 3701,
+      name: '权限提示-存储权限',
+      desc: '拒绝',
+      enable: false,
+      rules: [
+        {
+          fastQuery: true,
+          matches:
+            '[text*="存储"] +2 [vid="button"] >2 [vid="negative"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/27940438',
+          activityIds: [
+            'com.yxcorp.gifshow.detail.PhotoDetailActivity',
+            'com.yxcorp.gifshow.ad.neo.video.award.AwardVideoPlayActivity',
+            'com.yxcorp.gifshow.ad.neo.videov2.award.AwardVideoPlayActivityV2',
+          ],
         },
       ],
     },
