@@ -28,5 +28,23 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 2,
+      name: '快极🤳看广告-弹窗-已安装完app',
+      desc: '不打开app,点击[取消]',
+      enable: false,
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: [
+            'com.yxcorp.gifshow.detail.PhotoDetailActivity',
+            'com.yxcorp.gifshow.ad.neo.video.award.AwardVideoPlayActivity',
+            'com.yxcorp.gifshow.ad.neo.videov2.award.AwardVideoPlayActivityV2',
+          ],
+          matches: '[text*="已安装完成"] +n [vid="btn_cancel"]',
+          snapshotUrls: 'https://i.gkd.li/i/27957205',
+        },
+      ],
+    },
   ],
 });
