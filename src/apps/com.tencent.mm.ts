@@ -40,14 +40,17 @@ export default defineGkdApp({
           },
           anyMatches: [
             '@LinearLayout >2 [text="广告"][visibleToUser=false]',
-            '[getChild(0).desc$="的头像"] >2 @LinearLayout[childCount=2][getChild(0).getChild(0).text!=null][getChild(1).visibleToUser=false]',
+            '[index=parent.childCount.minus(1)][getChild(0).id=null] >5 [getChild(0).desc$="的头像"] >2 @LinearLayout[childCount=2][getChild(0).getChild(0).text!=null][getChild(1).visibleToUser=false]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/14783802', // [text="广告"]
             'https://i.gkd.li/i/15531539', // [text="广告"]
             'https://i.gkd.li/i/19665911',
           ],
-          excludeSnapshotUrls: 'https://i.gkd.li/i/19717709', // 加 [getChild(0).getChild(0).text!=null] 排除误触评论区
+          excludeSnapshotUrls: [
+            'https://i.gkd.li/i/19717709', // 加 [getChild(0).getChild(0).text!=null] 排除误触评论区
+            'https://i.gkd.li/i/27969204', // [index=parent.childCount.minus(1)][getChild(0).id=null] 排除误触评论区后还继续误触
+          ],
         },
         {
           key: 2,
