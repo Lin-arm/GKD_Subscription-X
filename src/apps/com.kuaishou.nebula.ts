@@ -676,10 +676,11 @@ export default defineGkdApp({
           key: 2,
           forcedTime: 3600000,
           matches:
-            '[getChild(0).text^="再看1个"] + * > @[clickable=true] > [text="领取奖励"]',
+            '[getChild(0).text*="再看1个"] + * > @[clickable=true] > [text^="领取"][text$="奖励"]',
           snapshotUrls: [
             'https://i.gkd.li/i/27396623',
             'https://i.gkd.li/i/27407109', // 该规则在直播界面容易睡死
+            'https://i.gkd.li/i/28312221', // 明天再看1个广告
           ],
         },
       ],
