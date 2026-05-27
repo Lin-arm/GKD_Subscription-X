@@ -7,7 +7,7 @@ export default defineGkdApp({
     {
       key: 0,
       name: '📢说明',
-      desc: '(点击查看详情) 目前在用的快极版本有三个: 🔸v14.3.30.11384 🔸v13.2.10.9610 🔸v12.8.20.8680 ,如果你用其他版本的快极,估计有些规则不生效,如遇失效或误触请截取快照拿到github反馈. 🟢相关脚本已在自动精灵app上传,请到脚本市场搜`🦜快极_自动刷视频`',
+      desc: '(点击查看详情) 目前在用的快极版本有三个: 🔸v14.4.20.11461 🔸v13.2.10.9610 🔸v12.8.20.8680 ,如果你用其他版本的快极,估计有些规则不生效,如遇失效或误触请截取快照拿到github反馈. 🟢相关脚本已在自动精灵app上传,请到脚本市场搜`🦜快极_自动刷视频`',
       enable: false,
       rules: [
         // snapshotUrls: 'https://i.gkd.li/i/24078870', //养鸭-饲料雨
@@ -1232,12 +1232,13 @@ export default defineGkdApp({
           actionMaximum: 1,
           resetMatch: 'match',
           matches: [
-            '[vid="tv_title"][text="历史搜索"]',
+            '[vid="tab_text"][text="搜索发现"]',
             '[text="搜索"][vid="right_button" || vid="right_tv"][clickable=true]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/22702438',
             'https://i.gkd.li/i/23381126',
+            'https://i.gkd.li/i/28311953',
           ],
           excludeSnapshotUrls: 'https://i.gkd.li/i/23748508', // 已在搜索结果页面
           activityIds: 'com.yxcorp.plugin.search.SearchActivity',
