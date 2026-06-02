@@ -77,7 +77,7 @@ jobs:
           git config --local user.name github-actions[bot]
           git status
           git add .
-          git commit -a -m "chore: v${{ env.VERSION }}"
+          git commit -a -m "chore: 🐔v${{ env.VERSION }}"
         continue-on-error: true
 
       - name: 推送代码到远程仓库
