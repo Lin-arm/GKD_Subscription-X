@@ -61,7 +61,7 @@ export default defineGkdApp({
           matchRoot: true,
           actionCd: 500,
           matches:
-            '@[index=parent.childCount.minus(1)][width>88 && width<138][height>88 && height<138] <n View <(1,2,3) * <<(3,4) [id^="wrap-widget"] <n WebView[text="芭芭农场"] <<(6,7,11) [id="android:id/content"]',
+            '@[index=parent.childCount.minus(1)][width>88 && width<138][height>88 && height<138] <n View <(1,2,3) * <<(3,4) [id^="wrap-widget"] <n WebView[text="芭芭农场"] <<(6,7,9,11) [vid="tms_fragment_container" || id="android:id/content"]',
           // '[name$="TextView" || name$="Button"][text="" || text="关闭"][width=107 || width=108][height>=107 && height<=110][clickable=true || focusable=true]',
           snapshotUrls: [
             'https://i.gkd.li/i/23300544', //恭喜获得施肥大礼包
@@ -70,6 +70,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23413567', //明日7点后记得来领
             'https://i.gkd.li/i/23581433', //明日7点后记得来领
             'https://i.gkd.li/i/24353133', //浏览精选商品
+            'https://i.gkd.li/i/28513551', //恭喜获得施肥大礼包
           ],
           activityIds: [
             'com.taobao.themis.container.app.TMSActivity',
