@@ -22,7 +22,7 @@ export default defineGkdApp({
           name: '①施满n次肥-领取',
           actionCd: 2000, //点击后有弹窗动画耗时
           matches:
-            '@Button[text$="肥料 领取"][clickable=true] <<8 View[id="ice-container"] <3 WebView[text="芭芭农场"] <<(6,7,11) [id="android:id/content"]',
+            '@Button[text$="肥料 领取"][clickable=true] <<8 View[id="ice-container"] <3 WebView[text="芭芭农场"] <<(6,7,9,11) [vid="tms_fragment_container" || id="android:id/content"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23240421', //A 有肥料领: 中
             'https://i.gkd.li/i/26476965', //A 有肥料领: 中 <<(6,7,11) 的11
@@ -33,10 +33,11 @@ export default defineGkdApp({
           name: '②兔兔挖肥料-领取',
           actionCd: 20000, //隔20秒再领
           matches:
-            '@Button[text^="兔兔挖肥料"][clickable=true] <n View[childCount>5] <<5 WebView[text="芭芭农场"] <<(6,7,11) [id="android:id/content"]',
+            '@Button[text^="兔兔挖肥料"][clickable=true] <n View[childCount>5] <<5 WebView[text="芭芭农场"] <<(6,7,9,11) [vid="tms_fragment_container" || id="android:id/content"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23263684', //B 有肥料领: 左,中
             'https://i.gkd.li/i/24163618', //C 有肥料领: 左,右
+            'https://i.gkd.li/i/28513871', //C 有肥料领: 左
           ],
         },
         {
@@ -46,7 +47,7 @@ export default defineGkdApp({
           actionDelay: 2500,
           resetMatch: 'app',
           matches:
-            '@Button[text$="肥料，点击领取"][clickable=true] <n View[childCount>5] <<5 WebView[text="芭芭农场"] <<(6,7,11) [id="android:id/content"]',
+            '@Button[text$="肥料，点击领取"][clickable=true] <n View[childCount>5] <<5 WebView[text="芭芭农场"] <<(6,7,9,11) [vid="tms_fragment_container" || id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/23393987', //B 有肥料领: 右
         },
       ],
