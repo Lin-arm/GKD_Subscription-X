@@ -1026,10 +1026,11 @@ export default defineGkdApp({
           name: '①点击[翻10倍/签到]',
           forcedTime: 3600000,
           matches:
-            '@Button[text*="翻10倍" || text="立即签到"] <n View[index=parent.childCount.minus(1)] <n View <2 View <2 View[getChild(0).id="app"] < WebView < WebView < [vid="webView"]',
+            '@Button[(text*="翻" && text*="倍") || text="立即签到"] <n View[index=parent.childCount.minus(1)] <n View <2 View <2 View[getChild(0).id="app"] < WebView < WebView < [vid="webView"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24448092', //饲料雨End 翻10倍
             'https://i.gkd.li/i/22871644', //今日签到
+            'https://i.gkd.li/i/28514093', //饲料雨End 翻5倍
           ],
         },
         {
