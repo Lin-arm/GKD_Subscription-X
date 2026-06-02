@@ -1283,36 +1283,34 @@ export default defineGkdApp({
     },
     {
       key: 38,
-      name: '🎮小游戏-退出弹窗-x掉',
-      desc: '弹窗->点击 知道了',
-      fastQuery: true,
-      activityIds: 'com.kwai.frog.game.engine.adapter.engine.base.', //小游戏Activity前缀
+      name: '功能来-确认[退出]小游戏',
+      desc: '弹窗-点击[知道了/以后再说/退出游戏]',
       rules: [
         {
-          key: 1,
+          fastQuery: true,
+          activityIds: 'com.kwai.frog.game.engine.adapter.engine.base.', //小游戏Activity前缀
           matches:
-            '@[clickable=true] >(1,2) TextView[text="知道了"][visibleToUser=true]',
+            '@[clickable=true] >(1,2) TextView[text="知道了" || text="以后再说" || text="退出游戏"]',
           snapshotUrls: [
-            'https://i.gkd.li/i/22864991',
-            'https://i.gkd.li/i/22865094',
+            'https://i.gkd.li/i/22864991', //知道了
+            'https://i.gkd.li/i/22865094', //知道了
+            'https://i.gkd.li/i/28516366', //退出游戏
           ],
-        },
-        {
-          key: 2,
-          matches: '[text="以后再说"][visibleToUser=true]',
+          exampleUrls: 'https://e.gkd.li/c154d3c1-d139-4fd6-8a43-fb69df2c26a0',
         },
       ],
     },
     {
       key: 39,
-      name: '🎮小游戏-退出-返回',
-      desc: '点击 < ',
+      name: '功能类-[退出]我的小游戏页',
+      desc: '点击左上角 < ',
       rules: [
         {
+          fastQuery: true,
           matches:
             'ImageView < * < @[clickable=true] < * + [text="我的小游戏"]',
-          fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/22865063',
+          exampleUrls: 'https://e.gkd.li/f37af09c-4c41-405c-9e2b-1c2d5a3fafb7',
           activityIds:
             'com.yxcorp.gifshow.minigame.sogame.home.SoGameNewListActivity',
         },
@@ -1320,14 +1318,15 @@ export default defineGkdApp({
     },
     {
       key: 40,
-      name: '🎮小游戏-获取用户资料弹窗-允许',
-      desc: '点击允许',
+      name: '权限提示-[允许]获取用户资料',
+      desc: '🎮小游戏弹窗-点击[允许]',
       rules: [
         {
-          matches: [
-            '[vid="button_layout" || vid="bottom"] > [text="允许"][vid="confirm_btn" || vid="grant"][visibleToUser=true]',
-          ],
           fastQuery: true,
+          matches: [
+            '[text*="获取用户的快手公开资料"]',
+            '[text="允许"][clickable=true]',
+          ],
           snapshotUrls: [
             'https://i.gkd.li/i/22865118',
             'https://i.gkd.li/i/22865162',
