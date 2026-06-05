@@ -340,7 +340,7 @@ export default defineGkdApp({
           matches: [
             '@[name$="View"][text="任务中心"] <2 View <2 View < WebView < * < [vid="webView"]',
             // 'Button[!(text^="去看广告得" || text="愉快收下")] -n * <<(2,3,5) [index=parent.childCount.minus(1)] -n * > @[name$="Image" || name$="View"][clickable=true][width>70 && width<90] <<(2,3,4) [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount<3] -n [name$="TextView" || name$="View"] <<(3,4) [vid="webView"]',
-            '@[name$="Image" || name$="View"][clickable=true][width>70 && width<90] <<(2,3,4) [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount<3] -n [name$="TextView" || name$="View"] <<(3,4) [vid="webView"]',
+            '@[name$="Image" || name$="View"][clickable=true][width>70 && width<90] <<(2,3,4,5) [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount<3] -n [name$="View"] <<(3,4) [vid="webView"]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/23468984', //去绑卡 A
@@ -353,6 +353,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/25729758', //助力口令已复制 B
             'https://i.gkd.li/i/22671674', //添加组件 C
             'https://i.gkd.li/i/24743239', //瓜分百亿金币 D
+            'https://i.gkd.li/i/28634992', //今日xx金币已到账 D
             // 'https://i.gkd.li/i/25996072', //瓜分百亿金币 D    * <<(2,3,5)  的 5
             // 'https://i.gkd.li/i/25996219', //看视频赚金币 领奖弹窗 B
           ],
