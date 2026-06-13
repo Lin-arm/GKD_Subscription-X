@@ -35,6 +35,30 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 2,
+      name: '跳转ks时进打卡页-[返回]',
+      desc: '按[返回键]',
+      enable: false,
+      rules: [
+        {
+          fastQuery: true,
+          matchRoot: true,
+          order: -1,
+          action: 'back',
+          matchTime: 8000,
+          actionMaximum: 1,
+          resetMatch: 'app',
+          activityIds: 'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
+          matches: '[vid="swipe"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/28906258', // 空白过程页
+            'https://i.gkd.li/i/28906264', // 每日打卡页
+          ],
+          exampleUrls: 'https://e.gkd.li/ee42d957-3d0b-4a1e-9068-0362999d20c7',
+        },
+      ],
+    },
+    {
       key: 4,
       name: '📺视频页-[不感兴趣]这些活动',
       desc: '①快手热榜 ②每日打卡 ③签到',
