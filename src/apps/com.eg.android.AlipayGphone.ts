@@ -560,6 +560,7 @@ export default defineGkdApp({
       key: 24,
       name: '🌲森林-集市-弹窗-x掉',
       desc: '①首购红包 ②膨胀红包 ③专享补贴,添加首页 ④天猫年货节',
+      fastQuery: true,
       order: NO_FAST_QUERY,
       activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
@@ -570,7 +571,6 @@ export default defineGkdApp({
             '[text="天猫森林集市"]',
             '[text="点击领取"] <7 * + TextView[visibleToUser=true][text=""]', //无快查
           ],
-          fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/23394640',
         },
         {
@@ -580,13 +580,11 @@ export default defineGkdApp({
             '[text="天猫森林集市"]',
             '[text="立即膨胀"] + * > Image[visibleToUser=true][text=""]', //无快查
           ],
-          fastQuery: true,
           snapshotUrls: 'https://i.gkd.li/i/23394780',
         },
         {
           key: 3,
           name: '③专享补贴or添加首页-放弃',
-          fastQuery: true,
           order: 1,
           matches:
             '@TextView[index=parent.childCount.minus(2)][text$="放弃"] <n [childCount>4] <<(1,4) View <2 [childCount>1] < WebView < * <2 FrameLayout <2 [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
@@ -605,15 +603,16 @@ export default defineGkdApp({
           name: '④天猫年货节-x掉',
           matches: [
             '[text="天猫森林集市"]',
-            '@TextView[top>1500][width>100 && width<116] - * > [index=parent.childCount.minus(1)][text="点击领取"]', //无快查
+            '@TextView[top>1500][width>100 && width<116] - * > [index=parent.childCount.minus(1)][text$="领取"]', //无快查
           ],
-          fastQuery: true,
-          snapshotUrls: 'https://i.gkd.li/i/24544970',
+          snapshotUrls: [
+            'https://i.gkd.li/i/24544970',
+            'https://i.gkd.li/i/28906162',
+          ],
         },
         {
           key: 5,
           name: '⑤天猫小程序-x掉',
-          fastQuery: true,
           order: 1,
           matches:
             '@TextView[text=""][width<138][visibleToUser=true] - View[getChild(0).getChild(0).name$="Image"] <<(4,5) WebView <2 FrameLayout <2 [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
