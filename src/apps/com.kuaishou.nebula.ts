@@ -585,6 +585,13 @@ export default defineGkdApp({
           matches: '[text="立即下载"] - LinearLayout >2 [vid="close"]',
           snapshotUrls: 'https://i.gkd.li/i/26678104',
         },
+        {
+          key: 5,
+          name: '⑤微粒贷-[忍痛离开]',
+          activityIds: 'com.yxcorp.gifshow.ad.webview.AdYodaActivity',
+          matches: 'Button[text="忍痛离开"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/28906209',
+        },
       ],
     },
     {
