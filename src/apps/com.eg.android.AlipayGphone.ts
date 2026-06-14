@@ -406,8 +406,8 @@ export default defineGkdApp({
     },
     {
       key: 1302,
-      name: '🐤养鸡-捐蛋赛-[领取]段位奖励',
-      desc: '临时启用,一次性批量领取',
+      name: '🐤养鸡-批量[领取]捐蛋赛段位奖励',
+      desc: '临时启用,被弹窗遮挡也可领',
       enable: false,
       rules: [
         {
