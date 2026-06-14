@@ -405,6 +405,23 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 1302,
+      name: '🐤养鸡-捐蛋赛-[领取]段位奖励',
+      desc: '临时启用,一次性批量领取',
+      enable: false,
+      rules: [
+        {
+          forcedTime: 30000,
+          actionCd: 700,
+          action: 'clickNode',
+          activityIds:
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+          matches: '[text="感叹号"] - [text="领取按钮"]',
+          snapshotUrls: 'https://i.gkd.li/i/28930380',
+        },
+      ],
+    },
+    {
       key: 14,
       name: '🌲森林-寻宝🎁-帮ta助力',
       desc: '弹窗-①帮ta助力 ②x掉',
