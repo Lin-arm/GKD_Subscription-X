@@ -160,18 +160,16 @@ export default defineGkdApp({
     {
       key: 5,
       name: '🧧发现-红包广场-抢月包',
-      desc: '点击 抢(章节卡不抢) (起点422)',
+      desc: '点击 抢(章节卡不抢)',
       enable: false,
       order: -2,
       fastQuery: true,
       matchRoot: true,
+      forcedTime: 3600000, // 主动查询1小时
       actionCd: 300,
       actionMaximum: 3,
       actionMaximumKey: 1, //所有子rule合起来最多点击3次
-      activityIds: [
-        '.ui.activity.MainGroupActivity',
-        '.flutter.HongBaoSquareActivity',
-      ],
+      activityIds: '.flutter.HongBaoSquareActivity',
       rules: [
         {
           key: 1,
@@ -262,13 +260,16 @@ export default defineGkdApp({
         {
           order: -2,
           actionCd: 100,
-          matches: '@[vid="btnHongbaoClose"] - * >2 [text="已抢完"]',
           fastQuery: true,
-          snapshotUrls: 'https://i.gkd.li/i/23291755',
+          matches: '@[vid="btnHongbaoClose"] - * >2 [text="已抢完"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/23291755', //A
+            'https://i.gkd.li/i/28931164', //B
+          ],
           exampleUrls: 'https://e.gkd.li/2ed31c5e-f498-4903-a781-58a1e885de69',
           activityIds: [
-            '.ui.activity.MainGroupActivity',
-            '.flutter.HongBaoSquareActivity',
+            '.ui.activity.MainGroupActivity', //A
+            '.flutter.HongBaoSquareActivity', //B
           ],
         },
       ],
