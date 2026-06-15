@@ -411,8 +411,8 @@ export default defineGkdApp({
       enable: false,
       rules: [
         {
-          forcedTime: 30000,
-          actionCd: 700,
+          forcedTime: 360000,
+          actionCd: 120,
           action: 'clickNode',
           activityIds:
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
