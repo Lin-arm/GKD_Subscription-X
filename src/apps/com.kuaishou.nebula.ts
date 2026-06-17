@@ -59,6 +59,36 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 3,
+      name: '📺视频页-刷到直播时[上滑]',
+      desc: '从GKD_v1.12.0 版本开始才支持[滑动]',
+      enable: false,
+      rules: [
+        {
+          fastQuery: true,
+          actionCd: 300,
+          actionDelay: 200, //完整直播显示需要时间
+          swipeArg: {
+            start: {
+              x: 'width * 0.5',
+              y: 'height * 0.6',
+            },
+            end: {
+              x: 'width * 0.5',
+              y: 'height * 0.3',
+            },
+            duration: 200, //滑动时长
+          },
+          activityIds: 'com.yxcorp.gifshow.HomeActivity',
+          matches: '[vid="layout_root_hot_live_play"][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/29029431',
+            'https://i.gkd.li/i/29029433',
+          ],
+        },
+      ],
+    },
+    {
       key: 4,
       name: '📺视频页-[不感兴趣]这些活动',
       desc: '①快手热榜 ②每日打卡 ③签到',
