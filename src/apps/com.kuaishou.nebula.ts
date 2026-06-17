@@ -822,8 +822,10 @@ export default defineGkdApp({
     {
       key: 23,
       name: '📡直播间-看完-返回键',
-      desc: '直播记时结束->已领取(金币)->退出', // ❗若不生效,注意Animator缩放动画时长不能设为0
+      desc: '①出现[已领取] ②出现[倒计时 00:01] ③延时2s按[返回键]', // ❗若不生效,注意Animator缩放动画时长不能设为0
       fastQuery: true,
+      matchRoot: true,
+      actionCd: 20000, //太短易重复触发
       activityIds: [
         'com.yxcorp.gifshow.detail.PhotoDetailActivity',
         'com.kuaishou.live.core.basic.activity.LiveSlideActivity',
@@ -835,28 +837,31 @@ export default defineGkdApp({
       rules: [
         {
           key: 1,
-          action: 'back',
-          actionCd: 3000,
-          matchTime: 65000, //65秒后休眠
+          name: '①条件-出现[已领取]',
+          action: 'none',
+          // matchTime: 65000, //65秒后休眠
           matches: 'TextView[text="已领取"][vid="neo_count_down_text"]',
-          snapshotUrls: ['https://i.gkd.li/i/22705740'],
+          snapshotUrls: [
+            'https://i.gkd.li/i/22705740',
+            'https://i.gkd.li/i/29052399',
+          ],
           excludeSnapshotUrls: 'https://i.gkd.li/i/24432424', //逛街领金币-直播 82秒会出现一次"已领取"
         },
         {
           key: 2, // 去金币购 看的3次直播
+          name: '②条件-出现[倒计时 00:01]',
           action: 'none',
-          matchRoot: true,
-          matches:
-            '@[text^="倒计时"][text$="00:01"] <2 * < [vid="kem_activity_task_pendant"] <2 [id="android:id/content"]',
+          matches: '[text^="倒计时"][text$="00:01"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23750524', // [text="倒计时 00:54"]
             'https://i.gkd.li/i/23823031', // [text="倒计时 00:40"]
           ],
         },
         {
-          key: 3,
-          preKeys: [2],
-          actionDelay: 2500,
+          key: 10,
+          preKeys: [1, 2],
+          name: '③延时2s按[返回键]',
+          actionDelay: 2000,
           action: 'back',
           matches: '[vid="live_play_root_container"]',
         },
