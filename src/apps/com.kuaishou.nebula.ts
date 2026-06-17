@@ -1537,44 +1537,103 @@ export default defineGkdApp({
     },
     {
       key: 42,
-      name: '逛街赚金币-自动领💰,退',
-      desc: '①领金币(❗需冻结ks) ③返回键 ④弹窗-放弃',
+      name: '逛街赚金币-自动领💰',
+      desc: '①②领金币(❗需冻结ks) ③④⑤⑥[上下滑动]浏览 ⑦⑧⑨退出',
       activityIds: 'com.yxcorp.gifshow.ad.rn.AdKwaiRnActivity',
       fastQuery: true,
       rules: [
         {
           key: 1,
-          name: '①点击打开快手',
-          actionDelay: 1500,
-          matches:
-            '@[text^="+"][text$="0"] + [text="打开快手"][visibleToUser=true]',
+          name: '①点击[打开快手]',
+          actionMaximum: 1,
+          matches: '@[clickable=true] > [text^="+"] + [text="打开快手"]',
           snapshotUrls: 'https://i.gkd.li/i/23582148',
         },
         {
           key: 2,
-          // preKeys: [1], // 先点key1,再点key2 就会领两样金币
-          actionDelay: 2000,
-          name: '②点击签到',
+          name: '②点击[领取]',
+          actionMaximum: 1,
           matches:
-            '@[text^="+"][text$="0"] + [text="点击领取"][visibleToUser=true]',
+            '@[clickable=true] > [text^="+"][text$="0"] + [text="点击领取"]',
           snapshotUrls: 'https://i.gkd.li/i/26543122',
         },
         {
           key: 3,
-          // preKeys: [2],
-          name: '③返回键',
-          action: 'back',
-          actionMaximum: 2,
-          actionCd: 2500,
-          resetMatch: 'app',
-          excludeMatches: '@[text!="+10"] + [text="浏览领取"]', // 若是10金币,直接退出
-          matches: '[text="明天签到"]',
-          snapshotUrls: 'https://i.gkd.li/i/23582306',
-          excludeSnapshotUrls: 'https://i.gkd.li/i/23689548', // 120金币
+          name: '③小于等于10金币',
+          action: 'none',
+          actionMaximum: 1,
+          matches: '@[text.substring(1).toInt()<=10] + [text="浏览领取"]',
+          snapshotUrls: 'https://i.gkd.li/i/23582306', // [text="+10"]
         },
         {
           key: 4,
-          name: '④退出(弹窗)-放弃',
+          name: '④大于10金币',
+          action: 'none',
+          actionMaximum: 1,
+          actionDelay: 1000,
+          matches: '@[text.substring(1).toInt()>10] + [text="浏览领取"]',
+          snapshotUrls: 'https://i.gkd.li/i/23689548', // [text="+120"]
+        },
+
+        // key5,6 上下来回[滑动]浏览
+        {
+          key: 5,
+          preKeys: [4, 6],
+          name: '⑤[上滑]浏览5s',
+          actionCd: 10000,
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.9',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.2',
+            },
+            duration: 5000, //滑动时长
+          },
+          matches: '[text^="逛街领奖励"][text!$="已领10/10次"]',
+          snapshotUrls: 'https://i.gkd.li/i/23689548',
+        },
+        {
+          key: 6,
+          preKeys: [5],
+          name: '⑥[下滑]浏览5s',
+          actionCd: 10000,
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.2',
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight * 0.9',
+            },
+            duration: 5000, //滑动时长
+          },
+          matches: '[text^="逛街领奖励"][text!$="已领10/10次"]',
+        },
+        {
+          key: 7,
+          name: '⑦已做10次浏览任务',
+          action: 'none',
+          actionMaximum: 1,
+          matches: '[text="明天浏览"]',
+          snapshotUrls: 'https://i.gkd.li/i/29059357',
+        },
+
+        // 退出
+        {
+          key: 8,
+          preKeys: [3, 7],
+          name: '⑧按[返回键]',
+          action: 'back',
+          matches: '[text="明天签到"]',
+          snapshotUrls: 'https://i.gkd.li/i/23582306',
+        },
+        {
+          key: 9,
+          name: '⑨弹窗-点击[放弃]',
           matches:
             '[text="继续浏览可获得奖励"] +3 [text="放弃"][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/22658647',
