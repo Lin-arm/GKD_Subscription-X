@@ -74,5 +74,25 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 5,
+      name: '其它-[退出]中转页',
+      desc: '在别的 界面/app 做完任务后切回一淘中转页',
+      rules: [
+        {
+          key: 1,
+          name: '①正在跳转页-点击[返回]',
+          fastQuery: true,
+          matchTime: 2000,
+          resetMatch: 'app',
+          matches: '@[desc="返回"] + LinearLayout > [text="正在跳转"]',
+          snapshotUrls: 'https://i.gkd.li/i/29088626',
+          activityIds: [
+            'com.taobao.sns.activity.ISWebViewActivity',
+            'com.taobao.sns.tms.CommonTMSActivity',
+          ],
+        },
+      ],
+    },
   ],
 });
