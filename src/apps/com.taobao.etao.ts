@@ -35,17 +35,21 @@ export default defineGkdApp({
     },
     {
       key: 3,
-      name: '签到-做任务-app跳转-打开',
-      desc: '打开xxx应用',
+      name: '功能类-自动跳转其他app',
+      desc: '弹窗-点击[打开]',
       rules: [
         {
-          matches: [
-            '[text^="正在离开一淘"]',
-            '[text="取消"] + [text="打开"][clickable=true]',
-          ],
           fastQuery: true,
-          snapshotUrls: 'https://i.gkd.li/i/23239468',
-          activityIds: 'com.taobao.sns.activity.ISWebViewActivity',
+          matches:
+            '@[text="打开"] <2 [childCount=2] < ScrollView - FrameLayout >3 [text^="正在离开一淘"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/23239468',
+            'https://i.gkd.li/i/29088356',
+          ],
+          activityIds: [
+            'com.taobao.sns.activity.ISWebViewActivity',
+            'com.taobao.sns.tms.CommonTMSActivity',
+          ],
         },
       ],
     },
