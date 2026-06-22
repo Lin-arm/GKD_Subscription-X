@@ -464,9 +464,10 @@ export default defineGkdApp({
     },
     {
       key: 10,
-      name: '⛳任务页-❗网络错误-点击重试',
-      desc: '任务页加载出错',
+      name: '⛳任务页-❗网络错误',
+      desc: '任务页加载出错 点击[重试/刷新]',
       fastQuery: true,
+      actionMaximum: 2, // 仅重试2次
       activityIds: [
         'com.yxcorp.gifshow.ad.webview.AdYodaActivity',
         'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
@@ -476,7 +477,7 @@ export default defineGkdApp({
       rules: [
         {
           key: 1,
-          actionCd: 3500,
+          actionCd: 1500,
           matches:
             '[vid="retry_btn" && text="点击重试" || text^="点我刷新"][clickable=true]',
           snapshotUrls: [
