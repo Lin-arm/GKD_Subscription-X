@@ -14,8 +14,22 @@ export default defineGkdApp({
           snapshotUrls: [
             'https://i.gkd.li/i/22909666', //422
             'https://i.gkd.li/i/24339296', //428
+            'https://i.gkd.li/i/29213021', //428 书粉节活动
           ],
           activityIds: '.ui.activity.QDBrowserActivity',
+        },
+      ],
+    },
+    {
+      key: 101,
+      name: '📆每日福利-书粉节',
+      desc: '点击[去浏览] 领6点章节卡',
+      rules: [
+        {
+          activityIds: '.ui.activity.QDBrowserActivity',
+          matches:
+            '@[text="去浏览"] -n [text*="6点章节卡"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/29212932',
         },
       ],
     },
