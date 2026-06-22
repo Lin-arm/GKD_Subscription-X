@@ -71,6 +71,7 @@ export default defineGkdApp({
         {
           key: 1,
           name: '①去抽奖',
+          actionDelay: 5000, // 先留5秒给 书粉节 弹窗
           actionMaximum: 1,
           resetMatch: 'match',
           matches:
@@ -78,6 +79,7 @@ export default defineGkdApp({
           snapshotUrls: [
             'https://i.gkd.li/i/24421774', //422
             'https://i.gkd.li/i/24426825', //422 签到详情页
+            'https://i.gkd.li/i/29213168', //428
             // 'https://i.gkd.li/i/23561866', //420
           ],
           excludeSnapshotUrls: 'https://i.gkd.li/i/24426902', //抽奖机会 ×0
