@@ -21,19 +21,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 101,
-      name: '📆每日福利-书粉节',
-      desc: '点击[去浏览] 领6点章节卡',
-      rules: [
-        {
-          activityIds: '.ui.activity.QDBrowserActivity',
-          matches:
-            '@[text="去浏览"] -n [text*="6点章节卡"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/29212932',
-        },
-      ],
-    },
-    {
       key: 2,
       name: '📆每日福利-自动去看广告',
       desc: '点击[去完成](❗配合QD模块用)',
