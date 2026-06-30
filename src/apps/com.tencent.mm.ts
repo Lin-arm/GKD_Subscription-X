@@ -273,9 +273,12 @@ export default defineGkdApp({
         {
           fastQuery: true,
           activityIds: '.plugin.subapp.ui.gallery.GestureGalleryUI',
-          matches: '@[clickable=true] >3 [text="保存图片"]',
+          matches: '@[clickable=true] >(3,4) [text="保存图片"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/26482711',
+            'https://i.gkd.li/i/29510014',
+          ],
           exampleUrls: 'https://e.gkd.li/d12cb1fe-0e43-4851-af8b-d9ff15d856a0',
-          snapshotUrls: 'https://i.gkd.li/i/26482711',
         },
       ],
     },
