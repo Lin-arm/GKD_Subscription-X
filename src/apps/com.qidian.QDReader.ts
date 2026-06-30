@@ -319,6 +319,33 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 15,
+      name: '功能类-自动[签到]并跳转[福利中心]',
+      desc: '①点击[签到] ②进福利中心(❗配合QD模块用)',
+      enable: false,
+      fastQuery: true,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      activityIds: '.ui.activity.MainGroupActivity',
+      rules: [
+        {
+          key: 1,
+          name: '①点击[签到]',
+          excludeMatches: '[vid="tvTipNum"][text="--"][visibleToUser=true]',
+          matches: '@[vid="btnCheckIn"] >2 [text="签到"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/22634962',
+          excludeSnapshotUrls: 'https://i.gkd.li/i/23211622', // 未加载完?
+        },
+        {
+          key: 2,
+          preKeys: [1],
+          name: '②点击[领福利]',
+          matches: '@[vid="btnCheckIn"] >2 [text="领福利"]',
+          snapshotUrls: 'https://i.gkd.li/i/23210761', // 已签到, 点击[领福利]
+        },
+      ],
+    },
+    {
       key: 16,
       name: '功能类-订阅至最新章后自动[返回]',
       desc: '返回小说正文页 (对于自定义订阅不可用)',
