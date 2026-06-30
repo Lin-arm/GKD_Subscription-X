@@ -971,6 +971,13 @@ export default defineGkdApp({
             'ImageView < * < @[clickable=true] - ViewGroup >4 [text="查看今日榜单"]',
           snapshotUrls: 'https://i.gkd.li/i/24926207',
         },
+        {
+          key: 7,
+          name: '⑦优惠弹窗-x掉',
+          matches:
+            '@[clickable=true][width<140][height<140] +n ViewGroup > [text="放弃优惠"]',
+          snapshotUrls: 'https://i.gkd.li/i/29512188',
+        },
       ],
     },
     {
