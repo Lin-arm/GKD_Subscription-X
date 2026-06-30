@@ -1238,6 +1238,7 @@ export default defineGkdApp({
       enable: false,
       rules: [
         {
+          actionCd: 15000,
           matches:
             '@TextView[text="去搜索"][clickable=true] - * > [text="搜索赚金币"]',
           snapshotUrls: 'https://i.gkd.li/i/24992823',
