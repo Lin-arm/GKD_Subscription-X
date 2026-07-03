@@ -529,6 +529,11 @@ export default defineGkdApp({
           ],
           snapshotUrls: 'https://i.gkd.li/i/24279152',
         },
+        {
+          key: 3,
+          matches: '[vid="photo"] + [vid="close"]',
+          snapshotUrls: 'https://i.gkd.li/i/29641806',
+        },
       ],
     },
     {
