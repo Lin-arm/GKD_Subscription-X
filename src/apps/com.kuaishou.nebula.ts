@@ -701,11 +701,12 @@ export default defineGkdApp({
           fastQuery: true,
           matchRoot: true,
           matches:
-            '@Button[text^="点可领"][text$="金币"][clickable=true][parent.getChild(0).name$="Image"] <<(2,3) [index=parent.childCount.minus(1)][id=null] <n [index>=parent.childCount.minus(2)][childCount>4] <n View <<3 [vid="webView"]',
+            '@Button[text^="点可领"][text$="金币"][clickable=true][parent.getChild(0).name$="Image"] <<(2,3) [index=parent.childCount.minus(1)][id=null] <n [index>=parent.childCount.minus(2)][childCount>3] <n View <<3 [vid="webView"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23427892',
             'https://i.gkd.li/i/25236905',
             'https://i.gkd.li/i/27550426',
+            'https://i.gkd.li/i/29641467',
           ],
         },
         {
