@@ -531,8 +531,12 @@ export default defineGkdApp({
         },
         {
           key: 3,
-          matches: '[vid="photo"] + [vid="close"]',
-          snapshotUrls: 'https://i.gkd.li/i/29641806',
+          name: '③出现弹窗阻碍_x掉',
+          matches: 'ImageView + ImageView[vid="close"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/29641806',
+            'https://i.gkd.li/i/29736686',
+          ],
         },
       ],
     },
