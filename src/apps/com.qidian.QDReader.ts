@@ -331,6 +331,7 @@ export default defineGkdApp({
         {
           key: 1,
           name: '①点击[签到]',
+          actionDelay: 500, //防止节点未更新而导致误触
           excludeMatches: '[vid="tvTipNum"][text="--"][visibleToUser=true]',
           matches: '@[vid="btnCheckIn"] >2 [text="签到"][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/22634962',
