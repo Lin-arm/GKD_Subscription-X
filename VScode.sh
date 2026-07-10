@@ -91,7 +91,7 @@ git clone https://github.com/你的用户名/GKD_subscription.git
 cd GKD_subscription
 
 # 2. 添加上游仓库
-git remote add upstream https://github.com/AIsouler/GKD_subscription.git
+git remote add upstream https://github.com/Lin-arm/GKD_subscription.git
 
 # 3. 获取上游所有更新
 git fetch upstream
