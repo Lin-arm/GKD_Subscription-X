@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     {
       key: 17,
-      name: '功能类-自动[保存][原图]到相册',
+      name: '功能类-自动[保存][原图]',
       desc: '长按图片后, ①[查看原图] ②长按图片 ③[保存到相册]',
       enable: false,
       fastQuery: true,
@@ -16,7 +16,8 @@ export default defineGkdApp({
         {
           key: 0,
           name: '①点击[查看原图]',
-          actionMaximum: 1,
+          // actionMaximum: 1,  // 不支持左右滑动浏览, 即第2次会直接下载图片, 不会先点击[查看原图]
+          actionCd: 2000,
           matches: '@[clickable=true] > [text="查看原图"]',
           snapshotUrls: 'https://i.gkd.li/i/29578065',
         },
@@ -24,7 +25,7 @@ export default defineGkdApp({
           key: 1,
           preKeys: [0],
           name: '②长按图片',
-          actionMaximum: 1,
+          // actionMaximum: 1,
           action: 'longClickCenter', // 长按
           position: {
             left: 'width/2',
@@ -44,14 +45,15 @@ export default defineGkdApp({
         },
         {
           key: 11,
-          name: '③点击[保存到相册]2',
-          actionDelay: 800, // key10的补充,有些图片前置并没有[查看原图]的操作
+          name: '④点击[保存到相册]2', // key10的补充,有些图片前置并没有[查看原图]的操作
+          actionDelay: 300,
+          excludeMatches: '[text="查看原图"][visibleToUser=true]',
           matches: '@[clickable=true] > [text="保存到相册"]',
           snapshotUrls: 'https://i.gkd.li/i/29738335',
         },
         {
           key: 12,
-          name: '④直接[保存到相册]',
+          name: '⑤直接[保存到相册]',
           activityIds: '.pb.pb.main.PbActivity',
           matches: '[text="保存到相册"][clickable=true]',
           snapshotUrls: 'https://i.gkd.li/i/29578440',
