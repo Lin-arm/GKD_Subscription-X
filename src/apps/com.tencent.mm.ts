@@ -224,9 +224,12 @@ export default defineGkdApp({
           name: '②已获得奖励-x掉',
           matches: [
             'TextView[text="已获得奖励"]',
-            '@LinearLayout[clickable=true][index=0] + [desc="浮窗"] + TextView[text=" "]',
+            '@LinearLayout[clickable=true][index=0] +(1,2) TextView[text=" "]',
           ],
-          snapshotUrls: 'https://i.gkd.li/i/24204085', //视频号广告
+          snapshotUrls: [
+            'https://i.gkd.li/i/24204085', //视频号广告
+            'https://i.gkd.li/i/29969182',
+          ],
           exampleUrls: 'https://e.gkd.li/4da635f3-e7fc-411d-a56c-0564cd8c4031', // P过的图,并压缩成.webP格式
           activityIds: '.plugin.finder.ui.FinderShareFeedRelUI',
         },
