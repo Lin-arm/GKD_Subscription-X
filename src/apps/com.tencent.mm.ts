@@ -275,6 +275,7 @@ export default defineGkdApp({
       rules: [
         {
           fastQuery: true,
+          forcedTime: 60000, // v8.0.74 版微信,第一次长按图片,大概率不触发
           activityIds: '.plugin.subapp.ui.gallery.GestureGalleryUI',
           matches: '@[clickable=true] >(3,4) [text="保存图片"]',
           snapshotUrls: [
