@@ -988,6 +988,14 @@ export default defineGkdApp({
             '@[clickable=true][width<140][height<140] +n ViewGroup > [text="放弃优惠"]',
           snapshotUrls: 'https://i.gkd.li/i/29512188',
         },
+        {
+          key: 8,
+          name: '⑧送礼弹窗-[返回键]',
+          action: 'back',
+          matches:
+            '@[vid="webView"][visibleToUser=true] -2 [vid="webview_overlay"]',
+          snapshotUrls: 'https://i.gkd.li/i/29973172',
+        },
       ],
     },
     {
