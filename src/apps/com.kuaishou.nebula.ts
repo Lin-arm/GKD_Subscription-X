@@ -602,6 +602,7 @@ export default defineGkdApp({
         'com.yxcorp.gifshow.ad.webview.AdYodaActivity',
         'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
         'com.yxcorp.gifshow.ad.tachikoma.page.AdMKPageActivity',
+        'com.yxcorp.gifshow.ad.award.flow.AwardFeedFlowActivity',
       ],
       rules: [
         {
@@ -619,6 +620,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/25070194', //落茄香腾 A
             'https://i.gkd.li/i/25070202', //落茄香腾 B
             'https://i.gkd.li/i/27516409',
+            'https://i.gkd.li/i/30147714', //看直播领金币
           ],
           excludeSnapshotUrls: 'https://i.gkd.li/i/26376188', //加 [desc="返回"] 排除, GKD捉不到 activityId 时会误触
         },
@@ -657,6 +659,14 @@ export default defineGkdApp({
           activityIds: 'com.yxcorp.gifshow.ad.webview.AdYodaActivity',
           matches: 'Button[text="忍痛离开"][clickable=true]',
           snapshotUrls: 'https://i.gkd.li/i/28906209',
+        },
+        {
+          key: 6,
+          preKeys: [1, 2],
+          name: '⑥[仍要退出]看直播领金币页',
+          activityIds: 'com.yxcorp.gifshow.ad.award.flow.AwardFeedFlowActivity',
+          matches: '[text="仍要退出"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/30147716',
         },
       ],
     },
