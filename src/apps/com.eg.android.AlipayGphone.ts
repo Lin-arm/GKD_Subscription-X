@@ -1129,5 +1129,34 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 38,
+      name: '功能类-无法访问时点击[返回]',
+      desc: '(主动查询5分钟) 访问被拒绝/人气太旺啦',
+      enable: false,
+      rules: [
+        {
+          fastQuery: true,
+          forcedTime: 300000, //主动查询5分钟
+          activityIds: [
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+            'com.alipay.mobile.nebulax.xriver.activity.XRiverTransActivity$Main',
+            '.AlipayLogin',
+            'com.alipay.android.phone.wallet.blessingcard_receive.biz.activity.ReceiveDialogActivity',
+            'com.alipay.android.living.activity.LivingDetailActivity',
+          ],
+          matches:
+            '[text="访问被拒绝" || text^="人气太旺啦"] -2 RelativeLayout >3 @[clickable=true][desc="返回"] > [text=""]',
+          exampleUrls: 'https://e.gkd.li/c1ddb8bf-084b-4109-b777-96c02858d266',
+          snapshotUrls: [
+            'https://i.gkd.li/i/23096790',
+            'https://i.gkd.li/i/23549719',
+            'https://i.gkd.li/i/30167342',
+            'https://i.gkd.li/i/25199767',
+            'https://i.gkd.li/i/25485052',
+          ],
+        },
+      ],
+    },
   ],
 });
