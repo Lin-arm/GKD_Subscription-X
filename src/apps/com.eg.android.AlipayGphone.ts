@@ -263,10 +263,11 @@ export default defineGkdApp({
           fastQuery: true,
           matchRoot: true,
           matches:
-            '@[getChild(0).text="确认"] +2 [index=parent.childCount.minus(2)][text^="提醒Ta"] -n [text$="小鸡去干活" || text$="请客吃饭"] <<3 View <3 [childCount=4] <<5 [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '@[getChild(0).text="确认"] -n [text$="小鸡去干活" || text$="请客吃饭"] <<(3,4) View <3 [childCount=4] <<5 [id="com.alipay.mobile.nebula:id/h5_pc_container" || id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           snapshotUrls: [
             'https://i.gkd.li/i/22961775',
             'https://i.gkd.li/i/23762991',
+            'https://i.gkd.li/i/30167528',
           ],
         },
         {
