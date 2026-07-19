@@ -893,17 +893,29 @@ export default defineGkdApp({
     },
     {
       key: 2301,
-      name: '📡直播间-看36s后退出',
-      desc: '没有倒计时的时候用',
+      name: '📡直播间-已可领奖励时退出',
+      desc: '(⚠️闲时勿用,影响正常看直播) 不存在任务倒计时后,点击[右上角x]掉直播',
       enable: false,
       rules: [
         {
-          actionCd: 3000,
-          actionDelay: 36000,
           fastQuery: true,
+          actionCd: 20000,
+          actionDelay: 2000,
+          excludeAllMatches:
+            '[vid="neo_count_down_text" || vid="pendant_bg"][text!="已领取"]', //不存在这些节点时, x掉直播
           matches:
             '[id="com.kuaishou.nebula.live_audience_plugin:id/live_close_place_holder"]',
-          snapshotUrls: 'https://i.gkd.li/i/26178461',
+          snapshotUrls: [
+            'https://i.gkd.li/i/22705740', // [text="已领取"] ,可退出直播
+            'https://i.gkd.li/i/29052399', // [text="已领取"] ,可退出直播
+
+            'https://i.gkd.li/i/30160760',
+            'https://i.gkd.li/i/30160769',
+          ],
+          excludeSnapshotUrls: [
+            'https://i.gkd.li/i/30160761', // [vid="neo_count_down_text"] ,计时未结束
+            'https://i.gkd.li/i/30160768', // [vid="pendant_bg"] ,计时未结束
+          ],
           activityIds: [
             'com.yxcorp.gifshow.detail.PhotoDetailActivity',
             'com.kuaishou.live.core.basic.activity.LiveSlideActivity',
