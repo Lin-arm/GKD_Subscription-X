@@ -66,7 +66,6 @@ export default defineGkdApp({
       rules: [
         {
           fastQuery: true,
-          matchRoot: true,
           actionCd: 300,
           actionDelay: 200, //完整直播显示需要时间
           swipeArg: {
@@ -82,11 +81,11 @@ export default defineGkdApp({
           },
           activityIds: 'com.yxcorp.gifshow.HomeActivity',
           matches:
-            '[vid="layout_root_hot_live_play" || text="点击进入直播间"][visibleToUser=true]',
+            '[vid="layout_root_hot_live_play" || text="直播中" || text="直播卖货"][visibleToUser=true]',
           snapshotUrls: [
-            'https://i.gkd.li/i/29029431',
             'https://i.gkd.li/i/29029433',
             'https://i.gkd.li/i/29211656',
+            'https://i.gkd.li/i/30167631',
           ],
         },
       ],
