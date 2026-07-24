@@ -895,10 +895,12 @@ export default defineGkdApp({
       key: 2301,
       name: '📡直播间-已可领奖励时退出',
       desc: '(⚠️闲时勿用,影响正常看直播) 不存在任务倒计时后,点击[右上角x]掉直播',
+      fastQuery: true,
       enable: false,
       rules: [
         {
-          fastQuery: true,
+          key: 1,
+          name: '①点击[x]掉直播间',
           actionCd: 20000,
           actionDelay: 2000,
           excludeAllMatches:
@@ -911,6 +913,7 @@ export default defineGkdApp({
 
             'https://i.gkd.li/i/30160760',
             'https://i.gkd.li/i/30160769',
+            'https://i.gkd.li/i/30350840', //倒计时控件会右移隐藏起来,导致规则触发,需要子key2补救
           ],
           excludeSnapshotUrls: [
             'https://i.gkd.li/i/30160761', // [vid="neo_count_down_text"] ,计时未结束
@@ -924,6 +927,18 @@ export default defineGkdApp({
             'com.yxcorp.gifshow.ad.neo.videov2.award.AwardVideoPlayActivityV2',
             'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity',
           ],
+        },
+        {
+          key: 2,
+          preKeys: [1],
+          name: '②点击[继续观看]',
+          activityIds: [
+            'com.yxcorp.gifshow.detail.PhotoDetailActivity',
+            'com.yxcorp.gifshow.ad.neo.video.award.AwardVideoPlayActivity',
+            'com.yxcorp.gifshow.ad.neo.videov2.award.AwardVideoPlayActivityV2',
+          ],
+          matches: '@[clickable=true] > [text="继续观看"]',
+          snapshotUrls: 'https://i.gkd.li/i/30350838',
         },
       ],
     },
