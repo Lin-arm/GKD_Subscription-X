@@ -66,6 +66,7 @@ export default defineGkdApp({
       rules: [
         {
           fastQuery: true,
+          matchRoot: true,
           actionCd: 300,
           actionDelay: 200, //完整直播显示需要时间
           swipeArg: {
