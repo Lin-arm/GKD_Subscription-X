@@ -292,6 +292,25 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 402,
+      name: '🧩抖快-消息提示-确定',
+      desc: '弹窗-点击[确定]',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.plugin.appbrand.ui.AppBrandUI',
+          matches:
+            '@[text="确定"] <(2,3) LinearLayout < [visibleToUser=true] - [childCount=2] >4 [text^="每日需看一次" || text^="积分+" || text*="中途退出无效"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/30343698', //每日需看一次视频,解锁视频下载功能
+            'https://i.gkd.li/i/30343700', //积分+51
+            'https://i.gkd.li/i/30343701', //观看完整的广告视频才可获得奖励，中途退出无效哦
+          ],
+          exampleUrls: 'https://e.gkd.li/c7c015e5-3835-4912-b611-a9db72784168',
+        },
+      ],
+    },
+    {
       key: 401,
       name: '功能类-长按后[保存图片]',
       desc: '🧩抖快小程序内',
