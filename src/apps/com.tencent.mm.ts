@@ -200,7 +200,7 @@ export default defineGkdApp({
       name: '🧩小程序-看完30s广告-x掉',
       desc: '①已完成 ②已获得',
       fastQuery: true,
-      forcedTime: 35000, // 35秒内一直主动参与屏幕查询
+      forcedTime: 60000, // 60秒内一直主动参与屏幕查询
       rules: [
         {
           key: 1,
@@ -230,7 +230,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/24204085', //视频号广告
             'https://i.gkd.li/i/29969182',
           ],
-          exampleUrls: 'https://e.gkd.li/4da635f3-e7fc-411d-a56c-0564cd8c4031', // P过的图,并压缩成.webP格式
+          exampleUrls: 'https://e.gkd.li/4da635f3-e7fc-411d-a56c-0564cd8c4031',
           activityIds: '.plugin.finder.ui.FinderShareFeedRelUI',
         },
         {
@@ -238,9 +238,16 @@ export default defineGkdApp({
           name: '③已获得奖励-关闭',
           matches:
             '@[text="关闭"] <<3 [index=parent.childCount.minus(1)] - FrameLayout >3 [text="已获得奖励"]',
-          snapshotUrls: 'https://i.gkd.li/i/24545151', //微粒贷
-          exampleUrls: 'https://e.gkd.li/1ec650be-9fa6-413f-88a5-f8118e836fa6', // P过
-          activityIds: '.plugin.appbrand.ui.AppBrandUI',
+          snapshotUrls: [
+            'https://i.gkd.li/i/24545151', //微粒贷
+            'https://i.gkd.li/i/30338756', //小游戏
+            'https://i.gkd.li/i/30339852', //小游戏  ⚠️在该小游戏界面已禁止使用无障碍模拟点击了, 无论 clickNode 还是 clickCenter 都不生效
+          ],
+          exampleUrls: 'https://e.gkd.li/1ec650be-9fa6-413f-88a5-f8118e836fa6',
+          activityIds: [
+            '.plugin.appbrand.ui.AppBrandUI',
+            '.plugin.appbrand.ui.AppBrandPluginUI',
+          ],
         },
         {
           key: 4,
@@ -250,7 +257,23 @@ export default defineGkdApp({
           matches:
             '@[desc="关闭直播按钮"][clickable=true] <n [index=0] + ViewGroup >2 [text="已获得奖励"]',
           snapshotUrls: 'https://i.gkd.li/i/25095057',
-          exampleUrls: 'https://e.gkd.li/00a82942-dca2-4bca-8c85-2ac094a993c5', // P过
+          exampleUrls: 'https://e.gkd.li/00a82942-dca2-4bca-8c85-2ac094a993c5',
+        },
+        {
+          key: 5,
+          name: '⑤已获得奖励-按[返回键]',
+          action: 'back', //子key3不生效时的补救
+          actionDelay: 500,
+          matches:
+            '[text$="继续玩"] < [childCount=1] - [visibleToUser=true] > [text="已获得奖励"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/30339852', //小游戏
+            'https://i.gkd.li/i/30341286', //小游戏  bug-小游戏界面变换未能识别
+          ],
+          activityIds: [
+            '.plugin.appbrand.ui.AppBrandUI',
+            '.plugin.appbrand.ui.AppBrandPluginUI',
+          ],
         },
       ],
     },
