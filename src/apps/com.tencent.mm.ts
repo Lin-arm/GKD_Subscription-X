@@ -265,10 +265,11 @@ export default defineGkdApp({
           action: 'back', //子key3不生效时的补救
           actionDelay: 500,
           matches:
-            '[text$="继续玩"] < [childCount=1] - [visibleToUser=true] > [text="已获得奖励"]',
+            '@[text="已获得奖励"] < [childCount=1] + [visibleToUser=true] >2 [text="广告"]',
           snapshotUrls: [
             'https://i.gkd.li/i/30339852', //小游戏
             'https://i.gkd.li/i/30341286', //小游戏  bug-小游戏界面变换未能识别
+            'https://i.gkd.li/i/30388374', //小游戏 试玩已结束
           ],
           activityIds: [
             '.plugin.appbrand.ui.AppBrandUI',
