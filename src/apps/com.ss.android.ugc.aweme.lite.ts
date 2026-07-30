@@ -35,6 +35,7 @@ export default defineGkdApp({
       name: '🤳看广告-已看完-[退出]',
       desc: '已成功领取奖励',
       fastQuery: true,
+      actionDelay: 1000,
       activityIds: 'com.ss.android.excitingvideo.ExcitingVideoActivity',
       rules: [
         {
@@ -66,6 +67,14 @@ export default defineGkdApp({
           matches:
             'ImageView < @[desc^="领取成功，关闭"] <2 * < * <2 [childCount=2] < [height=0] <3 FrameLayout[childCount>3] < * < * < * < * < [id="android:id/content"]',
           snapshotUrls: 'https://i.gkd.li/i/27102387', // v37.7.0 [height=0]
+        },
+        {
+          key: 4,
+          activityIds:
+            'com.tt.miniapphost.placeholder.MiniAppChildProcessMultiInsActivity',
+          matches:
+            'ImageView < @[desc^="领取成功，关闭"][height>10] <n ViewGroup[childCount>3]',
+          snapshotUrls: 'https://i.gkd.li/i/30539818',
         },
       ],
     },
@@ -124,17 +133,37 @@ export default defineGkdApp({
     {
       key: 6,
       name: '🤳看广告-弹窗-评价收金币',
-      desc: '累计获得奖励弹窗-点击评价 (v37.7.0失效)',
+      desc: '累计获得奖励弹窗-点击[评价]',
+      fastQuery: true,
+      activityIds: [
+        'com.ss.android.ugc.aweme.main.MainActivity',
+        'com.ss.android.ugc.aweme.bullet.ui.BulletContainerActivity',
+      ],
       rules: [
         {
-          fastQuery: true,
+          key: 1,
           matches: '[text="评价并收下金币"][visibleToUser=true]',
-          snapshotUrls: [
-            'https://i.gkd.li/i/23394382',
-            // 'https://i.gkd.li/i/25285568', // v37.7.0 无直接节点,失效
-          ],
+          snapshotUrls: 'https://i.gkd.li/i/23394382',
           exampleUrls: 'https://e.gkd.li/a4e9803f-9935-4fc7-8977-5b855120046c',
-          activityIds: 'com.ss.android.ugc.aweme.main.MainActivity',
+        },
+        {
+          key: 2,
+          matches:
+            '@[visibleToUser=true] - [desc="金币"] <3 [childCount=4] <<n [vid="action_bar_root"]',
+          snapshotUrls: 'https://i.gkd.li/i/25285568',
+        },
+        {
+          key: 3,
+          position: {
+            left: 'width * -0.7125',
+            top: 'width * 3.0750',
+          },
+          matches:
+            '@[desc="金币"] <3 [childCount=3] <<n [vid="action_bar_root"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/30538833',
+            'https://i.gkd.li/i/30539315',
+          ],
         },
       ],
     },
