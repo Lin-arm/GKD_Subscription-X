@@ -1821,7 +1821,7 @@ export default defineGkdApp({
     {
       key: 47,
       name: '🧍‍♂️用户资料页-拉黑',
-      desc: '❗①弹窗拉黑 ②确认 ③已拉黑-返回', //遇到广告用户,或者ks偷偷给你关注的广告用户,可以拉黑
+      desc: '(⚠️慎用) ①弹窗拉黑 ②确认 ③已拉黑-返回', //遇到广告用户,或者ks偷偷给你关注的广告用户,可以拉黑
       enable: false,
       fastQuery: true,
       activityIds: 'com.yxcorp.gifshow.profile.activity.UserProfileActivity',
@@ -1846,6 +1846,32 @@ export default defineGkdApp({
           action: 'back',
           matches: '[vid="tv_empty_desc"][text="已拉黑"]',
           snapshotUrls: 'https://i.gkd.li/i/23910639',
+        },
+      ],
+    },
+    {
+      key: 4701,
+      name: '🧍‍♂️关注列表页-拉黑',
+      desc: '(⚠️慎用) ①点击[拉黑] ②[确认拉黑]',
+      enable: false,
+      fastQuery: true,
+      activityIds:
+        'com.yxcorp.gifshow.follower.activity.FollowingFriendActivity',
+      rules: [
+        {
+          key: 1,
+          name: '①点击[拉黑]',
+          matches: '@[clickable=true] > [text="拉黑"]',
+          snapshotUrls: 'https://i.gkd.li/i/30547437',
+          exampleUrls: 'https://e.gkd.li/8457604e-1630-4938-9e85-4ff5b98c390f',
+        },
+        {
+          key: 2,
+          preKeys: [1],
+          name: '②点击[确认拉黑]',
+          matches: '@[clickable=true] > [text="确认拉黑"]',
+          snapshotUrls: 'https://i.gkd.li/i/30547045',
+          exampleUrls: 'https://e.gkd.li/13ea12f2-bcb8-4b47-9921-110126fa17a7',
         },
       ],
     },
