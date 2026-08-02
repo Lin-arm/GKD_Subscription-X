@@ -442,23 +442,30 @@ export default defineGkdApp({
       name: '⛳任务页-刷视频赚金币-领取',
       desc: '有待领金币-立即领取',
       enable: false,
+      matchDelay: 2500,
       matchTime: 10000,
+      actionMaximum: 2,
+      resetMatch: 'match',
+      activityIds: [
+        'com.yxcorp.gifshow.HomeActivity', // A
+        'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', // B
+        'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity', // C
+        'com.gifshow.kuaishou.floatwidget.activity.GrowthYodaWebViewActivity', // D
+      ],
       rules: [
         {
-          actionMaximum: 2,
-          resetMatch: 'match',
-          matchDelay: 2500,
+          key: 1,
           matches: '@[clickable=true] >(1,2) [text^="待领"][text*="金币"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23907888',
             'https://i.gkd.li/i/23979731',
           ],
-          activityIds: [
-            'com.yxcorp.gifshow.HomeActivity', // A
-            'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', // B
-            'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity', // C
-            'com.gifshow.kuaishou.floatwidget.activity.GrowthYodaWebViewActivity', // D
-          ],
+        },
+        {
+          key: 2,
+          matches:
+            '@[text="领金币"][clickable=true] < View -n [text*="待领"][text*="金币"]',
+          snapshotUrls: 'https://i.gkd.li/i/30633247',
         },
       ],
     },
