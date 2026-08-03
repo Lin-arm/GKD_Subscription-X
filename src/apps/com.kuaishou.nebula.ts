@@ -386,6 +386,7 @@ export default defineGkdApp({
       key: 8,
       name: '⛳任务页-弹窗-X掉',
       desc: '组件,绑卡,邀好友,瓜分,...',
+      fastQuery: true,
       activityIds: [
         'com.yxcorp.gifshow.HomeActivity', // A
         'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', // B
@@ -394,8 +395,22 @@ export default defineGkdApp({
       ],
       rules: [
         {
+          key: 0,
+          matches:
+            '@ImageView[id=null][width>95 && width<106][height>95 && height<106][top>300 && top<1000][visibleToUser=true] < [childCount=1] < * < ViewGroup <2 ViewGroup <2 ViewGroup <2 ViewGroup <3 FrameLayout < [vid="krn_content_container"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/24352727', //A 2025年度回忆
+            'https://i.gkd.li/i/24352736', //A h5回测dtk
+            'https://i.gkd.li/i/30646832',
+          ],
+          excludeSnapshotUrls: [
+            'https://i.gkd.li/i/24357473', //视频页 top>300
+            'https://i.gkd.li/i/24642377', //视频页 top<1000
+            'https://i.gkd.li/i/25144133', //我-用户信息页 [id=null]
+          ],
+        },
+        {
           key: 1,
-          fastQuery: true,
           order: 2, //迟点匹配,让key18 任务页-自动开宝箱 先
           matches:
             '@[name$="Image" || name$="View"][clickable=true][width>70 && width<90] <<(2,3,4,5) [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount<3] -n [name$="View"] <<(1,2) WebView[getChild(0).getChild(1).getChild(1).text="任务中心"] < * < [vid="webView"]',
@@ -421,21 +436,6 @@ export default defineGkdApp({
 
             // 'https://i.gkd.li/i/23427912', //开宝箱-弹窗去看广告
             'https://i.gkd.li/i/22907925', //养鸭 饲料雨End 愉快收下
-          ],
-        },
-        {
-          key: 3,
-          fastQuery: true,
-          matches:
-            '@ImageView[id=null][width>95 && width<106][height>95 && height<106][top>300 && top<1000][visibleToUser=true] < [childCount=1] < * < ViewGroup <2 ViewGroup <2 ViewGroup <2 ViewGroup <3 FrameLayout < [vid="krn_content_container"]',
-          snapshotUrls: [
-            'https://i.gkd.li/i/24352727', //A 2025年度回忆
-            'https://i.gkd.li/i/24352736', //A h5回测dtk
-          ],
-          excludeSnapshotUrls: [
-            'https://i.gkd.li/i/24357473', //视频页 top>300
-            'https://i.gkd.li/i/24642377', //视频页 top<1000
-            'https://i.gkd.li/i/25144133', //我-用户信息页 [id=null]
           ],
         },
       ],
