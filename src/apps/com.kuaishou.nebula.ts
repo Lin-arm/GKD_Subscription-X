@@ -274,8 +274,11 @@ export default defineGkdApp({
         {
           key: 13,
           action: 'back',
-          matches: 'WebView[text="快手App邀请好友"]',
-          snapshotUrls: 'https://i.gkd.li/i/24431766', //邀请好友
+          matches: '@[text="快手App邀请好友"] < WebView < [vid="webView"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/24431766', //邀请好友
+            'https://i.gkd.li/i/30634720',
+          ],
         },
         {
           key: 14,

@@ -34,6 +34,8 @@ export default defineGkdApp({
       rules: [
         {
           fastQuery: true,
+          matchRoot: true,
+          forcedTime: 10000,
           matches:
             '@[text="打开"] <2 [childCount=2] < ScrollView - FrameLayout >3 [text^="正在离开一淘"]',
           snapshotUrls: [
@@ -93,8 +95,12 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          matches: '@[clickable=true] < [childCount=1] + * > [text="正在跳转"]',
-          snapshotUrls: 'https://i.gkd.li/i/30166993',
+          matches:
+            '@[clickable=true] < [childCount=1] + * > [vid="tv_title_bar_title"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/30166993',
+            'https://i.gkd.li/i/30646378',
+          ],
         },
       ],
     },
