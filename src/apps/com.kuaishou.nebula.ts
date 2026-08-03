@@ -483,6 +483,7 @@ export default defineGkdApp({
         'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity',
         'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity',
         'com.gifshow.kuaishou.floatwidget.activity.GrowthYodaWebViewActivity',
+        'com.yxcorp.gifshow.ad.neo.video.award.AwardVideoPlayActivity',
       ],
       rules: [
         {
@@ -496,6 +497,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/23907716',
             'https://i.gkd.li/i/24337119', //任务页-列表空白-点我刷新
             'https://i.gkd.li/i/24963623',
+            'https://i.gkd.li/i/30649294',
           ],
         },
         {
