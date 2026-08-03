@@ -2,8 +2,8 @@ name: build_release
 
 on:
   schedule:
-    # 北京时间凌晨3点执行 (UTC时间19点)
-    - cron: '0 19 * * *'
+    # 北京时间凌晨2:30执行 (UTC时间18:30)
+    - cron: '30 18 * * *'
   workflow_dispatch:
 
 env:
@@ -88,7 +88,7 @@ jobs:
           branch: ${{ github.ref }}
           tags: true
       
-      - name: 生成离线订阅文件（用于发行版）
+      - name: 生成订阅文件（用于发行版）
         run: |
           cp dist/gkd.json5 dist/gkd-rules-offline-id777-v${{ env.VERSION }}.json5
 
