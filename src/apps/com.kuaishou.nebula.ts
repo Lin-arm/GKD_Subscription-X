@@ -1399,9 +1399,15 @@ export default defineGkdApp({
         {
           fastQuery: true,
           matches:
-            '[text*="定位"] +2 [vid="button"] >2 [vid="negative"][clickable=true]',
-          snapshotUrls: 'https://i.gkd.li/i/23979856',
-          activityIds: 'com.yxcorp.plugin.search.SearchActivity',
+            '[text*="定位" || text*="位置"] +2 [vid="button"] >2 [vid="negative"][clickable=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/23979856',
+            'https://i.gkd.li/i/30646715',
+          ],
+          activityIds: [
+            'com.yxcorp.plugin.search.SearchActivity',
+            'com.yxcorp.gifshow.ad.webview.AdYodaActivity',
+          ],
         },
       ],
     },
