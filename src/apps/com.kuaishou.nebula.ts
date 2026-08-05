@@ -1121,10 +1121,15 @@ export default defineGkdApp({
           preKeys: [1],
           name: '③不存在调画质-按[返回键]',
           action: 'back',
+          actionDelay: 1500,
           excludeMatches:
             '@[clickable=true] >(1,2) [text="清晰度" || text="自动"]',
-          matches: '[vid="live_bottom_bar_recycle_view"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/27384944', //没有设置清晰度的选项
+          matches:
+            '[vid="live_bottom_bar_recycle_view"][visibleToUser=true || childCount<2]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/27384944', //没有设置清晰度的选项
+            'https://i.gkd.li/i/30747799', //卡住,未能显示
+          ],
         },
         {
           key: 4,
