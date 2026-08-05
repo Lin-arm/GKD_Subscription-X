@@ -1312,15 +1312,18 @@ export default defineGkdApp({
     },
     {
       key: 3501,
-      name: '🔍任务页-搜索赚金币-去搜索',
-      desc: '自动去搜索(❗遮挡可开shizuku强制点击)',
+      name: '🔍任务页-搜索赚金币',
+      desc: '点击[去搜索]',
       enable: false,
       rules: [
         {
           actionCd: 15000,
           matches:
-            '@TextView[text="去搜索"][clickable=true] - * > [text="搜索赚金币"]',
-          snapshotUrls: 'https://i.gkd.li/i/24992823',
+            '@TextView[text="去搜索"][clickable=true] - * > [text="搜索赚金币" || text^="搜索浏览"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/24992823',
+            'https://i.gkd.li/i/30748333',
+          ],
           activityIds: [
             'com.yxcorp.gifshow.HomeActivity', // A
             'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', // B
