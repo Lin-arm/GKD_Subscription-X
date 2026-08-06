@@ -1319,11 +1319,12 @@ export default defineGkdApp({
         {
           actionCd: 15000,
           matches:
-            '@TextView[text="去搜索"][clickable=true] - * > [text="搜索赚金币" || text^="搜索浏览"]',
+            '@TextView[text="去搜索"][clickable=true] - [childCount<6] > [text="搜索赚金币" || text^="搜索浏览"]',
           snapshotUrls: [
             'https://i.gkd.li/i/24992823',
             'https://i.gkd.li/i/30748333',
           ],
+          excludeSnapshotUrls: 'https://i.gkd.li/i/30772120', // 有倒计时, [childCount=8]
           activityIds: [
             'com.yxcorp.gifshow.HomeActivity', // A
             'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', // B
