@@ -1,13 +1,12 @@
-# 以防忘记,记录一下在VScode终端执行的一些命令
-
-# 克隆官方模板
-# git clone https://github.com/gkd-kit/subscription-template.git
-# cd subscription-template
-# npm install
+# 以防忘记,记录一下在 VScode 终端执行的一些 git命令记录
 
 
-
-
+# 克隆官方模板仓库
+git clone https://github.com/gkd-kit/subscription-template.git
+# 进入项目文件夹
+cd subscription-template
+# 安装依赖
+npm install
 
 
 # 检查gkd规则语法
@@ -17,18 +16,23 @@ pnpm exec tsx scripts/check.ts
 
 
 
-# 提交github
+# 暂存所有改动
 git add .
-# git add src/apps/com.ss.android.ugc.aweme.lite.ts    # 提交单个文件
+# 暂存指定单个文件
+git add src/apps/com.ss.android.ugc.aweme.lite.ts
 
+
+# 提交commit
 git commit -m "feat: 123云盘 局部广告"
 git commit -m "perf: 123云盘 减少代码冗余"
-git commit -m "fix: 123云盘 全屏广告-弹窗广告 (#1788)"  # 在commit内关联issue
+
+# 在commit内关联issue
+git commit -m "fix: 123云盘 全屏广告-弹窗广告 (#1788)"
 # 同时关闭议题 #1788
 git commit -m "fix: 123云盘 全屏广告-弹窗广告 (#1788)
 >
 > close #1788"
-# 在github提PR时可填   resolves #1774   关联issue
+# 后续在github提PR时可填   resolves #1788   关联issue
 
 # 输入多行提交信息(不写"号,按回车键换行,标题和正文之间留空一行)
 git commit -m "perf: 优化
@@ -51,15 +55,9 @@ git commit
 # git commit -m "ci: CI 配置：如 GitHub Actions 修改"
 # git commit -m "revert: 回滚：撤销之前的提交"
 
+# 有多个文件修改时,只提交一个文件报错,用 --no-verify
+git commit --no-verify -m "perf: 快极 任务页-搜索赚金币"
 
-# 从github拉取并合并
-# git pull origin main
-git pull --rebase origin main
-
-
-git push
-# 推送到指定分支feature-1
-git push origin feature-1
 
 # 修改最近一次的提交记录
 # 进vim插入模式改
@@ -81,8 +79,31 @@ git revert f8e9d7c
 # 按 i 进入插入模式(不需要)
 # Esc → :wq → Enter 保存并退出
 
-# 彻底回退
+# 彻底回退到指定commit
 git reset --hard f8e9d7c
+
+
+
+
+
+# 从远程 origin 的 main 分支拉取代码，自动执行合并（merge）
+# 如果本地和远程存在分叉，会自动生成一条新的「合并提交」
+git pull origin main
+
+# 从远程 origin 的 main 分支拉取代码，使用变基（rebase）模式
+# 作用：把你本地所有新提交，挪到远程最新提交的后面，提交历史是一条直线，不会产生多余合并节点
+# 注意：已经推送到远程公共分支的提交，不要随意rebase
+git pull --rebase origin main
+
+# 推送：简化命令
+# 当本地分支已经关联对应的远程分支时，可以简写，等价 git push origin 当前分支名
+git push
+
+# 将本地 feature-1 分支，推送到远程仓库 origin 的 feature-1 分支
+# 常用于新创建、还没有关联远程的本地分支
+git push origin feature-1
+
+
 
 
 # 强制同步Fork仓库与上游仓库一致的步骤：
@@ -95,7 +116,7 @@ git remote add upstream https://github.com/Lin-arm/GKD_subscription.git
 
 # 3. 获取上游所有更新
 git fetch upstream
-# 安全把上游 main 合并到你的本地
+# 安全把上游 main 合并到你的本地 (变基模式)
 git rebase upstream/main
 
 # 4. 切换到你的 main 分支, (不要用main分支提交AIsouler/GKD_subscription的PR)
@@ -103,10 +124,10 @@ git checkout main
 # 查看本地分支及其最后一次提交信息
 git branch -v
 # 强制删除分支`feature-1`
-# git branch -D feature-1
+git branch -D feature-1
 
 # 从上游最新代码创建第一个功能分支`feature-1`
-# git checkout -b feature-1 upstream/main
+git checkout -b feature-1 upstream/main
 
 
 # 5. 强制合并上游更新（这会覆盖你的本地更改）
@@ -115,6 +136,7 @@ git reset --hard upstream/main
 # 6. 强制推送到你的 Fork
 # git push --force origin main
 git push --force origin feature-1
+
 
 
 
