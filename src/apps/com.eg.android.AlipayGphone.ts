@@ -86,30 +86,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 3,
-      name: '🌲🐤逛街-已完成-返回键',
-      desc: '已完成逛15s街任务->按下返回键',
-      enable: false,
-      order: NO_FAST_QUERY,
-      rules: [
-        {
-          action: 'back',
-          matchRoot: true,
-          matchDelay: 300,
-          actionCd: 5000,
-          matches: [
-            '[text="森林市集" || text="一起逛街咯"] + * > [text="已完成 可领奖励"][visibleToUser=true]',
-          ],
-          snapshotUrls: [
-            'https://i.gkd.li/i/23238379',
-            'https://i.gkd.li/i/23238829',
-          ],
-          activityIds:
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-        },
-      ],
-    },
-    {
       key: 4,
       name: '🐤养鸡-收麦子弹窗-x掉',
       desc: '好友来串门种了xx g麦子',
