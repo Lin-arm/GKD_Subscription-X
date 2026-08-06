@@ -1318,6 +1318,7 @@ export default defineGkdApp({
       rules: [
         {
           actionCd: 15000,
+          resetMatch: 'app',
           matches:
             '@TextView[text="去搜索"][clickable=true] - [childCount<6] > [text="搜索赚金币" || text^="搜索浏览"]',
           snapshotUrls: [
