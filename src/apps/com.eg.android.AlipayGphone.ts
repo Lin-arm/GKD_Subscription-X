@@ -142,51 +142,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 7,
-      name: '🐤养鸡-做美食-食材店-领取',
-      desc: '爱心食材店 ①领10g食材 ②返回键',
-      enable: false,
-      order: NO_FAST_QUERY,
-      actionMaximum: 1,
-      resetMatch: 'match',
-      activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-      rules: [
-        {
-          key: 1,
-          name: '①领10g食材',
-          matches: '@[clickable=true] > [text="领10g食材"]',
-          snapshotUrls: 'https://i.gkd.li/i/23450712',
-        },
-        {
-          key: 2,
-          preKeys: [1],
-          name: '②已领取-返回键',
-          action: 'back',
-          // actionDelay: 150, //留点时间给 key1
-          matches: '[parent=null]',
-          // matches: '[text="领取每日限量食材"] + [text="已领取"][visibleToUser=true]',
-          // snapshotUrls: 'https://i.gkd.li/i/23450722',
-        },
-      ],
-    },
-    {
-      key: 9,
-      name: '🐤养鸡-抽抽乐🎰-抽中弹窗-知道啦',
-      desc: '弹窗恭喜抽中->点击 知道啦',
-      enable: false,
-      order: NO_FAST_QUERY,
-      rules: [
-        {
-          matches:
-            'Dialog >3 [text="知道啦"][index=parent.childCount.minus(2)][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/22974073',
-          exampleUrls: 'https://e.gkd.li/3c78adf1-c7f6-4f38-87bd-8c9cfed6fe65',
-          activityIds:
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-        },
-      ],
-    },
-    {
       key: 11,
       name: '🐤养鸡-家庭👪-弹窗-确认',
       desc: '①早安 ③顶梁柱or请客 ④喂食 ⑤睡觉',
@@ -354,112 +309,6 @@ export default defineGkdApp({
             'https://i.gkd.li/i/26524387', //新款小盲盒
             'https://i.gkd.li/i/26527688', //助力圆梦活动
           ],
-        },
-      ],
-    },
-    {
-      key: 1302,
-      name: '🐤养鸡-批量[领取]捐蛋赛段位奖励',
-      desc: '临时启用,被弹窗遮挡也可领',
-      enable: false,
-      rules: [
-        {
-          forcedTime: 360000,
-          actionCd: 120,
-          action: 'clickNode',
-          activityIds:
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-          matches: '[text="感叹号"] - [text="领取按钮"]',
-          snapshotUrls: 'https://i.gkd.li/i/28930380',
-        },
-      ],
-    },
-    {
-      key: 14,
-      name: '🌲森林-寻宝🎁-帮ta助力',
-      desc: '弹窗-①帮ta助力 ②x掉',
-      enable: false,
-      order: NO_FAST_QUERY,
-      activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-      rules: [
-        {
-          key: 1,
-          name: '帮ta助力',
-          matchRoot: true,
-          matches:
-            '[text^="好友"] +2 TextView[text="帮ta助力"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/22941634',
-        },
-        {
-          key: 2,
-          name: '助力成功-x掉',
-          matches:
-            '[text="送你1次抽奖机会"] - [text="助力成功"] - * < * + TextView[visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/22938650',
-        },
-      ],
-    },
-    {
-      key: 15,
-      name: '🌲森林-寻宝🎁-已完成任务-自动领取',
-      desc: '①签到 ②领取',
-      enable: false,
-      order: NO_FAST_QUERY,
-      rules: [
-        {
-          actionCd: 1500,
-          matches:
-            '[text="抽奖明细"][index=0] +n * >2 Button[text="领取" || text="签到"][clickable=true]',
-          snapshotUrls: [
-            'https://i.gkd.li/i/23013576', //签到
-            'https://i.gkd.li/i/22950418',
-            'https://i.gkd.li/i/23548619',
-          ],
-          activityIds:
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-        },
-      ],
-    },
-    {
-      key: 18,
-      name: '🌲森林-寻宝🎁-自动抽奖',
-      desc: '寻宝->点击立即抽奖',
-      order: NO_FAST_QUERY,
-      enable: false,
-      rules: [
-        {
-          actionCd: 1200,
-          matches:
-            '[text="次机会"] - [text!="0"] - [text="还有"] - [text=""][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/22983825',
-          activityIds:
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
-        },
-      ],
-    },
-    {
-      key: 19,
-      name: '🌲森林-寻宝🎁抽奖弹窗-再抽or知道了',
-      desc: '抽奖->弹窗->点击 再抽or知道了',
-      enable: false,
-      order: NO_FAST_QUERY,
-      rules: [
-        {
-          excludeMatches: 'WebView[text="光盘打卡" || text="蚂蚁庄园"]',
-          matches: [
-            '[text^="感谢你拯救了过期" || text^="恭喜获得"] +(2,3) View > TextView[text=""][visibleToUser=true]',
-          ],
-          snapshotUrls: [
-            'https://i.gkd.li/i/22981776',
-            'https://i.gkd.li/i/22981779',
-            'https://i.gkd.li/i/22981791',
-          ],
-          excludeSnapshotUrls: [
-            'https://i.gkd.li/i/23064639', // 排除 text^="感谢你"
-            'https://i.gkd.li/i/22983810', // 与 养鸡-乐园-开宝箱 key2 等效了
-          ],
-          activityIds:
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
         },
       ],
     },
@@ -985,7 +834,8 @@ export default defineGkdApp({
           activityIds: 'com.alipay.mobile.quinox.SchemeLauncherActivity',
           matches:
             '[text="当前应用要打开“支付宝”"] <<2 * + * >2 [text="打开"][clickable=true]',
-          snapshotUrls: 'https://i.gkd.li/i/24835900',
+          snapshotUrls: 'https://i.gkd.li/i/30860663',
+          exampleUrls: 'https://e.gkd.li/316db821-2d79-48cc-844f-55e6a19ce532',
         },
       ],
     },
