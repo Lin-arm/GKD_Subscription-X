@@ -31,7 +31,7 @@ export default defineGkdApp({
           matchRoot: true,
           matches:
             '[text="恭喜获得小组件优先体验权"] - @View[getChild(0).name$="Image"] < [childCount>3] < * < * < * < WebView <2 FrameLayout[desc.length>20] < * < [id="android:id/content"]',
-          snapshotUrls: 'https://i.gkd.li/i/22923315',
+          snapshotUrls: 'https://i.gkd.li/i/30858145',
           activityIds:
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
         },
@@ -54,11 +54,6 @@ export default defineGkdApp({
             'https://i.gkd.li/i/24100284', //小鸡乐园币兑换物品
             'https://i.gkd.li/i/24100291', //小鸡抽抽乐2兑换物品
           ],
-          // excludeSnapshotUrls: [
-          //   'https://i.gkd.li/i/23013746', //森林寻宝活力值兑换抽奖机会
-          //   'https://i.gkd.li/i/23238643', //小鸡抽抽乐90g饲料换机会
-          //   'https://i.gkd.li/i/24100558', //会员积分
-          // ],
           activityIds:
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
         },
@@ -79,8 +74,8 @@ export default defineGkdApp({
           matches:
             '@Button[text="确认兑换"] <(1,2) View <n View[childCount>2] <<(3,4) View[index=parent.childCount.minus(1)] <n View[parent.name$="WebView"] <<5 [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           snapshotUrls: [
-            'https://i.gkd.li/i/23013746', //森林 用活力值兑换
-            'https://i.gkd.li/i/23238643', //庄园 用饲料兑换
+            'https://i.gkd.li/i/30858317', //森林 用活力值兑换
+            'https://i.gkd.li/i/30858318', //庄园 用饲料兑换
           ],
         },
       ],
@@ -96,7 +91,7 @@ export default defineGkdApp({
           actionCd: 200,
           matches:
             '@[text="确认"][clickable=true] -4 [text="为好友小鸡种一块麦田"]',
-          snapshotUrls: 'https://i.gkd.li/i/22973904',
+          snapshotUrls: 'https://i.gkd.li/i/30858365',
           exampleUrls: 'https://e.gkd.li/b094f34c-bff0-4a6c-97b9-56194041e52a',
           activityIds:
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
