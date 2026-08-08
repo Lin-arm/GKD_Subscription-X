@@ -60,12 +60,18 @@ export default defineGkdApp({
       name: '功能类-自动[领取]奖励',
       desc: '签到领钱页-已做任务->点击[领取]',
       actionCd: 1500,
-      activityIds: 'com.taobao.sns.activity.ISWebViewActivity',
+      activityIds: [
+        'com.taobao.sns.activity.ISWebViewActivity',
+        'com.taobao.sns.tms.CommonTMSActivity',
+      ],
       rules: [
         {
           key: 1,
           matches: '@[text="领取"] - View >2 [text="现金"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/30634063',
+          snapshotUrls: [
+            'https://i.gkd.li/i/30634063',
+            'https://i.gkd.li/i/30861239',
+          ],
           exampleUrls: 'https://e.gkd.li/afb9bd2b-9b3d-45b5-933a-e10b0e6cc639',
         },
         {
