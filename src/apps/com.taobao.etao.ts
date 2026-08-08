@@ -17,14 +17,18 @@ export default defineGkdApp({
           actionMaximum: 1,
           resetMatch: 'app',
           matches:
-            '[text="签到"] - @View[childCount=3][getChild(0).name$="Image"] <<(30-n) [desc="WVUCWebView"] <<(6,7) [id="android:id/content"]',
+            '[text="签到"] - @View[childCount=3][getChild(0).name$="Image"] <<(30-n) [desc="WVUCWebView"] <<(10-n) [id="android:id/content"]',
           snapshotUrls: [
             'https://i.gkd.li/i/30633488',
             'https://i.gkd.li/i/30633316',
             'https://i.gkd.li/i/30690113',
+            'https://i.gkd.li/i/30861226',
           ],
           exampleUrls: 'https://e.gkd.li/c996b5fb-58f5-46f1-9070-49af596e6afb',
-          activityIds: 'com.taobao.sns.activity.ISWebViewActivity',
+          activityIds: [
+            'com.taobao.sns.activity.ISWebViewActivity',
+            'com.taobao.sns.tms.CommonTMSActivity',
+          ],
         },
       ],
     },
