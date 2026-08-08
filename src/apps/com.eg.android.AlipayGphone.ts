@@ -1004,25 +1004,6 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 36,
-      name: '全屏广告-弹窗广告2',
-      desc: '坐标点击 x掉',
-      rules: [
-        {
-          name: '①坐标点击x掉',
-          fastQuery: true,
-          activityIds: '.AlipayLogin',
-          position: {
-            left: 'width * 0.5000',
-            top: 'width * 1.3792',
-          },
-          matches:
-            'View[width=getPrev(2).width][height=getPrev(2).height] < ViewGroup - * -> @ImageView <<2 FrameLayout - View < ViewGroup[childCount=3] <<4 FrameLayout - [vid="alipaylogin_layout"]',
-          snapshotUrls: 'https://i.gkd.li/i/26526026',
-        },
-      ],
-    },
-    {
       key: 37,
       name: '其它-[退出]中转页',
       desc: '在别的 界面/app 做完任务后切回支付宝中转页',
