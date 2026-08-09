@@ -649,6 +649,7 @@ export default defineGkdApp({
           name: '①刚切回快极app-返回键',
           matchTime: 3000, // 刚刚切回快极app的3秒内有效
           actionDelay: 500,
+          actionMaximum: 1,
           resetMatch: 'app',
           matches:
             '[vid="title_root"] > [vid="left_btn"][desc="返回"][clickable=true][visibleToUser=true]', //返回
@@ -1887,6 +1888,7 @@ export default defineGkdApp({
           key: 4,
           name: '④左下角-看广告',
           actionCd: 5000,
+          matchDelay: 5000,
           matches:
             '@[clickable=true][left=0] > TextView[text="看广告"][top>1800]',
         },
