@@ -924,7 +924,7 @@ export default defineGkdApp({
     {
       key: 2301,
       name: '📡直播间-已可领奖励时退出',
-      desc: '(⚠️闲时勿用,影响正常看直播) 不存在任务倒计时后,点击[右上角x]掉直播',
+      desc: '(⚠️闲时勿用,影响正常看直播) 不存在任务倒计时的4s后,点击[右上角x]掉直播',
       fastQuery: true,
       enable: false,
       rules: [
@@ -932,7 +932,7 @@ export default defineGkdApp({
           key: 1,
           name: '①点击[x]掉直播间',
           actionCd: 20000,
-          actionDelay: 2000,
+          actionDelay: 4000,
           excludeAllMatches:
             '[vid="neo_count_down_text" || vid="pendant_bg"][text!="已领取"]', //不存在这些节点时, x掉直播
           matches:
@@ -944,6 +944,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/30160760',
             'https://i.gkd.li/i/30160769',
             'https://i.gkd.li/i/30350840', //倒计时控件会右移隐藏起来,导致规则触发,需要子key2补救
+            'https://i.gkd.li/i/30867817', //刚进直播间,加载太慢了...
           ],
           excludeSnapshotUrls: [
             'https://i.gkd.li/i/30160761', // [vid="neo_count_down_text"] ,计时未结束
