@@ -13,7 +13,8 @@ export default defineGkdApp({
         {
           fastQuery: true,
           activityIds: '.launcher.Launcher',
-          matches: '[text="收钱"] <2 [childCount=2] <2 [childCount=4] -2 [visibleToUser=true] > @[clickable=true] > [text="应用信息"]',
+          matches:
+            '[text="收钱"] <2 [childCount=2] <2 [childCount=4] -2 [visibleToUser=true] > @[clickable=true] > [text="应用信息"]',
           snapshotUrls: [
             'https://i.gkd.li/i/30796818',
             'https://i.gkd.li/i/30796977',
