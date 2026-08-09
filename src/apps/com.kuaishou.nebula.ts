@@ -606,6 +606,33 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 13,
+      name: '🤳看广告-黑了就不看',
+      desc: '只可领1金币时直接退出',
+      fastQuery: true,
+      activityIds: [
+        'com.yxcorp.gifshow.ad.neo.video.award.AwardVideoPlayActivity',
+        'com.yxcorp.gifshow.ad.neo.videov2.award.AwardVideoPlayActivityV2',
+        'com.yxcorp.plugin.search.SearchActivity',
+      ],
+      rules: [
+        {
+          key: 1,
+          name: '①可领1金币-点击x掉',
+          matches:
+            '@ImageView[clickable=true][width<84] - [text$="可领取1金币"]',
+          snapshotUrls: 'https://i.gkd.li/i/30872378',
+        },
+        {
+          key: 2,
+          name: '②确认退出',
+          matches:
+            'ImageView < @[desc="close_view"] + [visibleToUser=true] > [text="1金币"]',
+          snapshotUrls: 'https://i.gkd.li/i/30872380',
+        },
+      ],
+    },
+    {
       key: 15,
       name: '🤳看广告-误入xx页-返回',
       desc: '点击返回',
