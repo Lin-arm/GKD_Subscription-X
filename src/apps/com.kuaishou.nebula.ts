@@ -656,7 +656,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/24352704', //快影
             'https://i.gkd.li/i/25002586', //ks年货节
           ],
-          activityIds: ['com.kwai.kds.krn.api.page.KwaiRnActivity'],
+          activityIds: 'com.kwai.kds.krn.api.page.KwaiRnActivity',
         },
         {
           key: 4,
@@ -679,6 +679,23 @@ export default defineGkdApp({
           activityIds: 'com.yxcorp.gifshow.ad.award.flow.AwardFeedFlowActivity',
           matches: '[text="仍要退出"][visibleToUser=true]',
           snapshotUrls: 'https://i.gkd.li/i/30147716',
+        },
+        {
+          key: 7,
+          action: 'back',
+          activityIds:
+            'com.kuaishou.commercial.novel.home.read.AdNovelReadActivity',
+          matches:
+            '[id="com.kuaishou.nebula.commercial_novel:id/book_read_view"]',
+          snapshotUrls: 'https://i.gkd.li/i/30867756',
+        },
+        {
+          key: 8,
+          preKeys: [7],
+          activityIds:
+            'com.kuaishou.commercial.novel.home.read.AdNovelReadActivity',
+          matches: '[text="直接退出"][clickable=true]',
+          snapshotUrls: 'https://i.gkd.li/i/30867757',
         },
       ],
     },
