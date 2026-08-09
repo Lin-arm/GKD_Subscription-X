@@ -269,11 +269,12 @@ export default defineGkdApp({
           fastQuery: true,
           matchRoot: true,
           matches:
-            '[text="饲料袋已满" || getChild(0).text="饲料袋已满"] +(1,2,3) @[index=parent.childCount.minus(1)][text="知道了" || text="确认"] <n [childCount>3] <<(3,4) View <4 [childCount=4] < WebView[text="蚂蚁庄园"] < * <2 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
+            '[text="饲料袋已满" || getChild(0).text="饲料袋已满"] +(1,2,3) @[index=parent.childCount.minus(1)][text="知道了" || text="确认"] <n [childCount>3] <<(3,4) View <(4,6) [childCount>3] < WebView[text="蚂蚁庄园"] < * <2 FrameLayout - RelativeLayout >3 [text="松开刷新"]',
           snapshotUrls: [
             'https://i.gkd.li/i/23238168',
             'https://i.gkd.li/i/23414417',
             'https://i.gkd.li/i/23567547',
+            'https://i.gkd.li/i/30867462',
           ],
           exampleUrls: 'https://e.gkd.li/3f69adda-7804-41a9-8a70-099e2c7acbd6',
           activityIds:
