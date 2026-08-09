@@ -40,13 +40,16 @@ export default defineGkdApp({
     {
       key: 2,
       name: '🌲🐤弹窗-[确认兑换]物品',
-      desc: '用 ①活力值 ②乐园币 ③🐤抽抽乐2 兑换物品',
+      desc: '用 ①活力值 ②乐园币 ③🐤抽抽乐2 兑换物品; 碎片不足/达上限时[x]掉',
       enable: false,
+      fastQuery: true,
+      forcedTime: 60000,
+      activityIds: 'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
       rules: [
         {
-          fastQuery: true,
+          key: 1,
+          name: '①确认兑换',
           matchRoot: true,
-          forcedTime: 60000,
           matches:
             '@Button[text="确认兑换"] <(5,6) View[childCount>4] <<(2,4) View[index=parent.childCount.minus(1)] <n View < WebView[text*="兑换" || text="乐园集市"] <<4 [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           snapshotUrls: [
@@ -54,8 +57,19 @@ export default defineGkdApp({
             'https://i.gkd.li/i/24100284', //小鸡乐园币兑换物品
             'https://i.gkd.li/i/24100291', //小鸡抽抽乐2兑换物品
           ],
-          activityIds:
-            'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
+        },
+        {
+          key: 2,
+          name: '②碎片不足/达上限',
+          action: 'clickNode',
+          matches: [
+            '[text="兑换装扮"]',
+            '@TextView[width<107] < [childCount=3] >3 [index=0][text="兑换次数达上限" || text^="碎片不足"]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/30867525',
+            'https://i.gkd.li/i/30867553',
+          ],
         },
       ],
     },
