@@ -131,14 +131,91 @@ export default defineGkdApp({
     },
     {
       key: 4,
-      name: '📆每日福利-阅读得积分-领取',
-      desc: '点击[领积分]',
+      name: '功能类-自动[领积分]',
+      desc: '📆每日福利页-点击[领积分]',
       order: 2,
       rules: [
         {
+          actionCd: 2000, //太快容易导致退出福利中心
+          actionDelay: 100,
           activityIds: '.ui.activity.QDBrowserActivity',
           matches: '[id="read"] >(1,2) [text="领积分"]',
           snapshotUrls: 'https://i.gkd.li/i/24100818',
+        },
+      ],
+    },
+    {
+      key: 401,
+      name: '功能类-退出阅读后去领积分',
+      desc: '配合 自动[领积分] 规则使用',
+      enable: false,
+      fastQuery: true,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      activityIds: '.ui.activity.MainGroupActivity', //首页
+      rules: [
+        {
+          key: 1,
+          name: '①在阅读页停留5秒以上',
+          action: 'none',
+          actionDelay: 5000, //起码停留5秒
+          resetMatch: 'match',
+          activityIds: '.ui.activity.QDReaderActivity', //正文阅读页
+          matches: '[vid="qd_reader_layoutRoot"]',
+          snapshotUrls: 'https://i.gkd.li/i/30867948',
+        },
+
+        // 第二段
+        // 满足领积分的时间梯度: 5, 15, 30, 60, 120 分钟
+        {
+          key: 20,
+          preKeys: [1],
+          name: '②阅读时长5~14分钟',
+          action: 'none',
+          matches:
+            '[text="分钟"] - [vid="tvTipNum"][text.toInt()>4 && text.toInt()<15]',
+        },
+        {
+          key: 21,
+          preKeys: [1],
+          name: '②阅读时长15~29分钟',
+          action: 'none',
+          matches:
+            '[text="分钟"] - [vid="tvTipNum"][text.toInt()>14 && text.toInt()<30]',
+        },
+        {
+          key: 22,
+          preKeys: [1],
+          name: '②阅读时长30~59分钟',
+          action: 'none',
+          matches:
+            '[text="分钟"] - [vid="tvTipNum"][text.toInt()>29 && text.toInt()<60]',
+          snapshotUrls: 'https://i.gkd.li/i/30868046', // 第二段 全都参考该快照
+        },
+        {
+          key: 23,
+          preKeys: [1],
+          name: '②阅读时长60~119分钟',
+          action: 'none',
+          matches:
+            '[text="分钟"] - [vid="tvTipNum"][text.toInt()>59 && text.toInt()<120]',
+        },
+        {
+          key: 24,
+          preKeys: [1],
+          name: '②阅读时长大于119分钟',
+          action: 'none',
+          matches: '[text="分钟"] - [vid="tvTipNum"][text.toInt()>119]',
+        },
+
+        // 第三段
+        {
+          key: 30,
+          preKeys: [20, 21, 22, 23, 24],
+          name: '③进入每日福利页',
+          resetMatch: 'match',
+          matches: '@[vid="btnCheckIn"] >2 [text="领福利" || text="签到"]',
+          snapshotUrls: 'https://i.gkd.li/i/22634962',
         },
       ],
     },
