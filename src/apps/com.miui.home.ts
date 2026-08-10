@@ -13,11 +13,14 @@ export default defineGkdApp({
         {
           fastQuery: true,
           activityIds: '.launcher.Launcher',
-          matches:
-            '[text="收钱"] <2 [childCount=2] <2 [childCount=4] -2 [visibleToUser=true] > @[clickable=true] > [text="应用信息"]',
+          matches: [
+            '[vid="app_shortcut_menu"] >2 [vid="item_title"][text="收钱"]',
+            '@[clickable=true] > [text="应用信息"][index=1]',
+          ],
           snapshotUrls: [
             'https://i.gkd.li/i/30796818',
             'https://i.gkd.li/i/30796977',
+            'https://i.gkd.li/i/30886331',
           ],
           exampleUrls: 'https://e.gkd.li/55defc28-69ee-4292-bdfd-b47fe1a530c7',
         },
