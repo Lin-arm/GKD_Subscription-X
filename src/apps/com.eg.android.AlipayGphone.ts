@@ -947,6 +947,7 @@ export default defineGkdApp({
             '.AlipayLogin',
             'com.alipay.android.phone.wallet.blessingcard_receive.biz.activity.ReceiveDialogActivity',
             'com.alipay.android.living.activity.LivingDetailActivity',
+            'com.alipay.android.phone.xriver.bundlex.CSGAPushActivity',
           ],
           matches:
             '[text="访问被拒绝" || text^="人气太旺啦"] -2 RelativeLayout >3 @[clickable=true][desc="返回"] > [text=""]',
@@ -957,6 +958,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/30167342',
             'https://i.gkd.li/i/25199767',
             'https://i.gkd.li/i/25485052',
+            'https://i.gkd.li/i/31456112',
           ],
         },
       ],
