@@ -770,6 +770,9 @@ export default defineGkdApp({
       key: 17,
       name: '🤳任务页-自动去看广告',
       desc: '③去看广告得金币(❗遮挡可开shizuku强制点击)',
+      forcedTime: 15000,
+      actionCd: 10000,
+      matchDelay: 3500,
       activityIds: [
         'com.yxcorp.gifshow.HomeActivity', // A
         'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', // B
@@ -778,11 +781,15 @@ export default defineGkdApp({
       ],
       rules: [
         {
-          // key: 3,
-          // name: '③看广告得金币',
-          forcedTime: 15000,
-          actionCd: 10000,
-          matchDelay: 3500,
+          key: 1,
+          fastQuery: true,
+          activityIds: 'com.kwai.kds.krn.api.page.KwaiRnActivity',
+          matches:
+            '[text="看广告得金币"] +n [text^="单日最高"] +n @[clickable=true] >2 [text="领福利"]',
+          snapshotUrls: 'https://i.gkd.li/i/31456916',
+        },
+        {
+          key: 2,
           matches:
             '@[clickable=true] - * > [text="看广告得金币"] +3 [text^="单日最高"]',
           snapshotUrls: [
