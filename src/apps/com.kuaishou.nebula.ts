@@ -1414,10 +1414,19 @@ export default defineGkdApp({
       name: '🔍任务页-搜索赚金币',
       desc: '点击[去搜索]',
       enable: false,
+      actionCd: 15000,
+      resetMatch: 'app',
       rules: [
         {
-          actionCd: 15000,
-          resetMatch: 'app',
+          key: 1,
+          fastQuery: true,
+          activityIds: 'com.kwai.kds.krn.api.page.KwaiRnActivity',
+          matches:
+            '[text="搜索赚金币" || text^="搜索浏览"] +n @[clickable=true] >2 [text="去搜索"]',
+          snapshotUrls: 'https://i.gkd.li/i/31456916',
+        },
+        {
+          key: 2,
           matches:
             '@TextView[text="去搜索"][clickable=true] - [childCount<6] > [text="搜索赚金币" || text^="搜索浏览"]',
           snapshotUrls: [
