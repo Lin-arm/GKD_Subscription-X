@@ -802,6 +802,7 @@ export default defineGkdApp({
       name: '🤳任务页-自动开宝箱',
       desc: '①开宝箱 ②(弹窗)去看广告',
       order: -1,
+      fastQuery: true,
       activityIds: [
         'com.yxcorp.gifshow.HomeActivity', // A
         'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', // B
@@ -812,8 +813,14 @@ export default defineGkdApp({
         {
           key: 1,
           name: '①开宝箱',
+          activityIds: 'com.kwai.kds.krn.api.page.KwaiRnActivity',
+          matches: '@[clickable=true] > [text^="点可领"][text$="金币"]',
+          snapshotUrls: 'https://i.gkd.li/i/31456916',
+        },
+        {
+          key: 2,
+          name: '①开宝箱2',
           forcedTime: 30000,
-          fastQuery: true,
           matchRoot: true,
           matches:
             '@Button[text^="点可领"][text$="金币"][clickable=true][parent.getChild(0).name$="Image"] <<(2,3) [index=parent.childCount.minus(1)][id=null] <n [index>=parent.childCount.minus(2)][childCount>3] <n View <<3 [vid="webView"]',
@@ -825,9 +832,16 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 2,
+          key: 20,
           name: '②(弹窗)去看广告',
-          matches: 'Button[text^="去看广告得"][text$="金币"][clickable=true]',
+          activityIds: 'com.kwai.kds.krn.api.page.KwaiRnActivity',
+          matches: '@[clickable=true] > [text^="去看广告得"][text$="金币"]',
+          snapshotUrls: 'https://i.gkd.li/i/31459437',
+        },
+        {
+          key: 21,
+          name: '②(弹窗)去看广告2',
+          matches: 'Button[clickable=true][text^="去看广告得"][text$="金币"]',
           snapshotUrls: 'https://i.gkd.li/i/23427912',
         },
       ],
