@@ -334,6 +334,21 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 403,
+      name: '局部广告-小程序内悬浮窗',
+      desc: '点击x掉',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.plugin.appbrand.ui.AppBrandUI',
+          matches:
+            '@ImageView[width<68 && height<68] < [childCount=1] < [visibleToUser=true] <3 [width>330 && width<530][childCount=3] >3 [text="广告"]',
+          snapshotUrls: 'https://i.gkd.li/i/31455873',
+          exampleUrls: 'https://e.gkd.li/4de902d8-d5ae-49c5-914f-90098f265674',
+        },
+      ],
+    },
+    {
       key: 5,
       name: '功能类-自动抢红包🧧',
       desc: '需进聊天界面才会点击别人发的[红包],蹲抢之前建议进开发者选项关闭那3个动画',
