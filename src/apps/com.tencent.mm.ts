@@ -301,7 +301,7 @@ export default defineGkdApp({
           fastQuery: true,
           activityIds: '.plugin.appbrand.ui.AppBrandUI',
           matches:
-            '@[text="确定" || text="看广告" || text="重试"] <(2,3) LinearLayout < [visibleToUser=true] - LinearLayout >4 [text^="每日需看一次" || text^="积分+" || text*="中途退出无效" || text="保存成功" || text^="网络不稳定"]',
+            '@[text="确定" || text="看广告" || text="重试"] <(2,3) LinearLayout < [visibleToUser=true] - LinearLayout >4 [text^="每日需看一次" || text^="积分+" || text*="中途退出无效" || text$="成功" || text^="网络不稳定"]',
           snapshotUrls: [
             'https://i.gkd.li/i/30343698', //每日需看一次
             'https://i.gkd.li/i/30343700', //积分+
@@ -309,6 +309,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/30504898', // [看广告]
             'https://i.gkd.li/i/31181913', //保存成功
             'https://i.gkd.li/i/31182295', //网络不稳定 [重试]
+            'https://i.gkd.li/i/31452091', //下载成功
           ],
           exampleUrls: 'https://e.gkd.li/c7c015e5-3835-4912-b611-a9db72784168',
         },
