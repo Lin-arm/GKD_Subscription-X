@@ -440,6 +440,14 @@ export default defineGkdApp({
           ],
         },
         {
+          key: 4,
+          name: '点击[离开]',
+          activityIds: 'com.kwai.kds.krn.api.page.KwaiRnActivity',
+          matches:
+            '@[text="离开"] < ViewGroup[childCount=1] -n [visibleToUser=true] > [text="真的要离开吗"]',
+          snapshotUrls: 'https://i.gkd.li/i/31462077',
+        },
+        {
           key: 10,
           order: 2, //迟点匹配,让key18 任务页-自动开宝箱 先
           matches:
