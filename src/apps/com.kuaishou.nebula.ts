@@ -392,6 +392,7 @@ export default defineGkdApp({
         'com.yxcorp.gifshow.webview.KwaiYodaWebViewActivity', // B
         'com.gifshow.kuaishou.floatwidget.interceptactivity.GrowthInterceptWebViewActivity', // C
         'com.gifshow.kuaishou.floatwidget.activity.GrowthYodaWebViewActivity', // D
+        'com.kwai.kds.krn.api.page.KwaiRnActivity', //E
       ],
       rules: [
         {
@@ -402,6 +403,7 @@ export default defineGkdApp({
             'https://i.gkd.li/i/24352727', //A 2025年度回忆
             'https://i.gkd.li/i/24352736', //A h5回测dtk
             'https://i.gkd.li/i/30646832',
+            'https://i.gkd.li/i/31457739', //E
           ],
           excludeSnapshotUrls: [
             'https://i.gkd.li/i/24357473', //视频页 top>300
@@ -411,6 +413,34 @@ export default defineGkdApp({
         },
         {
           key: 1,
+          position: {
+            left: 'width * 1.0276',
+            top: 'width * -0.06',
+          },
+          activityIds: 'com.kwai.kds.krn.api.page.KwaiRnActivity',
+          matches:
+            '@[childCount=4][height>width && height<1300] >3 [text="限时邀1位好友立得现金"]',
+          snapshotUrls: 'https://i.gkd.li/i/31456749',
+        },
+        {
+          key: 2,
+          activityIds: 'com.kwai.kds.krn.api.page.KwaiRnActivity',
+          matches:
+            'ImageView < * < @[clickable=true] - [height>500 && height<1600] > [text="任务完成奖励"]',
+          snapshotUrls: 'https://i.gkd.li/i/31457089',
+        },
+        {
+          key: 3,
+          activityIds: 'com.kwai.kds.krn.api.page.KwaiRnActivity',
+          matches:
+            'ImageView < * < @[clickable=true] +(1,2) [height>500 && height<1600] >(1,2) [text="上周收益" || text="金币已到账"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/31458494',
+            'https://i.gkd.li/i/31458801',
+          ],
+        },
+        {
+          key: 10,
           order: 2, //迟点匹配,让key18 任务页-自动开宝箱 先
           matches:
             '@[name$="Image" || name$="View"][clickable=true][width>70 && width<90] <<(2,3,4,5) [index=parent.childCount.minus(1) || index=parent.childCount.minus(2)][childCount<3] -n [name$="View"] <<(1,2) WebView[getChild(0).getChild(1).getChild(1).text="任务中心"] < * < [vid="webView"]',
@@ -456,6 +486,14 @@ export default defineGkdApp({
         'com.gifshow.kuaishou.floatwidget.activity.GrowthYodaWebViewActivity', // D
       ],
       rules: [
+        {
+          key: 0,
+          fastQuery: true,
+          activityIds: 'com.kwai.kds.krn.api.page.KwaiRnActivity',
+          matches:
+            '[text="领金币"] < @[clickable=true] -n [text*="待领"][text*="金币"]',
+          snapshotUrls: 'https://i.gkd.li/i/31456916',
+        },
         {
           key: 1,
           matches: '@[clickable=true] >(1,2) [text^="待领"][text*="金币"]',
