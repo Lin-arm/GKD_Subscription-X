@@ -418,19 +418,27 @@ export default defineGkdApp({
     },
     {
       key: 14,
-      name: '🤳看广告-退出弹窗-再看',
-      desc: '再看一个',
+      name: '🤳看广告-自动再看1个',
+      desc: '弹窗-点击[领取奖励]',
+      fastQuery: true,
+      activityIds: [
+        'com.yxcorp.gifshow.detail.PhotoDetailActivity',
+        'com.yxcorp.gifshow.ad.neo.video.award.AwardVideoPlayActivity',
+        'com.yxcorp.gifshow.ad.neo.videov2.award.AwardVideoPlayActivityV2',
+      ],
       rules: [
         {
+          key: 1,
           matches:
             '[text^="再看一个"] +3 [text="领取奖励"][visibleToUser=true]',
-          fastQuery: true,
-          snapshotUrls: ['https://i.gkd.li/i/23382561'],
-          activityIds: [
-            'com.yxcorp.gifshow.detail.PhotoDetailActivity',
-            'com.yxcorp.gifshow.ad.neo.video.award.AwardVideoPlayActivity',
-            'com.yxcorp.gifshow.ad.neo.videov2.award.AwardVideoPlayActivityV2',
-          ],
+          snapshotUrls: 'https://i.gkd.li/i/23382561',
+        },
+        {
+          key: 2,
+          forcedTime: 3600000,
+          matches:
+            '[getChild(0).text*="再看1个"] + * > @[clickable=true] > [text^="领取"][text$="奖励"]',
+          snapshotUrls: 'https://i.gkd.li/i/31460712',
         },
       ],
     },
