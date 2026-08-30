@@ -1471,11 +1471,12 @@ export default defineGkdApp({
           action: 'none',
           forcedTime: 35000, // 需主动检测
           matches:
-            '([vid="pendant_task_status"][text$=":01"]) || ([childCount=1] > [vid="pendant_bg"])', // 倒计时剩1秒
+            '([text.substring(7).toInt()<3] -(1,2) [vid="pendant_bg"]) || ([childCount=1] > [vid="pendant_bg"])', // 倒计时剩1秒
           snapshotUrls: [
             'https://i.gkd.li/i/23689726', // 养鸭任务
             'https://i.gkd.li/i/23748508', // 金币任务
-            'https://i.gkd.li/i/22850681', // 养鸭任务倒计时结束
+            'https://i.gkd.li/i/22850681', // 养鸭任务 倒计时结束
+            'https://i.gkd.li/i/31611768', // 养鸭任务 , [text="倒计时 00:00"] 且该节点无快查
           ],
         },
         {
@@ -1483,7 +1484,7 @@ export default defineGkdApp({
           preKeys: [1],
           name: '②按[返回键]',
           action: 'back',
-          actionDelay: 1500, // 需大于1秒
+          actionDelay: 2500, // 需大于2秒
           matches: '[text="搜索"]',
           snapshotUrls: 'https://i.gkd.li/i/22850681', // 第1次返回
         },
