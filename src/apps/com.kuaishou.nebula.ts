@@ -1607,15 +1607,15 @@ export default defineGkdApp({
       rules: [
         {
           fastQuery: true,
-          matches: [
-            '[text*="获取用户的快手公开资料"]',
-            '[text="允许"][clickable=true]',
-          ],
+          forcedTime: 10000,
+          matches:
+            '[text*="头像" || text*="当前账号"] +n [childCount=2] > [text="允许"][clickable=true]',
           snapshotUrls: [
-            'https://i.gkd.li/i/22865118',
-            'https://i.gkd.li/i/22865162',
-            'https://i.gkd.li/i/23381220',
+            'https://i.gkd.li/i/31611140',
+            'https://i.gkd.li/i/31611153',
+            'https://i.gkd.li/i/31611168',
           ],
+          exampleUrls: 'https://e.gkd.li/68ef9b55-60a5-4849-8b6d-76eb9360583a',
           activityIds: 'com.yxcorp.login.authorization.AuthActivity',
         },
       ],
