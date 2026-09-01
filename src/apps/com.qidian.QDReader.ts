@@ -452,5 +452,56 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 17,
+      name: '功能类-听书自动设置定时',
+      desc: '①出现听书按钮 ②点击[定时] ③启用[上次定时] ④[返回]阅读界面',
+      enable: false,
+      fastQuery: true,
+      // actionMaximum: 1,
+      actionCd: 10000,
+      activityIds: '.ui.modules.listening.playpage.AudioPlayActivity',
+      rules: [
+        {
+          key: 1,
+          name: '①出现听书按钮',
+          action: 'none', // 无操作,仅作为前置条件
+          activityIds: '.ui.activity.QDReaderActivity',
+          matches: '[vid="ivAudioB"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/31701983',
+          excludeSnapshotUrls: 'https://i.gkd.li/i/31702630', //正在听书
+          exampleUrls: 'https://e.gkd.li/b4a630f5-af25-4825-8529-7047d7fbd3ea',
+        },
+        {
+          key: 2,
+          preKeys: [1],
+          name: '②点击[定时]',
+          actionDelay: 500,
+          matches: '@[clickable=true] > [vid="tvTime"][text="定时"]',
+          snapshotUrls: 'https://i.gkd.li/i/31701986',
+          excludeSnapshotUrls: 'https://i.gkd.li/i/31701990', //已设有定时
+          exampleUrls: 'https://e.gkd.li/dee13020-74f1-44a5-9e6d-9b7ba67b0cd1',
+        },
+        {
+          key: 3,
+          preKeys: [2],
+          name: '③启用[上次定时]',
+          matches:
+            '@[vid="closeAlarmSwitch"][checked=false] -2 [text="上次定时"]',
+          snapshotUrls: 'https://i.gkd.li/i/31701988', //未启用, [checked=false]
+          excludeSnapshotUrls: 'https://i.gkd.li/i/31703060', // 已启用, [checked=true]
+          exampleUrls: 'https://e.gkd.li/f3790038-189b-4336-a511-08f0dbe51007',
+        },
+        {
+          key: 4,
+          preKeys: [3],
+          name: '④[返回]阅读界面',
+          action: 'back',
+          actionDelay: 500,
+          matches: '[parent=null]',
+          snapshotUrls: 'https://i.gkd.li/i/31701990',
+        },
+      ],
+    },
   ],
 });
