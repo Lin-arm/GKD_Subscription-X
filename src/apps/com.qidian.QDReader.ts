@@ -503,5 +503,78 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 18,
+      name: '功能类-自动[投推荐票]给《观山！》',
+      desc: '(⚠️可复制到本地修改key11自定义书名) ①点击[更多] ②点击[投推荐票] ③选择[全部] ④点击[投票]',
+      enable: false,
+      fastQuery: true,
+      order: 3,
+      matchDelay: 5000, //延迟5秒匹配,等其他自动签到啥的规则先执行
+      actionMaximum: 1,
+      resetMatch: 'app',
+      activityIds: '.ui.activity.MainGroupActivity',
+      rules: [
+        // {
+        //   key: 10,
+        //   name: '①点击第一本[更多]',
+        //   matches: '[vid="cv_content"][index=0] >2 [vid="ivMore"][visibleToUser=true]', //或者仅置顶1本书,就用这个
+        //   snapshotUrls: [
+        //     'https://i.gkd.li/i/31840578',
+        //     'https://i.gkd.li/i/31840584',
+        //   ],
+        // },
+        {
+          key: 11,
+          name: '①点击指定书名的[更多]',
+          actionMaximumKey: 10,
+          matches:
+            '@[vid="ivMore"] <<n [vid="cv_content"] >(1,3) [vid="tvBookName"][text="观山！"]', //自定义仅需修改书名即可,当前为《观山！》
+          snapshotUrls: [
+            'https://i.gkd.li/i/31840578',
+            'https://i.gkd.li/i/31840584',
+          ],
+        },
+
+        // 第二段
+        {
+          key: 20,
+          preKeys: [10, 11],
+          name: '②点击[投推荐票]',
+          matches:
+            '@[clickable=true] > [vid="bubbleTj"] + [text="投推荐票"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/31840586',
+        },
+        {
+          key: 21,
+          preKeys: [10, 11],
+          name: '②已无推荐票-按[返回键]',
+          action: 'back',
+          actionDelay: 1500, // ⚠️必须等节点加载完
+          actionMaximumKey: 20,
+          matches: '[vid="ivTjp"] + [text="投推荐票"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/31841241',
+        },
+
+        // 第三段
+        {
+          key: 30,
+          preKeys: [20],
+          name: '③选择[全部]',
+          matches: '@[clickable=true] >2 [text="全部"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/31840589',
+        },
+
+        // 第四段
+        {
+          key: 40,
+          preKeys: [30],
+          name: '④点击[投票]',
+          matches:
+            '@[clickable=true] >2 [text^="投"][text$="票"][visibleToUser=true][index=0]',
+          snapshotUrls: 'https://i.gkd.li/i/31840591',
+        },
+      ],
+    },
   ],
 });
