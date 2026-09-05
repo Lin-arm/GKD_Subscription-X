@@ -515,8 +515,21 @@ export default defineGkdApp({
       resetMatch: 'app',
       activityIds: '.ui.activity.MainGroupActivity',
       rules: [
+        {
+          key: 0,
+          name: '前置条件-阅读小于5分钟', //其实应该限制每天只触发1次的,但gkd没这个功能
+          action: 'none',
+          actionDelay: 500,
+          matches:
+            '[vid="tvTipStart"][text="今日暂无阅读时长" || parent.getChild(1).text.toInt()<5]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/31865741', // 无阅读时长
+            'https://i.gkd.li/i/31865742', // 3分钟
+          ],
+        },
         // {
         //   key: 10,
+        //   preKeys: [0],
         //   name: '①点击第一本[更多]',
         //   matches: '[vid="cv_content"][index=0] >2 [vid="ivMore"][visibleToUser=true]', //或者仅置顶1本书,就用这个
         //   snapshotUrls: [
@@ -526,13 +539,14 @@ export default defineGkdApp({
         // },
         {
           key: 11,
+          preKeys: [0],
           name: '①点击指定书名的[更多]',
           actionMaximumKey: 10,
           matches:
             '@[vid="ivMore"] <<n [vid="cv_content"] >(1,3) [vid="tvBookName"][text="观山！"]', //自定义仅需修改书名即可,当前为《观山！》
           snapshotUrls: [
-            'https://i.gkd.li/i/31840578',
-            'https://i.gkd.li/i/31840584',
+            'https://i.gkd.li/i/31840578', // 图墙模式书架
+            'https://i.gkd.li/i/31840584', // 列表模式书架
           ],
         },
 
