@@ -643,11 +643,12 @@ export default defineGkdApp({
           activityIds:
             'com.alipay.mobile.nebulax.xriver.activity.XRiverActivity',
           matches:
-            '@Button[text*="再钓" || text$="收下"] < View <(3,4) Dialog < View < View < View <2 [childCount=2] < WebView <<(3,4) [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
+            '@Button[text*="再钓" || text$="收下"] < View <(3,4) Dialog < View < View < View <2 [childCount>1] < WebView <<(3,4) [id="com.alipay.multiplatform.phone.xriver_integration:id/h5_pc_container"]',
           snapshotUrls: [
             'https://i.gkd.li/i/27361306', // 再钓一次 <<4
             'https://i.gkd.li/i/27361308', // 开心收下
             'https://i.gkd.li/i/27361734', // 再钓一次 <<3
+            'https://i.gkd.li/i/31866485', // 再钓一次
           ],
         },
       ],
