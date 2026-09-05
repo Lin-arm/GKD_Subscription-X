@@ -342,8 +342,11 @@ export default defineGkdApp({
           fastQuery: true,
           activityIds: '.plugin.appbrand.ui.AppBrandUI',
           matches:
-            '@ImageView[width<68 && height<68] < [childCount=1] < [visibleToUser=true] <3 [width>330 && width<530][childCount=3] >3 [text="广告"]',
-          snapshotUrls: 'https://i.gkd.li/i/31455873',
+            '@ImageView[width<68 && height<68] < [childCount=1] < [visibleToUser=true] <3 [width>200 && width<530][childCount=3] >3 [text="广告"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/31455873',
+            'https://i.gkd.li/i/31866200',
+          ],
           exampleUrls: 'https://e.gkd.li/4de902d8-d5ae-49c5-914f-90098f265674',
         },
       ],
